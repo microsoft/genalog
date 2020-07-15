@@ -1,0 +1,44 @@
+{% extends "base.html.jinja" %}
+{%- block style %}
+    {% import "macro/dimension.css.jinja" as dimension %}
+        {{ dimension.a4_paper() }}
+    {% import "macro/text.css.jinja" as text %}
+        {{ text.set_font(font_family, font_size) }}
+        {{ text.set_hyphenation(hyphenate) }}
+        {{ text.set_text_align(text_align) }}
+    {% import "macro/page_layout.css.jinja" as layout %}
+        {{ layout.set_page_num() }}
+    {%- include "letter.css.jinja" with context %}
+{% endblock style %}
+
+{% block body %}
+    <div class="letter-head">
+        <img src="default_company_logo.jpg" height="42" width="42">
+        <p> Company X <br/>
+        One Company Road <br/>
+        City, State, 0001 <br/>
+        January 1st, 2020 </p>
+    </div>
+    
+    <div class="addressee">
+        Dear Mr/Ms. X
+    </div>
+
+   {% if content and content.content_type.__str__() == "ContentType.COMPOSITE"%}
+        <div class="sections" >
+            {% for c in content %}
+                {% if c.content_type.__str__() == "ContentType.TITLE"%}
+                    <p> {{ c }} </p>
+                {% elif c.content_type.__str__() == "ContentType.PARAGRAPH" %}
+                    <p> {{ c }} </p>
+                {% else %}
+                    <p> Unsupported Content Type: {{c.content_type.__str__()}} </p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <div>
+            No content loaded or content is not an instance of CompositeContent Class
+        </div>
+    {% endif %}
+{% endblock body %}

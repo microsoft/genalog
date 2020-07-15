@@ -1,0 +1,30 @@
+{% extends "base.html.jinja" %}
+{%- block style %}
+    {# Global Style #}
+    {% import "macro/dimension.css.jinja" as dimension %}
+        {{ dimension.a4_paper() }}
+    {% import "macro/text.css.jinja" as text %}
+        {{ text.set_font(font_family, font_size) }}
+        {{ text.set_hyphenation(hyphenate) }}
+        {{ text.set_text_align(text_align) }}
+    {# Element-Specific Style #}
+    {%- include "text_block.css.jinja" with context %}
+{% endblock style %}
+
+{% block body %}
+    {% if content and content.content_type.__str__() == "ContentType.COMPOSITE"%}
+        <div class="paragraphs" >
+            {% for c in content %}
+                {% if c.content_type.__str__() == "ContentType.PARAGRAPH" %}
+                    <p style="page-break-after: always;"> {{ c }} </p>
+                {% else %}
+                    <p> Unsupported Content Type: {{c.content_type.__str__()}} </p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <div>
+            No content loaded or content is not an instance of CompositeContent Class
+        </div>
+    {% endif %}
+{% endblock body %}

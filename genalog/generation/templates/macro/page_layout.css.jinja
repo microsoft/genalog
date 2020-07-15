@@ -1,0 +1,11 @@
+{% macro set_page_num() -%}
+   @page {
+       @bottom-right { content: counter(page); }
+   }
+{% endmacro %}
+
+{% macro set_page_bg() %}
+    @page {
+        background: white;
+    }
+{% endmacro%}

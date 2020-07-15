@@ -1,0 +1,1 @@
+DEFAULT_PROJECTIONS_CONTAINER_NAME = "ocrprojections"

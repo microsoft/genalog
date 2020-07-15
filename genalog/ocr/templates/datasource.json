@@ -1,0 +1,5 @@
+{    
+    "description" : "ocr image datasource",  
+    "credentials" : { "connectionString" : "" },
+    "container" : {"name": ""}
+}
