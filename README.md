@@ -20,18 +20,18 @@ The following is a summary of the common applications scenarios of Genalog. Plea
 
 ||Steps|Indepth Jupyter Notebook Examples|Quick Start Guides|
 |-|-------------------------|--------|--------|
-|1|Create Template for Image Generation|[Demo Notebook](example\document_generation.ipynb)|[Here is our guide to Document Generation](genalog\generation\README.md)|
-|2|Degrade Prebuilt Images|[Demo Notebook](example\document_degradation.ipynb)|[Here is our guide to Image Degradation](genalog\degradation\README.md)|
-|3|Get Text From Images Using OCR|[Demo Notebook](example\ocr_extraction.ipynb)|[Here is our guide to Extracting Text](genalog\ocr\README.md)|
-|4|Align Text Produced from OCR with Ground Truth Text|[Demo Notebook](example\text_alignment.ipynb)|[Here is our guide to Text Alignment](genalog\text\README.md)|
-|5|NER Label Propagation from Ground Truth to OCR Tokens|[Demo Notebook](example\ocr_label_propagation.ipynb)|[Here is our guide to Label Propagation](genalog\text\README.md)|
+|1|Create Template for Image Generation|[Demo Notebook](example/document_generation.ipynb)|[Here is our guide to Document Generation](genalog/generation/README.md)|
+|2|Degrade Prebuilt Images|[Demo Notebook](example/document_degradation.ipynb)|[Here is our guide to Image Degradation](genalog/degradation/README.md)|
+|3|Get Text From Images Using OCR|[Demo Notebook](example/ocr_extraction.ipynb)|[Here is our guide to Extracting Text](genalog/ocr/README.md)|
+|4|Align Text Produced from OCR with Ground Truth Text|[Demo Notebook](example/text_alignment.ipynb)|[Here is our guide to Text Alignment](genalog/text/README.md)|
+|5|NER Label Propagation from Ground Truth to OCR Tokens|[Demo Notebook](example/ocr_label_propagation.ipynb)|[Here is our guide to Label Propagation](genalog/text/README.md)|
 
 We also provide notebooks for the complete end-to-end scenario of generating a synthetic dataset connecting all the components of genalog:
 
 ||Scenario|Indepth Jupyter Notebook|
 |-|-------------------------|--------|
-|1|Synthetic Dataset Generation with LABELED NER Dataset|[Demo Notebook](example\dataset_generation.ipynb)|
-|3|Synthetic Dataset Batch Generation with Varying Degradation|[Demo Notebook](example\batch_dataset_generation.ipynb)|
+|1|Synthetic Dataset Generation with LABELED NER Dataset|[Demo Notebook](example/dataset_generation.ipynb)|
+|2|Synthetic Dataset Batch Generation with Varying Degradation|[Demo Notebook](example/batch_dataset_generation.ipynb)|
 
 Installation
 -----------------------------

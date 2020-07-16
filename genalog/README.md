@@ -6,19 +6,19 @@ This is the core of the package and contains all core components necessary to ge
 
 This directory contains the class implementations for image generation. The image generation leverages [Jinja templates](https://jinja.palletsprojects.com/en/2.11.x/templates/) for image generation. You can create a Jinja HTML template for any image layout and specify content variables to add content into images. This allows you the flexibility to be as declarative as possible.
 
-[Here is our guide to Image Generation](generation\README.md)
+[Here is our guide to Image Generation](generation/README.md)
 
 ## Image Degradation
 
 This directory contains the class implementations for degrading your images such that they simulate real world Document degradations.
 
-[Here is our guide to Image Degradation](degradation\README.md)
+[Here is our guide to Image Degradation](degradation/README.md)
 
 ## Extract Text from Images
 
 This directory contains the class implementations for Extract Text from Images using Azure OCR Process.
 
-[Here is our guide to Extract Text from Images](ocr\README.md)
+[Here is our guide to Extract Text from Images](ocr/README.md)
 
 ## Text Alignment
 
@@ -26,4 +26,4 @@ This directory contains the class implementations for text alignment. We expect 
 
 For more efficient alignment on longer documents, we also include an implementation of the RETAS method from the paper ["A Fast Alignment Scheme for Automatic OCR Evaluation of Books"](https://ieeexplore.ieee.org/document/6065412) in `genalog.text.anchor.align_w_anchor()`. We would recommend using this method for input longer than 200 characters.
 
-[Here is our guide to Text Alignment](text\README.md)
+[Here is our guide to Text Alignment](text/README.md)
