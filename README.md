@@ -48,11 +48,12 @@ Installation
 
 ### Installation from Source:
 
-1. `git clone https://msazure.visualstudio.com/DefaultCollection/Cognitive%20Services/_git/Tools-Synthetic-Data-Generator`
-1. `cd Tools-Synthetic-Data-Generator`
-1. `python -m venv .env`
-1. `source .env/bin/activate` or on Windows `.env/Scripts/activate.bat`
-1. `pip install -r requirements.txt`
+1.  Create and activate the virtual environment you want to install the package: 
+    1. `python -m venv .env`
+    1. `pip install --upgrade pip setuptools`
+    1. `source .env/bin/activate` or on Windows `.env/Scripts/activate.bat`
+1. `git clone https://github.com/microsoft/genalog.git`
+1. `cd genalog`
 1. `pip install -e .`
 
 
@@ -71,7 +72,7 @@ Repo Structure
     ├────examples                                # Example Jupyter Notebooks for Various Synthetic Data Generation Scenarios
     ├────tests                                   # PyTest files
     ├────README.md                               # Main Readme file   
-    └────LICENSE.txt                             # License file
+    └────LICENSE                                 # License file
 
 Microsoft Open Source Code of Conduct
 -------------------------------------
