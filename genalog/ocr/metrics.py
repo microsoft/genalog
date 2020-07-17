@@ -380,7 +380,7 @@ def get_file_metrics(f, src_text_path, ocr_json_path, folder_hash):
     try:
         ocr_string = _get_sorted_text(json.load(open(ocr_filename, "rb")))
     except FileNotFoundError:
-        print(f"File not found: {src_filename}, skipping this file.")
+        print(f"File not found: {ocr_filename}, skipping this file.")
         return f, {}, {}, {}
     # TODO ocr bug? text lines are sometimes not sorted correctly
     ocr_string = _trim_whitespace(ocr_string)
@@ -423,7 +423,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("src", help="path to folder with text files.")
     parser.add_argument("ocr", help="folder with ocr json. the filename must match the text filename prefixed by ocr_prefix.")
-    parser.add_argument("ocr_prefix", help="the prefix of the ocr files")
+    parser.add_argument("--ocr_prefix", help="the prefix of the ocr files")
     parser.add_argument("--output", help="output names of metrics files")
 
     args = parser.parse_args()
