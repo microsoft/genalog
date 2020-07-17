@@ -1,0 +1,54 @@
+.title, .authors  {
+    margin: auto;
+    width: 80%;
+    text-align: center;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.authors {
+    font-style: italic;
+    margin: 15px auto ;
+}
+
+.abstract {
+    margin: auto;
+    width: 100%;
+    text-align: justify;
+    margin-bottom: 5px;
+}
+
+.abstract-title {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.columns {
+    margin-top: 0;
+}
+.columns {
+    column-gap: 40px;
+    {% if column_num %}
+        column-count: {{ column_num }};
+    {% else %}
+        column-count: 2;
+    {% endif %}
+}
+.title {
+    font-size: 16px;
+}
+.section-title {
+    font-weight: bold;
+    font-size: {{ font_size_title }};
+}
+.section-content {
+    
+}
+img {
+    max-width:100%;
+    height:auto;
+}

@@ -1,0 +1,62 @@
+{% extends "base.html.jinja" %}
+{%- block style %}
+    {# Global Style #}
+    {% import "macro/dimension.css.jinja" as dimension %}
+        {{ dimension.a4_paper() }}
+    {% import "macro/text.css.jinja" as text %}
+        {{ text.set_font(font_family, font_size) }}
+        {{ text.set_hyphenation(hyphenate) }}
+        {{ text.set_text_align(text_align) }}
+    {% import "macro/page_layout.css.jinja" as layout %}
+        {{ layout.set_page_num() }}
+    {# Element-Specific Style #}
+    {%- include "columns.css.jinja" with context %}
+{% endblock style %}
+        
+{% block body %}
+    <div class="title">
+        <p> A Study of Wild Unicorns in a Rainbow-rich Habitat </p>
+    </div>
+
+    <div class="authors">
+        Pony Tail, Sweet Rock, Umbrella Mushroom <br>
+        Colourful University of Magic <br>
+        One Rainbow Road <br>
+        Utopia, 001 <br>
+        everyone@happiness.joy
+    </div>
+
+    <div class="abstract">
+        <div class="abstract-title"> Abstract </div>
+        A study of wild unicorns in a rainbow-rich habitat, 
+        in an effort to understand the dynamics of this unusual animal. 
+        "Rainbows are considered a sign of life," explained Lise Saut ter, 
+        a scientist at the University of Ber gen in Norway and lead author 
+        of the study. "The unicorn also has a very interesting evolutionary 
+        history. This study is a first step toward understanding why unicorns 
+        behave the way they do." In order to better understand these unique 
+        animals, researchers collected four wild females from the rain forest 
+        in Northern Norway in 2006. They spent several weeks with them, feeding 
+        them on different types of wild fruit, grass and mushrooms, and recording 
+        the activity and responses of the wild animals.
+    </div>
+
+    {% if content and content.content_type.__str__() == "ContentType.COMPOSITE"%}
+        <div class="columns" >
+            {% for c in content %}
+                {% if c.content_type.__str__() == "ContentType.TITLE"%}
+                    <p class="section-title"> {{ c }} </p>
+                {% elif c.content_type.__str__() == "ContentType.PARAGRAPH" %}
+                    <p> {{ c }} </p>
+                {% else %}
+                    <p> Unsupported Content Type: {{c.content_type.__str__()}} </p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <div>
+            No content loaded or content is not an instance of CompositeContent Class
+        </div>
+    {% endif %}
+    </div>
+{% endblock body %}

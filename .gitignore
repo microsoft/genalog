@@ -1,3 +1,26 @@
+# Test output
+test_out
+
+# Secrets, keys and other credentials
+.secret*
+.cred*
+
+# Environments
+.env*
+.venv*
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Credentials
+.secrets
+.secret*
+
+# IDE 
+.vscode
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -50,6 +73,7 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+junit
 
 # Translations
 *.mo

@@ -1,0 +1,10 @@
+{% macro set_page_dimension(width, height, margin) -%}
+    @page {
+        size: {{ width }}cm {{ height }}cm;
+        margin: {{ margin }}cm;
+    }
+{% endmacro %}
+
+{% macro a4_paper(margin=2) %}
+    {{ set_page_dimension(21, 30, margin) }}
+{% endmacro %}

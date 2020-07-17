@@ -1,0 +1,20 @@
+<style>
+    @page {
+        size: 1in 1in;
+        background-color: {{background_color}};
+        font-size: 8px;
+    }
+</style>
+{% if content and content.content_type.__str__() == "ContentType.COMPOSITE" %}
+    {% for c in content %}
+        {% if c.content_type.__str__() == "ContentType.PARAGRAPH"%}
+            <p>
+               {{ c }}
+            </p>
+        {% else %}
+            <p> Unsupported Content Type: {{c.content_type.__str__()}} </p>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    No content loaded
+{% endif %}

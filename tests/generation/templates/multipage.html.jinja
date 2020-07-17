@@ -1,0 +1,13 @@
+{% if content and content.content_type.__str__() == "ContentType.COMPOSITE" %}
+    {% for c in content %}
+        {% if c.content_type.__str__() == "ContentType.PARAGRAPH"%}
+            <p style="page-break-after: always;">
+               {{ c }}
+            </p>
+        {% else %}
+            <p> Unsupported Content Type: {{c.content_type.__str__()}} </p>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    No content loaded
+{% endif %}
