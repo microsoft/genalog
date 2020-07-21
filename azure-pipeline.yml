@@ -47,7 +47,6 @@ steps:
     fi
     pip install --upgrade pip 
     pip install setuptools wheel
-    pip install artifacts-keyring --pre
     pip install -r requirements.txt 
     pip install pytest==5.3.5 pytest-cov==2.8.1
   workingDirectory: $(Build.SourcesDirectory)
