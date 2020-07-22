@@ -1,6 +1,6 @@
 # Genalog - Synthetic Data Generator
 
-![Build Status](https://msazure.visualstudio.com/Cognitive%20Services/_apis/build/status/microsoft.genalog?branchName=master)
+![Build Status](https://msazure.visualstudio.com/Cognitive%20Services/_apis/build/status/microsoft.genalog?branchName=master) ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)
 
 Genalog is an open source, cross-platform python package allowing to generate synthetic document images with text data. Tool also allows you to add various text degradations to these images. The purpose of this tool is to provide a fast and efficient way to generate synthetic documents from text data by leveraging layout from templates that you create in simple HTML format. 
 
@@ -16,35 +16,29 @@ Genalog has various capabilities:
 The aim of this project is to provide a complete solution for generating synthetic images from any text data rich in natural language and to imitate most of OCR noises founded in scanned text documents. 
 
 ## Getting Started
-The following is a summary of the common applications scenarios of Genalog. Please refer the [Jupyter notebook examples](example) that make use of the core code base of Genalog and repository utilities.
+The following is a summary of the common applications scenarios of Genalog. Please refer the [Jupyter notebook examples](https://github.com/microsoft/genalog/blob/master/example) that make use of the core code base of Genalog and repository utilities.
 
 ||Steps|Indepth Jupyter Notebook Examples|Quick Start Guides|
 |-|-------------------------|--------|--------|
-|1|Create Template for Image Generation|[Demo Notebook](example/document_generation.ipynb)|[Here is our guide to Document Generation](genalog/generation/README.md)|
-|2|Degrade Prebuilt Images|[Demo Notebook](example/document_degradation.ipynb)|[Here is our guide to Image Degradation](genalog/degradation/README.md)|
-|3|Get Text From Images Using OCR|[Demo Notebook](example/ocr_extraction.ipynb)|[Here is our guide to Extracting Text](genalog/ocr/README.md)|
-|4|Align Text Produced from OCR with Ground Truth Text|[Demo Notebook](example/text_alignment.ipynb)|[Here is our guide to Text Alignment](genalog/text/README.md)|
-|5|NER Label Propagation from Ground Truth to OCR Tokens|[Demo Notebook](example/ocr_label_propagation.ipynb)|[Here is our guide to Label Propagation](genalog/text/README.md)|
+|1|Create Template for Image Generation|[Demo Notebook](https://github.com/microsoft/genalog/blob/master/example/document_generation.ipynb)|[Here is our guide to Document Generation](https://github.com/microsoft/genalog/blob/master/genalog/generation/README.md)|
+|2|Degrade Prebuilt Images|[Demo Notebook](https://github.com/microsoft/genalog/blob/master/example/document_degradation.ipynb)|[Here is our guide to Image Degradation](https://github.com/microsoft/genalog/blob/master/genalog/degradation/README.md)|
+|3|Get Text From Images Using OCR|[Demo Notebook](https://github.com/microsoft/genalog/blob/master/example/ocr_extraction.ipynb)|[Here is our guide to Extracting Text](https://github.com/microsoft/genalog/blob/master/genalog/ocr/README.md)|
+|4|Align Text Produced from OCR with Ground Truth Text|[Demo Notebook](https://github.com/microsoft/genalog/blob/master/example/text_alignment.ipynb)|[Here is our guide to Text Alignment](https://github.com/microsoft/genalog/blob/master/genalog/text/README.md)|
+|5|NER Label Propagation from Ground Truth to OCR Tokens|[Demo Notebook](https://github.com/microsoft/genalog/blob/master/example/ocr_label_propagation.ipynb)|[Here is our guide to Label Propagation](https://github.com/microsoft/genalog/blob/master/genalog/text/README.md)|
 
 We also provide notebooks for the complete end-to-end scenario of generating a synthetic dataset connecting all the components of genalog:
 
 ||Scenario|Indepth Jupyter Notebook|
 |-|-------------------------|--------|
-|1|Synthetic Dataset Generation with LABELED NER Dataset|[Demo Notebook](example/dataset_generation.ipynb)|
-|2|Synthetic Dataset Batch Generation with Varying Degradation|[Demo Notebook](example/batch_dataset_generation.ipynb)|
+|1|Synthetic Dataset Generation with LABELED NER Dataset|[Demo Notebook](https://github.com/microsoft/genalog/blob/master/example/dataset_generation.ipynb)|
+|2|Synthetic Dataset Batch Generation with Varying Degradation|[Demo Notebook](https://github.com/microsoft/genalog/blob/master/example/batch_dataset_generation.ipynb)|
 
 Installation
 -----------------------------
+We are currently in a pre-release stage. Stable release is currently pushed to the [TestPyPI](https://test.pypi.org/project/genalog/).
 
-### Basic Requirements:
+`pip install -i https://test.pypi.org/simple/ genalog`
 
-1. `>= Python3.6`
-1. See [requirements.txt](requirements.txt)
-1. If you want to use the OCR Capabilties of Azure to Extract Text from the Images You'll require the following resources: 
-    1. Azure Cognitive Search Service [Quickstart Guide Here](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal)
-    1. Azure Blob Storage [Quickstart Guide Here](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-create-account-block-blob?tabs=azure-portal)
-    
-    See [Azure Docs](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search) for more information on Azure Cognitive Search.
 
 ### Installation from Source:
 
@@ -56,10 +50,14 @@ Installation
 1. `cd genalog`
 1. `pip install -e .`
 
+### Other Requirements:
 
-Build and Test
-----------------------
-ToDo: Describe and show how to build your code and run the tests. 
+1. If you want to use the OCR Capabilities of Azure to Extract Text from the Images You'll require the following resources: 
+    1. Azure Cognitive Search Service [Quickstart Guide Here](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal)
+    1. Azure Blob Storage [Quickstart Guide Here](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-create-account-block-blob?tabs=azure-portal)
+    
+    See [Azure Docs](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search) for more information on Azure Cognitive Search.
+
 
 Repo Structure
 -------------------
