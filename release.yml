@@ -9,12 +9,6 @@ parameters:
   - Test
   - Production
   
-variables:
-  ${{ if eq(variables.releaseType, 'Test')}}:
-    twineConnection: testpypi
-  ${{ if eq(parameters.releaseType, 'Production')}}:
-    twineConnection: pypi
-
 strategy:
   matrix:
     linux_x64_py3.6:
@@ -51,7 +45,8 @@ steps:
 
 - task: TwineAuthenticate@1
   inputs:
-    pythonUploadServiceConnection: ${{variables.twineConnection}}
+    pythonUploadServiceConnection: testpypi
+  condition: ${{eq(variables.releaseType, 'Test')}}
   displayName: 'Twine Authentication'
 
 - bash: |
