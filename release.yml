@@ -51,10 +51,10 @@ steps:
 
 - task: TwineAuthenticate@1
   inputs:
-    pythonUploadServiceConnection: ${{variables.twineConnection}}
+    pythonUploadServiceConnection: $(variables.twineConnection)
   displayName: 'Twine Authentication'
 
 - bash: |
     twine upload --verbose -r genalog --config-file $(PYPIRC_PATH) dist/*
   workingDirectory: $(Build.SourcesDirectory)
-  displayName: 'Uploading wheel package to ${{parameters.releaseType}} PyPI'
+  displayName: 'Uploading wheel package to ${{parameters.releaseType}} PyPI ${{variables.twineConnection}}'
