@@ -29,6 +29,12 @@ steps:
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Building wheel package'
 
+variables:
+  ${{ if eq(parameters.releaseType, 'Test')}}:
+    twineConnection: testpypi
+  ${{ if eq(parameters.releaseType, 'Production')}}:
+    twineConnection: pypi
+
 - bash: |
     pip install twine
   workingDirectory: $(Build.SourcesDirectory)
@@ -36,10 +42,10 @@ steps:
 
 - task: TwineAuthenticate@1
   inputs:
-    pythonUploadServiceConnection: 'testpypi'
+    pythonUploadServiceConnection: ${{variables.twineConnection}}
   displayName: 'Twine Authentication'
 
 - bash: |
     twine upload --verbose -r genalog --config-file $(PYPIRC_PATH) dist/*
   workingDirectory: $(Build.SourcesDirectory)
-  displayName: 'Uploading wheel package for release'
+  displayName: 'Uploading wheel package to ${{parameters.releaseType}} PyPI'
