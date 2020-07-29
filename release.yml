@@ -41,8 +41,8 @@ steps:
 - task: TwineAuthenticate@1
   inputs:
     pythonUploadServiceConnection: testpypi
-  condition: eq(variables.releaseType, 'Test')
-  displayName: 'Twine Authentication'
+  condition: eq(parameters.releaseType, 'Test')
+  displayName: 'Twine Authentication for ${{parameters.releaseType}}'
 
 - bash: |
     twine upload --verbose -r genalog --config-file $(PYPIRC_PATH) dist/*
