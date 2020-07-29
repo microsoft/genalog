@@ -51,7 +51,7 @@ steps:
 
 - task: TwineAuthenticate@1
   inputs:
-    pythonUploadServiceConnection: $(variables.twineConnection)
+    pythonUploadServiceConnection: ${{variables.twineConnection}}
   displayName: 'Twine Authentication'
 
 - bash: |
