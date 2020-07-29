@@ -9,6 +9,12 @@ strategy:
 pool:
     vmImage: '$(imageName)'
 
+variables:
+  ${{ if eq(parameters.releaseType, 'Test')}}:
+    twineConnection: testpypi
+  ${{ if eq(parameters.releaseType, 'Production')}}:
+    twineConnection: pypi
+
 steps:
 - task: UsePythonVersion@0
   inputs:
@@ -28,12 +34,6 @@ steps:
     python setup.py bdist_wheel --dist-dir dist
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Building wheel package'
-
-- variables:
-  ${{ if eq(parameters.releaseType, 'Test')}}:
-    twineConnection: testpypi
-  ${{ if eq(parameters.releaseType, 'Production')}}:
-    twineConnection: pypi
 
 - bash: |
     pip install twine
