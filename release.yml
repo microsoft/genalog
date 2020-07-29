@@ -34,12 +34,12 @@ steps:
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Install twine' 
 
-- task: TwineAuthenticate@0
+- task: TwineAuthenticate@1
   inputs:
-    externalFeeds: ${{variables.twineConnection}}
+    pythonUploadServiceConnection: 'testpypi'
   displayName: 'Twine Authentication'
 
 - bash: |
-    twine upload --verbose -r $(twineEndpoint) --config-file $(PYPIRC_PATH) dist/*
+    twine upload --verbose -r genalog --config-file $(PYPIRC_PATH) dist/*
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Uploading wheel package for release'
