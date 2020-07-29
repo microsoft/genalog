@@ -1,0 +1,45 @@
+trigger: none # Need manual trigger
+
+strategy:
+  matrix:
+    linux_x64_py3.6:
+      imageName: 'ubuntu-18.04'
+      python.version: '3.6'
+
+pool:
+    vmImage: '$(imageName)'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+    addToPath: true
+    architecture: 'x64'
+  displayName: 'Use Python $(python.version)'
+
+- bash: |
+    pip install --upgrade pip 
+    pip install setuptools wheel
+    pip install -r requirements.txt 
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Install dependencies'
+
+- bash: |
+    python setup.py bdist_wheel --dist-dir dist
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Building wheel package'
+
+- bash: |
+    pip install twine
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Install twine' 
+
+- task: TwineAuthenticate@0
+  inputs:
+    externalFeeds: ${{variables.twineConnection}}
+  displayName: 'Twine Authentication'
+
+- bash: |
+    twine upload --verbose -r $(twineEndpoint) --config-file $(PYPIRC_PATH) dist/*
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Uploading wheel package for release'
