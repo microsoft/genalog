@@ -52,4 +52,4 @@ steps:
 - bash: |
     twine upload --verbose -r genalog --config-file $(PYPIRC_PATH) dist/*
   workingDirectory: $(Build.SourcesDirectory)
-  displayName: 'Uploading wheel package to ${{parameters.releaseType}} PyPI ${{variables.twineConnection}}'
+  displayName: 'Uploading wheel package to ${{parameters.releaseType}} PyPI'
