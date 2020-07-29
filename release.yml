@@ -29,7 +29,7 @@ steps:
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Building wheel package'
 
-variables:
+- variables:
   ${{ if eq(parameters.releaseType, 'Test')}}:
     twineConnection: testpypi
   ${{ if eq(parameters.releaseType, 'Production')}}:
