@@ -1,5 +1,20 @@
 trigger: none # Need manual trigger
 
+parameters:
+- name: releaseType
+  displayName: Release Type
+  type: string
+  default: Test
+  values:
+  - Test
+  - Production
+  
+variables:
+  ${{ if eq(variables. releaseType, 'Test')}}:
+    twineConnection: testpypi
+  ${{ if eq(parameters.releaseType, 'Production')}}:
+    twineConnection: pypi
+
 strategy:
   matrix:
     linux_x64_py3.6:
@@ -8,12 +23,6 @@ strategy:
 
 pool:
     vmImage: '$(imageName)'
-
-variables:
-  ${{ if eq(parameters.releaseType, 'Test')}}:
-    twineConnection: testpypi
-  ${{ if eq(parameters.releaseType, 'Production')}}:
-    twineConnection: pypi
 
 steps:
 - task: UsePythonVersion@0
