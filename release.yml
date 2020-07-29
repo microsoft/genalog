@@ -10,7 +10,7 @@ parameters:
   - Production
   
 variables:
-  ${{ if eq(variables. releaseType, 'Test')}}:
+  ${{ if eq(variables.releaseType, 'Test')}}:
     twineConnection: testpypi
   ${{ if eq(parameters.releaseType, 'Production')}}:
     twineConnection: pypi
