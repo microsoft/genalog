@@ -1,6 +1,6 @@
 # Genalog - Synthetic Data Generator
 
-![Build Status](https://msazure.visualstudio.com/Cognitive%20Services/_apis/build/status/microsoft.genalog?branchName=master) ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)
+[![Build Status](https://dev.azure.com/genalog-dev/genalog/_apis/build/status/CI-Pipeline?branchName=master)](https://dev.azure.com/genalog-dev/genalog/_build/latest?definitionId=1&branchName=master) ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)
 
 Genalog is an open source, cross-platform python package allowing to generate synthetic document images with text data. Tool also allows you to add various text degradations to these images. The purpose of this tool is to provide a fast and efficient way to generate synthetic documents from text data by leveraging layout from templates that you create in simple HTML format. 
 
