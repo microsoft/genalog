@@ -4,7 +4,7 @@ import pytest
 
 from genalog import pipeline
 
-EXAMPLE_TEXT_FILE = "tests/text/data/gt_1.txt"
+EXAMPLE_TEXT_FILE = "tests/unit/text/data/gt_1.txt"
 
 
 @pytest.fixture
@@ -36,7 +36,7 @@ def test_custom_generate_img(custom_analog_generator):
 
 
 def test_generate_dataset_multiprocess():
-    INPUT_TEXT_FILENAMES = glob.glob("tests/text/data/gt_*.txt")
+    INPUT_TEXT_FILENAMES = glob.glob("tests/unit/text/data/gt_*.txt")
     with pytest.deprecated_call():
         pipeline.generate_dataset_multiprocess(
             INPUT_TEXT_FILENAMES, "test_out", {}, [], "text_block.html.jinja"

@@ -4,7 +4,7 @@ import warnings
 import pytest
 
 from genalog.text import alignment, anchor, preprocess
-from tests.cases.text_alignment import ALIGNMENT_REGRESSION_TEST_CASES
+from tests.unit.cases.text_alignment import ALIGNMENT_REGRESSION_TEST_CASES
 
 
 @pytest.mark.parametrize(
@@ -200,8 +200,8 @@ def test_find_anchor_recur_fixed_seg_len(
 @pytest.mark.parametrize(
     "gt_file, ocr_file",
     zip(
-        sorted(glob.glob("tests/text/data/gt_1.txt")),
-        sorted(glob.glob("tests/text/data/ocr_1.txt")),
+        sorted(glob.glob("tests/unit/text/data/gt_1.txt")),
+        sorted(glob.glob("tests/unit/text/data/ocr_1.txt")),
     ),
 )
 @pytest.mark.parametrize("max_seg_length", [75])

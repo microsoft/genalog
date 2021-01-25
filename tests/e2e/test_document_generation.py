@@ -11,7 +11,7 @@ CONTENT = CompositeContent(
 UNSUPPORTED_CONTENT_FORMAT = ["foo bar"]
 UNSUPPORTED_CONTENT_TYPE = CompositeContent(["foo"], [ContentType.TITLE])
 
-CUSTOM_TEMPLATE_PATH = "tests/generation/templates"
+CUSTOM_TEMPLATE_PATH = "tests/unit/generation/templates"
 CUSTOM_TEMPLATE_NAME = "mock.html.jinja"
 CUSTOM_STYLE_TEMPLATE_NAME = "font_family.html.jinja"
 MULTI_PAGE_TEMPLATE_NAME = "multipage.html.jinja"

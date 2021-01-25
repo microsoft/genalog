@@ -5,8 +5,8 @@ from unittest.mock import MagicMock
 import pytest
 
 from genalog.text import alignment
-from tests.cases.text_alignment import ALIGNMENT_REGRESSION_TEST_CASES
-from tests.cases.text_alignment import PARSE_ALIGNMENT_REGRESSION_TEST_CASES
+from tests.unit.cases.text_alignment import ALIGNMENT_REGRESSION_TEST_CASES
+from tests.unit.cases.text_alignment import PARSE_ALIGNMENT_REGRESSION_TEST_CASES
 
 RANDOM_INT = randint(1, 100)
 MOCK_ALIGNMENT_RESULT = [("X", "X", 0, 0, 1)]
