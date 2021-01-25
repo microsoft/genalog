@@ -1,33 +1,45 @@
 """Uses the REST api to perform operations on the search service.
 see: https://docs.microsoft.com/en-us/rest/api/searchservice/
 """
-import requests
+import json
 import os
 import pkgutil
-import json
-from dotenv import load_dotenv
-import time
 import sys
+import time
 from itertools import cycle
+
+import requests
+
 from .common import DEFAULT_PROJECTIONS_CONTAINER_NAME
 
-API_VERSION = '?api-version=2019-05-06-Preview'
+API_VERSION = "?api-version=2019-05-06-Preview"
 
 # 15 min schedule
-SCHEDULE_INTERVAL= "PT15M"
+SCHEDULE_INTERVAL = "PT15M"
 
 
 class GrokRestClient:
     """This is a REST client. It is a wrapper around the REST api for the Azure Search Service
     see: https://docs.microsoft.com/en-us/rest/api/searchservice/
 
-    This class can be used to create an indexing pipeline and can be used to run and monitor 
+    This class can be used to create an indexing pipeline and can be used to run and monitor
     ongoing indexers. The indexing pipeline can allow you to run batch OCR enrichment of documents.
     """
 
-    def __init__(self, cognitive_service_key, search_service_key, search_service_name, skillset_name, 
-        index_name, indexer_name, datasource_name, datasource_container_name, blob_account_name, blob_key,
-        projections_container_name = DEFAULT_PROJECTIONS_CONTAINER_NAME):
+    def __init__(
+        self,
+        cognitive_service_key,
+        search_service_key,
+        search_service_name,
+        skillset_name,
+        index_name,
+        indexer_name,
+        datasource_name,
+        datasource_container_name,
+        blob_account_name,
+        blob_key,
+        projections_container_name=DEFAULT_PROJECTIONS_CONTAINER_NAME,
+    ):
         """Creates the REST client
 
         Args:
@@ -36,7 +48,7 @@ class GrokRestClient:
             search_service_name (str): name of the search service account
             skillset_name (str): name of the skillset
             index_name (str): name of the index
-            indexer_name (str): the name of indexer 
+            indexer_name (str): the name of indexer
             datasource_name (str): the name to give the the attached blob storage source
             datasource_container_name (str): the container in the blob storage that host the files
             blob_account_name (str): blob storage account name that will host the documents to push though the pipeline
@@ -70,8 +82,10 @@ class GrokRestClient:
 
         self.API_VERSION = API_VERSION
 
-        self.BLOB_CONNECTION_STRING = f"DefaultEndpointsProtocol=https;AccountName={self.BLOB_NAME};" \
+        self.BLOB_CONNECTION_STRING = (
+            f"DefaultEndpointsProtocol=https;AccountName={self.BLOB_NAME};"
             f"AccountKey={self.BLOB_KEY};EndpointSuffix=core.windows.net"
+        )
 
     @staticmethod
     def create_from_env_var():
@@ -85,51 +99,68 @@ class GrokRestClient:
         DATASOURCE_CONTAINER_NAME = os.environ["DATASOURCE_CONTAINER_NAME"]
         BLOB_NAME = os.environ["BLOB_NAME"]
         BLOB_KEY = os.environ["BLOB_KEY"]
-        PROJECTIONS_CONTAINER_NAME = os.environ.get("PROJECTIONS_CONTAINER_NAME", DEFAULT_PROJECTIONS_CONTAINER_NAME) 
+        PROJECTIONS_CONTAINER_NAME = os.environ.get(
+            "PROJECTIONS_CONTAINER_NAME", DEFAULT_PROJECTIONS_CONTAINER_NAME
+        )
 
-        client = GrokRestClient(COGNITIVE_SERVICE_KEY, SEARCH_SERVICE_KEY, SEARCH_SERVICE_NAME, SKILLSET_NAME, INDEX_NAME,
-                                INDEXER_NAME, DATASOURCE_NAME, DATASOURCE_CONTAINER_NAME, BLOB_NAME, BLOB_KEY,projections_container_name=PROJECTIONS_CONTAINER_NAME)
+        client = GrokRestClient(
+            COGNITIVE_SERVICE_KEY,
+            SEARCH_SERVICE_KEY,
+            SEARCH_SERVICE_NAME,
+            SKILLSET_NAME,
+            INDEX_NAME,
+            INDEXER_NAME,
+            DATASOURCE_NAME,
+            DATASOURCE_CONTAINER_NAME,
+            BLOB_NAME,
+            BLOB_KEY,
+            projections_container_name=PROJECTIONS_CONTAINER_NAME,
+        )
 
         return client
 
     def create_skillset(self):
-        """Adds a skillset that performs OCR on images
-        """
+        """Adds a skillset that performs OCR on images"""
         headers = {
-            'Content-Type': 'application/json',
-            'api-key': self.SEARCH_SERVICE_KEY,
+            "Content-Type": "application/json",
+            "api-key": self.SEARCH_SERVICE_KEY,
         }
-        skillset_json = json.loads(pkgutil.get_data(
-            __name__, "templates/skillset.json")) 
+        skillset_json = json.loads(
+            pkgutil.get_data(__name__, "templates/skillset.json")
+        )
 
         skillset_json["name"] = self.SKILLSET_NAME
         skillset_json["cognitiveServices"]["key"] = self.COGNITIVE_SERVICE_KEY
 
-        knowledge_store_json = json.loads(pkgutil.get_data(
-            __name__, "templates/knowledge_store.json"))
+        knowledge_store_json = json.loads(
+            pkgutil.get_data(__name__, "templates/knowledge_store.json")
+        )
         knowledge_store_json["storageConnectionString"] = self.BLOB_CONNECTION_STRING
-        knowledge_store_json["projections"][0]["objects"][0]["storageContainer"] = self.PROJECTIONS_CONTAINER_NAME
+        knowledge_store_json["projections"][0]["objects"][0][
+            "storageContainer"
+        ] = self.PROJECTIONS_CONTAINER_NAME
         skillset_json["knowledgeStore"] = knowledge_store_json
         print(skillset_json)
 
         endpoint = f"https://{self.SEARCH_SERVICE_NAME}.search.windows.net/skillsets/{self.SKILLSET_NAME}"
 
-        r = requests.put(endpoint + self.API_VERSION,
-                         json.dumps(skillset_json), headers=headers)
+        r = requests.put(
+            endpoint + self.API_VERSION, json.dumps(skillset_json), headers=headers
+        )
         print("skillset response", r.text)
         r.raise_for_status()
         print("added skillset", self.SKILLSET_NAME, r)
 
     def create_datasource(self):
-        """Attaches the blob data store to the search service as a source for image documents
-        """
+        """Attaches the blob data store to the search service as a source for image documents"""
         headers = {
-            'Content-Type': 'application/json',
-            'api-key': self.SEARCH_SERVICE_KEY,
+            "Content-Type": "application/json",
+            "api-key": self.SEARCH_SERVICE_KEY,
         }
 
-        datasource_json = json.loads(pkgutil.get_data(
-            __name__, "templates/datasource.json"))
+        datasource_json = json.loads(
+            pkgutil.get_data(__name__, "templates/datasource.json")
+        )
         datasource_json["name"] = self.DATASOURCE_NAME
         datasource_json["credentials"]["connectionString"] = self.BLOB_CONNECTION_STRING
         datasource_json["type"] = "azureblob"
@@ -137,27 +168,27 @@ class GrokRestClient:
 
         endpoint = f"https://{self.SEARCH_SERVICE_NAME}.search.windows.net/datasources/{self.DATASOURCE_NAME}"
 
-        r = requests.put(endpoint + self.API_VERSION,
-                         json.dumps(datasource_json), headers=headers)
+        r = requests.put(
+            endpoint + self.API_VERSION, json.dumps(datasource_json), headers=headers
+        )
         print("datasource response", r.text)
         r.raise_for_status()
         print("added datasource", self.DATASOURCE_NAME, r)
 
     def create_index(self):
-        """Create an index with the layoutText column to store OCR output from the enrichment 
-        """
+        """Create an index with the layoutText column to store OCR output from the enrichment"""
         headers = {
-            'Content-Type': 'application/json',
-            'api-key': self.SEARCH_SERVICE_KEY,
+            "Content-Type": "application/json",
+            "api-key": self.SEARCH_SERVICE_KEY,
         }
-        index_json = json.loads(pkgutil.get_data(
-            __name__, "templates/index.json"))
+        index_json = json.loads(pkgutil.get_data(__name__, "templates/index.json"))
         index_json["name"] = self.INDEX_NAME
 
         endpoint = f"https://{self.SEARCH_SERVICE_NAME}.search.windows.net/indexes/{self.INDEX_NAME}"
 
-        r = requests.put(endpoint + self.API_VERSION,
-                         json.dumps(index_json), headers=headers)
+        r = requests.put(
+            endpoint + self.API_VERSION, json.dumps(index_json), headers=headers
+        )
         print("index response", r.text)
         r.raise_for_status()
         print("created index", self.INDEX_NAME, r)
@@ -167,24 +198,26 @@ class GrokRestClient:
         The enriched results are pushed to the index.
         """
         headers = {
-            'Content-Type': 'application/json',
-            'api-key': self.SEARCH_SERVICE_KEY,
+            "Content-Type": "application/json",
+            "api-key": self.SEARCH_SERVICE_KEY,
         }
 
-        indexer_json = json.loads(pkgutil.get_data(
-            __name__, "templates/indexer.json"))
+        indexer_json = json.loads(pkgutil.get_data(__name__, "templates/indexer.json"))
 
         indexer_json["name"] = self.INDEXER_NAME
         indexer_json["skillsetName"] = self.SKILLSET_NAME
         indexer_json["targetIndexName"] = self.INDEX_NAME
         indexer_json["dataSourceName"] = self.DATASOURCE_NAME
         indexer_json["schedule"] = {"interval": SCHEDULE_INTERVAL}
-        indexer_json["parameters"]["configuration"]["excludedFileNameExtensions"] = extension_to_exclude
+        indexer_json["parameters"]["configuration"][
+            "excludedFileNameExtensions"
+        ] = extension_to_exclude
 
         endpoint = f"https://{self.SEARCH_SERVICE_NAME}.search.windows.net/indexers/{self.INDEXER_NAME}"
 
-        r = requests.put(endpoint + self.API_VERSION,
-                         json.dumps(indexer_json), headers=headers)
+        r = requests.put(
+            endpoint + self.API_VERSION, json.dumps(indexer_json), headers=headers
+        )
         print("indexer response", r.text)
         r.raise_for_status()
         print("created indexer", self.INDEXER_NAME, r)
@@ -203,14 +236,14 @@ class GrokRestClient:
         created
         """
         headers = {
-            'Content-Type': 'application/json',
-            'api-key': self.SEARCH_SERVICE_KEY,
+            "Content-Type": "application/json",
+            "api-key": self.SEARCH_SERVICE_KEY,
         }
         endpoints = [
             f"https://{self.SEARCH_SERVICE_NAME}.search.windows.net/indexers/{self.INDEXER_NAME}",
             f"https://{self.SEARCH_SERVICE_NAME}.search.windows.net/indexes/{self.INDEX_NAME}",
             f"https://{self.SEARCH_SERVICE_NAME}.search.windows.net/datasources/{self.DATASOURCE_NAME}",
-            f"https://{self.SEARCH_SERVICE_NAME}.search.windows.net/skillsets/{self.SKILLSET_NAME}"
+            f"https://{self.SEARCH_SERVICE_NAME}.search.windows.net/skillsets/{self.SKILLSET_NAME}",
         ]
 
         for endpoint in endpoints:
@@ -220,8 +253,8 @@ class GrokRestClient:
 
     def run_indexer(self):
         headers = {
-            'Content-Type': 'application/json',
-            'api-key': self.SEARCH_SERVICE_KEY,
+            "Content-Type": "application/json",
+            "api-key": self.SEARCH_SERVICE_KEY,
         }
 
         endpoint = f"https://{self.SEARCH_SERVICE_NAME}.search.windows.net/indexers/{self.INDEXER_NAME}/run"
@@ -235,23 +268,26 @@ class GrokRestClient:
         i = 0
         while True:
             # attempt a call every 100 steps
-            if i % 100 == 0: 
+            if i % 100 == 0:
                 request_json = self.get_indexer_status()
                 if request_json["status"] == "error":
                     raise RuntimeError("Indexer failed")
-                if request_json["lastResult"] and not request_json["lastResult"]["status"] == "inProgress":
+                if (
+                    request_json["lastResult"]
+                    and not request_json["lastResult"]["status"] == "inProgress"
+                ):
                     print(request_json["lastResult"]["status"], self.INDEXER_NAME)
                     return request_json
-        
+
             sys.stdout.write(next(progress))
             sys.stdout.flush()
             time.sleep(0.05)
-            i = (1+i) % 1000 # to avoid overflow
+            i = (1 + i) % 1000  # to avoid overflow
 
     def get_indexer_status(self):
         headers = {
-            'Content-Type': 'application/json',
-            'api-key': self.SEARCH_SERVICE_KEY,
+            "Content-Type": "application/json",
+            "api-key": self.SEARCH_SERVICE_KEY,
         }
         endpoint = f"https://{self.SEARCH_SERVICE_NAME}.search.windows.net/indexers/{self.INDEXER_NAME}/status"
         response = requests.get(endpoint + self.API_VERSION, headers=headers)
@@ -259,5 +295,5 @@ class GrokRestClient:
         return response.json()
 
     def _checkArg(self, name, value):
-        if not(value):
+        if not (value):
             raise ValueError(f"argument {name} is not set")

@@ -1,22 +1,24 @@
-from genalog.generation.document import DocumentGenerator
-from genalog.generation.content import CompositeContent, ContentType
 from genalog.degradation.degrader import Degrader
-from genalog.degradation import effect
+from genalog.generation.content import CompositeContent, ContentType
+from genalog.generation.document import DocumentGenerator
 
-import numpy as np
-import cv2
 
 TEST_OUTPUT_DIR = "test_out/"
-SAMPLE_TXT = "Everton 's Duncan Ferguson , who scored twice against Manchester United on Wednesday , was picked on Thursday for the Scottish squad after a 20-month exile ."
+SAMPLE_TXT = """Everton 's Duncan Ferguson , who scored twice against Manchester United on Wednesday ,
+                 was picked on Thursday for the Scottish squad after a 20-month exile ."""
 DEFAULT_TEMPLATE = "text_block.html.jinja"
 DEGRADATION_EFFECTS = [
     ("blur", {"radius": 5}),
     ("bleed_through", {"alpha": 0.8}),
-    ("morphology", {"operation": "open", "kernel_shape": (3,3), "kernel_type": "plus"}),
+    (
+        "morphology",
+        {"operation": "open", "kernel_shape": (3, 3), "kernel_type": "plus"},
+    ),
     ("morphology", {"operation": "close"}),
     ("morphology", {"operation": "dilate"}),
-    ("morphology", {"operation": "erode"})
+    ("morphology", {"operation": "erode"}),
 ]
+
 
 def test_generation_and_degradation():
     # Initiate content
@@ -32,6 +34,4 @@ def test_generation_and_degradation():
         # get the image in bytes in RGBA channels
         src = doc.render_array(resolution=100, channel="GRAYSCALE")
         # run each degradation effect
-        dst = degrader.apply_effects(src)
-
-
+        degrader.apply_effects(src)

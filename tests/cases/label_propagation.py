@@ -1,10 +1,10 @@
 # Test cases for genalog.text.ner_label.propagate_label_to_ocr() method.
-# For READABILITY purpose, ground truth and noisy text are presented as 
+# For READABILITY purpose, ground truth and noisy text are presented as
 # a whole string, not in their tokenized format.
 
 # Notice the `propagate_label_to_ocr()` method has the contract of
-# (list, list, list) -> (list, list, list) 
-# consuming both ground truth text and noisy text as lists of tokens. 
+# (list, list, list) -> (list, list, list)
+# consuming both ground truth text and noisy text as lists of tokens.
 # We will use `genalog.text.preprocess.tokenize()` to tokenize these strings
 from genalog.text import preprocess
 
@@ -106,12 +106,14 @@ desired_ocr_labels.append(["O", "B-FRUIT", "I-FRUIT", "O", "O"])
 ner_labels.append(["O", "O", "ENTERTAINMENT", "O"])
 gt_txt.append("@ new TV !")
 ns_txt.append("@ n ow T\\/ |")
-desired_ocr_labels.append(["O", "O", "O", "ENTERTAINMENT" ,"O"])
+desired_ocr_labels.append(["O", "O", "O", "ENTERTAINMENT", "O"])
 
-# Tokenize ground truth and noisy text strings 
+# Tokenize ground truth and noisy text strings
 gt_tokens = [preprocess.tokenize(txt) for txt in gt_txt]
 ns_tokens = [preprocess.tokenize(txt) for txt in ns_txt]
 
-# test function expect params in tuple of 
+# test function expect params in tuple of
 # (gt_label, gt_tokens, ocr_tokens, desired_ocr_labels)
-LABEL_PROPAGATION_REGRESSION_TEST_CASES = list(zip(ner_labels, gt_tokens, ns_tokens, desired_ocr_labels))
+LABEL_PROPAGATION_REGRESSION_TEST_CASES = list(
+    zip(ner_labels, gt_tokens, ns_tokens, desired_ocr_labels)
+)

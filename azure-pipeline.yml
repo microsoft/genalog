@@ -35,31 +35,20 @@ steps:
   displayName: 'Use Python $(python.version)'
 
 - bash: |
-    python -m venv .venv
-  displayName: 'Create virtual environment'
-
-- bash: |
-    if [[ '$(Agent.OS)' == Windows* ]]
-    then
-      source .venv/Scripts/activate
-    else
-      source .venv/bin/activate
-    fi
-    pip install --upgrade pip 
-    pip install setuptools wheel
-    pip install -r requirements.txt 
-    pip install pytest==5.3.5 pytest-cov==2.8.1
+    python -m pip install --upgrade pip 
+    python -m pip install setuptools wheel
+    python -m pip install -r requirements.txt 
+    python -m pip install -r requirements-dev.txt
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Install dependencies'
 
 - bash: |
-    if [[ '$(Agent.OS)' == Windows* ]]
-    then
-      source .venv/Scripts/activate
-    else
-      source .venv/bin/activate
-    fi
-    python -m pytest tests --cov=genalog --doctest-modules --junitxml=junit/test-results.xml --cov-report=xml --cov-report=html
+    python -m flake8
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Run Linter (flake8)'
+
+- bash: |
+    python -m pytest tests
   env:
     BLOB_KEY : $(BLOB_KEY)
     SEARCH_SERVICE_KEY: $(SEARCH_SERVICE_KEY)
@@ -86,12 +75,6 @@ steps:
   displayName: 'Publish test coverage'
   
 - bash: |
-    if [[ '$(Agent.OS)' == Windows* ]]
-    then
-      source .venv/Scripts/activate
-    else
-      source .venv/bin/activate
-    fi
     python setup.py bdist_wheel --build-number $(Build.BuildNumber) --dist-dir dist
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Building wheel package'

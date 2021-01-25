@@ -1,4 +1,5 @@
-from enum import Enum, auto
+from enum import auto, Enum
+
 
 class ContentType(Enum):
     PARAGRAPH = auto()
@@ -6,14 +7,17 @@ class ContentType(Enum):
     IMAGE = auto()
     COMPOSITE = auto()
 
-class Content():
+
+class Content:
     def __init__(self):
         self.iterable = True
         self._content = None
 
     def set_content_type(self, content_type):
         if type(content_type) != ContentType:
-            raise TypeError(f"Invalid content type: {content_type}, valid types are {list(ContentType)}")
+            raise TypeError(
+                f"Invalid content type: {content_type}, valid types are {list(ContentType)}"
+            )
         self.content_type = content_type
 
     def validate_content(self):
@@ -21,12 +25,13 @@ class Content():
 
     def __str__(self):
         return self._content.__str__()
-    
+
     def __iter__(self):
         return self._content.__iter__()
 
     def __getitem__(self, key):
         return self._content.__getitem__(key)
+
 
 class Paragraph(Content):
     def __init__(self, content):
@@ -38,15 +43,17 @@ class Paragraph(Content):
         if not isinstance(content, str):
             raise TypeError(f"Expect a str, but got {type(content)}")
 
+
 class Title(Content):
     def __init__(self, content):
         self.set_content_type(ContentType.TITLE)
         self.validate_content(content)
         self._content = content
-    
+
     def validate_content(self, content):
         if not isinstance(content, str):
             raise TypeError(f"Expect a str, but got {type(content)}")
+
 
 class CompositeContent(Content):
     def __init__(self, content_list, content_type_list):
@@ -68,7 +75,7 @@ class CompositeContent(Content):
                 self._content.append(Paragraph(content))
             else:
                 raise NotImplementedError(f"{content_type} is not currently supported")
-    
+
     def insert_content(self, new_content, index):
         NotImplementedError
 
@@ -82,5 +89,5 @@ class CompositeContent(Content):
         """get a string transparent of the nested object types"""
         transparent_str = "["
         for content in self._content:
-            transparent_str += '"' + content.__str__() + "\", "
+            transparent_str += '"' + content.__str__() + '", '
         return transparent_str + "]"
