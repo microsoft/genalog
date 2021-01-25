@@ -15,17 +15,19 @@ since the rest of the segments align.The assumption here is that we do not expec
  hence collecting and counting these substitutions will be managable.
 
 """
+import argparse
+import json
+import multiprocessing
 import os
 import re
-import json
-import argparse
-import multiprocessing
+from multiprocessing import Pool
+
 import pandas as pd
 from tqdm import tqdm
-from multiprocessing import Pool
+
 from genalog.text.alignment import GAP_CHAR
-from genalog.text.ner_label import _find_gap_char_candidates
 from genalog.text.anchor import align_w_anchor
+from genalog.text.ner_label import _find_gap_char_candidates
 
 LOG_LEVEL = 0
 WORKERS_PER_CPU = 2

@@ -1,6 +1,7 @@
-from .rest_client import GrokRestClient
-from .blob_client import GrokBlobClient
 import time
+
+from .blob_client import GrokBlobClient
+from .rest_client import GrokRestClient
 
 
 class Grok:

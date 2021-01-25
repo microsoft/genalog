@@ -1,6 +1,7 @@
-import pytest
 import glob
 import itertools
+
+import pytest
 
 from genalog.text import conll_format
 

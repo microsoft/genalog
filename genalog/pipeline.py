@@ -1,14 +1,16 @@
-from genalog.generation.document import DocumentGenerator
-from genalog.generation.document import DEFAULT_STYLE_COMBINATION
-from genalog.generation.content import CompositeContent, ContentType
-from genalog.degradation.degrader import Degrader, ImageState
-from json import JSONEncoder
-from tqdm import tqdm
 
 import concurrent.futures
-import timeit
-import cv2
 import os
+import timeit
+from json import JSONEncoder
+
+import cv2
+from tqdm import tqdm
+
+from genalog.degradation.degrader import Degrader, ImageState
+from genalog.generation.content import CompositeContent, ContentType
+from genalog.generation.document import DEFAULT_STYLE_COMBINATION
+from genalog.generation.document import DocumentGenerator
 
 
 class ImageStateEncoder(JSONEncoder):

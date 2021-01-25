@@ -22,14 +22,16 @@ example usage:
     python -m genalog.text.splitter CoNLL-2012_train.txt conll2012_train
 
 """
-import os
-import multiprocessing
 import argparse
-from tqdm import tqdm
-from genalog.text import preprocess
-from genalog.generation.document import DocumentGenerator
-from genalog.generation.content import CompositeContent, ContentType
+import multiprocessing
+import os
 from multiprocessing.pool import ThreadPool
+
+from tqdm import tqdm
+
+from genalog.generation.content import CompositeContent, ContentType
+from genalog.generation.document import DocumentGenerator
+from genalog.text import preprocess
 
 # default buffer. Preferebly set this to something large
 # It holds the lines read from the CoNLL file

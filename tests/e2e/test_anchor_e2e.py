@@ -1,9 +1,10 @@
-from genalog.text import alignment, anchor, preprocess
-
-import glob
-import pytest
 import difflib
+import glob
 import warnings
+
+import pytest
+
+from genalog.text import alignment, anchor, preprocess
 
 
 @pytest.mark.parametrize(

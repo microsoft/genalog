@@ -1,13 +1,10 @@
-from genalog.ocr.metrics import (
-    get_align_stats,
-    get_editops_stats,
-    get_stats,
-)
-from genalog.text.alignment import GAP_CHAR, align
+import pytest
+
+import genalog.ocr.metrics
+from genalog.ocr.metrics import get_align_stats, get_editops_stats, get_stats
+from genalog.text.alignment import align, GAP_CHAR
 from genalog.text.ner_label import _find_gap_char_candidates
 
-import pytest
-import genalog.ocr.metrics
 
 genalog.ocr.metrics.LOG_LEVEL = 0
 

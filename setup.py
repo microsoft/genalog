@@ -1,5 +1,6 @@
-import setuptools
 import os
+
+import setuptools
 
 with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'VERSION.txt')) as version_file:
     BUILD_VERSION = version_file.read().strip()

@@ -1,6 +1,8 @@
-from genalog.text.preprocess import _is_spacing, tokenize
-from Bio import pairwise2
 import re
+
+from Bio import pairwise2
+
+from genalog.text.preprocess import _is_spacing, tokenize
 
 # Configuration params for global sequence alignment algorithm (Needleman-Wunsch)
 MATCH_REWARD = 1

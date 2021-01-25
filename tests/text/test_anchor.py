@@ -1,9 +1,10 @@
+import glob
+import warnings
+
+import pytest
+
 from genalog.text import alignment, anchor, preprocess
 from tests.cases.text_alignment import ALIGNMENT_REGRESSION_TEST_CASES
-
-import glob
-import pytest
-import warnings
 
 
 @pytest.mark.parametrize(

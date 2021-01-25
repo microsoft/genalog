@@ -14,9 +14,10 @@
 """
 import itertools
 from collections import Counter
-from genalog.text import preprocess, alignment
-from genalog.text.lcs import LCS
+
+from genalog.text import alignment, preprocess
 from genalog.text.alignment import GAP_CHAR
+from genalog.text.lcs import LCS
 
 # The recursively portion of the algorithm will run on
 # segments longer than this value to find anchor points in

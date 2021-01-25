@@ -1,7 +1,7 @@
+import pytest
+
 from genalog.text import ner_label
 from tests.cases.label_propagation import LABEL_PROPAGATION_REGRESSION_TEST_CASES
-
-import pytest
 
 
 @pytest.mark.parametrize(

@@ -1,6 +1,7 @@
+from math import floor
+
 import cv2
 import numpy as np
-from math import floor
 
 
 def blur(src, radius=5):

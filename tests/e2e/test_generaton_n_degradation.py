@@ -1,6 +1,6 @@
-from genalog.generation.document import DocumentGenerator
-from genalog.generation.content import CompositeContent, ContentType
 from genalog.degradation.degrader import Degrader
+from genalog.generation.content import CompositeContent, ContentType
+from genalog.generation.document import DocumentGenerator
 
 
 TEST_OUTPUT_DIR = "test_out/"

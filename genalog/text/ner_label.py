@@ -1,8 +1,9 @@
-from genalog.text import alignment, anchor
-from genalog.text import preprocess
+import itertools
 import re
 import string
-import itertools
+
+from genalog.text import alignment, anchor
+from genalog.text import preprocess
 
 # Both regex below has the following behavior:
 #   1. whitespace-tolerant at both ends of the string

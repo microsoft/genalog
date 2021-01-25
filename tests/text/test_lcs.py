@@ -1,6 +1,6 @@
-from genalog.text.lcs import LCS
-
 import pytest
+
+from genalog.text.lcs import LCS
 
 
 @pytest.fixture(

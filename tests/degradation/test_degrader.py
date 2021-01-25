@@ -1,10 +1,11 @@
-from genalog.degradation.degrader import Degrader, ImageState
-from genalog.degradation.degrader import DEFAULT_METHOD_PARAM_TO_INCLUDE
+import copy
 from unittest.mock import patch
 
 import numpy as np
 import pytest
-import copy
+
+from genalog.degradation.degrader import DEFAULT_METHOD_PARAM_TO_INCLUDE
+from genalog.degradation.degrader import Degrader, ImageState
 
 MOCK_IMAGE_SHAPE = (4, 3)
 MOCK_IMAGE = np.arange(12, dtype=np.uint8).reshape(MOCK_IMAGE_SHAPE)

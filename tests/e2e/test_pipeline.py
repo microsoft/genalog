@@ -1,7 +1,8 @@
-from genalog import pipeline
+import glob
 
 import pytest
-import glob
+
+from genalog import pipeline
 
 EXAMPLE_TEXT_FILE = "tests/text/data/gt_1.txt"
 

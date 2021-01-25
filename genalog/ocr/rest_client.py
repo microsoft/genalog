@@ -1,13 +1,15 @@
 """Uses the REST api to perform operations on the search service.
 see: https://docs.microsoft.com/en-us/rest/api/searchservice/
 """
-import requests
+import json
 import os
 import pkgutil
-import json
-import time
 import sys
+import time
 from itertools import cycle
+
+import requests
+
 from .common import DEFAULT_PROJECTIONS_CONTAINER_NAME
 
 API_VERSION = "?api-version=2019-05-06-Preview"

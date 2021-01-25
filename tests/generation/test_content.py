@@ -1,7 +1,7 @@
-from genalog.generation.content import ContentType, Content, CompositeContent
-from genalog.generation.content import Paragraph, Title
-
 import pytest
+
+from genalog.generation.content import CompositeContent, Content, ContentType
+from genalog.generation.content import Paragraph, Title
 
 CONTENT_LIST = ["foo", "bar"]
 COMPOSITE_CONTENT_TYPE = [ContentType.TITLE, ContentType.PARAGRAPH]

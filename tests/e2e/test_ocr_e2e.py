@@ -1,8 +1,10 @@
+import json
+
+import pytest
+from dotenv import load_dotenv
+
 from genalog.ocr.blob_client import GrokBlobClient
 from genalog.ocr.grok import Grok
-import pytest
-import json
-from dotenv import load_dotenv
 
 load_dotenv("tests/ocr/.env")
 

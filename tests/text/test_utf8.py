@@ -1,6 +1,7 @@
 import random
-import pytest
 import warnings
+
+import pytest
 
 from genalog.text import alignment
 from genalog.text.alignment import GAP_CHAR

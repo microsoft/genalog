@@ -1,14 +1,12 @@
-from jinja2 import PackageLoader, FileSystemLoader
-from jinja2 import Environment, select_autoescape
-from weasyprint import HTML
-from cairocffi import FORMAT_ARGB32
-import numpy as np
-
-
 import itertools
 import os
-import cv2
 
+import cv2
+import numpy as np
+from cairocffi import FORMAT_ARGB32
+from jinja2 import Environment, select_autoescape
+from jinja2 import FileSystemLoader, PackageLoader
+from weasyprint import HTML
 
 DEFAULT_DOCUMENT_STYLE = {
     "language": "en_US",

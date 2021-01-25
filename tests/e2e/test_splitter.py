@@ -1,7 +1,7 @@
-import os
 import difflib
+import os
 
-from genalog.text.splitter import generate_splits, CONLL2003_DOC_SEPERATOR
+from genalog.text.splitter import CONLL2003_DOC_SEPERATOR, generate_splits
 
 
 def _compare_content(file1, file2):

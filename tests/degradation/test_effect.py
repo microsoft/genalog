@@ -1,8 +1,9 @@
-from genalog.degradation import effect
 from unittest.mock import patch
 
 import numpy as np
 import pytest
+
+from genalog.degradation import effect
 
 NEW_IMG_SHAPE = (100, 100)
 MOCK_IMG_SHAPE = (100, 120)

@@ -1,8 +1,10 @@
-from genalog.generation.document import Document, DocumentGenerator
-from genalog.generation.document import DEFAULT_DOCUMENT_STYLE
+from unittest.mock import MagicMock, patch
 
 import pytest
-from unittest.mock import MagicMock, patch
+
+from genalog.generation.document import DEFAULT_DOCUMENT_STYLE
+from genalog.generation.document import Document, DocumentGenerator
+
 
 FRENCH = "fr"
 CONTENT = ["some text"]

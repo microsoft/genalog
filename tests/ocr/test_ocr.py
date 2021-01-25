@@ -1,7 +1,7 @@
-import requests
 import json
 
 import pytest
+import requests
 from dotenv import load_dotenv
 
 from genalog.ocr.rest_client import GrokRestClient

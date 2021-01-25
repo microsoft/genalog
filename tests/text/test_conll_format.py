@@ -1,9 +1,10 @@
-from genalog.text import conll_format
+import itertools
+import warnings
 from unittest.mock import patch
 
-import itertools
 import pytest
-import warnings
+
+from genalog.text import conll_format
 
 
 @pytest.mark.parametrize(

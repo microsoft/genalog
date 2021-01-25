@@ -34,16 +34,17 @@ example usage
     python -m genalog.text.conll_format '/data/enki/datasets/synthetic_dataset/' 'hyphens_all'
         --train_subset
 """
-import itertools
-import difflib
 import argparse
+import concurrent.futures
+import difflib
+import itertools
 import json
 import os
 import timeit
-import concurrent.futures
 
 from tqdm import tqdm
-from genalog.text import ner_label, alignment
+
+from genalog.text import alignment, ner_label
 
 EMPTY_SENTENCE_SENTINEL = "<<<<EMPTY_OCR_SENTENCE>>>>"
 EMPTY_SENTENCE_SENTINEL_NER_LABEL = "O"

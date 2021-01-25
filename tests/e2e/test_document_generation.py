@@ -1,8 +1,9 @@
-import pytest
 import os
 
-from genalog.generation.document import DocumentGenerator
+import pytest
+
 from genalog.generation.content import CompositeContent, ContentType
+from genalog.generation.document import DocumentGenerator
 
 CONTENT = CompositeContent(
     ["foo", "bar"], [ContentType.PARAGRAPH, ContentType.PARAGRAPH]

@@ -1,8 +1,8 @@
-import pytest
 import cv2
+import pytest
 
-from genalog.generation.document import DocumentGenerator
 from genalog.generation.content import CompositeContent, ContentType
+from genalog.generation.document import DocumentGenerator
 
 TEMPLATE_PATH = "tests/e2e/templates"
 TEST_OUT_FOLDER = "test_out/"

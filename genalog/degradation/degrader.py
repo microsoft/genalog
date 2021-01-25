@@ -1,7 +1,8 @@
-from genalog.degradation import effect
-from enum import Enum
 import copy
 import inspect
+from enum import Enum
+
+from genalog.degradation import effect
 
 DEFAULT_METHOD_PARAM_TO_INCLUDE = "src"
 

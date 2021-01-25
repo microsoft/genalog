@@ -1,18 +1,20 @@
 """Uses the python sdk to make operation on Azure Blob storage.
 see: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python
 """
-import os
+import asyncio
+import base64
 import hashlib
 import json
-import asyncio
+import os
 import random
+
+import aiofiles
+from azure.core.exceptions import ResourceExistsError, ResourceNotFoundError
 from azure.storage.blob import BlobServiceClient
 from azure.storage.blob.aio import BlobServiceClient as asyncBlobServiceClient
-from azure.core.exceptions import ResourceExistsError, ResourceNotFoundError
 from tqdm import tqdm
+
 from .common import DEFAULT_PROJECTIONS_CONTAINER_NAME
-import base64
-import aiofiles
 
 # maximum number of simultaneous requests
 REQUEST_SEMAPHORE = asyncio.Semaphore(50)

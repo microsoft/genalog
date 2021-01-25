@@ -1,6 +1,7 @@
+import pytest
+
 from genalog.text import preprocess
 from genalog.text.alignment import GAP_CHAR
-import pytest
 
 
 @pytest.mark.parametrize(
