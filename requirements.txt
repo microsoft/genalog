@@ -3,7 +3,7 @@ numpy==1.18.1
 python-dotenv==0.11.0
 requests==2.23.0
 azure-storage==0.36.0
-azure-storage-blob==12.3.1
+azure-storage-blob==12.7.1
 tqdm==4.43.0
 Jinja2==2.11.1
 WeasyPrint==51
