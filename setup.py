@@ -13,7 +13,7 @@ with open("README.md", "r", encoding="utf8") as fh:
 
 setuptools.setup(
     name="genalog",
-    install_requires=requirements,    
+    install_requires=requirements,
     version=BUILD_VERSION,
     author="Team Enki",
     author_email="ta_nerds@microsoft.com",
