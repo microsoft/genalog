@@ -1,4 +1,5 @@
-pytest
-pytest-cov
 flake8
 flake8-import-order
+pytest
+pytest-cov
+tox
