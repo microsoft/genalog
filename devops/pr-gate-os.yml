@@ -1,0 +1,58 @@
+name: $(Date:yyyyMMdd).$(Rev:r)
+
+strategy:
+  matrix:
+    linux_x64_py3.6:
+      imageName: 'ubuntu-18.04'
+      pyVersion: '3.6'
+
+    # windows_x64_py3.6:
+    #   imageName: 'windows-2019'
+    #   pyVersion: '3.6'
+
+    # macos_x64_py3.6:
+    #   imageName: 'macOS-10.14'
+    #   pyVersion: '3.6'
+
+    # To build using more python versions follow the syntax below:
+    # linux_x64_py3.5:
+    #   imageName: 'ubuntu-16.04'
+    #   pyVersion: '3.5'
+
+pool:
+  vmImage: '$(imageName)'
+  
+steps:
+- template: templates/run-linter.yml
+  parameters:
+    pyVersion: $(python.version)
+
+- template: templates/run-tests.yml
+  parameters:
+    testType: 'unit'
+    imageName: $(imageName)
+    pyVersion: $(python.version)
+
+# - template: templates/run-tests.yml
+#   parameters:
+#     testType: 'azure'
+#     imageName: $(imageName)
+#     pyVersion: $(python.version)
+  
+# - bash: |
+#     python setup.py bdist_wheel --build-number $(Build.BuildNumber) --dist-dir dist
+#   workingDirectory: $(Build.SourcesDirectory)
+#   displayName: 'Building wheel package'
+
+# - bash: |
+#     mkdir $BUILD_ARTIFACTSTAGINGDIRECTORY/py$(python.version)/
+#     cp -r dist/* $BUILD_ARTIFACTSTAGINGDIRECTORY/py$(python.version)/
+#   workingDirectory: $(Build.SourcesDirectory)
+#   displayName: 'Copying builds to artifact staging dir'
+
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     PathtoPublish: $(Build.ArtifactStagingDirectory)
+#     ArtifactName: genalog
+#     publishLocation: 'Container'
+#   displayName: 'Publish build as artifacts'
