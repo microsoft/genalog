@@ -33,6 +33,12 @@ steps:
     imageName: $(imageName)
     pyVersion: $(python.version)
 
+- template: templates/run-tests.yml
+  parameters:
+    testType: 'slow'
+    imageName: $(imageName)
+    pyVersion: $(python.version)
+
 # - template: templates/run-tests.yml
 #   parameters:
 #     testType: 'azure'
