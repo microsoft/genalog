@@ -1,13 +1,17 @@
 import json
+import os
 
 import pytest
 import requests
-from dotenv import load_dotenv
 
 from genalog.ocr.rest_client import GrokRestClient
 
 
-load_dotenv("tests/ocr/.env")
+@pytest.fixture(scope="module", autouse=True)
+def set_azure_dummy_secrets(load_azure_resources):
+    os.environ['BLOB_KEY'] = "<YOUR BLOB KEY>"
+    os.environ['SEARCH_SERVICE_KEY'] = "<YOUR SEARCH SERVICE KEY>"
+    os.environ['COGNITIVE_SERVICE_KEY'] = "<YOUR COGNITIVE SERVICE KEY>"
 
 
 @pytest.fixture(autouse=True)
@@ -46,7 +50,7 @@ class MockedResponse:
                             "metadata_storage_name": "521c38122f783673598856cd81d91c21_0.png",
                             "layoutText": json.load(
                                 open(
-                                    "tests/ocr/data/json/521c38122f783673598856cd81d91c21_0.png.json",
+                                    "tests/unit/ocr/data/json/521c38122f783673598856cd81d91c21_0.png.json",
                                     "r",
                                 )
                             ),
@@ -55,7 +59,7 @@ class MockedResponse:
                             "metadata_storage_name": "521c38122f783673598856cd81d91c21_1.png",
                             "layoutText": json.load(
                                 open(
-                                    "tests/ocr/data/json/521c38122f783673598856cd81d91c21_1.png.json",
+                                    "tests/unit/ocr/data/json/521c38122f783673598856cd81d91c21_1.png.json",
                                     "r",
                                 )
                             ),
@@ -64,7 +68,7 @@ class MockedResponse:
                             "metadata_storage_name": "521c38122f783673598856cd81d91c21_11.png",
                             "layoutText": json.load(
                                 open(
-                                    "tests/ocr/data/json/521c38122f783673598856cd81d91c21_11.png.json",
+                                    "tests/unit/ocr/data/json/521c38122f783673598856cd81d91c21_11.png.json",
                                     "r",
                                 )
                             ),

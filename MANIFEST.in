@@ -1,0 +1,6 @@
+include *.md
+include *.txt
+include LICENSE CODEOWNERS
+include .gitignore tox.ini MANIFEST.in
+recursive-include genalog *.py *.jinja
+recursive-include tests *.py *.jinja *.jpg

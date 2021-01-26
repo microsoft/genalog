@@ -66,9 +66,9 @@ Example usage:
     ```python
     from genalog.ocr.grok import Grok
     from dotenv import load_dotenv
-    load_dotenv("tests/ocr/.env")
+    load_dotenv("tests/unit/ocr/.env")
 
     grok = Grok.create_from_env_var()
-    grok.run_grok(src_folder_path = "tests/ocr/data/img", dest_folder_path = "tests/ocr/data/json")
+    grok.run_grok(src_folder_path = "tests/unit/ocr/data/img", dest_folder_path = "tests/unit/ocr/data/json")
     ```
     

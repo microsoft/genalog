@@ -9,6 +9,6 @@
 genalog/degradation/ @laserprec
 genalog/generation/ @laserprec
 genalog/text/ @laserprec
-genalog/ocr/ @dbanda @laserprec
+genalog/ocr/ @laserprec
 
-tests/ @laserprec @dbanda
+tests/ @laserprec

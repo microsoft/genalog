@@ -43,12 +43,12 @@ steps:
   displayName: 'Install dependencies'
 
 - bash: |
-    python -m flake8
+    tox -e flake8
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Run Linter (flake8)'
 
 - bash: |
-    python -m pytest tests
+    tox -e py
   env:
     BLOB_KEY : $(BLOB_KEY)
     SEARCH_SERVICE_KEY: $(SEARCH_SERVICE_KEY)

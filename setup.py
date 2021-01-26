@@ -22,7 +22,11 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://msazure.visualstudio.com/DefaultCollection/Cognitive%20Services/_git/Tools-Synthetic-Data-Generator',
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_packages(exclude=['tests', 'tests.*']),
+    package_data={'': [
+        'genalog/generation/templates/*.jinja'
+    ]},
+    include_package_data=True,
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",

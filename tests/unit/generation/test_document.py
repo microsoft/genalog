@@ -12,12 +12,12 @@ MOCK_COMPILED_DOCUMENT = "<p>populated document</p>"
 MOCK_TEMPLATE = MagicMock()
 MOCK_TEMPLATE.render.return_value = MOCK_COMPILED_DOCUMENT
 
-IMG_BYTES = open("tests/generation/2x2.jpg", "rb").read()
+IMG_BYTES = open("tests/unit/generation/2x2.jpg", "rb").read()
 
 FILE_DESTINATION_PDF = "sample.pdf"
 FILE_DESTINATION_PNG = "sample.png"
 
-CUSTOM_TEMPLATE_PATH = "tests/generation/templates"
+CUSTOM_TEMPLATE_PATH = "tests/unit/generation/templates"
 CUSTOM_TEMPLATE_NAME = "mock.html.jinja"
 DEFAULT_TEMPLATE_NAME = "text_block.html.jinja"
 DEFAULT_PACKAGE_NAME = "genalog.generation"

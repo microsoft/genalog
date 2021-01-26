@@ -1,0 +1,4 @@
+edit_insert,edit_delete,edit_replace,edit_insert_spacing,edit_delete_spacing,insert,delete,replace,spacing,total_chars,total_words,total_alnum_words,matching_chars,matching_alnum_words,matching_words,alnum_word_accuracy,word_accuracy,char_accuracy,txt_path,ocr_json_path,filename
+1,0,0,1,13,1,0,0,14,1027,166,159,1025,144,150,0.9056603773584906,0.9036144578313253,0.9980525803310614,tests/unit/ocr/data/text/0.txt,tests/unit/ocr/data/json/521c38122f783673598856cd81d91c21_0.png.json,0.txt
+3,0,0,0,5,3,0,0,5,958,182,176,955,165,171,0.9375,0.9395604395604396,0.9968684759916493,tests/unit/ocr/data/text/1.txt,tests/unit/ocr/data/json/521c38122f783673598856cd81d91c21_1.png.json,1.txt
+2,0,0,0,9,2,0,0,9,1022,188,183,1020,170,175,0.9289617486338798,0.9308510638297872,0.9980430528375733,tests/unit/ocr/data/text/11.txt,tests/unit/ocr/data/json/521c38122f783673598856cd81d91c21_11.png.json,11.txt

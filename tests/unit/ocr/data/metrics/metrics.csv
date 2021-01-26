@@ -1,0 +1,4 @@
+edit_insert,edit_delete,edit_replace,edit_insert_spacing,edit_delete_spacing,insert,delete,replace,spacing,total_chars,total_words,total_alnum_words,matching_chars,matching_alnum_words,matching_words,alnum_word_accuracy,word_accuracy,char_accuracy,txt_path,ocr_json_path,filename
+2,5,5,0,2,1,1,5,2,1068,176,176,1061,169,169,0.9602272727272727,0.9602272727272727,0.9934456928838952,tests/unit/ocr/data/metrics/text/001.txt,tests/unit/ocr/data/metrics/json/123_001.png.json,001.txt
+0,5,17,0,11,0,2,8,11,1789,301,301,1772,283,283,0.9401993355481728,0.9401993355481728,0.9904974846282839,tests/unit/ocr/data/metrics/text/002.txt,tests/unit/ocr/data/metrics/json/123_002.png.json,002.txt
+0,1,6,0,17,0,0,5,17,2659,460,459,2653,436,437,0.9498910675381264,0.95,0.9977435125987213,tests/unit/ocr/data/metrics/text/003.txt,tests/unit/ocr/data/metrics/json/123_003.png.json,003.txt

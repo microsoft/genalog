@@ -6,6 +6,7 @@ import pytest
 from genalog.text import conll_format
 
 
+@pytest.mark.slow
 @pytest.mark.parametrize(
     "required_args", [(["tests/e2e/data/synthetic_dataset", "test_version"])]
 )
@@ -27,6 +28,7 @@ def test_conll_format(required_args, optional_args):
 basepath = "tests/e2e/data/conll_formatter/"
 
 
+@pytest.mark.slow
 @pytest.mark.parametrize(
     "clean_label_filename, ocr_text_filename",
     zip(
