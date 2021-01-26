@@ -1,14 +1,20 @@
 import json
+import logging
 
 import pytest
-from dotenv import load_dotenv
 
 from genalog.ocr.blob_client import GrokBlobClient
 from genalog.ocr.grok import Grok
 
-load_dotenv("tests/ocr/.env")
+
+@pytest.fixture(scope="module", autouse=True)
+def load_azure_config(load_azure_resources):
+    # Loading the non-secrets
+    # Assume the secrets are set in the environment variable prior
+    pass
 
 
+@pytest.mark.azure
 class TestBlobClient:
     @pytest.mark.parametrize("use_async", [True, False])
     def test_upload_images(self, use_async):
@@ -43,6 +49,7 @@ class TestBlobClient:
         ), f"folder {dst_folder} was not deleted"
 
 
+@pytest.mark.azure
 class TestGROKe2e:
     @pytest.mark.parametrize("use_async", [False, True])
     def test_grok_e2e(self, tmpdir, use_async):

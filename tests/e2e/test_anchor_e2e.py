@@ -7,6 +7,7 @@ import pytest
 from genalog.text import alignment, anchor, preprocess
 
 
+@pytest.mark.slow
 @pytest.mark.parametrize(
     "gt_file, ocr_file",
     zip(
@@ -34,6 +35,7 @@ def test_align_w_anchor_and_align(gt_file, ocr_file):
         )
 
 
+@pytest.mark.slow
 @pytest.mark.parametrize(
     "gt_file, ocr_file",
     zip(

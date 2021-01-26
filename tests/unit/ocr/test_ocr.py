@@ -1,13 +1,17 @@
 import json
+import os
 
 import pytest
 import requests
-from dotenv import load_dotenv
 
 from genalog.ocr.rest_client import GrokRestClient
 
 
-load_dotenv("tests/ocr/.env")
+@pytest.fixture(scope="module", autouse=True)
+def set_azure_dummy_secrets(load_azure_resources):
+    os.environ['BLOB_KEY'] = "<YOUR BLOB KEY>"
+    os.environ['SEARCH_SERVICE_KEY'] = "<YOUR SEARCH SERVICE KEY>"
+    os.environ['COGNITIVE_SERVICE_KEY'] = "<YOUR COGNITIVE SERVICE KEY>"
 
 
 @pytest.fixture(autouse=True)
