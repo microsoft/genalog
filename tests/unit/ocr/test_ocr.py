@@ -50,7 +50,7 @@ class MockedResponse:
                             "metadata_storage_name": "521c38122f783673598856cd81d91c21_0.png",
                             "layoutText": json.load(
                                 open(
-                                    "tests/ocr/data/json/521c38122f783673598856cd81d91c21_0.png.json",
+                                    "tests/unit/ocr/data/json/521c38122f783673598856cd81d91c21_0.png.json",
                                     "r",
                                 )
                             ),
@@ -59,7 +59,7 @@ class MockedResponse:
                             "metadata_storage_name": "521c38122f783673598856cd81d91c21_1.png",
                             "layoutText": json.load(
                                 open(
-                                    "tests/ocr/data/json/521c38122f783673598856cd81d91c21_1.png.json",
+                                    "tests/unit/ocr/data/json/521c38122f783673598856cd81d91c21_1.png.json",
                                     "r",
                                 )
                             ),
@@ -68,7 +68,7 @@ class MockedResponse:
                             "metadata_storage_name": "521c38122f783673598856cd81d91c21_11.png",
                             "layoutText": json.load(
                                 open(
-                                    "tests/ocr/data/json/521c38122f783673598856cd81d91c21_11.png.json",
+                                    "tests/unit/ocr/data/json/521c38122f783673598856cd81d91c21_11.png.json",
                                     "r",
                                 )
                             ),

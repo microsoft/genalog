@@ -18,7 +18,7 @@ class TestBlobClient:
     @pytest.mark.parametrize("use_async", [True, False])
     def test_upload_images(self, use_async):
         blob_client = GrokBlobClient.create_from_env_var()
-        subfolder = "tests/ocr/data/img"
+        subfolder = "tests/unit/ocr/data/img"
         subfolder.replace("/", "_")
         dst_folder, _ = blob_client.upload_images_to_blob(
             subfolder, use_async=use_async
@@ -53,7 +53,7 @@ class TestGROKe2e:
     @pytest.mark.parametrize("use_async", [False, True])
     def test_grok_e2e(self, tmpdir, use_async):
         grok = Grok.create_from_env_var()
-        src_folder = "tests/ocr/data/img"
+        src_folder = "tests/unit/ocr/data/img"
         grok.run_grok(
             src_folder,
             tmpdir,
