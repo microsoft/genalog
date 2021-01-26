@@ -1,10 +1,34 @@
 name: $(Date:yyyyMMdd).$(Rev:r)
 
-strategy:
-  matrix:
-    linux_x64_py3.6:
-      imageName: 'ubuntu-18.04'
-      pyVersion: '3.6'
+stages:
+  - stage: static_analysis
+    jobs:
+    - job: flake8_linux_py36
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+        - template: templates/run-linter.yml
+          parameters:
+            pyVersion: '3.6'
+
+  - stage: run_tests
+    dependsOn: static_analysis
+    pool:
+      vmImage: 'ubuntu-18.04'
+    jobs:
+      - template: templates/run-tests-on-multiple-py-versions.yml
+        parameters:
+          pyVersions: ['3.6', '3.7']
+          testTypes: ['fast', 'slow']
+
+    
+    
+
+# strategy:
+#   matrix:
+#     linux_x64_py3.6:
+#       imageName: 'ubuntu-18.04'
+#       pyVersion: '3.6'
 
     # windows_x64_py3.6:
     #   imageName: 'windows-2019'
@@ -19,31 +43,28 @@ strategy:
     #   imageName: 'ubuntu-16.04'
     #   pyVersion: '3.5'
 
-pool:
-  vmImage: '$(imageName)'
-  
-steps:
-- template: templates/run-linter.yml
-  parameters:
-    pyVersion: $(python.version)
+# pool:
+#   vmImage: '$(imageName)'
 
-- template: templates/run-tests.yml
-  parameters:
-    testType: 'unit'
-    imageName: $(imageName)
-    pyVersion: $(python.version)
-
-- template: templates/run-tests.yml
-  parameters:
-    testType: 'slow'
-    imageName: $(imageName)
-    pyVersion: $(python.version)
+# steps:
+# - template: templates/run-linter.yml
+#   parameters:
+#     pyVersion: $(python.version)
 
 # - template: templates/run-tests.yml
 #   parameters:
-#     testType: 'azure'
+#     testType: 'fast'
 #     imageName: $(imageName)
 #     pyVersion: $(python.version)
+
+# - template: templates/run-tests.yml
+#   parameters:
+#     testType: 'slow'
+#     skipInstall: true
+#     imageName: $(imageName)
+#     pyVersion: $(python.version)
+
+# - template: templates/publish-cov.yml
   
 # - bash: |
 #     python setup.py bdist_wheel --build-number $(Build.BuildNumber) --dist-dir dist

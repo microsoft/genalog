@@ -2,15 +2,15 @@
 parameters:
 - name: pyVersion
   type: string
-  default: 3.6
+  default: '3.6'
 
 steps:
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '$(pyVersion)'
+    versionSpec: ${{ parameters.pyVersion }}
     addToPath: true
     architecture: 'x64'
-  displayName: 'Use Python $(pyVersion)'
+  displayName: 'Use Python ${{ parameters.pyVersion }}'
 
 - bash: |
     python -m pip install --upgrade pip setuptools wheel

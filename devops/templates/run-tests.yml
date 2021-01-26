@@ -1,40 +1,21 @@
 # Template for running tests on multiple Python versions and platforms
 
 parameters:
-- name: imageName
-  type: string
 - name: testType
   type: string
   default: all
   values:
     - slow
     - azure
-    - unit
+    - fast
     - all
-- name: pyVersion
-  type: string
-  default: 3.6
 
 steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '$(pyVersion)'
-    addToPath: true
-    architecture: 'x64'
-  displayName: 'Use Python $(pyVersion)'
-
-- bash: |
-    python -m pip install --upgrade pip setuptools wheel
-    python -m pip install -r requirements.txt 
-    python -m pip install -r requirements-dev.txt
-  workingDirectory: $(Build.SourcesDirectory)
-  displayName: 'Install dependencies'
-
 - bash: |
     if [[ '${{parameters.testType}}' == 'all' ]]
     then
       tox -e py 
-    elif [[ '${{parameters.testType}}' == 'unit' ]]
+    elif [[ '${{parameters.testType}}' == 'fast' ]]
     then
       tox -e py -- -m "not slow and not azure"
     else
@@ -46,18 +27,4 @@ steps:
     COGNITIVE_SERVICE_KEY: $(COGNITIVE_SERVICE_KEY)
     COMPUTER_VISION_SUBSCRIPTION_KEY: $(COMPUTER_VISION_SUBSCRIPTION_KEY)
   workingDirectory: $(Build.SourcesDirectory)
-  displayName: 'Test via tox'
-
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit' 
-    testResultsFiles: 'junit/*.xml' 
-    searchFolder: $(Build.SourcesDirectory)
-    testRunTitle: $(imageName)_$(pyVersion) Build
-    buildPlatform: $(imageName)
-  displayName: 'Publish unit test report'
-
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: Cobertura
-    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.xml'
+  displayName: 'Running (${{parameters.testType}}) Tests'
