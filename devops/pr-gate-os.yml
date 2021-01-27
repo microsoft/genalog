@@ -11,15 +11,24 @@ stages:
           parameters:
             pyVersion: '3.6'
 
-  - stage: run_tests
+  - stage: run_full_test_matrix
     dependsOn: static_analysis
-    pool:
-      vmImage: 'ubuntu-18.04'
     jobs:
-      - template: templates/run-tests-on-multiple-py-versions.yml
+      - template: templates/run-tests-on-multiple-os-py.yml
         parameters:
           pyVersions: ['3.6', '3.7', '3.8']
-          testTypes: ['fast']
+          testTypes: ['unit', 'io']
+          imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
+
+
+  - stage: run_e2e_test_matrix
+    dependsOn: static_analysis
+    jobs:
+      - template: templates/run-tests-on-multiple-os-py.yml
+        parameters:
+          pyVersions: ['3.6']
+          testTypes: ['slow', 'azure']
+          imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
 
     
     

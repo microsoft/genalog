@@ -7,7 +7,8 @@ parameters:
   values:
     - slow
     - azure
-    - fast
+    - unit
+    - io
     - all
 
 steps:
@@ -15,9 +16,9 @@ steps:
     if [[ '${{parameters.testType}}' == 'all' ]]
     then
       tox -e py 
-    elif [[ '${{parameters.testType}}' == 'fast' ]]
+    elif [[ '${{parameters.testType}}' == 'unit' ]]
     then
-      tox -e py -- -m "not slow and not azure"
+      tox -e py -- tests/unit
     else
       tox -e py -- -m "${{parameters.testType}}"
     fi
