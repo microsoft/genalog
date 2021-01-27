@@ -1,9 +1,10 @@
 import os
 import glob
 
+import numpy as np
 import pytest
 
-from genalog import pipeline
+from genalog.pipeline import AnalogDocumentGeneration, generate_dataset_multiprocess
 from genalog.generation.document import DocumentGenerator
 
 EXAMPLE_TEXT_FILE = "tests/unit/text/data/gt_1.txt"
@@ -18,33 +19,69 @@ DEGRATIONS = [
 
 
 @pytest.fixture
-def default_analog_generator():
-    return pipeline.AnalogDocumentGeneration()
+def default_doc_generator():
+    return AnalogDocumentGeneration()
 
 
 @pytest.fixture
-def custom_analog_generator():
-    return pipeline.AnalogDocumentGeneration(
-        styles=STYLES, degradations=DEGRATIONS, resolution=300
-    )
+def custom_doc_generator():
+    return AnalogDocumentGeneration(styles=STYLES, degradations=DEGRATIONS, resolution=300)
 
 
-def test_default_generate_img(default_analog_generator):
-    assert len(default_analog_generator.list_templates()) > 0
-    example_template = default_analog_generator.list_templates()[0]
-    default_analog_generator.generate_img(
+@pytest.fixture
+def empty_style_doc_generator():
+    return AnalogDocumentGeneration(styles={})
+
+
+@pytest.mark.parametrize("doc_generator", [
+    pytest.lazy_fixture('default_doc_generator'),
+    pytest.lazy_fixture('custom_doc_generator')
+])
+def test_generate_img_array(doc_generator):
+    # Precondition checks
+    assert len(doc_generator.list_templates()) > 0
+
+    example_template = doc_generator.list_templates()[0]
+    sample_img = doc_generator.generate_img(
         EXAMPLE_TEXT_FILE, example_template, target_folder=None
     )
+    assert sample_img is not None
+    assert isinstance(sample_img, np.ndarray)
 
 
-def test_custom_generate_img(custom_analog_generator):
-    assert len(custom_analog_generator.list_templates()) > 0
-    example_template = custom_analog_generator.list_templates()[0]
-    custom_analog_generator.generate_img(
+def test_generate_img_array_empty(empty_style_doc_generator):
+    # Precondition checks
+    assert len(empty_style_doc_generator.list_templates()) > 0
+
+    example_template = empty_style_doc_generator.list_templates()[0]
+    sample_img = empty_style_doc_generator.generate_img(
         EXAMPLE_TEXT_FILE, example_template, target_folder=None
     )
+    assert sample_img is None
 
 
+@pytest.mark.io
+@pytest.mark.parametrize("doc_generator", [
+    pytest.lazy_fixture('default_doc_generator'),
+    pytest.lazy_fixture('custom_doc_generator')
+])
+def test_generate_img_write_to_disk(tmpdir, doc_generator):
+    os.makedirs(os.path.join(tmpdir, "img"))  # TODO: generate_img() store image under "img" folder
+    output_img_wildcard = os.path.join(tmpdir, "img", "*.png")
+    num_generated_img = glob.glob(output_img_wildcard)
+    # Precondition checks
+    assert len(num_generated_img) == 0
+    assert len(doc_generator.list_templates()) > 0
+
+    example_template = doc_generator.list_templates()[0]
+    doc_generator.generate_img(
+        EXAMPLE_TEXT_FILE, example_template, target_folder=tmpdir
+    )
+    num_generated_img = glob.glob(output_img_wildcard)  # look for any jpg on file
+    assert len(num_generated_img) > 0
+
+
+@pytest.mark.io
 @pytest.mark.parametrize("styles", [
     STYLES,
     pytest.param(
@@ -56,9 +93,9 @@ def test_custom_generate_img(custom_analog_generator):
 def test_generate_dataset_multiprocess(tmpdir, folder_name, styles):
     assert len(INPUT_TEXT_FILENAMES) > 0
     output_folder = os.path.join(tmpdir, folder_name)
-    pipeline.generate_dataset_multiprocess(
+    generate_dataset_multiprocess(
         INPUT_TEXT_FILENAMES, output_folder, styles, DEGRATIONS, "text_block.html.jinja"
     )
-    num_generated_img = glob.glob(os.path.join(output_folder, "**/*.png"))
+    num_generated_img = glob.glob(os.path.join(output_folder, "**", "*.png"))
     assert len(num_generated_img) > 0
     assert len(num_generated_img) == len(INPUT_TEXT_FILENAMES) * len(DocumentGenerator.expand_style_combinations(styles))

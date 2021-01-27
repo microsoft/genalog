@@ -2,4 +2,6 @@ flake8
 flake8-import-order
 pytest
 pytest-cov
+pytest-mock
+pytest-lazy-fixture
 tox

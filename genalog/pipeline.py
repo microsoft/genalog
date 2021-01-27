@@ -22,12 +22,9 @@ class ImageStateEncoder(JSONEncoder):
 
 class AnalogDocumentGeneration(object):
     def __init__(
-        self,
-        template_path=None,
-        styles=DEFAULT_STYLE_COMBINATION,
-        degradations=[],
-        resolution=300,
-    ):
+            self,
+            template_path=None, styles=DEFAULT_STYLE_COMBINATION,
+            degradations=[], resolution=300):
         self.doc_generator = DocumentGenerator(template_path=template_path)
         self.doc_generator.set_styles_to_generate(styles)
         self.degrader = Degrader(degradations)
@@ -42,8 +39,13 @@ class AnalogDocumentGeneration(object):
         """
         return self.doc_generator.template_list
 
+    # Fix: rename to generate_sample()
+    # Add another method called generate_all_styles()
     def generate_img(self, full_text_path, template, target_folder=None):
-        """Generate synthetic images given the filepath of a text document
+        """Generate a image with a sample style given a text document
+
+        NOTE: This does not generate all possible style combinations.
+        Use generate_all_styles() instead.
 
         Arguments:
             full_text_path {str} -- full filepath of a text document (i.e /dataset/doc.txt)
@@ -54,6 +56,9 @@ class AnalogDocumentGeneration(object):
             target_folder {str} -- folder path in which the generated images are stored
                 (default: {None})
             resolution {int} -- resolution in dpi (default: {300})
+
+        Raises:
+            RuntimeError: when cannot write to disk at specified path
         """
         with open(full_text_path, "r", encoding="utf8") as f:  # read file
             text = f.read()
@@ -61,7 +66,10 @@ class AnalogDocumentGeneration(object):
 
         generator = self.doc_generator.create_generator(content, [template])
         # Generate the image
-        doc = next(generator)  # TODO: this does not exhaust all of the style combinations in the generator
+        try:
+            doc = next(generator)  # NOTE: this does not exhaust all of the style combinations in the generator
+        except StopIteration:
+            return None
         src = doc.render_array(resolution=self.resolution, channel="GRAYSCALE")
         # Degrade the image
         dst = self.degrader.apply_effects(src)
@@ -74,7 +82,8 @@ class AnalogDocumentGeneration(object):
             text_filename = os.path.basename(full_text_path)
             img_filename = text_filename.replace(".txt", ".png")
             img_dst_path = os.path.join(target_folder, "img", img_filename)
-            cv2.imwrite(img_dst_path, dst)
+            if not cv2.imwrite(img_dst_path, dst):
+                raise RuntimeError(f"Could not write to path {img_dst_path}")
             return
 
 
@@ -115,14 +124,9 @@ def _set_batch_generate_args(
 
 
 def generate_dataset_multiprocess(
-    input_text_files,
-    output_folder,
-    styles,
-    degradations,
-    template,
-    resolution=300,
-    batch_size=25,
-):
+        input_text_files, output_folder,
+        styles, degradations, template,
+        resolution=300, batch_size=25):
     _setup_folder(output_folder)
     print(f"Storing generated images in {output_folder}")
 
