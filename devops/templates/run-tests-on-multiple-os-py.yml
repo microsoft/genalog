@@ -31,10 +31,15 @@ jobs:
           - template: run-tests.yml
             parameters:
               testType: ${{testType}}
-          
           - template: publish-test-results.yml
             parameters:
               pyVersion: ${{pyVersion}}
 
-        - template: publish-cov.yml
-            
+        - bash: |
+            mv .coverage .coverage_$(System.StageName)_${{imageOS}}_${{pyVersion}}
+            ls .coverage*
+          workingDirectory: $(Build.SourcesDirectory)
+          displayName: 'Rename coverage report'
+        # Cache the coverage report
+        - publish: $(Build.SourcesDirectory)/.coverage_$(System.StageName)_${{imageOS}}_${{pyVersion}}
+          artifact: cov_report_$(System.StageName)_${{imageOS}}_${{pyVersion}}

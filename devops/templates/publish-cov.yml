@@ -1,6 +1,0 @@
-# Template for publishing code coverage report
-steps:
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: Cobertura
-    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.xml'

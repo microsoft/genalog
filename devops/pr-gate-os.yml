@@ -11,74 +11,31 @@ stages:
           parameters:
             pyVersion: '3.6'
 
-  - stage: run_unit_test_matrix
+  - stage: unit_tests
     dependsOn: static_analysis
     jobs:
       - template: templates/run-tests-on-multiple-os-py.yml
         parameters:
           pyVersions: ['3.6']
-          testTypes: ['unit', 'io']
+          testTypes: ['unit']
           imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
 
-  - stage: run_e2e_test_matrix
+  - stage: e2e_tests
     dependsOn: static_analysis
     jobs:
       - template: templates/run-tests-on-multiple-os-py.yml
         parameters:
           pyVersions: ['3.6']
-          testTypes: ['slow']
+          testTypes: ['io']
           imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
 
   - stage: collect_final_code_coverage
     dependsOn: 
-      - run_unit_test_matrix
-      - run_e2e_test_matrix
+      - unit_tests
+      - e2e_tests
     jobs:
-      - job:
-        steps:
-          - template: templates/publish-cov.yml
+      - template: templates/merge-cov-reports.yml
 
-    
-
-# strategy:
-#   matrix:
-#     linux_x64_py3.6:
-#       imageName: 'ubuntu-18.04'
-#       pyVersion: '3.6'
-
-    # windows_x64_py3.6:
-    #   imageName: 'windows-2019'
-    #   pyVersion: '3.6'
-
-    # macos_x64_py3.6:
-    #   imageName: 'macOS-10.14'
-    #   pyVersion: '3.6'
-
-    # To build using more python versions follow the syntax below:
-    # linux_x64_py3.5:
-    #   imageName: 'ubuntu-16.04'
-    #   pyVersion: '3.5'
-
-# pool:
-#   vmImage: '$(imageName)'
-
-# steps:
-# - template: templates/run-linter.yml
-#   parameters:
-#     pyVersion: $(python.version)
-
-# - template: templates/run-tests.yml
-#   parameters:
-#     testType: 'fast'
-#     imageName: $(imageName)
-#     pyVersion: $(python.version)
-
-# - template: templates/run-tests.yml
-#   parameters:
-#     testType: 'slow'
-#     skipInstall: true
-#     imageName: $(imageName)
-#     pyVersion: $(python.version)
 
 # - template: templates/publish-cov.yml
   

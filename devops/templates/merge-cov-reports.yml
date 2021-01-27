@@ -1,0 +1,44 @@
+# Template to merge several code coverage reports (.coverage*)
+parameters:
+- name: pyVersion
+  default: '3.6'
+
+jobs:
+  - job:
+    displayName: Merge Code Coverage Reports
+    pool:
+        vmImage: 'ubuntu-latest'
+
+    steps:
+    - checkout: none
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: ${{ parameters.pyVersion }}
+        addToPath: true
+        architecture: 'x64'
+      displayName: 'Use Python ${{ parameters.pyVersion }}'
+
+    - bash: |
+        python -m pip --upgrade pip setuptools
+        python -m pip install coverage
+      workingDirectory: $(Build.SourcesDirectory)
+      displayName: 'Install coverage'
+         
+    # See https://docs.microsoft.com/en-us/azure/devops/pipelines/artifacts/pipeline-artifacts?view=azure-devops&tabs=yaml#multiple-artifacts
+    - download: current
+      patterns: '**/.coverage*'
+
+    - bash: |
+        python -m coverage combine $(Pipeline.Workspace)/**/.coverage*
+        python -m coverage report
+        python -m coverage xml
+      workingDirectory: $(Build.SourcesDirectory)
+      displayName: Show and merge cached coverage report
+
+    - task: PublishCodeCoverageResults@1
+      inputs:
+        codeCoverageTool: Cobertura
+        summaryFileLocation: '$(Build.SourcesDirectory)/coverage.xml'
+      displayName: 'Publish merged code coverage report'
+
+
