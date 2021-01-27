@@ -18,8 +18,8 @@ stages:
     jobs:
       - template: templates/run-tests-on-multiple-py-versions.yml
         parameters:
-          pyVersions: ['3.6', '3.7']
-          testTypes: ['fast', 'slow']
+          pyVersions: ['3.6', '3.7', '3.8']
+          testTypes: ['fast']
 
     
     

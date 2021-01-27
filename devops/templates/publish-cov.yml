@@ -6,6 +6,7 @@ steps:
     searchFolder: $(Build.SourcesDirectory)
     testRunTitle: $(imageName)_$(pyVersion) Build
     buildPlatform: $(imageName)
+  condition: always() # Always publish test results
   displayName: 'Publish unit test report'
 
 - task: PublishCodeCoverageResults@1
