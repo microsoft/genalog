@@ -61,7 +61,7 @@ class AnalogDocumentGeneration(object):
 
         generator = self.doc_generator.create_generator(content, [template])
         # Generate the image
-        doc = next(generator)
+        doc = next(generator)  # TODO: this does not exhaust all of the style combinations in the generator
         src = doc.render_array(resolution=self.resolution, channel="GRAYSCALE")
         # Degrade the image
         dst = self.degrader.apply_effects(src)
@@ -73,7 +73,7 @@ class AnalogDocumentGeneration(object):
             # save it onto disk
             text_filename = os.path.basename(full_text_path)
             img_filename = text_filename.replace(".txt", ".png")
-            img_dst_path = target_folder + "img/" + img_filename
+            img_dst_path = os.path.join(target_folder, "img", img_filename)
             cv2.imwrite(img_dst_path, dst)
             return
 
