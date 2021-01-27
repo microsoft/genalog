@@ -1,0 +1,16 @@
+# Template for publishing test result report
+
+parameters:
+- name: pyVersion
+  type: string
+
+steps:
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit' 
+    testResultsFiles: 'junit/*.xml' 
+    searchFolder: $(Build.SourcesDirectory)
+    testRunTitle: $(Agent.OS) py$(pyVersion) Build
+    buildPlatform: $(Agent.OS)
+  condition: always() # Always publish test results
+  displayName: 'Publish unit test report'
