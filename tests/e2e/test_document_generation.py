@@ -18,7 +18,7 @@ MULTI_PAGE_TEMPLATE_NAME = "multipage.html.jinja"
 UNDEFINED_TEMPLATE_NAME = "not a valid template"
 
 TEST_OUTPUT_DIR = "test_out"
-FILE_DESTINATION = TEST_OUTPUT_DIR + "/save.png"
+FILE_DESTINATION = os.path.join(TEST_OUTPUT_DIR, "save.png")
 
 CUSTOM_STYLE = {
     "font_family": ["Calibri", "Times"],
