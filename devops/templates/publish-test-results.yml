@@ -1,5 +1,4 @@
 # Template for publishing test result report
-
 parameters:
 - name: pyVersion
   type: string

@@ -11,15 +11,14 @@ stages:
           parameters:
             pyVersion: '3.6'
 
-  - stage: run_full_test_matrix
+  - stage: run_unit_test_matrix
     dependsOn: static_analysis
     jobs:
       - template: templates/run-tests-on-multiple-os-py.yml
         parameters:
-          pyVersions: ['3.6', '3.7', '3.8']
+          pyVersions: ['3.6']
           testTypes: ['unit', 'io']
           imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
-
 
   - stage: run_e2e_test_matrix
     dependsOn: static_analysis
@@ -27,10 +26,18 @@ stages:
       - template: templates/run-tests-on-multiple-os-py.yml
         parameters:
           pyVersions: ['3.6']
-          testTypes: ['slow', 'azure']
+          testTypes: ['slow']
           imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
 
-    
+  - stage: collect_final_code_coverage
+    dependsOn: 
+      - run_unit_test_matrix
+      - run_e2e_test_matrix
+    jobs:
+      - job:
+        steps:
+          - template: templates/publish-cov.yml
+
     
 
 # strategy:
