@@ -1,0 +1,31 @@
+# Template to create wheel and source distribution
+parameters:
+- name: pyVersion
+  default: '3.6'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: ${{ parameters.pyVersion }}
+    addToPath: true
+    architecture: 'x64'
+  displayName: 'Use Python ${{ parameters.pyVersion }}'
+
+- bash: |
+    python -m pip install --upgrade pip setuptools wheel
+  displayName: 'Update pip and setuptools'
+
+- bash: |
+    python setup.py bdist_wheel
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Build wheel'
+
+- bash: |
+    python setup.py sdist
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Build source distribution'
+
+- bash: |
+    ls dist
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Show artifacts in folder'

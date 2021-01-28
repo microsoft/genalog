@@ -1,0 +1,12 @@
+name: $(Date:yyyyMMdd).$(Rev:r)
+
+stages:
+  - template: pr-gate-os.yml
+
+  - stage: publish_artifacts
+    jobs:
+      - job: archive_wheel_and_sdist
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - template: templates/build_wheel_n_sdist.yml
