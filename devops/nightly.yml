@@ -48,3 +48,10 @@ stages:
       vmImage: 'ubuntu-latest'
     steps:
     - template: templates/build_wheel_n_sdist.yml
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: $(Build.SourcesDirectory)/dist
+        ArtifactName: distribution_artifacts
+        publishLocation: 'Container'
+      displayName: 'Publish wheel and sdist'
