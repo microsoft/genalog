@@ -12,39 +12,39 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-      - template: templates/base/run-linter.yml
-        parameters:
-          pyVersion: '3.6'
+    - template: templates/base/run-linter.yml
+      parameters:
+        pyVersion: '3.6'
 
 - stage: unit_tests
   dependsOn: static_analysis
   jobs:
-    - template: templates/run-tests-on-multiple-os-py.yml
-      parameters:
-        pyVersions: ['3.6']
-        testTypes: ['unit', 'io']
-        imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
+  - template: templates/run-tests-on-multiple-os-py.yml
+    parameters:
+      pyVersions: ['3.6']
+      testTypes: ['unit', 'io']
+      imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
 
 - stage: e2e_tests
   dependsOn: static_analysis
   jobs:
-    - template: templates/run-tests-on-multiple-os-py.yml
-      parameters:
-        pyVersions: ['3.6']
-        testTypes: ['azure']
-        imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
+  - template: templates/run-tests-on-multiple-os-py.yml
+    parameters:
+      pyVersions: ['3.6']
+      testTypes: ['azure']
+      imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
 
 - stage: collect_final_code_coverage
   dependsOn: 
-    - unit_tests
-    - e2e_tests
+  - unit_tests
+  - e2e_tests
   jobs:
-    - template: templates/merge-cov-reports.yml
+  - template: templates/merge-cov-reports.yml
 
 - stage: publish_artifacts
   jobs:
-    - job: archive_wheel_and_sdist
-      pool:
-        vmImage: 'ubuntu-latest'
-      steps:
-        - template: templates/build_wheel_n_sdist.yml
+  - job: archive_wheel_and_sdist
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - template: templates/build_wheel_n_sdist.yml

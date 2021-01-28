@@ -6,7 +6,7 @@ pr:
 - main
 
 variables:
-  - group: azureResourceKeys
+- group: azureResourceKeys
 
 stages:
 - stage: static_analysis
@@ -22,24 +22,24 @@ stages:
 - stage: unit_tests
   dependsOn: static_analysis
   jobs:
-    - template: templates/run-tests-on-multiple-os-py.yml
-      parameters:
-        pyVersions: ['3.6']
-        testTypes: ['unit']
-        imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
+  - template: templates/run-tests-on-multiple-os-py.yml
+    parameters:
+      pyVersions: ['3.6']
+      testTypes: ['unit']
+      imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
 
 - stage: e2e_tests
   dependsOn: static_analysis
   jobs:
-    - template: templates/run-tests-on-multiple-os-py.yml
-      parameters:
-        pyVersions: ['3.6']
-        testTypes: ['io']
-        imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
+  - template: templates/run-tests-on-multiple-os-py.yml
+    parameters:
+      pyVersions: ['3.6']
+      testTypes: ['io']
+      imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
 
 - stage: collect_final_code_coverage
   dependsOn: 
-    - unit_tests
-    - e2e_tests
+  - unit_tests
+  - e2e_tests
   jobs:
-    - template: templates/merge-cov-reports.yml
+  - template: templates/merge-cov-reports.yml
