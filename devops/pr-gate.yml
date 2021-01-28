@@ -1,93 +1,40 @@
-trigger:
-  branches:
-    include:
-      - main
-  
-strategy:
-  matrix:
-    linux_x64_py3.6:
-      imageName: 'ubuntu-18.04'
-      python.version: '3.6'
-
-    # windows_x64_py3.6:
-    #   imageName: 'windows-2019'
-    #   python.version: '3.6'
-
-    # macos_x64_py3.6:
-    #   imageName: 'macOS-10.14'
-    #   python.version: '3.6'
-
-    # To build using more python versions follow the syntax below:
-    # linux_x64_py3.5:
-    #   imageName: 'ubuntu-16.04'
-    #   python.version: '3.5'
-
-pool:
-  vmImage: '$(imageName)'
-  
 name: $(Date:yyyyMMdd).$(Rev:r)
-steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '$(python.version)'
-    addToPath: true
-    architecture: 'x64'
-  displayName: 'Use Python $(python.version)'
 
-- bash: |
-    python -m pip install --upgrade pip 
-    python -m pip install setuptools wheel
-    python -m pip install -r requirements.txt 
-    python -m pip install -r requirements-dev.txt
-  workingDirectory: $(Build.SourcesDirectory)
-  displayName: 'Install dependencies'
+pr:
+- main
 
-- bash: |
-    tox -e flake8
-  workingDirectory: $(Build.SourcesDirectory)
-  displayName: 'Run Linter (flake8)'
+stages:
+  - stage: static_analysis
+    jobs:
+    - job: flake8_linux_py36
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+        - template: templates/run-linter.yml
+          parameters:
+            pyVersion: '3.6'
 
-- bash: |
-    tox -e py
-  env:
-    BLOB_KEY : $(BLOB_KEY)
-    SEARCH_SERVICE_KEY: $(SEARCH_SERVICE_KEY)
-    COGNITIVE_SERVICE_KEY: $(COGNITIVE_SERVICE_KEY)
-    COMPUTER_VISION_SUBSCRIPTION_KEY: $(COMPUTER_VISION_SUBSCRIPTION_KEY) 
-  workingDirectory: $(Build.SourcesDirectory)
-  displayName: 'Running unit tests'
+  - stage: unit_tests
+    dependsOn: static_analysis
+    jobs:
+      - template: templates/run-tests-on-multiple-os-py.yml
+        parameters:
+          pyVersions: ['3.6']
+          testTypes: ['unit']
+          imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
 
+  - stage: e2e_tests
+    dependsOn: static_analysis
+    jobs:
+      - template: templates/run-tests-on-multiple-os-py.yml
+        parameters:
+          pyVersions: ['3.6']
+          testTypes: ['io']
+          imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit' 
-    testResultsFiles: 'junit/*.xml' 
-    searchFolder: $(Build.SourcesDirectory)
-    testRunTitle: $(imageName) Build
-    buildPlatform: $(imageName)
-  displayName: 'Publish unit test report'
-
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: Cobertura
-    summaryFileLocation: $(Build.SourcesDirectory)/coverage.xml
-    reportDirectory: $(Build.SourcesDirectory)/htmlcov
-  displayName: 'Publish test coverage'
-  
-- bash: |
-    python setup.py bdist_wheel --build-number $(Build.BuildNumber) --dist-dir dist
-  workingDirectory: $(Build.SourcesDirectory)
-  displayName: 'Building wheel package'
-
-- bash: |
-    mkdir $BUILD_ARTIFACTSTAGINGDIRECTORY/py$(python.version)/
-    cp -r dist/* $BUILD_ARTIFACTSTAGINGDIRECTORY/py$(python.version)/
-  workingDirectory: $(Build.SourcesDirectory)
-  displayName: 'Copying builds to artifact staging dir'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: $(Build.ArtifactStagingDirectory)
-    ArtifactName: genalog
-    publishLocation: 'Container'
-  displayName: 'Publish build as artifacts'
+  - stage: collect_final_code_coverage
+    dependsOn: 
+      - unit_tests
+      - e2e_tests
+    jobs:
+      - template: templates/merge-cov-reports.yml
