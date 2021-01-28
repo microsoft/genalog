@@ -1,0 +1,7 @@
+# Assume a python version is enabled with "UsePythonVersion@0" task
+steps:
+- bash: |
+    python -m pip install --upgrade pip setuptools wheel
+    python -m pip install -r requirements-dev.txt
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Install dependencies'

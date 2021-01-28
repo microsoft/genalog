@@ -1,0 +1,31 @@
+# Template for running tests on multiple Python versions and platforms
+parameters:
+- name: testType
+  type: string
+  default: all
+  values:
+    - slow
+    - azure
+    - unit
+    - io
+    - all
+
+steps:
+- bash: |
+    if [[ '${{parameters.testType}}' == 'all' ]]
+    then
+      tox -e py 
+    elif [[ '${{parameters.testType}}' == 'unit' ]]
+    then
+      tox -e py -- tests/unit
+    else
+      tox -e py -- -m "${{parameters.testType}}"
+    fi
+  env:
+    # These keys come from azureResourceKeys variable group
+    BLOB_KEY : $(BLOB_KEY) 
+    SEARCH_SERVICE_KEY: $(SEARCH_SERVICE_KEY)
+    COGNITIVE_SERVICE_KEY: $(COGNITIVE_SERVICE_KEY)
+    COMPUTER_VISION_SUBSCRIPTION_KEY: $(COMPUTER_VISION_SUBSCRIPTION_KEY)
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Running (${{parameters.testType}}) Tests'

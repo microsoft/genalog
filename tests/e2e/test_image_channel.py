@@ -15,6 +15,7 @@ def doc_generator():
     return DocumentGenerator(template_path=TEMPLATE_PATH)
 
 
+@pytest.mark.io
 def test_red_channel(doc_generator):
     generator = doc_generator.create_generator(CONTENT, ["solid_bg.html.jinja"])
     for doc in generator:
@@ -25,6 +26,7 @@ def test_red_channel(doc_generator):
         cv2.imwrite(TEST_OUT_FOLDER + "red.png", img_array)
 
 
+@pytest.mark.io
 def test_green_channel(doc_generator):
     generator = doc_generator.create_generator(CONTENT, ["solid_bg.html.jinja"])
     for doc in generator:
@@ -35,6 +37,7 @@ def test_green_channel(doc_generator):
         cv2.imwrite(TEST_OUT_FOLDER + "green.png", img_array)
 
 
+@pytest.mark.io
 def test_blue_channel(doc_generator):
     generator = doc_generator.create_generator(CONTENT, ["solid_bg.html.jinja"])
     for doc in generator:

@@ -1,0 +1,24 @@
+# Template for running linter and other static analysis tools on the code
+parameters:
+- name: pyVersion
+  type: string
+  default: '3.6'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: ${{ parameters.pyVersion }}
+    addToPath: true
+    architecture: 'x64'
+  displayName: 'Use Python ${{ parameters.pyVersion }}'
+
+- bash: |
+    python -m pip install --upgrade pip setuptools wheel
+    python -m pip install -r requirements-dev.txt
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Install flake8 and other dev dependencies'
+
+- bash: |
+    tox -e flake8
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Run Linter (flake8)'
