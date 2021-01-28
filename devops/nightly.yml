@@ -2,6 +2,8 @@ name: $(Date:yyyyMMdd).$(Rev:r)
 
 trigger: none # nightly build is scheduled once per day
 
+pr: none
+
 variables:
   - group: azureResourceKeys
 
