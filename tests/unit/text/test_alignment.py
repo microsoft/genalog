@@ -8,8 +8,12 @@ from genalog.text import alignment
 from tests.unit.cases.text_alignment import ALIGNMENT_REGRESSION_TEST_CASES
 from tests.unit.cases.text_alignment import PARSE_ALIGNMENT_REGRESSION_TEST_CASES
 
-RANDOM_INT = randint(1, 100)
 MOCK_ALIGNMENT_RESULT = [("X", "X", 0, 0, 1)]
+
+
+@pytest.fixture(scope="function")
+def random_num_gap_char():
+    return alignment.GAP_CHAR*randint(1, 100)
 
 
 # Settup mock for third party library call
@@ -152,19 +156,20 @@ def test__find_next_token(s, start, desired_output):
         (" @@@t@@@ ", True),
         ("@@token@@", True),
         (" @@token@@ ", True),
-        (f"t1{alignment.GAP_CHAR*RANDOM_INT}t2", True),  # i.e. 't1@t2'
+        ("t1{}t2", True),  # i.e. 't1@t2' # injects arbitrary number of gap chars
         # Invalid tokens (i.e. multiples of the GAP_CHAR)
         ("", False),
         (" ", False),
         ("@@", False),
         (" @@ ", False),
         ("\t\n@", False),
-        (alignment.GAP_CHAR * 1, False),
-        (alignment.GAP_CHAR * RANDOM_INT, False),
-        (f"\n\t {alignment.GAP_CHAR*RANDOM_INT} \n\t", False),
+        (alignment.GAP_CHAR, False),
+        ("{}", False),  # injects arbitrary number of gap chars
+        ("\n\t {} \n\t", False),  # injects arbitrary number of gap chars
     ],
 )
-def test__is_valid_token(token, desired_output):
+def test__is_valid_token(random_num_gap_char, token, desired_output):
+    token = token.format(random_num_gap_char)
     result = alignment._is_valid_token(token)
     assert result == desired_output
 
