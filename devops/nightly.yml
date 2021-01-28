@@ -21,7 +21,7 @@ stages:
   jobs:
   - template: templates/run-tests-on-multiple-os-py.yml
     parameters:
-      pyVersions: ['3.6']
+      pyVersions: ['3.6', '3.7', '3.8']
       testTypes: ['unit', 'io']
       imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
 
@@ -31,7 +31,7 @@ stages:
   - template: templates/run-tests-on-multiple-os-py.yml
     parameters:
       pyVersions: ['3.6']
-      testTypes: ['azure']
+      testTypes: ['azure', 'slow']
       imageOSs: ['ubuntu-18.04']  # 'windows-latest', 'macos-latest'
 
 - stage: collect_final_code_coverage
