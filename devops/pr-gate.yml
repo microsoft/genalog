@@ -15,9 +15,10 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-      - template: templates/base/run-linter.yml
-        parameters:
-          pyVersion: '3.6'
+    - template: templates/base/run-linter.yml
+      parameters:
+        pyVersion: '3.6'
+    - task: ComponentGovernanceComponentDetection@0
 
 - stage: unit_tests
   dependsOn: static_analysis
