@@ -28,10 +28,10 @@ jobs:
         - template: install-dependencies.yml
 
         - ${{ each testType in parameters.testTypes }}:
-          - template: run-tests.yml
+          - template: base/run-tests.yml
             parameters:
               testType: ${{testType}}
-          - template: publish-test-results.yml
+          - template: base/publish-test-results.yml
             parameters:
               pyVersion: ${{pyVersion}}
 

@@ -7,7 +7,7 @@ stages:
       pool:
         vmImage: 'ubuntu-latest'
       steps:
-        - template: templates/run-linter.yml
+        - template: templates/base/run-linter.yml
           parameters:
             pyVersion: '3.6'
 
@@ -35,24 +35,3 @@ stages:
       - e2e_tests
     jobs:
       - template: templates/merge-cov-reports.yml
-
-
-# - template: templates/publish-cov.yml
-  
-# - bash: |
-#     python setup.py bdist_wheel --build-number $(Build.BuildNumber) --dist-dir dist
-#   workingDirectory: $(Build.SourcesDirectory)
-#   displayName: 'Building wheel package'
-
-# - bash: |
-#     mkdir $BUILD_ARTIFACTSTAGINGDIRECTORY/py$(python.version)/
-#     cp -r dist/* $BUILD_ARTIFACTSTAGINGDIRECTORY/py$(python.version)/
-#   workingDirectory: $(Build.SourcesDirectory)
-#   displayName: 'Copying builds to artifact staging dir'
-
-# - task: PublishBuildArtifacts@1
-#   inputs:
-#     PathtoPublish: $(Build.ArtifactStagingDirectory)
-#     ArtifactName: genalog
-#     publishLocation: 'Container'
-#   displayName: 'Publish build as artifacts'
