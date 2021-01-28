@@ -2,6 +2,9 @@ name: $(Date:yyyyMMdd).$(Rev:r)
 
 trigger: none # nightly build is scheduled once per day
 
+variables:
+  - group: azureResourceKeys
+
 stages:
 - stage: static_analysis
   jobs:

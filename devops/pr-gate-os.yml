@@ -1,5 +1,8 @@
 name: $(Date:yyyyMMdd).$(Rev:r)
 
+variables:
+  - group: azureResourceKeys
+
 stages:
   - stage: static_analysis
     jobs:

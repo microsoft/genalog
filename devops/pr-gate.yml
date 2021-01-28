@@ -1,7 +1,12 @@
 name: $(Date:yyyyMMdd).$(Rev:r)
 
+trigger: none # trigger only via pr
+
 pr:
 - main
+
+variables:
+  - group: azureResourceKeys
 
 stages:
 - stage: static_analysis

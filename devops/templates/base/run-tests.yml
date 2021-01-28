@@ -1,5 +1,4 @@
 # Template for running tests on multiple Python versions and platforms
-
 parameters:
 - name: testType
   type: string
@@ -23,7 +22,8 @@ steps:
       tox -e py -- -m "${{parameters.testType}}"
     fi
   env:
-    BLOB_KEY : $(BLOB_KEY)
+    # These keys come from azureResourceKeys variable group
+    BLOB_KEY : $(BLOB_KEY) 
     SEARCH_SERVICE_KEY: $(SEARCH_SERVICE_KEY)
     COGNITIVE_SERVICE_KEY: $(COGNITIVE_SERVICE_KEY)
     COMPUTER_VISION_SUBSCRIPTION_KEY: $(COMPUTER_VISION_SUBSCRIPTION_KEY)
