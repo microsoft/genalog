@@ -5,12 +5,11 @@ parameters:
 
 jobs:
   - job:
-    displayName: Merge Code Coverage Reports
+    displayName: Merge cov reports
     pool:
         vmImage: 'ubuntu-latest'
 
     steps:
-    - checkout: none
     - task: UsePythonVersion@0
       inputs:
         versionSpec: ${{ parameters.pyVersion }}
