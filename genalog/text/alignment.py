@@ -37,22 +37,19 @@ def _align_seg(
     Arguments:
         gt (str) : a ground truth string
         noise (str) : a string with ocr noise
-
-    Keyword Arguments:
-        match_reward (int) : reward for matching characters        . Defaults to MATCH_REWARD.
-        mismatch_pen (int) : penalty for mistmatching characters   . Defaults to MISMATCH_PENALTY.
-        gap_pen      (int) : penalty for creating a gap            . Defaults to GAP_PENALTY.
-        gap_ext_pen  (int) : penalty for extending a gap           . Defaults to GAP_EXT_PENALTY.
+        match_reward (int, optional) : reward for matching characters. Defaults to ``MATCH_REWARD``.
+        mismatch_pen (int, optional) : penalty for mistmatching characters. Defaults to ``MISMATCH_PENALTY``.
+        gap_pen      (int, optional) : penalty for creating a gap. Defaults to ``GAP_PENALTY``.
+        gap_ext_pen  (int, optional) : penalty for extending a gap. Defaults to ``GAP_EXT_PENALTY``.
 
     Returns:
-        list -- a list of alignment tuples. Each alignment tuple
+        list : a list of alignment tuples. Each alignment tuple
         is one possible alignment candidate.
 
         A tuple (str, str, int, int, int) contains the following information:
             (aligned_gt, aligned_noise, alignment_score, alignment_start, alignment_end)
 
         Example:
-        ::
             [
                 ("alignm@ent", "alignrnent", 10, 0, 10),
                 ("align@ment", "alignrnent", 10, 0, 10),
@@ -160,10 +157,12 @@ def align(gt, noise, gap_char=GAP_CHAR):
 
     Invariants:
         The returned aligned strings will satisfy the following invariants:
-        1. len(aligned_gt) == len(aligned_noise)
-        2. number of tokens in gt == number of tokens in aligned_gt
+
+        1. ``len(aligned_gt) == len(aligned_noise)``
+        2. ``number of tokens in gt == number of tokens in aligned_gt``
+    ::
+
             For example:
-            ::
                     gt: "New York is big" (num_tokens = 4)
             aligned_gt: "N@ew @@York @is big@@" (num_tokens = 4)
 
@@ -302,12 +301,10 @@ def _is_valid_token(token, gap_char=GAP_CHAR):
 
     Arguments:
         token (str) : input string token
-
-    Keyword Arguments:
-        gap_char (char) : gap char used in alignment algorithm . Defaults to GAP_CHAR.
+        gap_char (char, optional) : gap char used in alignment algorithm. Defaults to GAP_CHAR.
 
     Returns:
-        (bool) : True if is a valid token, false otherwise
+        bool : True if is a valid token, false otherwise
     """
     # Matches multiples of 'gap_char' that are padded with whitespace characters on either end
     INVALID_TOKEN_REGEX = (
@@ -332,9 +329,7 @@ def parse_alignment(aligned_gt, aligned_noise, gap_char=GAP_CHAR):
     Arguments:
         aligned_gt (str) : ground truth string aligned with the nose string
         aligned_noise (str) : noise string aligned with the ground truth
-
-    Keyword Arguments:
-        gap_char (char) : gap char used in alignment algorithm . Defaults to GAP_CHAR.
+        gap_char (char, optional) : gap char used in alignment algorithm. Defaults to GAP_CHAR.
 
     Returns:
         tuple -- a tuple of two 2D int arrays as follows:

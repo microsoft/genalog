@@ -195,10 +195,8 @@ def propagate_label_to_ocr(gt_labels, gt_tokens, ocr_tokens, use_anchor=True):
         gt_labels (list) : a list of NER label for ground truth token
         gt_tokens (list) : a list of ground truth string tokens
         ocr_tokens (list) : a list of OCR'ed text tokens
-
-    Keyword Arguments:
-        gap_char (char) : gap char used in alignment algorithm . Defaults to alignment.GAP_CHAR.
-        use_anchor (bool) : use faster alignment method with anchors if set to True
+        gap_char (char, optional) : gap char used in alignment algorithm. Defaults to ``alignment.GAP_CHAR.
+        use_anchor (bool, optional) : use faster alignment method with anchors if set to True
             . Defaults to True.
 
     Raises:
@@ -207,13 +205,12 @@ def propagate_label_to_ocr(gt_labels, gt_tokens, ocr_tokens, use_anchor=True):
             to set of all possible gap characters (GAP_CHAR_SET)
 
     Returns:
-        a tuple of 3 elements:
-            (ocr_labels, aligned_gt, aligned_ocr, gap_char)
+        tuple : a tuple of 3 elements ``(ocr_labels, aligned_gt, aligned_ocr, gap_char)``
         where
-            `ocr_labels` is a list of NER label for the corresponding ocr tokens
-            `aligned_gt` is the ground truth string aligned with the ocr text
-            `aligned_ocr` is the ocr text aligned with ground true
-            `gap_char` is the char used to alignment for inserting gaps
+            1. ``ocr_labels`` is a list of NER label for the corresponding ocr tokens
+            2. ``aligned_gt`` is the ground truth string aligned with the ocr text
+            3. ``aligned_ocr`` is the ocr text aligned with ground true
+            4. ``gap_char`` is the char used to alignment for inserting gaps
     """
     # Find a set of suitable GAP_CHAR based not in the set of input characters
     gap_char_candidates, input_char_set = _find_gap_char_candidates(
@@ -242,11 +239,13 @@ def _propagate_label_to_ocr(
     """Propagate NER label for ground truth tokens to to ocr tokens. Low level implementation
 
         NOTE: that `gt_tokens` and `ocr_tokens` MUST NOT contain invalid tokens.
-            Invalid tokens are:
-                1. non-atomic tokens, or space-separated string ("New York")
-                2. multiple occurrences of the GAP_CHAR ('@@@')
-                3. empty string ("")
-                4. string with spaces ("  ")
+        Invalid tokens are:
+            1. non-atomic tokens, or space-separated string ("New York")
+            2. multiple occurrences of the GAP_CHAR ('@@@')
+            3. empty string ("")
+            4. string with spaces ("  ")
+
+    ::
 
         Case Analysis:
         ******************************** MULTI-TOKEN-LABELS ********************************
@@ -279,11 +278,9 @@ def _propagate_label_to_ocr(
         gt_labels (list) : a list of NER label for ground truth token
         gt_tokens (list) : a list of ground truth string tokens
         ocr_tokens (list) : a list of OCR'ed text tokens
-
-    Keyword Arguments:
-        gap_char (char) : gap char used in alignment algorithm . Defaults to alignment.GAP_CHAR.
-        use_anchor (bool) : use faster alignment method with anchors if set to True
-            . Defaults to True.
+        gap_char (char, optional) : gap char used in alignment algorithm . Defaults to ``alignment.GAP_CHAR``.
+        use_anchor (bool, optional) : use faster alignment method with anchors if set to True.
+                            Defaults to True.
     Raises:
         ValueError: when
             1. there is unequal number of gt_tokens and gt_labels
@@ -441,25 +438,24 @@ def format_labels(tokens, labels, label_top=True):
     Arguments:
         tokens (list) : a list of word tokens
         labels (list) : a list of NER labels
-
-    Keyword Arguments:
-        label_top (bool) : True if label is place on top of the token
-                             . Defaults to True.
+        label_top (bool, optional) : True if label is place on top of the token.
+                                     Defaults to True.
 
     Returns:
         a str with NER label align to the token it is labeling
 
-        For example:
-            Given inputs:
-                tokens: ["New", "York", "is", "big"]
-                labels: ["B-place", "I-place", "o", "o"]
-                label_top: True
+    ::
 
-            Outputs:
-                "
-                B-place I-place o  o   \n
-                New     York    is big \n
-                "
+        Given inputs:
+            tokens: ["New", "York", "is", "big"]
+            labels: ["B-place", "I-place", "o", "o"]
+            label_top: True
+
+        Outputs:
+            \"B-place I-place o  o \"
+            \"New     York    is big\"
+
+
     """
     formatted_tokens = ""
     formatted_labels = ""
@@ -498,9 +494,7 @@ def format_label_propagation(
         ocr_labels (list) : list of NER labels for the OCR'ed tokens
         aligned_gt (str) : ground truth string aligned with the OCR'ed text
         aligned_ocr (str) : OCR'ed text aligned with ground truth
-
-    Keyword Arguments:
-        show_alignment (bool) : if true, show alignment result . Defaults to True.
+        show_alignment (bool, optional) : if true, show alignment result . Defaults to True.
 
     Returns:
         a string formatted for display as follows:

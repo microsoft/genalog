@@ -124,15 +124,16 @@ class Document(object):
     def render_array(self, resolution=300, channel="GRAYSCALE"):
         """Render document as a numpy.ndarray.
 
-        Keyword Arguments:
-            resolution (int) : in units dpi . Defaults to 300.
-            channel (str) : abbreviation for color channels . Defaults to "GRAYSCALE".
-                             available values are: "GRAYSCALE", "RGB", "RGBA", "BGRA", "BGR"
+        Arguments:
+            resolution (int, optional) : in units dpi. Defaults to 300.
+            channel (str, optional): abbreviation for color channels. Available
+                values are: ``"GRAYSCALE", "RGB", "RGBA", "BGRA", "BGR"``
+                Defaults to ``"GRAYSCALE"``.
 
-            Note that "RGB" is 3-channel, "RGBA" is 4-channel and "GRAYSCALE" is single channel
+                **NOTE**: that ``"RGB"`` is 3-channel, ``"RGBA"`` is 4-channel and ``"GRAYSCALE"`` is single channel
 
         Returns:
-            A numpy.ndarray representation of the document.
+            numpy.ndarray: representation of the document.
         """
         # Method below returns a cairocffi.ImageSurface object
         # https://cairocffi.readthedocs.io/en/latest/api.html#cairocffi.ImageSurface
@@ -198,10 +199,11 @@ class DocumentGenerator:
     def __init__(self, template_path=None):
         """Initialize a DocumentGenerator class
 
-        Keyword Arguments:
-            template_path (str) : filepath of custom templates . Defaults to None.
-                *** Important ***  if not set, will use the default templates from the
-                                   package "genalog.generation.templates".
+        Arguments:
+            template_path (str, optionsl) : filepath of custom templates. Defaults to None.
+
+                **NOTE**: if not set, will use the default templates from the
+                package "genalog.generation.templates".
         """
         if template_path:
             self.template_env = Environment(

@@ -30,13 +30,11 @@ def get_unique_words(tokens, case_sensitive=False):
 
     Arguments:
         d (dict) : a Counter dictionary of word occurrences
-
-    Keyword Arguments:
-        case_sensitive (bool) : whether unique words are case sensitive
-            . Defaults to False.
+        case_sensitive (bool, optional) : whether unique words are case sensitive.
+                                          Defaults to False.
 
     Returns:
-        a set of unique words (original alphabetical case of the word is preserved)
+        set: a set of unique words (original alphabetical case of the word is preserved)
     """
     if case_sensitive:
         word_count = Counter(tokens)
@@ -86,10 +84,8 @@ def get_anchor_map(gt_tokens, ocr_tokens, min_anchor_len=2):
     Arguments:
         gt_tokens (list) : a list of ground truth tokens
         ocr_tokens (list) : a list of tokens from OCR'ed document
-
-    Keyword Arguments:
-        min_anchor_len (int) : minimum len of the anchor word
-            . Defaults to 2.
+        min_anchor_len (int, optional) : minimum len of the anchor word.
+                                         Defaults to 2.
 
     Returns:
         tuple -- a 2-element tuple (list, list) defined as follow:
@@ -162,21 +158,17 @@ def find_anchor_recur(
     Arguments:
         gt_tokens (list) : a list of ground truth tokens
         ocr_tokens (list) : a list of tokens from OCR'ed document
-
-    Keyword Arguments:
-        start_pos (int) : a constant to add to all the resulting indices
-            . Defaults to 0.
-        max_seg_length (int) : trigger recursion if any text segment is larger than this
-            . Defaults to MAX_ALIGN_SEGMENT_LENGTH.
+        start_pos (int, optional) : a constant to add to all the resulting indices.
+                                    Defaults to 0.
+        max_seg_length (int, optional) : trigger recursion if any text segment is larger than this.
+                                         Defaults to ``MAX_ALIGN_SEGMENT_LENGTH``.
 
     Raises:
         ValueError: when there different number of anchor points in gt and ocr.
 
     Returns:
-        tuple -- two lists of token indices:
-            (output_gt_anchors, output_ocr_anchors)
-            where each list is the position of the anchor in the input
-            `gt_tokens` and `ocr_tokens`
+        tuple : two lists of token indices where each list is the position of the anchor in the input
+                ``gt_tokens`` and ``ocr_tokens``
     """
     # 1. Try to find anchor words
     anchor_word_map_gt, anchor_word_map_ocr = get_anchor_map(gt_tokens, ocr_tokens)
@@ -237,34 +229,34 @@ def align_w_anchor(gt, ocr, gap_char=GAP_CHAR, max_seg_length=MAX_ALIGN_SEGMENT_
     NOTE: this function shares the same contract as `genalog.text.alignment.align()`
     These two methods are interchangeable and their alignment results should be similar.
 
-    For example:
+    ::
 
-        Ground Truth: "The planet Mars, I scarcely need remind the reader,"
-        Noisy Text:   "The plamet Maris, I scacely neee remind te reader,"
+        For example:
 
-        Here the unique anchor words are "I", "remind" and "reader".
+            Ground Truth: "The planet Mars, I scarcely need remind the reader,"
+            Noisy Text:   "The plamet Maris, I scacely neee remind te reader,"
 
-        Thus, the algorithm will split into following segment pairs:
+            Here the unique anchor words are "I", "remind" and "reader".
 
-            "The planet Mar, "
-            "The plamet Maris, "
+            Thus, the algorithm will split into following segment pairs:
 
-            "I scarcely need "
-            "I scacely neee "
+                "The planet Mar, "
+                "The plamet Maris, "
 
-            "remind the reader,"
-            "remind te reader,"
+                "I scarcely need "
+                "I scacely neee "
 
-        And run sequence alignment on each pair.
+                "remind the reader,"
+                "remind te reader,"
+
+            And run sequence alignment on each pair.
 
     Arguments:
         gt (str) : ground truth text
         noise (str) : text with ocr noise
-
-    Keyword Argument:
-        gap_char (str) : gap char used in alignment algorithm . Defaults to GAP_CHAR.
-        max_seg_length (int) : maximum segment length. Segments longer than this threshold
-            will continued be split recursively into smaller segment.
+        gap_char (str, optional) : gap char used in alignment algorithm . Defaults to GAP_CHAR.
+        max_seg_length (int, optional) : maximum segment length. Segments longer than this threshold
+            will continued be split recursively into smaller segment. Defaults to ``MAX_ALIGN_SEGMENT_LENGTH``.
 
     Returns:
         a tuple (str, str) of aligned ground truth and noise:

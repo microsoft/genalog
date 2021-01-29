@@ -40,25 +40,23 @@ class AnalogDocumentGeneration(object):
         return self.doc_generator.template_list
 
     # Fix: rename to generate_sample()
-    # Add another method called generate_all_styles()
+    # TODO: dd another method called generate_all_styles()
     def generate_img(self, full_text_path, template, target_folder=None):
         """Generate a image with a sample style given a text document
 
-        NOTE: This does not generate all possible style combinations.
-        Use generate_all_styles() instead.
+        **NOTE**: This does not generate all possible style combinations.
 
         Arguments:
-            full_text_path (str) : full filepath of a text document (i.e /dataset/doc.txt)
-            template (str) : name of html template to generate document from
-                Ex: "text_block.html.jinja"
-
-        Keyword Arguments:
-            target_folder (str) : folder path in which the generated images are stored
-                . Defaults to None.
-            resolution (int) : resolution in dpi . Defaults to 300.
-
+            full_text_path (str) : full filepath of a text document (ex: "/dataset/doc.txt").
+            template (str) : name of html template to generate document from. (ex: "text_block.html.jinja")
+            target_folder (str, optional) : folder path in which the generated images are stored. Defaults to None.
+            resolution (int, optional) : resolution in dpi. Defaults to 300.
+        
         Raises:
             RuntimeError: when cannot write to disk at specified path
+
+        Returns:
+            numpy.ndarray: synthetic image
         """
         with open(full_text_path, "r", encoding="utf8") as f:  # read file
             text = f.read()

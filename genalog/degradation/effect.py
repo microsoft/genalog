@@ -9,13 +9,11 @@ def blur(src, radius=5):
 
     Arguments:
         src (numpy.ndarray) : source image of shape (rows, cols)
-
-    Keyword Arguments:
-        radius (int) : size of the square kernel,
-                             MUST be an odd integer . Defaults to 5.
+        radius (int, optional) : size of the square kernel, MUST be an odd integer. 
+                                 Defaults to 5.
 
     Returns:
-        a copy of the source image {numpy.ndarray} after apply the effect
+        numpy.ndarray: a copy of the source image after apply the effect
     """
     return cv2.GaussianBlur(src, (radius, radius), cv2.BORDER_DEFAULT)
 
@@ -30,12 +28,10 @@ def overlay_weighted(src, background, alpha, beta, gamma=0):
         background (numpy.ndarray) : background image. Must be in same shape are `src`
         alpha (float) : transparent factor for the foreground
         beta (float) : transparent factor for the background
-
-    Keyword Arguments:
-        gamma (int) : luminance constant . Defaults to 0.
+        gamma (int, optional) : luminance constant. Defaults to 0.
 
     Returns:
-        a copy of the source image {numpy.ndarray} after apply the effect
+        numpy.ndarray: a copy of the source image after apply the effect
     """
     return cv2.addWeighted(src, alpha, background, beta, gamma).astype(np.uint8)
 
@@ -50,7 +46,7 @@ def overlay(src, background):
         background (numpy.ndarray) : background image. Must be in same shape are `src`
 
     Returns:
-        a copy of the source image {numpy.ndarray} after apply the effect
+        numpy.ndarray: a copy of the source image after apply the effect
     """
     return cv2.bitwise_and(src, background).astype(np.uint8)
 
@@ -66,7 +62,7 @@ def translation(src, offset_x, offset_y):
                           Positive value shifts down and negative shifts up.
 
     Returns:
-        a copy of the source image {numpy.ndarray} after apply the effect
+        numpy.ndarray: a copy of the source image after apply the effect
     """
     rows, cols = src.shape
     trans_matrix = np.float32([[1, 0, offset_x], [0, 1, offset_y]])
@@ -80,20 +76,17 @@ def bleed_through(src, background=None, alpha=0.8, gamma=0, offset_x=0, offset_y
 
     Arguments:
         src (numpy.ndarray) : source image of shape (rows, cols)
-
-    Keyword Arguments:
-        background (numpy.ndarray) : background image. Must be in same
-                                      shape as foreground . Defaults to None.
-        alpha (float) : transparent factor for the foreground . Defaults to 0.8.
-        gamma (int) : luminance constant . Defaults to 0.
-        offset_x (int) : background translation offset . Defaults to 0.
-                          Positive value shifts right and negative shifts right.
-        offset_y (int) : background translation offset . Defaults to 5.
-                          Positive value shifts down and negative shifts up.
+        background (numpy.ndarray, optional) : background image. Must be in same
+                                               shape as foreground. Defaults to None.
+        alpha (float, optional) : transparent factor for the foreground. Defaults to 0.8.
+        gamma (int, optional) : luminance constant. Defaults to 0.
+        offset_x (int, optional) : background translation offset. Defaults to 0.
+                                   Positive value shifts right and negative shifts right.
+        offset_y (int, optional) : background translation offset. Defaults to 5.
+                                   Positive value shifts down and negative shifts up.
 
     Returns:
-        a copy of the source image {numpy.ndarray} after apply the effect.
-        Pixel value ranges [0, 255]
+        numpy.ndarray: a copy of the source image after apply the effect. Pixel value ranges [0, 255]
     """
     if background is None:
         background = src.copy()
@@ -110,13 +103,11 @@ def pepper(src, amount=0.05):
 
     Arguments:
         src (numpy.ndarray) : source image of shape (rows, cols)
-
-    Keyword Arguments:
-        amount (float) : proportion of pixels in range [0, 1] to apply the effect
-                          . Defaults to 0.05.
+        amount (float, optional) : proportion of pixels in range [0, 1] to apply the effect.
+                                   Defaults to 0.05.
 
     Returns:
-        a copy of the source image {numpy.ndarray} after apply the effect.
+        numpy.ndarray: a copy of the source image after apply the effect.
         Pixel value ranges [0, 255] as uint8.
     """
     dst = src.copy()
@@ -133,13 +124,11 @@ def salt(src, amount=0.3):
 
     Arguments:
         src (numpy.ndarray) : source image of shape (rows, cols)
-
-    Keyword Arguments:
-        amount (float) : proportion of pixels in range [0, 1] to apply the effect
-                          . Defaults to 0.05.
+        amount (float, optional) : proportion of pixels in range [0, 1] to apply the effect.
+                                   Defaults to 0.05.
 
     Returns:
-        a copy of the source image {numpy.ndarray} after apply the effect.
+        numpy.ndarray: a copy of the source image after apply the effect.
         Pixel value ranges [0, 255]
     """
     dst = src.copy()
@@ -155,14 +144,14 @@ def salt_then_pepper(src, salt_amount=0.1, pepper_amount=0.05):
     Arguments:
         src (numpy.ndarray) : source image of shape (rows, cols)
         salt_amount (float) : proportion of pixels in range [0, 1] to
-                               apply the salt effect
-                               . Defaults to 0.1.
+                              apply the salt effect.
+                              Defaults to 0.1.
         pepper_amount (float) : proportion of pixels in range [0, 1] to
-                               apply the pepper effect
-                               . Defaults to 0.05.
+                                apply the pepper effect.
+                                Defaults to 0.05.
 
     Returns:
-        a copy of the source image {numpy.ndarray} after apply the effect.
+        numpy.ndarray: a copy of the source image after apply the effect.
         Pixel value ranges [0, 255] as uint8.
     """
     salted = salt(src, amount=salt_amount)
@@ -175,14 +164,14 @@ def pepper_then_salt(src, pepper_amount=0.05, salt_amount=0.1):
     Arguments:
         src (numpy.ndarray) : source image of shape (rows, cols)
         pepper_amount (float) : proportion of pixels in range [0, 1] to
-                               apply the pepper effect.
-                               . Defaults to 0.05.
+                                apply the pepper effect.
+                                Defaults to 0.05.
         salt_amount (float) : proportion of pixels in range [0, 1] to
-                               apply the salt effect.
-                               . Defaults to 0.1.
+                              apply the salt effect.
+                              Defaults to 0.1.
 
     Returns:
-        a copy of the source image {numpy.ndarray} after apply the effect.
+        numpy.ndarray: a copy of the source image after apply the effect.
         Pixel value ranges [0, 255] as uint8.
     """
     peppered = pepper(src, amount=pepper_amount)
@@ -194,9 +183,9 @@ def create_2D_kernel(kernel_shape, kernel_type="ones"):
 
     Arguments:
         kernel_shape (tuple) : shape of the kernel (rows, cols)
+        kernel_type (str, optional) : type of kernel. Defaults to "ones".
+    ::
 
-    Keyword Arguments:
-        kernel_type (str) : type of kernel . Defaults to "ones"..
             All supported kernel types are below:
 
             "ones": kernel is filled with all 1s in shape (rows, cols)
@@ -230,7 +219,7 @@ def create_2D_kernel(kernel_shape, kernel_type="ones"):
                     kernel_type is not one of the supported values
 
     Returns:
-        a 2D array {numpy.ndarray} of shape `kernel_shape`.
+        numpy.ndarray: a 2D array of shape `kernel_shape`.
     """
     if len(kernel_shape) != 2:
         raise ValueError("Kernel shape must be a tuple of 2 integers")
@@ -275,20 +264,17 @@ def morphology(src, operation="open", kernel_shape=(3, 3), kernel_type="ones"):
 
     Arguments:
         src (numpy.ndarray) : source image of shape (rows, cols)
-
-    Keyword Arguments:
-        operation (str) : name of a morphological operation:
-                            ("open", "close", "dilate", "erode")
-                            . Defaults to "open".
-        kernel_shape (tuple) : shape of the kernel (rows, cols)
-                                . Defaults to (3,3).
-        kernel_type (str) : type of kernel . Defaults to "ones".
-                             Supported kernel_types are:
-                             ["ones", "upper_triangle", "lower_triangle",
-                              "x", "plus", "ellipse"]
+        operation (str, optional) : name of a morphological operation:
+                                    ``("open", "close", "dilate", "erode")``
+                                    Defaults to ``"open"``.
+        kernel_shape (tuple, optional) : shape of the kernel (rows, cols).
+                                         Defaults to (3,3).
+        kernel_type (str, optional) : type of kernel.
+            ``("ones", "upper_triangle", "lower_triangle", "x", "plus", "ellipse")``
+            Defaults to ``"ones"``.
 
     Returns:
-        a copy of the source image {numpy.ndarray} after apply the effect.
+        numpy.ndarray: a copy of the source image after apply the effect.
     """
     kernel = create_2D_kernel(kernel_shape, kernel_type)
     if operation == "open":
@@ -311,6 +297,7 @@ def open(src, kernel):
     foreground pixels (white pixels), however it is less destructive than erosion.
 
     For more information see:
+
     1. https://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html
     2. http://homepages.inf.ed.ac.uk/rbf/HIPR2/open.htm
 
@@ -319,7 +306,7 @@ def open(src, kernel):
         kernel (numpy.ndarray) : a 2D array for structuring the morphological effect
 
     Returns:
-        a copy of the source image {numpy.ndarray} after apply the effect
+        numpy.ndarray: a copy of the source image after apply the effect.
     """
     return cv2.morphologyEx(src, cv2.MORPH_OPEN, kernel)
 
@@ -330,6 +317,7 @@ def close(src, kernel):
     dilation of the original boundary shape.
 
     For more information see:
+
     1. https://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html
     2. http://homepages.inf.ed.ac.uk/rbf/HIPR2/close.htm
 
@@ -338,14 +326,16 @@ def close(src, kernel):
         kernel (numpy.ndarray) : a 2D array for structuring the morphological effect
 
     Returns:
-        a copy of the source image {numpy.ndarray} after apply the effect
+        numpy.ndarray: a copy of the source image after apply the effect.
     """
     return cv2.morphologyEx(src, cv2.MORPH_CLOSE, kernel)
 
 
 def erode(src, kernel):
     """ "erode" morphological operation. Erodes foreground pixels (white pixels).
+
     For more information see:
+
     1. https://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html
     2. http://homepages.inf.ed.ac.uk/rbf/HIPR2/erode.htm
 
@@ -354,14 +344,16 @@ def erode(src, kernel):
         kernel (numpy.ndarray) : a 2D array for structuring the morphological effect
 
     Returns:
-        a copy of the source image {numpy.ndarray} after apply the effect
+        numpy.ndarray: a copy of the source image after apply the effect.
     """
     return cv2.erode(src, kernel)
 
 
 def dilate(src, kernel):
     """ "dilate" morphological operation. Grows foreground pixels (white pixels).
+
     For more information see:
+
     1. https://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html
     2. http://homepages.inf.ed.ac.uk/rbf/HIPR2/dilate.htm
 
@@ -370,6 +362,6 @@ def dilate(src, kernel):
         kernel (numpy.ndarray) : a 2D array for structuring the morphological effect
 
     Returns:
-        a copy of the source image {numpy.ndarray} after apply the effect
+        numpy.ndarray: a copy of the source image after apply the effect.
     """
     return cv2.dilate(src, kernel)

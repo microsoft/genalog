@@ -16,24 +16,18 @@ class Degrader:
     """ An object for applying multiple degradation effects onto an image"""
 
     def __init__(self, effects):
-        """Initialize a Degrader object
-
+        """
         Arguments:
-            effects (list) : a list of 2-element tuple that defines:
+            effects (list) : a list of 2-element tuple (method_name, method_kwargs) where:
 
-                (method_name, method_kwargs)
+                :method_name: the name of the degradation method (method must be defined in 'genalog.degradation.effect')
+                :method_kwargs: the keyword arguments of the corresponding method
 
-            1. method_name:   the name of the degradation method
-                              (method must be defined in 'genalog.degradation.effect')
-            2. method_kwargs: the keyword arguments of the corresponding method
+        Example:
 
-            Example:
-
-            [
-                ("blur", {"radius": 3}),
-                ("bleed_through", {"alpha": 0.8),
-                ("morphology", {"operation": "open", "kernel_shape": (3,3), "kernel_type": "ones"}),
-            ]
+        [("blur", {"radius": 3}),
+        ("bleed_through", {"alpha": 0.8),
+        ("morphology", {"operation": "open", "kernel_shape": (3,3), "kernel_type": "ones"})]
 
             The example above will apply degradation effects to the images
             in the following sequence:

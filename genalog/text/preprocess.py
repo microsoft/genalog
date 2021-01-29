@@ -9,9 +9,8 @@ def remove_non_ascii(token, replacement=NON_ASCII_REPLACEMENT):
 
     Arguments:
         token (str) : a word token
-    Keyword Arguments:
-        replacement (str) : a replace character for non-ASCII characters
-            . Defaults to NON_ASCII_REPLACEMENT.
+        replacement (str, optional) : a replace character for non-ASCII characters.
+                                      Defaults to ``NON_ASCII_REPLACEMENT``.
     Returns:
         str -- a word token with non-ASCII characters removed
     """
