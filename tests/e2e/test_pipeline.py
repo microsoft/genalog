@@ -1,11 +1,11 @@
-import os
 import glob
+import os
 
 import numpy as np
 import pytest
 
-from genalog.pipeline import AnalogDocumentGeneration, generate_dataset_multiprocess
 from genalog.generation.document import DocumentGenerator
+from genalog.pipeline import AnalogDocumentGeneration, generate_dataset_multiprocess
 
 EXAMPLE_TEXT_FILE = "tests/unit/text/data/gt_1.txt"
 INPUT_TEXT_FILENAMES = glob.glob("tests/unit/text/data/gt_*.txt")

@@ -160,9 +160,10 @@ def align(gt, noise, gap_char=GAP_CHAR):
 
         1. ``len(aligned_gt) == len(aligned_noise)``
         2. ``number of tokens in gt == number of tokens in aligned_gt``
+
+    Example:
     ::
 
-            For example:
                     gt: "New York is big" (num_tokens = 4)
             aligned_gt: "N@ew @@York @is big@@" (num_tokens = 4)
 
@@ -316,6 +317,7 @@ def _is_valid_token(token, gap_char=GAP_CHAR):
 def parse_alignment(aligned_gt, aligned_noise, gap_char=GAP_CHAR):
     r"""Parse alignment to pair ground truth tokens with noise tokens
     ::
+
                     Case 1:         Case 2:         Case 3:         Case 4:         Case 5:
                     one-to-many     many-to-one     many-to-many    missing tokens  one-to-one
               gt    "New York"      "New York"      "New York"      "New York"      "New York"
@@ -332,24 +334,23 @@ def parse_alignment(aligned_gt, aligned_noise, gap_char=GAP_CHAR):
         gap_char (char, optional) : gap char used in alignment algorithm. Defaults to GAP_CHAR.
 
     Returns:
-        tuple -- a tuple of two 2D int arrays as follows:
-
-    (gt_to_noise_mapping, noise_to_gt_mapping)
+        tuple -- a tuple ``(gt_to_noise_mapping, noise_to_gt_mapping)`` of two 2D int arrays:
 
     where each array defines the mapping between aligned gt tokens
     to noise tokens and vice versa.
 
-    For example:
-
+    Example:
         Given input
         ::
-                aligned_gt: "N@ew York @is big"
-                            /\\   |    |   |
-            aligned_noise: "N ew@York kis big."
+
+                    aligned_gt: "N@ew York @is big"
+                                /\\   |    |   |
+                aligned_noise: "N ew@York kis big."
 
         The returned output will be:
         ::
-            ([[0,1],[1],[2],[3]], [[0],[0,1],[2],[3]])
+
+                ([[0,1],[1],[2],[3]], [[0],[0,1],[2],[3]])
     """
     # Pseudo-algorithm:
     #

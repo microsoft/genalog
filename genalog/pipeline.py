@@ -51,7 +51,7 @@ class AnalogDocumentGeneration(object):
             template (str) : name of html template to generate document from. (ex: "text_block.html.jinja")
             target_folder (str, optional) : folder path in which the generated images are stored. Defaults to None.
             resolution (int, optional) : resolution in dpi. Defaults to 300.
-        
+
         Raises:
             RuntimeError: when cannot write to disk at specified path
 

@@ -9,7 +9,7 @@ def blur(src, radius=5):
 
     Arguments:
         src (numpy.ndarray) : source image of shape (rows, cols)
-        radius (int, optional) : size of the square kernel, MUST be an odd integer. 
+        radius (int, optional) : size of the square kernel, MUST be an odd integer.
                                  Defaults to 5.
 
     Returns:
@@ -186,34 +186,35 @@ def create_2D_kernel(kernel_shape, kernel_type="ones"):
         kernel_type (str, optional) : type of kernel. Defaults to "ones".
     ::
 
-            All supported kernel types are below:
+        All supported kernel types are below:
 
-            "ones": kernel is filled with all 1s in shape (rows, cols)
-                        [[1,1,1],
-                         [1,1,1],
-                         [1,1,1]]
-            "upper_triangle": upper triangular matrix filled with ones
-                        [[1,1,1],
-                         [0,1,1],
-                         [0,0,1]]
-            "lower_triangle": lower triangular matrix filled with ones
-                        [[1,0,0],
-                         [1,1,0],
-                         [1,1,1]]
-            "x": "X" shape cross
-                        [[1,0,1],
-                         [0,1,0],
-                         [1,0,1]]
-            "plus": "+" shape cross
-                        [[0,1,0],
-                         [1,1,1],
-                         [0,1,0]]
-            "ellipse": elliptical kernel
-                        [[0, 0, 1, 0, 0],
-                         [1, 1, 1, 1, 1],
-                         [1, 1, 1, 1, 1],
-                         [1, 1, 1, 1, 1],
-                         [0, 0, 1, 0, 0]]
+        "ones": kernel is filled with all 1s in shape (rows, cols)
+                    [[1,1,1],
+                    [1,1,1],
+                    [1,1,1]]
+        "upper_triangle": upper triangular matrix filled with ones
+                    [[1,1,1],
+                    [0,1,1],
+                    [0,0,1]]
+        "lower_triangle": lower triangular matrix filled with ones
+                    [[1,0,0],
+                    [1,1,0],
+                    [1,1,1]]
+        "x": "X" shape cross
+                    [[1,0,1],
+                    [0,1,0],
+                    [1,0,1]]
+        "plus": "+" shape cross
+                    [[0,1,0],
+                    [1,1,1],
+                    [0,1,0]]
+        "ellipse": elliptical kernel
+                    [[0, 0, 1, 0, 0],
+                    [1, 1, 1, 1, 1],
+                    [1, 1, 1, 1, 1],
+                    [1, 1, 1, 1, 1],
+                    [0, 0, 1, 0, 0]]
+
     Raises:
         ValueError: if kernel is not a 2-element tuple or
                     kernel_type is not one of the supported values

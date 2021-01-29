@@ -195,7 +195,7 @@ def propagate_label_to_ocr(gt_labels, gt_tokens, ocr_tokens, use_anchor=True):
         gt_labels (list) : a list of NER label for ground truth token
         gt_tokens (list) : a list of ground truth string tokens
         ocr_tokens (list) : a list of OCR'ed text tokens
-        gap_char (char, optional) : gap char used in alignment algorithm. Defaults to ``alignment.GAP_CHAR.
+        gap_char (char, optional) : gap char used in alignment algorithm. Defaults to ``alignment.GAP_CHAR``.
         use_anchor (bool, optional) : use faster alignment method with anchors if set to True
             . Defaults to True.
 
@@ -497,25 +497,27 @@ def format_label_propagation(
         show_alignment (bool, optional) : if true, show alignment result . Defaults to True.
 
     Returns:
-        a string formatted for display as follows:
+        str: a string formatted for display as follows:
 
-            if show_alignment=TRUE
-                "
-                B-PLACE I-PLACE V  O     [gt_labels]
-                New     York    is big   [gt_txt]
-                New York is big          [aligned_gt]
-                ||||....|||||||
-                New @@@@ is big          [aligned_ocr]
-                New     is big           [ocr_txt]
-                B-PLACE V  O             [ocr_labels]
-                "
-            else
-                "
-                B-PLACE I-PLACE V  O     [gt_labels]
-                New     York    is big   [gt_txt]
-                New     is big           [ocr_txt]
-                B-PLACE V  O             [ocr_labels]
-                "
+    .. code-block:: python
+
+        if show_alignment:
+
+            "B-PLACE I-PLACE V  O"      # [gt_labels]
+            "New     York    is big"    # [gt_txt]
+            "New York is big"           # [aligned_gt]
+            "||||....|||||||"
+            "New @@@@ is big"           # [aligned_ocr]
+            "New     is big "           # [ocr_txt]
+            "B-PLACE V  O   "           # [ocr_labels]
+
+        else:
+
+            "B-PLACE I-PLACE V  O"     # [gt_labels]
+            "New     York    is big"   # [gt_txt]
+            "New     is big"           # [ocr_txt]
+            "B-PLACE V  O"             # [ocr_labels]
+
     """
 
     gt_label_str = format_labels(gt_tokens, gt_labels)

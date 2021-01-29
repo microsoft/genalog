@@ -6,13 +6,13 @@ OCR Metrics
 Accuracy = Correct Words/Total Words (in target strings)
 
 2. Count of edit distance ops:
-    insert, delete, substitutions; like in the paper "Deep Statistical Analysis of OCR Errors for Effective Post-OCR Processing".
-    This is based on Levenshtein edit distance.
+insert, delete, substitutions; like in the paper "Deep Statistical Analysis of OCR Errors for Effective Post-OCR Processing".
+This is based on Levenshtein edit distance.
 
 3. By looking at the gaps in alignment we also generate substitution dicts:
 e.g: if we have text "a worn coat" and ocr is "a wom coat" , "rn" -> "m" will be captured as a substitution
 since the rest of the segments align.The assumption here is that we do not expect to have very long gaps in alignment,
- hence collecting and counting these substitutions will be managable.
+hence collecting and counting these substitutions will be managable.
 
 """
 import argparse

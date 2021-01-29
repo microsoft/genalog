@@ -36,24 +36,27 @@ class Document(object):
             content (CompositeContent) : a iterable object whose elements
             template (Template) : a jinja2.Template object
 
-        Optional Argument:
-            styles [dict] -- a kwargs dictionary (context) whose keys and values are
-                the template variable and their respective values
+        Other Parameters:
+            styles (dict) : a kwargs dictionary (context) whose keys and values are
+            the template variable and their respective values
 
-            Example:
-                    {
-                        "font_family": "Calibri",
-                        "font_size": "10px",
-                        "hyphenate": True,
-                    }
+        Example:
+        ::
 
-            Note that this assumes that "font_family", "font_size", "hyphenate" are valid
-            variables declared in the loaded template. There will be **NO SIDE-EFFECT**
-            providing an variable undefined in the template.
+            {
+                "font_family": "Calibri",
+                "font_size": "10px",
+                "hyphenate": True,
+            }
 
-            You can also provide these key-value pairs via Python keyword arguments:
+        **NOTE** that this assumes that "font_family", "font_size", "hyphenate" are valid
+        variables declared in the loaded template. There will be **NO SIDE-EFFECT**
+        providing an variable undefined in the template.
 
-                Document(content, template, font_family="Calibri, font_size="10px", hyphenate=True)
+        You can also provide these key-value pairs via Python keyword arguments:
+        ::
+
+            Document(content, template, font_family="Calibri, font_size="10px", hyphenate=True)
         """
         self.content = content
         self.template = template
@@ -72,7 +75,7 @@ class Document(object):
         This method will be used mostly for testing purpose.
 
         Returns:
-            [str] -- compiled Html template in unicode string
+            str : compiled Html template in unicode string
         """
         return self.template.render(content=self.content, **self.styles)
 
@@ -173,16 +176,18 @@ class Document(object):
     def update_style(self, **style):
         """Update template variables that controls the document style and re-compile the document to reflect the style change.
 
-        Optional Arguments:
+        Other Parameters:
             style (dict) : a kwargs dictionary whose keys and values are
-                the template variable and their respective values
+            the template variable and their respective values
 
-            Example:
-                    {
-                        "font_family": "Calibri",
-                        "font_size": "10px",
-                        "hyphenate": True
-                    }
+        Example:
+        ::
+
+            {
+                "font_family": "Calibri",
+                "font_size": "10px",
+                "hyphenate": True
+            }
 
         """
         self.styles.update(style)
@@ -233,7 +238,7 @@ class DocumentGenerator:
             template_name (str) : target of the template
 
         Returns:
-            [bool] -- True if keeping the template in the list. False otherwise.
+            bool : True if keeping the template in the list. False otherwise.
         """
         TEMPLATES_TO_REMOVE = [".css", "base.html.jinja", "macro"]
         if any(name in template_name for name in TEMPLATES_TO_REMOVE):
@@ -246,29 +251,31 @@ class DocumentGenerator:
 
         Arguments:
             style_combination (dict) : a dictionary {str: list} enlisting the combinations
-                of values to generate per style property
-                . Defaults to None.
+            of values to generate per style property. Defaults to None.
 
-                Example:
-                    {
-                        "font_family": ["Calibri", "Times"],
-                        "font_size": ["10px", "12px"],
-                        "hyphenate": [True],
-                    }
+        Example:
+        ::
 
-                    will produce documents with the following combinations of styles:
+            {
+                "font_family": ["Calibri", "Times"],
+                "font_size": ["10px", "12px"],
+                "hyphenate": [True],
+            }
 
-                        ("Calibri", "10px", True)
-                        ("Times"  , "10px", True)
-                        ("Calibri", "12px", True)
-                        ("Times"  , "12px", True)
+        will produce documents with the following combinations of styles:
+        ::
 
-                Note that this assumes that "font_family", "font_size", "hyphenate" are valid
-                variables declared in the loaded template. There will be NO side-effect providing
-                an variable UNDEFINED in the template.
+            ("Calibri", "10px", True)
+            ("Times"  , "10px", True)
+            ("Calibri", "12px", True)
+            ("Times"  , "12px", True)
 
-                If this parameter is not provided, generator will use default document
-                styles: DEFAULT_STYLE_COMBINATION
+        **NOTE** that this assumes that ``font_family``, ``font_size``, ``hyphenate`` are valid
+        variables declared in the loaded template. There will be NO side-effect providing
+        an variable UNDEFINED in the template.
+
+        If this parameter is not provided, generator will use default document
+        styles: ``DEFAULT_STYLE_COMBINATION``.
         """
         self.styles_to_generate = DocumentGenerator.expand_style_combinations(
             style_combinations
@@ -283,7 +290,7 @@ class DocumentGenerator:
                 These templates must be located in the self.template_env
 
         Yields:
-            [Document] -- a Document Object
+            Document : a Document Object
         """
         for template_name in templates_to_render:
             if template_name not in self.template_list:
@@ -298,34 +305,39 @@ class DocumentGenerator:
     def expand_style_combinations(styles):
         """Expand the list of style values into all possible style combinations
 
-            Example:
-                styles =
-                {
-                    "font_family": ["Calibri", "Times"],
-                    "font_size": ["10px", "12px"],
-                    "hyphenate": [True],
-                }
-
-                this method will return:
-                [
-                    {"font_family": "Calibri", "font_size": "10px", "hyphenate":True }
-                    {"font_family": "Times",   "font_size": "10px", "hyphenate":True }
-                    {"font_family": "Calibri", "font_size": "12px", "hyphenate":True }
-                    {"font_family": "Times",   "font_size": "12px", "hyphenate":True }
-                ]
-
-            The result dictionaries are intended to be used as a kwargs to initialize a
-            Document Object:
-
-                Example:
-                    Document(template, content, **{"font_family": "Calibri", "font_size": ...})
-
         Arguments:
             styles (dict) : a dictionary {str: list} enlisting the combinations of values
-                             to generate per style property
+            to generate per style property
 
         Return:
-            list -- a list of dictionaries
+            list : a list of dictionaries
+
+        Example:
+        ::
+
+            styles =
+            {
+                "font_family": ["Calibri", "Times"],
+                "font_size": ["10px", "12px"],
+                "hyphenate": [True],
+            }
+
+        This method will return:
+        ::
+
+            [
+                {"font_family": "Calibri", "font_size": "10px", "hyphenate":True }
+                {"font_family": "Times",   "font_size": "10px", "hyphenate":True }
+                {"font_family": "Calibri", "font_size": "12px", "hyphenate":True }
+                {"font_family": "Times",   "font_size": "12px", "hyphenate":True }
+            ]
+
+        The result dictionaries are intended to be used as a kwargs to initialize a
+        ``Document`` object:
+        ::
+
+            Document(template, content, **{"font_family": "Calibri", "font_size": ...})
+
         """
         # return empty list if input is empty
         if not styles:

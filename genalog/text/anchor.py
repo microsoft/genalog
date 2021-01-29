@@ -1,16 +1,16 @@
 """
-    Baseline alignment algorithm is slow on long documents.
-    The idea is to break down the longer text into smaller fragments
-    for quicker alignment on individual pieces. We refer "anchor words"
-    as these points of breakage.
+Baseline alignment algorithm is slow on long documents.
+The idea is to break down the longer text into smaller fragments
+for quicker alignment on individual pieces. We refer "anchor words"
+as these points of breakage.
 
-    The bulk of this algorithm is to identify these "anchor words".
+The bulk of this algorithm is to identify these "anchor words".
 
-    This is an re-implementation of the algorithm in this paper
-    "A Fast Alignment Scheme for Automatic OCR Evaluation of Books"
-        (https://ieeexplore.ieee.org/document/6065412)
+This is an re-implementation of the algorithm in this paper
+"A Fast Alignment Scheme for Automatic OCR Evaluation of Books"
+(https://ieeexplore.ieee.org/document/6065412)
 
-    We rely on `genalog.text.alignment` to align the subsequences.
+We rely on `genalog.text.alignment` to align the subsequences.
 """
 import itertools
 from collections import Counter
@@ -51,7 +51,7 @@ def segment_len(tokens):
     Arguments:
         segment (list) : a list of tokens
     Returns:
-        int -- the length of the segment
+        int : the length of the segment
     """
     return sum(map(len, tokens))
 
@@ -64,10 +64,10 @@ def get_word_map(unique_words, src_tokens):
         src_tokens (list) : a list of tokens
 
     Returns:
-        list -- a `word_map`: a list of word corrdinate tuples (str, int) defined as follow:
-            (word, word_index)
-            1. `word` is a typical word token
-            2. `word_index` is the index of the word in the source token array
+        list : a ``word_map``: a list of word corrdinate tuples ``(word, word_index)`` defined as follow:
+
+        1. ``word`` is a typical word token
+        2. ``word_index`` is the index of the word in the source token array
     """
     # Find the indices of the unique words in the source text
     unique_word_indices = map(src_tokens.index, unique_words)
@@ -88,10 +88,14 @@ def get_anchor_map(gt_tokens, ocr_tokens, min_anchor_len=2):
                                          Defaults to 2.
 
     Returns:
-        tuple -- a 2-element tuple (list, list) defined as follow:
-            (anchor_map_gt, anchor_map_ocr)
-            1. `anchor_map_gt` is a `word_map` that locates all the anchor words in the gt tokens
-            2. `anchor_map_gt` is a `word_map` that locates all the anchor words in the ocr tokens
+        tuple: a 2-element ``(anchor_map_gt, anchor_map_ocr)`` tuple:
+
+    1. ``anchor_map_gt`` is a ``word_map`` that locates all the anchor words in the gt tokens
+    2. ``anchor_map_gt`` is a ``word_map`` that locates all the anchor words in the ocr tokens
+
+    And ``len(anchor_map_gt) == len(anchor_map_ocr)``
+
+    ::
 
         For example:
             Input:
@@ -99,8 +103,7 @@ def get_anchor_map(gt_tokens, ocr_tokens, min_anchor_len=2):
                 ocr_tokens: ["c", "b", "a"]
             Ourput:
                 ([("b", 0), ("a", 1)], [("b", 1), ("a", 2)])
-    Invariant:
-        1. len(anchor_map_gt) == len(anchor_map_ocr)
+
     """
     # 1. Get unique words common in both gt and ocr
     unique_words_gt = get_unique_words(gt_tokens)
@@ -168,7 +171,7 @@ def find_anchor_recur(
 
     Returns:
         tuple : two lists of token indices where each list is the position of the anchor in the input
-                ``gt_tokens`` and ``ocr_tokens``
+        ``gt_tokens`` and ``ocr_tokens``
     """
     # 1. Try to find anchor words
     anchor_word_map_gt, anchor_word_map_ocr = get_anchor_map(gt_tokens, ocr_tokens)
@@ -226,7 +229,7 @@ def align_w_anchor(gt, ocr, gap_char=GAP_CHAR, max_seg_length=MAX_ALIGN_SEGMENT_
     breaks the strings into smaller segments with anchor words.
     Then these smaller segments are aligned.
 
-    NOTE: this function shares the same contract as `genalog.text.alignment.align()`
+    **NOTE:** this function shares the same contract as `genalog.text.alignment.align()`
     These two methods are interchangeable and their alignment results should be similar.
 
     ::
