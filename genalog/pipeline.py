@@ -48,14 +48,14 @@ class AnalogDocumentGeneration(object):
         Use generate_all_styles() instead.
 
         Arguments:
-            full_text_path {str} -- full filepath of a text document (i.e /dataset/doc.txt)
-            template {str} -- name of html template to generate document from
+            full_text_path (str) : full filepath of a text document (i.e /dataset/doc.txt)
+            template (str) : name of html template to generate document from
                 Ex: "text_block.html.jinja"
 
         Keyword Arguments:
-            target_folder {str} -- folder path in which the generated images are stored
-                (default: {None})
-            resolution {int} -- resolution in dpi (default: {300})
+            target_folder (str) : folder path in which the generated images are stored
+                . Defaults to None.
+            resolution (int) : resolution in dpi . Defaults to 300.
 
         Raises:
             RuntimeError: when cannot write to disk at specified path

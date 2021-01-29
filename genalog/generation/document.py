@@ -33,8 +33,8 @@ class Document(object):
         """Initialize a Document object with source template and content
 
         Arguments:
-            content {CompositeContent} -- a iterable object whose elements
-            template {Template} -- a jinja2.Template object
+            content (CompositeContent) : a iterable object whose elements
+            template (Template) : a jinja2.Template object
 
         Optional Argument:
             styles [dict] -- a kwargs dictionary (context) whose keys and values are
@@ -81,10 +81,10 @@ class Document(object):
 
         Arguments:
             target -- a filename, file-like object, or None
-            split_pages {bool} -- true if saving each document page as a separate file.
-            zoom {int} -- the zoom factor in PDF units per CSS units.
+            split_pages (bool) : true if saving each document page as a separate file.
+            zoom (int) : the zoom factor in PDF units per CSS units.
 
-            split_pages {bool} -- true if save each document page as a separate file.
+            split_pages (bool) : true if save each document page as a separate file.
 
         Returns:
             The PDF as bytes if target is not provided or None, otherwise None (the PDF is written to target)
@@ -96,8 +96,8 @@ class Document(object):
 
         Arguments:
             target -- a filename, file-like object, or None
-            split_pages {bool} -- true if save each document page as a separate file.
-            resolution {int} -- the output resolution in PNG pixels per CSS inch. At 300 dpi (the default),
+            split_pages (bool) : true if save each document page as a separate file.
+            resolution (int) : the output resolution in PNG pixels per CSS inch. At 300 dpi (the default),
                                 PNG pixels match the CSS px unit.
 
         Returns:
@@ -125,8 +125,8 @@ class Document(object):
         """Render document as a numpy.ndarray.
 
         Keyword Arguments:
-            resolution {int} -- in units dpi (default: {300})
-            channel {str} -- abbreviation for color channels (default: {"GRAYSCALE"})
+            resolution (int) : in units dpi . Defaults to 300.
+            channel (str) : abbreviation for color channels . Defaults to "GRAYSCALE".
                              available values are: "GRAYSCALE", "RGB", "RGBA", "BGRA", "BGR"
 
             Note that "RGB" is 3-channel, "RGBA" is 4-channel and "GRAYSCALE" is single channel
@@ -173,7 +173,7 @@ class Document(object):
         """Update template variables that controls the document style and re-compile the document to reflect the style change.
 
         Optional Arguments:
-            style {dict} -- a kwargs dictionary whose keys and values are
+            style (dict) : a kwargs dictionary whose keys and values are
                 the template variable and their respective values
 
             Example:
@@ -199,7 +199,7 @@ class DocumentGenerator:
         """Initialize a DocumentGenerator class
 
         Keyword Arguments:
-            template_path {str} -- filepath of custom templates (default: {None})
+            template_path (str) : filepath of custom templates . Defaults to None.
                 *** Important ***  if not set, will use the default templates from the
                                    package "genalog.generation.templates".
         """
@@ -228,7 +228,7 @@ class DocumentGenerator:
         This function filters out non-html templates and base templates
 
         Arguments:
-            template_name {str} -- target of the template
+            template_name (str) : target of the template
 
         Returns:
             [bool] -- True if keeping the template in the list. False otherwise.
@@ -243,9 +243,9 @@ class DocumentGenerator:
         Set new styles to generate.
 
         Arguments:
-            style_combination {dict} -- a dictionary {str: list} enlisting the combinations
+            style_combination (dict) : a dictionary {str: list} enlisting the combinations
                 of values to generate per style property
-                (default: {None})
+                . Defaults to None.
 
                 Example:
                     {
@@ -276,8 +276,8 @@ class DocumentGenerator:
         """Create a Document generator
 
         Arguments:
-            content {list} -- a list [str] of string to populate the template
-            templates_to_render {list} -- a list [str] or templates to render
+            content (list) : a list [str] of string to populate the template
+            templates_to_render (list) : a list [str] or templates to render
                 These templates must be located in the self.template_env
 
         Yields:
@@ -319,7 +319,7 @@ class DocumentGenerator:
                     Document(template, content, **{"font_family": "Calibri", "font_size": ...})
 
         Arguments:
-            styles {dict} -- a dictionary {str: list} enlisting the combinations of values
+            styles (dict) : a dictionary {str: list} enlisting the combinations of values
                              to generate per style property
 
         Return:

@@ -19,7 +19,7 @@ class Degrader:
         """Initialize a Degrader object
 
         Arguments:
-            effects {list} -- a list of 2-element tuple that defines:
+            effects (list) : a list of 2-element tuple that defines:
 
                 (method_name, method_kwargs)
 
@@ -49,7 +49,7 @@ class Degrader:
         """Validate the effects list
 
         Arguments:
-            effects {list} -- a list of 2-element tuple that defines:
+            effects (list) : a list of 2-element tuple that defines:
 
                 (method_name, method_kwargs)
 
@@ -109,7 +109,7 @@ class Degrader:
         """Apply degradation effects in sequence
 
         Arguments:
-            src {numpy.ndarray} -- source image of shape (rows, cols)
+            src (numpy.ndarray) : source image of shape (rows, cols)
 
         Returns:
              a copy of the source image {numpy.ndarray} after apply the effects
@@ -132,7 +132,7 @@ class Degrader:
         the keyword argument dictionary
 
         Arguments:
-            kwargs {dict} -- keyword argument dictionary
+            kwargs (dict) : keyword argument dictionary
 
             Ex: {"src": ImageState.ORIGINAL_STATE, "radius": 5}
 

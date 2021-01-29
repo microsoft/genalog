@@ -8,10 +8,10 @@ def remove_non_ascii(token, replacement=NON_ASCII_REPLACEMENT):
     """Remove non ascii characters in a token
 
     Arguments:
-        token {str} -- a word token
+        token (str) : a word token
     Keyword Arguments:
-        replacement {str} -- a replace character for non-ASCII characters
-            (Default: {NON_ASCII_REPLACEMENT})
+        replacement (str) : a replace character for non-ASCII characters
+            . Defaults to NON_ASCII_REPLACEMENT.
     Returns:
         str -- a word token with non-ASCII characters removed
     """
@@ -27,7 +27,7 @@ def tokenize(s):
     """Tokenize string
 
     Arguments:
-        s {str} -- aligned string
+        s (str) : aligned string
 
     Returns:
         a list of tokens
@@ -40,7 +40,7 @@ def join_tokens(tokens):
     """Join a list of tokens into a string
 
     Arguments:
-        tokens {list} -- a list of tokens
+        tokens (list) : a list of tokens
 
     Returns:
         a string with space-separated tokens

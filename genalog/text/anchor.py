@@ -29,11 +29,11 @@ def get_unique_words(tokens, case_sensitive=False):
     """Get a set of unique words from a Counter dictionary of word occurrences
 
     Arguments:
-        d {dict} -- a Counter dictionary of word occurrences
+        d (dict) : a Counter dictionary of word occurrences
 
     Keyword Arguments:
-        case_sensitive {bool} -- whether unique words are case sensitive
-            (default: {False})
+        case_sensitive (bool) : whether unique words are case sensitive
+            . Defaults to False.
 
     Returns:
         a set of unique words (original alphabetical case of the word is preserved)
@@ -51,7 +51,7 @@ def segment_len(tokens):
     """Get length of the segment
 
     Arguments:
-        segment {list} -- a list of tokens
+        segment (list) : a list of tokens
     Returns:
         int -- the length of the segment
     """
@@ -62,8 +62,8 @@ def get_word_map(unique_words, src_tokens):
     """Arrange the set of unique words by the order they original appear in the text
 
     Arguments:
-        unique_words {set} -- a set of unique words
-        src_tokens {list} -- a list of tokens
+        unique_words (set) : a set of unique words
+        src_tokens (list) : a list of tokens
 
     Returns:
         list -- a `word_map`: a list of word corrdinate tuples (str, int) defined as follow:
@@ -84,12 +84,12 @@ def get_anchor_map(gt_tokens, ocr_tokens, min_anchor_len=2):
     and ocr text into smaller text fragment for faster alignment.
 
     Arguments:
-        gt_tokens {list} -- a list of ground truth tokens
-        ocr_tokens {list} -- a list of tokens from OCR'ed document
+        gt_tokens (list) : a list of ground truth tokens
+        ocr_tokens (list) : a list of tokens from OCR'ed document
 
     Keyword Arguments:
-        min_anchor_len {int} -- minimum len of the anchor word
-            (default: {2})
+        min_anchor_len (int) : minimum len of the anchor word
+            . Defaults to 2.
 
     Returns:
         tuple -- a 2-element tuple (list, list) defined as follow:
@@ -160,14 +160,14 @@ def find_anchor_recur(
     """Recursively find anchor positions in the gt and ocr text
 
     Arguments:
-        gt_tokens {list} -- a list of ground truth tokens
-        ocr_tokens {list} -- a list of tokens from OCR'ed document
+        gt_tokens (list) : a list of ground truth tokens
+        ocr_tokens (list) : a list of tokens from OCR'ed document
 
     Keyword Arguments:
-        start_pos {int} -- a constant to add to all the resulting indices
-            (default: {0})
-        max_seg_length {int} -- trigger recursion if any text segment is larger than this
-            (default: {MAX_ALIGN_SEGMENT_LENGTH})
+        start_pos (int) : a constant to add to all the resulting indices
+            . Defaults to 0.
+        max_seg_length (int) : trigger recursion if any text segment is larger than this
+            . Defaults to MAX_ALIGN_SEGMENT_LENGTH.
 
     Raises:
         ValueError: when there different number of anchor points in gt and ocr.
@@ -258,12 +258,12 @@ def align_w_anchor(gt, ocr, gap_char=GAP_CHAR, max_seg_length=MAX_ALIGN_SEGMENT_
         And run sequence alignment on each pair.
 
     Arguments:
-        gt {str} -- ground truth text
-        noise {str} -- text with ocr noise
+        gt (str) : ground truth text
+        noise (str) : text with ocr noise
 
     Keyword Argument:
-        gap_char {str} -- gap char used in alignment algorithm (default: {GAP_CHAR})
-        max_seg_length {int} -- maximum segment length. Segments longer than this threshold
+        gap_char (str) : gap char used in alignment algorithm . Defaults to GAP_CHAR.
+        max_seg_length (int) : maximum segment length. Segments longer than this threshold
             will continued be split recursively into smaller segment.
 
     Returns:

@@ -35,14 +35,14 @@ def _align_seg(
     calls the sequence alignment algorithm (Needleman-Wunsch)
 
     Arguments:
-        gt {str} -- a ground truth string
-        noise {str} -- a string with ocr noise
+        gt (str) : a ground truth string
+        noise (str) : a string with ocr noise
 
     Keyword Arguments:
-        match_reward {int} -- reward for matching characters        (default: {MATCH_REWARD})
-        mismatch_pen {int} -- penalty for mistmatching characters   (default: {MISMATCH_PENALTY})
-        gap_pen      {int} -- penalty for creating a gap            (default: {GAP_PENALTY})
-        gap_ext_pen  {int} -- penalty for extending a gap           (default: {GAP_EXT_PENALTY})
+        match_reward (int) : reward for matching characters        . Defaults to MATCH_REWARD.
+        mismatch_pen (int) : penalty for mistmatching characters   . Defaults to MISMATCH_PENALTY.
+        gap_pen      (int) : penalty for creating a gap            . Defaults to GAP_PENALTY.
+        gap_ext_pen  (int) : penalty for extending a gap           . Defaults to GAP_EXT_PENALTY.
 
     Returns:
         list -- a list of alignment tuples. Each alignment tuple
@@ -52,6 +52,7 @@ def _align_seg(
             (aligned_gt, aligned_noise, alignment_score, alignment_start, alignment_end)
 
         Example:
+        ::
             [
                 ("alignm@ent", "alignrnent", 10, 0, 10),
                 ("align@ment", "alignrnent", 10, 0, 10),
@@ -111,9 +112,9 @@ def _select_alignment_candidates(alignments, target_num_gt_tokens):
         This method is to search for such candidate that satisfy the invariant.
 
     Arguments:
-        alignments {list} -- a list of alignment tuples as follows:
+        alignments (list) : a list of alignment tuples as follows:
                             [(str1, str2, alignment_score, alignment_start, alignment_end), (str1, str2, ...), ...]
-        target_num_gt_tokens {int} -- the number of token in the aligned ground truth string should have
+        target_num_gt_tokens (int) : the number of token in the aligned ground truth string should have
 
     Raises:
         ValueError: raises this error if
@@ -146,25 +147,23 @@ def _select_alignment_candidates(alignments, target_num_gt_tokens):
 def align(gt, noise, gap_char=GAP_CHAR):
     """Align two text segments via sequence alignment algorithm
 
-    NOTE: this algorithm is O(N^2) and is NOT efficient for longer text.
+    **NOTE**: this algorithm is O(N^2) and is NOT efficient for longer text.
     Please refer to `genalog.text.anchor` for faster alignment on longer strings.
 
     Arguments:
-        gt {str} -- ground true text (should not contain GAP_CHAR)
-        noise {str} -- str with ocr noise (should not contain GAP_CHAR)
-
-    Keyword Arguments:
-        gap_char {char} -- gap char used in alignment algorithm (default: {GAP_CHAR})
+        gt (str) : ground true text (should not contain GAP_CHAR)
+        noise (str) : str with ocr noise (should not contain GAP_CHAR)
+        gap_char (char, optional) : gap char used in alignment algorithm (default: GAP_CHAR)
 
     Returns:
-        a tuple (str, str) of aligned ground truth and noise:
-            (aligned_gt, aligned_noise)
+        tuple(str, str) : a tuple of aligned ground truth and noise
 
     Invariants:
         The returned aligned strings will satisfy the following invariants:
         1. len(aligned_gt) == len(aligned_noise)
         2. number of tokens in gt == number of tokens in aligned_gt
             For example:
+            ::
                     gt: "New York is big" (num_tokens = 4)
             aligned_gt: "N@ew @@York @is big@@" (num_tokens = 4)
 
@@ -193,8 +192,8 @@ def _format_alignment(align1, align2):
     """Wrapper function for Bio.pairwise2.format_alignment()
 
     Arguments:
-        align1 {str} -- alignment str
-        align2 {str} -- second str for alignment
+        align1 (str) : alignment str
+        align2 (str) : second str for alignment
 
     Returns:
         a string with formatted alignment.
@@ -221,8 +220,8 @@ def _find_token_start(s, index):
     """Find the position of the start of token
 
     Arguments:
-        s {str} -- string to search in
-        index {int} -- index to begin search from
+        s (str) : string to search in
+        index (int) : index to begin search from
 
     Returns:
         - position {int} of the first non-whitespace character
@@ -250,8 +249,8 @@ def _find_token_end(s, index):
         So, for single character string (eg. "c"), it will return 0.
 
     Arguments:
-        s {str} -- string to search in
-        index {int} -- index to begin search from
+        s (str) : string to search in
+        index (int) : index to begin search from
 
     Returns:
         - position {int} of the first non-whitespace character
@@ -279,13 +278,14 @@ def _find_next_token(s, start):
         So, for single character string (eg. "c"), it will return (0,0)
 
     Arguments:
-        s {str} -- the string to search token in
-        start {int} -- the starting index to start search in
+        s (str) : the string to search token in
+        start (int) : the starting index to start search in
 
     Returns:
         a tuple of (int, int) responding to the start and end indices of
         a token in the given s.
     """
+
     token_start = _find_token_start(s, start)
     token_end = _find_token_end(s, token_start)
     return token_start, token_end
@@ -301,13 +301,13 @@ def _is_valid_token(token, gap_char=GAP_CHAR):
         **Important: this method expects one token and not multiple space-separated tokens
 
     Arguments:
-        token {str} -- input string token
+        token (str) : input string token
 
     Keyword Arguments:
-        gap_char {char} -- gap char used in alignment algorithm (default: {GAP_CHAR})
+        gap_char (char) : gap char used in alignment algorithm . Defaults to GAP_CHAR.
 
     Returns:
-        bool-- True if is a valid token, false otherwise
+        (bool) : True if is a valid token, false otherwise
     """
     # Matches multiples of 'gap_char' that are padded with whitespace characters on either end
     INVALID_TOKEN_REGEX = (
@@ -317,43 +317,44 @@ def _is_valid_token(token, gap_char=GAP_CHAR):
 
 
 def parse_alignment(aligned_gt, aligned_noise, gap_char=GAP_CHAR):
-    """Parse alignment to pair ground truth tokens with noise tokens
-
+    r"""Parse alignment to pair ground truth tokens with noise tokens
+    ::
                     Case 1:         Case 2:         Case 3:         Case 4:         Case 5:
                     one-to-many     many-to-one     many-to-many    missing tokens  one-to-one
-                                                 (Case 1&2 Composite)
               gt    "New York"      "New York"      "New York"      "New York"      "New York"
                       |   |           |   |           |   |           |   |           |   |
        aligned_gt   "New Yo@rk"     "New York"      "N@ew York"     "New York"      "New York"
-                      |   /\\          \\/            /\\/            |   |           |   |
-    aligned_noise   "New Yo rk"     "New@York"      "N ew@York"     "New @@@@"      "New York"
+                      |   /\           \/             /\/             |   |           |   |
+     aligned_noise  "New Yo rk"     "New@York"      "N ew@York"     "New @@@@"      "New York"
                       |   | |           |            |    |           |               |   |
             noise   "New Yo rk"     "NewYork"       "N ewYork"      "New"           "New York"
 
     Arguments:
-        aligned_gt {str} -- ground truth string aligned with the nose string
-        aligned_noise {str} -- noise string aligned with the ground truth
+        aligned_gt (str) : ground truth string aligned with the nose string
+        aligned_noise (str) : noise string aligned with the ground truth
 
     Keyword Arguments:
-        gap_char {char} -- gap char used in alignment algorithm (default: {GAP_CHAR})
+        gap_char (char) : gap char used in alignment algorithm . Defaults to GAP_CHAR.
 
     Returns:
-        a tuple (list, list) of two 2D int arrays as follows:
+        tuple -- a tuple of two 2D int arrays as follows:
 
-            (gt_to_noise_mapping, noise_to_gt_mapping)
+    (gt_to_noise_mapping, noise_to_gt_mapping)
 
-        where each array defines the mapping between aligned gt tokens
-        to noise tokens and vice versa.
+    where each array defines the mapping between aligned gt tokens
+    to noise tokens and vice versa.
 
-        For example:
+    For example:
 
-            Given input
-                   aligned_gt: "N@ew York @is big"
-                                /\\   |    |   |
-                aligned_noise: "N ew@York kis big."
+        Given input
+        ::
+                aligned_gt: "N@ew York @is big"
+                            /\\   |    |   |
+            aligned_noise: "N ew@York kis big."
 
-            The returned output will be:
-                ([[0,1],[1],[2],[3]], [[0],[0,1],[2],[3]])
+        The returned output will be:
+        ::
+            ([[0,1],[1],[2],[3]], [[0],[0,1],[2],[3]])
     """
     # Pseudo-algorithm:
     #

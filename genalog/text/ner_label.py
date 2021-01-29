@@ -52,7 +52,7 @@ def _convert_to_begin_label(label):
     """Convert an inside label, or I-label, (ex. I-PLACE) to a begin label, or B-Label, (ex. B-PLACE)
 
     Arguments:
-        label {str} -- an NER label
+        label (str) : an NER label
 
     Returns:
         an NER label. This method DOES NOT alter the label unless it is an inside label
@@ -67,7 +67,7 @@ def _convert_to_inside_label(label):
     """Convert a begin label, or B-label, (ex. B-PLACE) to an inside label, or I-Label, (ex. B-PLACE)
 
     Arguments:
-        label {str} -- an NER label
+        label (str) : an NER label
 
     Returns:
         an NER label. This method DOES NOT alter the label unless it is a begin label
@@ -82,9 +82,9 @@ def _is_missing_begin_label(begin_label, inside_label):
     """Validate a inside label given an begin label
 
     Arguments:
-        begin_label {str} -- a begin NER label used to
+        begin_label (str) : a begin NER label used to
             check if the given label is part of a multi-token label
-        inside_label {str} -- an inside label to check for its validity
+        inside_label (str) : an inside label to check for its validity
 
     Returns:
         True if the inside label paired with the begin_label. False otherwise.
@@ -111,7 +111,7 @@ def correct_ner_labels(labels):
     1. Missing B-Label (i.e. I-PLACE I-PLACE -> B-PLACE I-PLACE)
 
     Arguments:
-        labels {list} -- list of NER labels
+        labels (list) : list of NER labels
 
     Returns:
         a list of NER labels
@@ -152,7 +152,7 @@ def _select_from_multiple_ner_labels(label_indices):
     Currently the FIRST label takes precedence.
 
     Arguments:
-        label_indices {list} -- a list of token indices
+        label_indices (list) : a list of token indices
 
     Returns:
         a specific index
@@ -165,8 +165,8 @@ def _find_gap_char_candidates(gt_tokens, ocr_tokens):
     """Find a set of suitable GAP_CHARs based not in the set of input characters
 
     Arguments:
-        gt_tokens {list} -- a list of tokens
-        ocr_tokens {list} -- a list of tokens
+        gt_tokens (list) : a list of tokens
+        ocr_tokens (list) : a list of tokens
 
     Returns:
         (set, set) -- a 2-element tuple of
@@ -192,14 +192,14 @@ def propagate_label_to_ocr(gt_labels, gt_tokens, ocr_tokens, use_anchor=True):
                 4. string with spaces ("  ")
 
     Arguments:
-        gt_labels {list} -- a list of NER label for ground truth token
-        gt_tokens {list} -- a list of ground truth string tokens
-        ocr_tokens {list} -- a list of OCR'ed text tokens
+        gt_labels (list) : a list of NER label for ground truth token
+        gt_tokens (list) : a list of ground truth string tokens
+        ocr_tokens (list) : a list of OCR'ed text tokens
 
     Keyword Arguments:
-        gap_char {char} -- gap char used in alignment algorithm (default: {alignment.GAP_CHAR})
-        use_anchor {bool} -- use faster alignment method with anchors if set to True
-            (default: {True})
+        gap_char (char) : gap char used in alignment algorithm . Defaults to alignment.GAP_CHAR.
+        use_anchor (bool) : use faster alignment method with anchors if set to True
+            . Defaults to True.
 
     Raises:
         GapCharError:
@@ -276,14 +276,14 @@ def _propagate_label_to_ocr(
        ocr label    o   o     o         V          O  O    V         O
 
     Arguments:
-        gt_labels {list} -- a list of NER label for ground truth token
-        gt_tokens {list} -- a list of ground truth string tokens
-        ocr_tokens {list} -- a list of OCR'ed text tokens
+        gt_labels (list) : a list of NER label for ground truth token
+        gt_tokens (list) : a list of ground truth string tokens
+        ocr_tokens (list) : a list of OCR'ed text tokens
 
     Keyword Arguments:
-        gap_char {char} -- gap char used in alignment algorithm (default: {alignment.GAP_CHAR})
-        use_anchor {bool} -- use faster alignment method with anchors if set to True
-            (default: {True})
+        gap_char (char) : gap char used in alignment algorithm . Defaults to alignment.GAP_CHAR.
+        use_anchor (bool) : use faster alignment method with anchors if set to True
+            . Defaults to True.
     Raises:
         ValueError: when
             1. there is unequal number of gt_tokens and gt_labels
@@ -439,12 +439,12 @@ def format_labels(tokens, labels, label_top=True):
     """Format tokens and their NER label for display
 
     Arguments:
-        tokens {list} -- a list of word tokens
-        labels {list} -- a list of NER labels
+        tokens (list) : a list of word tokens
+        labels (list) : a list of NER labels
 
     Keyword Arguments:
-        label_top {bool} -- True if label is place on top of the token
-                             (default: {True})
+        label_top (bool) : True if label is place on top of the token
+                             . Defaults to True.
 
     Returns:
         a str with NER label align to the token it is labeling
@@ -492,15 +492,15 @@ def format_label_propagation(
     """Format label propagation for display
 
     Arguments:
-        gt_tokens {list} -- list of ground truth tokens
-        gt_labels {list} -- list of NER labels for ground truth tokens
-        ocr_tokens {list} -- list of OCR'ed text tokens
-        ocr_labels {list} -- list of NER labels for the OCR'ed tokens
-        aligned_gt {str} -- ground truth string aligned with the OCR'ed text
-        aligned_ocr {str} -- OCR'ed text aligned with ground truth
+        gt_tokens (list) : list of ground truth tokens
+        gt_labels (list) : list of NER labels for ground truth tokens
+        ocr_tokens (list) : list of OCR'ed text tokens
+        ocr_labels (list) : list of NER labels for the OCR'ed tokens
+        aligned_gt (str) : ground truth string aligned with the OCR'ed text
+        aligned_ocr (str) : OCR'ed text aligned with ground truth
 
     Keyword Arguments:
-        show_alignment {bool} -- if true, show alignment result (default: {True})
+        show_alignment (bool) : if true, show alignment result . Defaults to True.
 
     Returns:
         a string formatted for display as follows:
