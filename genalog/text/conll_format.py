@@ -1,38 +1,41 @@
 """This is a utility tool to create CoNLL-formatted token+label files for OCR'ed text
-    by extracting text from grok OCR output JSON files
-    and propagating labels from clean text to OCR text.
+by extracting text from grok OCR output JSON files and propagating labels from clean
+text to OCR text.
 
-usage: conll_format.py [-h] [--train_subset] [--test_subset]
-                       [--gt_folder GT_FOLDER]
-                       base_folder degraded_folder
+Usage:
+::
 
-positional argument:
-  base_folder            base directory containing the collection of dataset
-  degraded_folder        directory name containing train and test subset for degradation
+    conll_format.py [-h] [--train_subset] [--test_subset]
+                    [--gt_folder GT_FOLDER]
+                    base_folder degraded_folder
 
-optional arguments:
-  --train_subset            include if only train directory should be processed
-  --test_subset             include if only test directory should be processed
-  --gt_folder GT_FOLDER     directory name containing ground truth (default to `shared`)
+    Positional Argument:
+        base_folder            base directory containing the collection of dataset
+        degraded_folder        directory name containing train and test subset for degradation
 
-optional arguments:
-  -h, --help              show this help message and exit
+    Optional Arguments:
+        --train_subset            include if only train directory should be processed
+        --test_subset             include if only test directory should be processed
+        --gt_folder GT_FOLDER     directory name containing ground truth (default to `shared`)
 
-example usage
-    (to run for specified degradation of the dataset on both train and test)
+    Seek Help:
+        -h, --help                show this help message and exit
+
+Example Usage:
+
+.. code-block:: shell
+
+    # to run for specified degradation of the dataset on both train and test
     python -m genalog.text.conll_format '/data/enki/datasets/synthetic_dataset/' 'hyphens_all'
 
-    (to run for specified degradation of the dataset and ground truth)
-    python -m genalog.text.conll_format '/data/enki/datasets/synthetic_dataset/' 'hyphens_all'
-        --gt_folder='shared'
+    # to run for specified degradation of the dataset and ground truth
+    python -m genalog.text.conll_format '/data/enki/datasets/synthetic_dataset/' 'hyphens_all' --gt_folder='shared'
 
-    (to run for specified degradation of the dataset  on only test subset)
-    python -m genalog.text.conll_format '/data/enki/datasets/synthetic_dataset/' 'hyphens_all'
-        --test_subset
+    # to run for specified degradation of the dataset  on only test subset
+    python -m genalog.text.conll_format '/data/enki/datasets/synthetic_dataset/' 'hyphens_all' --test_subset
 
-    (to run for specified degradation of the dataset  on only train subset)
-    python -m genalog.text.conll_format '/data/enki/datasets/synthetic_dataset/' 'hyphens_all'
-        --train_subset
+    # to run for specified degradation of the dataset  on only train subset
+    python -m genalog.text.conll_format '/data/enki/datasets/synthetic_dataset/' 'hyphens_all' --train_subset
 """
 import argparse
 import concurrent.futures
@@ -303,10 +306,10 @@ def check_n_sentences(clean_labels_dir, output_labels_dir, clean_label_ext):
     ----------
     clean_labels_dir : str
         path of directory with clean labels -
-         CoNLL formatted so contains tokens and corresponding labels
+        CoNLL formatted so contains tokens and corresponding labels
     output_labels_dir : str
         path of directory with ocr labels -
-         CoNLL formatted so contains tokens and corresponding labels
+        CoNLL formatted so contains tokens and corresponding labels
     """
     text_files = os.listdir(output_labels_dir)
     skip_files = []
