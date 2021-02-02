@@ -18,6 +18,9 @@ steps:
     elif [[ '${{parameters.testType}}' == 'unit' ]]
     then
       tox -e py -- tests/unit
+    elif [[ '${{parameters.testType}}' == 'e2e' ]]
+    then
+      tox -e py -- tests/e2e
     else
       tox -e py -- -m "${{parameters.testType}}"
     fi
