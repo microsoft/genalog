@@ -4,9 +4,10 @@ parameters:
   type: string
   default: all
   values:
+    - unit
+    - e2e
     - slow
     - azure
-    - unit
     - io
     - all
 
