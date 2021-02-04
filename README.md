@@ -39,6 +39,14 @@ We are currently in a pre-release stage. Stable release is currently pushed to t
 
 `pip install -i https://test.pypi.org/simple/ genalog`
 
+### Extra Installation Steps in MacOs and Windows
+We have a dependency on [`Weasyprint`](https://weasyprint.readthedocs.io/en/stable/install.html), which in turn has non-python dependencies including `Pango`, `cairo` and `GDK-PixBuf` that need to be installed separately.
+
+So far, `Pango`, `cairo` and `GDK-PixBuf` libraries are available in `Ubuntu-18.04` and later by default.
+
+If you are running on Windows, MacOS, or other Linux distributions, please see [installation instructions from WeasyPrint](https://weasyprint.readthedocs.io/en/stable/install.html).
+
+**NOTE**: If you encounter the errors like `no library called "libcairo-2" was found`, this is probably due to the three extra dependencies missing.
 
 ### Installation from Source:
 
