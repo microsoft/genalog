@@ -2,9 +2,11 @@
 
 This folder contains the scripts that allow you generate synthetic documents from any given text. We provide **three** standard templates for with document layouts:
 
-![multi-column](../../example/sample/generation/columns_Times_11px.png  =300x420)
-![letter-like](../../example/sample/generation/letter_Times_11px.png  =300x420)
-![text-block](../../example/sample/generation/text_block_Times_11px.png  =300x420)
+<p float="left">
+  <img src="../../example/sample/generation/columns_Times_11px.png" width="300" />
+  <img src="../../example/sample/generation/letter_Times_11px.png" width="300" />
+  <img src="../../example/sample/generation/text_block_Times_11px.png" width="300" />
+</p>
 
 You can find these templates in path `genalog/generation/templates`.
 
