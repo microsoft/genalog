@@ -110,8 +110,6 @@ print(ner_label.format_labels(ocr_tokens, ocr_labels))
 
 ## Advance Text Alignment Configuration
 
-`genalog.text.anchor.align_w_anchor()` has 
-
 We use [Biopython](https://biopython.org/)'s implementation of the Needleman-Wunsch algorithm for text alignment.
 This algorithm is an exhaustive search for all possible candidates with dynamic programming. 
 It produces weighted score for each candidate and returns those having the highest score. 

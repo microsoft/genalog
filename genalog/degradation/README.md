@@ -84,7 +84,10 @@ plt.imshow(blurred, cmap="gray")
 plt.title('blurred', fontsize=6)
 plt.show()
 ```
-![Blurred Image](../../example/sample/degradation/bleed_through.png =850x350)
+
+<p float="center">
+  <img src="../../example/sample/degradation/blur.png" width="600" />
+</p>
 
 ### Bleed Through
 This effect tries to mimic the seepage of ink from one side of a printed page to the other.
@@ -102,7 +105,11 @@ plt.imshow(bleed_through, cmap="gray")
 plt.title('bleed_through', fontsize=6)
 plt.show()
 ```
-![Bleed Through Image](../../example/sample/degradation/bleed_through.png =850x350)
+
+<p float="center">
+  <img src="../../example/sample/degradation/bleed_through.png" width="600" />
+</p>
+
 
 ### Salt and Pepper noise
 In this effect we randomly sprinkle "salt" (white pixels) and "pepper" (dark pixels) onto the original image to imitate ink degradation and page degradation.
@@ -120,7 +127,10 @@ plt.imshow(salted, cmap="gray")
 plt.title('Salted', fontsize=6)
 plt.show()
 ```
-![Salt Pepper Image](../../example/sample/degradation/salt_pepper.png =400x300) 
+
+<p float="center">
+  <img src="../../example/sample/degradation/salt_pepper.png" width="600" />
+</p>
 
 ### Morphological Degradations
 
@@ -156,7 +166,11 @@ plt.imshow(erode, cmap="gray")
 plt.title('erode', fontsize=6)
 plt.show()
 ```
-![morphological-open-n-erode](../../example/sample/degradation/open_erode.png =1000x300) 
+
+<p float="center">
+  <img src="../../example/sample/degradation/open_erode.png" width="1000" />
+</p>
+
 
 Here we are “opening” up the foreground structures (text) and joining the character structuring together. In another perspective, we are “eroding” away the white background by expanding the foreground. 
 
@@ -180,7 +194,10 @@ plt.imshow(dilate, cmap="gray")
 plt.title('dilate', fontsize=6)
 plt.show()
 ```
-![morphological-close-n-dilate](../../example/sample/degradation/close_dilate.png =1000x300) 
+
+<p float="center">
+  <img src="../../example/sample/degradation/close_dilate.png" width="1000" />
+</p>
 
 We are “closing” or “dilating” the white background, thus chipping away the foreground structures (text). This effect can mimic the effect of degrading ink or a printer running out of ink. 
 
@@ -188,7 +205,9 @@ We are “closing” or “dilating” the white background, thus chipping away 
 
 An important element of the morphological degradation is the [structuring element](http://homepages.inf.ed.ac.uk/rbf/HIPR2/strctel.htm), or the kernel used. With proper size and shape of the kernel, one can extract interesting structures of the source image.
 
-![kernel-morphology](../../example/sample/degradation/kernel_morph.png =400x600) 
+<p float="center">
+  <img src="../../example/sample/degradation/kernel_morph.png" width="600" />
+</p>
 
 ```python
 elliptical_kernel = effect.create_2D_kernel((4,4), kernel_type="ellipse")
