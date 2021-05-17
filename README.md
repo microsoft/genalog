@@ -48,7 +48,6 @@ We also provide notebooks for the complete end-to-end scenario of generating a s
 ||Scenario|Indepth Jupyter Notebook|
 |-|-------------------------|--------|
 |1|Synthetic Dataset Generation with LABELED NER Dataset|[Demo Notebook](https://github.com/microsoft/genalog/blob/master/example/dataset_generation.ipynb)|
-|2|Synthetic Dataset Batch Generation with Varying Degradation|[Demo Notebook](https://github.com/microsoft/genalog/blob/master/example/batch_dataset_generation.ipynb)|
 
 Installation
 -----------------------------
