@@ -18,6 +18,19 @@ The aim of this project is to provide a complete solution for generating synthet
 ## Getting Started
 The following is a summary of the common applications scenarios of Genalog. Please refer the [Jupyter notebook examples](https://github.com/microsoft/genalog/blob/master/example) that make use of the core code base of Genalog and repository utilities.
 
+### TLDR
+If you are interested in a full document generation and degration pipeline, please see the following notebook:
+||Description|Indepth Jupyter Notebook Examples|
+|-|-------------------------|--------|
+|1|Analog Document Generation Pipeline|[Demo Notebook](https://github.com/microsoft/genalog/blob/master/example/generation_pipeline.ipynb)|[Here is guide to the core components](https://github.com/microsoft/genalog/blob/master/genalog/README.md)|
+
+
+Else we have in-depth walkthroughs of each of the module in Genalog.
+
+<p float="left">
+  <img src="example/static/genalog_components.png" width="900" />
+</p>
+
 ||Steps|Indepth Jupyter Notebook Examples|Quick Start Guides|
 |-|-------------------------|--------|--------|
 |1|Create Template for Image Generation|[Demo Notebook](https://github.com/microsoft/genalog/blob/master/example/document_generation.ipynb)|[Here is our guide to Document Generation](https://github.com/microsoft/genalog/blob/master/genalog/generation/README.md)|
@@ -27,6 +40,10 @@ The following is a summary of the common applications scenarios of Genalog. Plea
 |5|NER Label Propagation from Ground Truth to OCR Tokens|[Demo Notebook](https://github.com/microsoft/genalog/blob/master/example/ocr_label_propagation.ipynb)|[Here is our guide to Label Propagation](https://github.com/microsoft/genalog/blob/master/genalog/text/README.md)|
 
 We also provide notebooks for the complete end-to-end scenario of generating a synthetic dataset connecting all the components of genalog:
+
+<p float="left">
+  <img src="example/static/labeled_synthetic_pipeline.png" width="900" />
+</p>
 
 ||Scenario|Indepth Jupyter Notebook|
 |-|-------------------------|--------|

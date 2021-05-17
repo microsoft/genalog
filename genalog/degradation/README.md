@@ -27,8 +27,10 @@ degrader = Degrader(degradations)
 dst = degrader.apply_effects(src)
 plt.imshow(dst, cmap="gray")
 ```
-![degrader-example](../../example/sample/degradation/degrader.png)
 
+<p float="left">
+  <img src="../../example/sample/degradation/degrader.png" width="500" />
+</p>
 
 #### Advanced Degradation Configurations
 
@@ -65,7 +67,9 @@ dst = degrader.apply_effects(src)
 plt.imshow(dst, cmap="gray")
 ```
 
-![degrader-heavy](../../example/sample/degradation/degrader_heavy.png)
+<p float="left">
+  <img src="../../example/sample/degradation/degrader_heavy.png" width="500" />
+</p>
 
 ### Document Blurring
 
@@ -85,7 +89,7 @@ plt.title('blurred', fontsize=6)
 plt.show()
 ```
 
-<p float="center">
+<p float="left">
   <img src="../../example/sample/degradation/blur.png" width="600" />
 </p>
 
@@ -106,7 +110,7 @@ plt.title('bleed_through', fontsize=6)
 plt.show()
 ```
 
-<p float="center">
+<p float="left">
   <img src="../../example/sample/degradation/bleed_through.png" width="600" />
 </p>
 
@@ -128,7 +132,7 @@ plt.title('Salted', fontsize=6)
 plt.show()
 ```
 
-<p float="center">
+<p float="left">
   <img src="../../example/sample/degradation/salt_pepper.png" width="600" />
 </p>
 
@@ -167,7 +171,7 @@ plt.title('erode', fontsize=6)
 plt.show()
 ```
 
-<p float="center">
+<p float="left">
   <img src="../../example/sample/degradation/open_erode.png" width="1000" />
 </p>
 
@@ -195,7 +199,7 @@ plt.title('dilate', fontsize=6)
 plt.show()
 ```
 
-<p float="center">
+<p float="left">
   <img src="../../example/sample/degradation/close_dilate.png" width="1000" />
 </p>
 
@@ -205,7 +209,7 @@ We are “closing” or “dilating” the white background, thus chipping away 
 
 An important element of the morphological degradation is the [structuring element](http://homepages.inf.ed.ac.uk/rbf/HIPR2/strctel.htm), or the kernel used. With proper size and shape of the kernel, one can extract interesting structures of the source image.
 
-<p float="center">
+<p float="left">
   <img src="../../example/sample/degradation/kernel_morph.png" width="600" />
 </p>
 
