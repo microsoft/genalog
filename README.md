@@ -53,7 +53,7 @@ Installation
 -----------------------------
 We are currently in a pre-release stage. Stable release is currently pushed to the [TestPyPI](https://test.pypi.org/project/genalog/).
 
-`pip install -i https://test.pypi.org/simple/ genalog`
+`pip install -i https://test.pypi.org/simple/ genalog --extra_url https://pypi.org/simple`
 
 ### Extra Installation Steps in MacOs and Windows
 We have a dependency on [`Weasyprint`](https://weasyprint.readthedocs.io/en/stable/install.html), which in turn has non-python dependencies including `Pango`, `cairo` and `GDK-PixBuf` that need to be installed separately.
