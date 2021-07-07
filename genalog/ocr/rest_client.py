@@ -1,3 +1,8 @@
+# ---------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+# ---------------------------------------------------------
+
 """Uses the REST api to perform operations on the search service.
 see: https://docs.microsoft.com/en-us/rest/api/searchservice/
 """

@@ -1,3 +1,8 @@
+# ---------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+# ---------------------------------------------------------
+
 """This is a utility tool to split CoNLL formated files.
 It has the capability to pack sentences into generated pages more tightly.
 

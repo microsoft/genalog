@@ -1,3 +1,8 @@
+# ---------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+# ---------------------------------------------------------
+
 """
 Baseline alignment algorithm is slow on long documents.
 The idea is to break down the longer text into smaller fragments
