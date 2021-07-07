@@ -1,3 +1,8 @@
+# ---------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+# ---------------------------------------------------------
+
 """This is a utility tool to create CoNLL-formatted token+label files for OCR'ed text
 by extracting text from grok OCR output JSON files and propagating labels from clean
 text to OCR text.

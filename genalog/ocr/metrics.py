@@ -1,3 +1,8 @@
+# ---------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+# ---------------------------------------------------------
+
 """
 Utility functions to support getting OCR metrics
 

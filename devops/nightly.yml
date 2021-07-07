@@ -1,3 +1,8 @@
+# ---------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+# ---------------------------------------------------------
+
 name: $(Date:yyyyMMdd).$(Rev:r)
 
 trigger: none # nightly build is scheduled once per day

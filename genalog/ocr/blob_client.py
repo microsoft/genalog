@@ -1,3 +1,8 @@
+# ---------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+# ---------------------------------------------------------
+
 """Uses the python sdk to make operation on Azure Blob storage.
 see: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python
 """
