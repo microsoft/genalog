@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Propagation of NER labels &#8212; Genalog</title>
+    <title>Propagation of NER labels &#8212; &lt;h1 style=&#34;font-size:2em;text-align:center;color:#FF5733&#34;&gt;Genalog&lt;/h1&gt;</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -74,7 +74,7 @@
     <a class="navbar-brand text-wrap" href="index.html">
       
       
-      <h1 class="site-logo" id="site-title">Genalog</h1>
+      <h1 class="site-logo" id="site-title"><h1 style="font-size:2em;text-align:center;color:#FF5733">Genalog</h1></h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -254,6 +254,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#display-result-after-propagation">
+   Display Result After Propagation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#final-results">
    Final Results
   </a>
@@ -286,7 +291,7 @@ See <a class="reference external" href="https://en.wikipedia.org/wiki/Inside%E2%
           <span class="n">Text</span><span class="p">:</span> <span class="n">New</span> <span class="n">York</span> <span class="ow">is</span> <span class="n">big</span>
 </pre></div>
 </div>
-<p>Now, imagine we obtain a noisy version of the grouth truth text through the OCR process, for example. The problem becomes: how can we label the noisy tokens?</p>
+<p>Now, imagine we have obtained a noisy version of the grouth truth text through the OCR process, for example. The problem becomes: how can we label the noisy tokens?</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    NER Labels:  B-P I-P  O  O
        GT Text:  New York is big
     Noisy Text:  New Yo rkis big
@@ -359,10 +364,12 @@ Alinged OCR text:     New Yo rk@is big
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="display-result-after-propagation">
+<h2>Display Result After Propagation<a class="headerlink" href="#display-result-after-propagation" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Format result for display</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ner_label</span><span class="o">.</span><span class="n">format_label_propagation</span><span class="p">(</span><span class="n">gt_tokens</span><span class="p">,</span> <span class="n">gt_labels</span><span class="p">,</span> <span class="n">ocr_tokens</span><span class="p">,</span> <span class="n">ocr_labels</span><span class="p">,</span> <span class="n">aligned_gt</span><span class="p">,</span> <span class="n">aligned_ocr</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ner_label</span><span class="o">.</span><span class="n">format_label_propagation</span><span class="p">(</span><span class="n">gt_tokens</span><span class="p">,</span> <span class="n">gt_labels</span><span class="p">,</span> <span class="n">ocr_tokens</span><span class="p">,</span> <span class="n">ocr_labels</span><span class="p">,</span> <span class="n">aligned_gt</span><span class="p">,</span> <span class="n">aligned_ocr</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -378,26 +385,10 @@ B-P I-P I-P  O
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To turn off alignment information:</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ner_label</span><span class="o">.</span><span class="n">format_label_propagation</span><span class="p">(</span><span class="n">gt_tokens</span><span class="p">,</span> <span class="n">gt_labels</span><span class="p">,</span> <span class="n">ocr_tokens</span><span class="p">,</span> <span class="n">ocr_labels</span><span class="p">,</span> <span class="n">aligned_gt</span><span class="p">,</span> <span class="n">aligned_ocr</span><span class="p">,</span> <span class="n">show_alignment</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B-P I-P  O  O   
-New York is big 
-New Yo  rkis big 
-B-P I-P I-P  O   
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="final-results">
 <h2>Final Results<a class="headerlink" href="#final-results" title="Permalink to this headline">¶</a></h2>
-<p>Formatting the tokens and NER labels.</p>
+<p>Formatting the OCR tokens and their NER labels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Format tokens and labels</span>

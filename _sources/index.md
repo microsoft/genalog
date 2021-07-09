@@ -63,12 +63,22 @@ Mimics ink degradation
 :width: 90%
 Degrades printing quality
 ```
+```{margin}
+```{note}
+For more details on this degradation, see [Morphilogical Operations](https://homepages.inf.ed.ac.uk/rbf/HIPR2/morops.htm)
+```
+```
 ````
 ````{tab} Open/Erode
 ```{figure} static/open_erode.png
 :name: open-erode-index
 :width: 90%
 Ink overflows
+```
+```{margin}
+```{note}
+For more details on this degradation, see [Morphilogical Operations](https://homepages.inf.ed.ac.uk/rbf/HIPR2/morops.htm)
+```
 ```
 ````
 ````{tab} Combined Effects
