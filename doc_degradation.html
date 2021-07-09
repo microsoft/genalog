@@ -1,0 +1,588 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Degrade a document &#8212; &lt;h1 style=&#34;font-size:2em;text-align:center;color:#FF5733&#34;&gt;Genalog&lt;/h1&gt;</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Text alignment" href="text_alignment.html" />
+    <link rel="prev" title="Create a document" href="doc_generation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title"><h1 style="font-size:2em;text-align:center;color:#FF5733">Genalog</h1></h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="generation_pipeline.html">
+   Generate your synthetic document
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Create &amp; Degrade Documents
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="doc_generation.html">
+   Create a document
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Degrade a document
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Handling Noisy Text
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="text_alignment.html">
+   Text alignment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ocr_label_propagation.html">
+   Propagation of NER labels
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="docstring/genalog.degradation.html">
+   genalog.degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="docstring/genalog.generation.html">
+   genalog.generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="docstring/genalog.ocr.html">
+   genalog.ocr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="docstring/genalog.text.html">
+   genalog.text
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/doc_degradation.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-a-sample-image">
+   Download a sample image
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#degrader">
+   Degrader
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#advanced-degradation-configurations">
+     Advanced Degradation Configurations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#blur">
+   Blur
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bleed-through">
+   Bleed Through
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#salt-and-pepper-noise">
+     Salt and Pepper noise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#morphological-degradations">
+   Morphological Degradations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#erode-and-open">
+     Erode and Open
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dilate-and-close">
+     Dilate and Close
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kernel-size-and-shape">
+     Kernel Size and Shape
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="degrade-a-document">
+<h1>Degrade a document<a class="headerlink" href="#degrade-a-document" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">genalog.degradation</span></code> module allows you to degrade any images with real world degradations.</p>
+<div class="section" id="download-a-sample-image">
+<h2>Download a sample image<a class="headerlink" href="#download-a-sample-image" title="Permalink to this headline">¶</a></h2>
+<p>We can download a <a class="reference external" href="https://github.com/microsoft/genalog/blob/main/example/sample/degradation/text_zoomed.png">sample image</a> from our repo, but you are welcome to skip this step and use an image you generated in the <a class="reference internal" href="doc_generation.html#document-generation"><span class="std std-ref">previous page</span></a> or elsewhere.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">request</span>
+
+<span class="n">sample_img_url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/microsoft/genalog/main/example/sample/degradation/text_zoomed.png&quot;</span>
+<span class="n">sample_img</span> <span class="o">=</span> <span class="s2">&quot;text_zoomed.png&quot;</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sample_text_url</span><span class="p">,</span> <span class="n">allow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">sample_img</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+<span class="c1"># Load in sample image</span>
+<span class="n">src</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">sample_img</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="degrader">
+<h2>Degrader<a class="headerlink" href="#degrader" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Degrader</span></code> class is the standard way to apply multiple degradations to an image.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">from</span> <span class="nn">genalog.degradation.degrader</span> <span class="kn">import</span> <span class="n">Degrader</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># We are applying degradation effects to the images in the following sequence:</span>
+<span class="c1"># blur -&gt; bleed_through -&gt; salt</span>
+<span class="n">degradations</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;blur&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;radius&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;bleed_through&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;salt&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}),</span>
+<span class="p">]</span>
+<span class="c1"># All of the referenced degradation effects are in submodule `genalog.degradation.effect`</span>
+
+<span class="n">degrader</span> <span class="o">=</span> <span class="n">Degrader</span><span class="p">(</span><span class="n">degradations</span><span class="p">)</span>
+<span class="n">dst</span> <span class="o">=</span> <span class="n">degrader</span><span class="o">.</span><span class="n">apply_effects</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/degrader.png"><img alt="_images/degrader.png" class="align-center" src="_images/degrader.png" style="width: 40%;" /></a>
+<div class="section" id="advanced-degradation-configurations">
+<h3>Advanced Degradation Configurations<a class="headerlink" href="#advanced-degradation-configurations" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">genalog</span></code> provides an enumeration <code class="docutils literal notranslate"><span class="pre">ImageState</span></code> to reference the image at different state in the degradation process. For example:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ImageState.ORIGINAL_STATE</span></code> refers to the origin state of the image before applying any degradation, while</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ImageState.CURRENT_STATE</span></code> refers to the state of the image after applying the last degradation effect.</p></li>
+</ol>
+<p>This is most useful when you want to combine multiple layers of degradation, like the following examples.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genalog.degradation.degrader</span> <span class="kn">import</span> <span class="n">Degrader</span><span class="p">,</span> <span class="n">ImageState</span>
+
+<span class="n">degradations</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;morphology&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;operation&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span> <span class="s2">&quot;kernel_shape&quot;</span><span class="p">:(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span> <span class="s2">&quot;kernel_type&quot;</span><span class="p">:</span><span class="s2">&quot;plus&quot;</span><span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;morphology&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;operation&quot;</span><span class="p">:</span> <span class="s2">&quot;close&quot;</span><span class="p">,</span> <span class="s2">&quot;kernel_shape&quot;</span><span class="p">:(</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;kernel_type&quot;</span><span class="p">:</span><span class="s2">&quot;ones&quot;</span><span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;salt&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;overlay&quot;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="s2">&quot;src&quot;</span><span class="p">:</span> <span class="n">ImageState</span><span class="o">.</span><span class="n">ORIGINAL_STATE</span><span class="p">,</span>
+        <span class="s2">&quot;background&quot;</span><span class="p">:</span> <span class="n">ImageState</span><span class="o">.</span><span class="n">CURRENT_STATE</span><span class="p">,</span>
+    <span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;bleed_through&quot;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="s2">&quot;src&quot;</span><span class="p">:</span> <span class="n">ImageState</span><span class="o">.</span><span class="n">CURRENT_STATE</span><span class="p">,</span>
+        <span class="s2">&quot;background&quot;</span><span class="p">:</span> <span class="n">ImageState</span><span class="o">.</span><span class="n">ORIGINAL_STATE</span><span class="p">,</span>
+        <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.90</span><span class="p">,</span>
+        <span class="s2">&quot;offset_x&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span>
+        <span class="s2">&quot;offset_y&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span>
+    <span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;pepper&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;blur&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;radius&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;salt&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">}),</span>
+<span class="p">]</span>
+
+<span class="n">degrader</span> <span class="o">=</span> <span class="n">Degrader</span><span class="p">(</span><span class="n">degradations</span><span class="p">)</span>
+<span class="n">dst</span> <span class="o">=</span> <span class="n">degrader</span><span class="o">.</span><span class="n">apply_effects</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/degrader_heavy.png"><img alt="_images/degrader_heavy.png" class="align-center" src="_images/degrader_heavy.png" style="width: 40%;" /></a>
+</div>
+</div>
+<div class="section" id="blur">
+<h2>Blur<a class="headerlink" href="#blur" title="Permalink to this headline">¶</a></h2>
+<p>An effect that occurs when scanner cannot focus on the document properly that results in document looking foggy/hazy.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Genalog Degradations and other libraries</span>
+<span class="kn">import</span> <span class="nn">genalog.degradation.effect</span> <span class="k">as</span> <span class="nn">effect</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Load in sample image</span>
+<span class="n">src</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">sample_img</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span>
+<span class="c1"># Add noise to the Image</span>
+<span class="n">blurred</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">blur</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span> <span class="c1"># the larger the radius, the lower the contrast</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">blurred</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;blurred&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/blur.png"><img alt="_images/blur.png" class="align-center" src="_images/blur.png" style="width: 60%;" /></a>
+</div>
+<div class="section" id="bleed-through">
+<h2>Bleed Through<a class="headerlink" href="#bleed-through" title="Permalink to this headline">¶</a></h2>
+<p>This effect tries to mimic the seepage of ink from one side of a printed page to the other.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Genalog Degradations and other libraries</span>
+<span class="kn">import</span> <span class="nn">genalog.degradation.effect</span> <span class="k">as</span> <span class="nn">effect</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="c1"># Load in sample image</span>
+<span class="n">src</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">sample_img</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span>
+<span class="c1"># Add noise to the Image</span>
+<span class="n">bleed_through</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">bleed_through</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span><span class="c1"># higher the alpha, the less visible is the effect</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">bleed_through</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;bleed_through&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/bleed_through.png"><img alt="_images/bleed_through.png" class="align-center" src="_images/bleed_through.png" style="width: 60%;" /></a>
+<div class="section" id="salt-and-pepper-noise">
+<h3>Salt and Pepper noise<a class="headerlink" href="#salt-and-pepper-noise" title="Permalink to this headline">¶</a></h3>
+<p>In this effect we randomly sprinkle “salt” (white pixels) and “pepper” (dark pixels) onto the original image to imitate ink degradation and page degradation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Genalog Degradations and other libraries</span>
+<span class="kn">import</span> <span class="nn">genalog.degradation.effect</span> <span class="k">as</span> <span class="nn">effect</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Load in sample image</span>
+<span class="n">src</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">sample_img</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span>
+<span class="c1"># Add noise to the Image</span>
+<span class="n">salted</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">salt</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span> <span class="c1"># amount is the percentage of pixels to be salted (whitened)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">salted</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Salted&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/salt_pepper.png"><img alt="_images/salt_pepper.png" class="align-center" src="_images/salt_pepper.png" style="width: 70%;" /></a>
+</div>
+</div>
+<div class="section" id="morphological-degradations">
+<h2>Morphological Degradations<a class="headerlink" href="#morphological-degradations" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Morphological</span> <span class="pre">Degradations</span></code> : Morphological operations is a structural degradation commonly applied on a binary image. For more information, please see <a class="reference external" href="http://homepages.inf.ed.ac.uk/rbf/HIPR2/morops.htm">link</a>. The convention for these binary images is to have the subject, or the foreground, in white on a black background. However, our example image has the subject in black on a white background, so the morphological degradation will have the effect opposite to its name.</p>
+<div class="section" id="erode-and-open">
+<h3>Erode and Open<a class="headerlink" href="#erode-and-open" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Genalog Degradations and other libraries</span>
+<span class="kn">import</span> <span class="nn">genalog.degradation.effect</span> <span class="k">as</span> <span class="nn">effect</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Load in sample image</span>
+<span class="n">src</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">sample_img</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span>
+<span class="c1"># Add noise to the Image</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">create_2D_kernel</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">kernel_type</span><span class="o">=</span><span class="s2">&quot;ones&quot;</span><span class="p">)</span>
+<span class="n">erode</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">erode</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span>
+<span class="nb">open</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span> <span class="c1"># retains more of the foreground shape than erosion, given the same kernel</span>
+
+<span class="c1"># display input and output image</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="nb">open</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">erode</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;erode&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/open_erode.png"><img alt="_images/open_erode.png" class="align-center" src="_images/open_erode.png" style="width: 80%;" /></a>
+<p>Here we are “opening” up the foreground structures (text) and joining the character structuring together. In another perspective, we are “eroding” away the white background by expanding the foreground.</p>
+</div>
+<div class="section" id="dilate-and-close">
+<h3>Dilate and Close<a class="headerlink" href="#dilate-and-close" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load in sample image</span>
+<span class="n">src</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">sample_img</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">create_2D_kernel</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">kernel_type</span><span class="o">=</span><span class="s2">&quot;ones&quot;</span><span class="p">)</span>
+<span class="n">dilate</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span>
+<span class="n">close</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span> <span class="c1"># less destructive than dilation, given the same kernel</span>
+
+<span class="c1"># display input and output image</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">close</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;close&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dilate</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;dilate&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/close_dilate.png"><img alt="_images/close_dilate.png" class="align-center" src="_images/close_dilate.png" style="width: 80%;" /></a>
+<p>We are “closing” or “dilating” the white background, thus chipping away the foreground structures (text). This effect can mimic the effect of degrading ink or a printer running out of ink.</p>
+</div>
+<div class="section" id="kernel-size-and-shape">
+<h3>Kernel Size and Shape<a class="headerlink" href="#kernel-size-and-shape" title="Permalink to this headline">¶</a></h3>
+<p>An important element of the morphological degradation is the <a class="reference external" href="http://homepages.inf.ed.ac.uk/rbf/HIPR2/strctel.htm">structuring element</a>, or the kernel used. With proper size and shape of the kernel, one can extract interesting structures of the source image.</p>
+<div class="toggle docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elliptical_kernel</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">create_2D_kernel</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">kernel_type</span><span class="o">=</span><span class="s2">&quot;ellipse&quot;</span><span class="p">)</span>
+<span class="n">vertical_kernel</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">create_2D_kernel</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">kernel_type</span><span class="o">=</span><span class="s2">&quot;ones&quot;</span><span class="p">)</span>
+<span class="n">horizontal_kernel</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">create_2D_kernel</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">kernel_type</span><span class="o">=</span><span class="s2">&quot;ones&quot;</span><span class="p">)</span>
+<span class="n">upper_tri_kernel</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">create_2D_kernel</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">kernel_type</span><span class="o">=</span><span class="s2">&quot;upper_triangle&quot;</span><span class="p">)</span>
+<span class="n">lower_tri_kernel</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">create_2D_kernel</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">kernel_type</span><span class="o">=</span><span class="s2">&quot;lower_triangle&quot;</span><span class="p">)</span>
+<span class="n">x_kernel</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">create_2D_kernel</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">kernel_type</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plus_kernel</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">create_2D_kernel</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">kernel_type</span><span class="o">=</span><span class="s2">&quot;plus&quot;</span><span class="p">)</span>
+
+<span class="n">dilate_w_elliptical_k</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">elliptical_kernel</span><span class="p">)</span>
+<span class="n">dilate_w_vertical_k</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">vertical_kernel</span><span class="p">)</span>
+<span class="n">dilate_w_horizontal_k</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">horizontal_kernel</span><span class="p">)</span>
+<span class="n">dilate_w_upper_tri_k</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">upper_tri_kernel</span><span class="p">)</span>
+<span class="n">dilate_w_lower_tri_k</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">lower_tri_kernel</span><span class="p">)</span>
+<span class="n">dilate_w_x_kernel</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">x_kernel</span><span class="p">)</span>
+<span class="n">dilate_w_plus_kernel</span> <span class="o">=</span> <span class="n">effect</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">plus_kernel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<a class="reference internal image-reference" href="_images/kernel_morph.png"><img alt="_images/kernel_morph.png" class="align-center" src="_images/kernel_morph.png" style="width: 80%;" /></a>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="doc_generation.html" title="previous page">Create a document</a>
+    <a class='right-next' id="next-link" href="text_alignment.html" title="next page">Text alignment</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jianjie Liu and Amit Gupte<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Generate Your Synthetic Document &#8212; &lt;h1 style=&#34;font-size:2em;text-align:center;color:#FF5733&#34;&gt;Genalog&lt;/h1&gt;</title>
+    <title>Generate your synthetic document &#8212; &lt;h1 style=&#34;font-size:2em;text-align:center;color:#FF5733&#34;&gt;Genalog&lt;/h1&gt;</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,7 +53,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Text Alignment" href="text_alignment.html" />
+    <link rel="next" title="Create a document from raw text" href="document_generation.html" />
     <link rel="prev" title="Installation" href="installation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -95,7 +95,19 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Generate Your Synthetic Document
+   Generate your synthetic document
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Create &amp; Destroy Your Document
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="document_generation.html">
+   Create a document from raw text
   </a>
  </li>
 </ul>
@@ -107,7 +119,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="text_alignment.html">
-   Text Alignment
+   Text alignment
   </a>
  </li>
  <li class="toctree-l1">
@@ -254,13 +266,13 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#image-degradations">
-     Image Degradations
+    <a class="reference internal nav-link" href="#choose-a-prebuild-html-template">
+     Choose a prebuild HTML Template
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#choose-a-prebuild-html-template">
-     Choose a prebuild HTML Template
+    <a class="reference internal nav-link" href="#image-degradations">
+     Image Degradations
     </a>
    </li>
   </ul>
@@ -304,10 +316,9 @@
               <div>
                 
   <div class="section" id="generate-your-synthetic-document">
-<h1>Generate Your Synthetic Document<a class="headerlink" href="#generate-your-synthetic-document" title="Permalink to this headline">¶</a></h1>
-<div class="figure align-default" id="overview-of-the-document-generation-pipeline">
+<h1>Generate your synthetic document<a class="headerlink" href="#generate-your-synthetic-document" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-default">
 <a class="reference internal image-reference" href="_images/analog_doc_gen_pipeline.png"><img alt="_images/analog_doc_gen_pipeline.png" src="_images/analog_doc_gen_pipeline.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Overview of the document generation pipeline</span><a class="headerlink" href="#overview-of-the-document-generation-pipeline" title="Permalink to this image">¶</a></p>
 </div>
 <p>Genalog provides a simple interface (<code class="docutils literal notranslate"><span class="pre">AnalogDocumentGeneration</span></code>) to programmatic generate documents with degradation from a body of text.</p>
 <div class="cell docutils container">
@@ -341,32 +352,63 @@
 <p>Genalog depends on Weasyprint as the engine to render these CSS styles. Most of these fields are standard CSS properties and accepts common values as specified in <a class="reference external" href="https://www.w3.org/Style/CSS/all-properties.en.html">W3C CSS Properties</a>. For details, please see <a class="reference external" href="https://weasyprint.readthedocs.io/en/stable/features.html#fonts">Weasyprint Documentation</a>.</p>
 </div>
 </div>
+<div class="section" id="choose-a-prebuild-html-template">
+<h3>Choose a prebuild HTML Template<a class="headerlink" href="#choose-a-prebuild-html-template" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">HTML_TEMPLATE</span></code>: name of html template used to generate the synthetic images. The <code class="docutils literal notranslate"><span class="pre">genalog</span></code> package has the following default templates:</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">columns.html.jinja</label><div class="tab-content docutils">
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="_images/columns_Times_11px.png"><img alt="_images/columns_Times_11px.png" src="_images/columns_Times_11px.png" style="width: 30%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Document template with 2 columns</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">letter.html.jinja</label><div class="tab-content docutils">
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="_images/letter_Times_11px.png"><img alt="_images/letter_Times_11px.png" src="_images/letter_Times_11px.png" style="width: 30%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Letter-like document template</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">text_block.html.jinja</label><div class="tab-content docutils">
+<div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="_images/text_block_Times_11px.png"><img alt="_images/text_block_Times_11px.png" src="_images/text_block_Times_11px.png" style="width: 30%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Simple text block template</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML_TEMPLATE</span> <span class="o">=</span> <span class="s2">&quot;text_block.html.jinja&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="image-degradations">
 <h3>Image Degradations<a class="headerlink" href="#image-degradations" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">DEGRADATIONS</span></code>: a list defining the sequence of degradation effects applied onto the synthetic images. Each element is a two-element tuple of which the first element is one of the method names from  <code class="docutils literal notranslate"><span class="pre">genalog.degradation.effect</span></code> and the second element is the corresponding function keyword arguments.</p>
 <div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">bleed_through</label><div class="tab-content docutils">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">bleed_through</label><div class="tab-content docutils">
 <div class="figure align-default" id="bleed-through">
 <a class="reference internal image-reference" href="_images/bleed_through.png"><img alt="_images/bleed_through.png" src="_images/bleed_through.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Mimics a document printed on two sides. Valid values: [0,1].</span><a class="headerlink" href="#bleed-through" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Mimics a document printed on two sides. Valid values: [0,1].</span><a class="headerlink" href="#bleed-through" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">blur</label><div class="tab-content docutils">
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">blur</label><div class="tab-content docutils">
 <div class="figure align-default" id="blur">
 <a class="reference internal image-reference" href="_images/blur.png"><img alt="_images/blur.png" src="_images/blur.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Lowers image quality. Unit are in number of pixels.</span><a class="headerlink" href="#blur" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Lowers image quality. Unit are in number of pixels.</span><a class="headerlink" href="#blur" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">salt/pepper</label><div class="tab-content docutils">
+<input class="tab-input" id="tab-set--1-input--3" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--3">salt/pepper</label><div class="tab-content docutils">
 <div class="figure align-default" id="salt-pepper">
 <a class="reference internal image-reference" href="_images/salt_pepper.png"><img alt="_images/salt_pepper.png" src="_images/salt_pepper.png" style="width: 65%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Mimics ink degradation. Valid values: [0, 1].</span><a class="headerlink" href="#salt-pepper" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Mimics ink degradation. Valid values: [0, 1].</span><a class="headerlink" href="#salt-pepper" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input class="tab-input" id="tab-set--0-input--4" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--4">close/dilate</label><div class="tab-content docutils">
+<input class="tab-input" id="tab-set--1-input--4" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--4">close/dilate</label><div class="tab-content docutils">
 <div class="figure align-default" id="close-dilate">
 <img alt="_images/close_dilate.png" src="_images/close_dilate.png" />
-<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Degrades printing quality.</span><a class="headerlink" href="#close-dilate" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Degrades printing quality.</span><a class="headerlink" href="#close-dilate" title="Permalink to this image">¶</a></p>
 </div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -379,10 +421,10 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--0-input--5" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--5">open/erode</label><div class="tab-content docutils">
+<input class="tab-input" id="tab-set--1-input--5" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--5">open/erode</label><div class="tab-content docutils">
 <div class="figure align-default" id="open-errode">
 <img alt="_images/open_erode.png" src="_images/open_erode.png" />
-<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Ink overflows</span><a class="headerlink" href="#open-errode" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Ink overflows</span><a class="headerlink" href="#open-errode" title="Permalink to this image">¶</a></p>
 </div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -427,37 +469,6 @@
 </pre></div>
 </div>
 <p>For the full list of supported degradation effects, please see <a class="reference external" href="https://github.com/microsoft/genalog/blob/main/genalog/degradation/README.md">documentation on degradation</a>.</p>
-</div>
-<div class="section" id="choose-a-prebuild-html-template">
-<h3>Choose a prebuild HTML Template<a class="headerlink" href="#choose-a-prebuild-html-template" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">HTML_TEMPLATE</span></code>: name of html template used to generate the synthetic images. The <code class="docutils literal notranslate"><span class="pre">genalog</span></code> package has the following default templates:</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">columns.html.jinja</label><div class="tab-content docutils">
-<div class="figure align-default" id="document-template-with-2-columns">
-<a class="reference internal image-reference" href="_images/columns_Times_11px.png"><img alt="_images/columns_Times_11px.png" src="_images/columns_Times_11px.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Document template with 2 columns</span><a class="headerlink" href="#document-template-with-2-columns" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">letter.html.jinja</label><div class="tab-content docutils">
-<div class="figure align-default" id="letter-like-document-template">
-<a class="reference internal image-reference" href="_images/letter_Times_11px.png"><img alt="_images/letter_Times_11px.png" src="_images/letter_Times_11px.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Letter-like document template</span><a class="headerlink" href="#letter-like-document-template" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<input class="tab-input" id="tab-set--1-input--3" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--3">text_block.html.jinja</label><div class="tab-content docutils">
-<div class="figure align-default" id="simple-text-block-template">
-<a class="reference internal image-reference" href="_images/text_block_Times_11px.png"><img alt="_images/text_block_Times_11px.png" src="_images/text_block_Times_11px.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Simple text block template</span><a class="headerlink" href="#simple-text-block-template" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML_TEMPLATE</span> <span class="o">=</span> <span class="s2">&quot;text_block.html.jinja&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>We use <code class="docutils literal notranslate"><span class="pre">Jinja</span></code> to prepare html templates. You can find example of these Jinja templates in <a class="reference external" href="https://github.com/microsoft/genalog/tree/main/genalog/generation/templates">our source code</a>.</p>
 </div>
 </div>
@@ -575,7 +586,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="installation.html" title="previous page">Installation</a>
-    <a class='right-next' id="next-link" href="text_alignment.html" title="next page">Text Alignment</a>
+    <a class='right-next' id="next-link" href="document_generation.html" title="next page">Create a document from raw text</a>
 
         </div>
         
