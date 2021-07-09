@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Propagation of NER labels &#8212; Genalog</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="genalog.degradation" href="docstring/genalog.degradation.html" />
+    <link rel="prev" title="Text Alignment" href="text_alignment.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Genalog</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="generation_pipeline.html">
+   Generate Your Synthetic Document
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Handling Noisy Text
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="text_alignment.html">
+   Text Alignment
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Propagation of NER labels
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="docstring/genalog.degradation.html">
+   genalog.degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="docstring/genalog.generation.html">
+   genalog.generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="docstring/genalog.ocr.html">
+   genalog.ocr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="docstring/genalog.text.html">
+   genalog.text
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/ocr_label_propagation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/microsoft/genalog/master?urlpath=tree/ocr_label_propagation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tokenization">
+   Tokenization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#label-propagation">
+   Label Propagation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-results">
+   Final Results
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="propagation-of-ner-labels">
+<span id="label-propagation-page"></span><h1>Propagation of NER labels<a class="headerlink" href="#propagation-of-ner-labels" title="Permalink to this headline">¶</a></h1>
+<p>In the context of Named Entity Recognition (NER), typical datasets contain the text tokens and the NER labels for each of the tokens. For example:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">B-P</span></code> is short for “Beginning-Place”
+and <code class="docutils literal notranslate"><span class="pre">I-P</span></code> is short for “Inside-Place”
+whereas <code class="docutils literal notranslate"><span class="pre">O</span></code> means “Other”.
+See <a class="reference external" href="https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging)">IOB Tagging</a> for more details</p>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">NER</span> <span class="n">Labels</span><span class="p">:</span> <span class="n">B</span><span class="o">-</span><span class="n">P</span> <span class="n">I</span><span class="o">-</span><span class="n">P</span>  <span class="n">O</span>  <span class="n">O</span>
+          <span class="n">Text</span><span class="p">:</span> <span class="n">New</span> <span class="n">York</span> <span class="ow">is</span> <span class="n">big</span>
+</pre></div>
+</div>
+<p>Now, imagine we obtain a noisy version of the grouth truth text through the OCR process, for example. The problem becomes: how can we label the noisy tokens?</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    NER Labels:  B-P I-P  O  O
+       GT Text:  New York is big
+    Noisy Text:  New Yo rkis big
+    NER Labels:   ?  ?   ?    ?
+</pre></div>
+</div>
+<p>We can utilize text alignment and <strong>propagate</strong> the NER labels onto the noisy tokens. We will demonstrate how in the rest of this document.</p>
+<div class="section" id="tokenization">
+<h2>Tokenization<a class="headerlink" href="#tokenization" title="Permalink to this headline">¶</a></h2>
+<p>To ensure consistent interpretation of the text alignment results, we need to first tokenize the grouth truth and the OCR’ed (nosiy) text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genalog.text</span> <span class="kn">import</span> <span class="n">ner_label</span>
+<span class="kn">from</span> <span class="nn">genalog.text</span> <span class="kn">import</span> <span class="n">preprocess</span>
+
+<span class="n">gt_txt</span> <span class="o">=</span> <span class="s2">&quot;New York is big&quot;</span>
+<span class="n">ocr_txt</span> <span class="o">=</span> <span class="s2">&quot;New Yo rkis big&quot;</span>
+
+<span class="c1"># Input to the method</span>
+<span class="n">gt_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;B-P&quot;</span><span class="p">,</span> <span class="s2">&quot;I-P&quot;</span><span class="p">,</span> <span class="s2">&quot;O&quot;</span><span class="p">,</span> <span class="s2">&quot;O&quot;</span><span class="p">]</span>
+<span class="n">gt_tokens</span> <span class="o">=</span> <span class="n">preprocess</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">gt_txt</span><span class="p">)</span> <span class="c1"># tokenize into list of tokens</span>
+<span class="n">ocr_tokens</span> <span class="o">=</span> <span class="n">preprocess</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">ocr_txt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inputs to the method</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gt_labels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gt_tokens</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ocr_tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;B-P&#39;, &#39;I-P&#39;, &#39;O&#39;, &#39;O&#39;]
+[&#39;New&#39;, &#39;York&#39;, &#39;is&#39;, &#39;big&#39;]
+[&#39;New&#39;, &#39;Yo&#39;, &#39;rkis&#39;, &#39;big&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="label-propagation">
+<h2>Label Propagation<a class="headerlink" href="#label-propagation" title="Permalink to this headline">¶</a></h2>
+<p>We then can run label propagation to obtain the NER labels for the OCR’ed (noisy) tokens.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Method returns a tuple of 4 elements (gt_tokens, gt_labels, ocr_tokens, ocr_labels, gap_char)</span>
+<span class="n">ocr_labels</span><span class="p">,</span> <span class="n">aligned_gt</span><span class="p">,</span> <span class="n">aligned_ocr</span><span class="p">,</span> <span class="n">gap_char</span> <span class="o">=</span> <span class="n">ner_label</span><span class="o">.</span><span class="n">propagate_label_to_ocr</span><span class="p">(</span><span class="n">gt_labels</span><span class="p">,</span> <span class="n">gt_tokens</span><span class="p">,</span> <span class="n">ocr_tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Outputs</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;OCR labels:           </span><span class="si">{</span><span class="n">ocr_labels</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aligned ground truth: </span><span class="si">{</span><span class="n">aligned_gt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Alinged OCR text:     </span><span class="si">{</span><span class="n">aligned_ocr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OCR labels:           [&#39;B-P&#39;, &#39;I-P&#39;, &#39;I-P&#39;, &#39;O&#39;]
+Aligned ground truth: New Yo@rk is big
+Alinged OCR text:     New Yo rk@is big
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Format result for display</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ner_label</span><span class="o">.</span><span class="n">format_label_propagation</span><span class="p">(</span><span class="n">gt_tokens</span><span class="p">,</span> <span class="n">gt_labels</span><span class="p">,</span> <span class="n">ocr_tokens</span><span class="p">,</span> <span class="n">ocr_labels</span><span class="p">,</span> <span class="n">aligned_gt</span><span class="p">,</span> <span class="n">aligned_ocr</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B-P I-P  O  O   
+New York is big 
+New Yo@rk is big
+||||||.||.||||||
+New Yo rk@is big
+New Yo  rkis big 
+B-P I-P I-P  O   
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To turn off alignment information:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ner_label</span><span class="o">.</span><span class="n">format_label_propagation</span><span class="p">(</span><span class="n">gt_tokens</span><span class="p">,</span> <span class="n">gt_labels</span><span class="p">,</span> <span class="n">ocr_tokens</span><span class="p">,</span> <span class="n">ocr_labels</span><span class="p">,</span> <span class="n">aligned_gt</span><span class="p">,</span> <span class="n">aligned_ocr</span><span class="p">,</span> <span class="n">show_alignment</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B-P I-P  O  O   
+New York is big 
+New Yo  rkis big 
+B-P I-P I-P  O   
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="final-results">
+<h2>Final Results<a class="headerlink" href="#final-results" title="Permalink to this headline">¶</a></h2>
+<p>Formatting the tokens and NER labels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Format tokens and labels</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ner_label</span><span class="o">.</span><span class="n">format_labels</span><span class="p">(</span><span class="n">ocr_tokens</span><span class="p">,</span> <span class="n">ocr_labels</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B-P I-P I-P  O   
+New Yo  rkis big 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="text_alignment.html" title="previous page">Text Alignment</a>
+    <a class='right-next' id="next-link" href="docstring/genalog.degradation.html" title="next page">genalog.degradation</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jianjie Liu and Amit Gupte<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

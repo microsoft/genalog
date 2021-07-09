@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>genalog.text.splitter &#8212; Genalog</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Genalog</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../generation_pipeline.html">
+   Generate Your Synthetic Document
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Handling Noisy Text
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../text_alignment.html">
+   Text Alignment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../ocr_label_propagation.html">
+   Propagation of NER labels
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../genalog.degradation.html">
+   genalog.degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../genalog.generation.html">
+   genalog.generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../genalog.ocr.html">
+   genalog.ocr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../genalog.text.html">
+   genalog.text
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <h1>Source code for genalog.text.splitter</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ---------------------------------------------------------</span>
+<span class="c1"># Copyright (c) Microsoft Corporation. All rights reserved.</span>
+<span class="c1"># Licensed under the MIT License.</span>
+<span class="c1"># ---------------------------------------------------------</span>
+
+<span class="sd">&quot;&quot;&quot;This is a utility tool to split CoNLL formated files.</span>
+<span class="sd">It has the capability to pack sentences into generated pages more tightly.</span>
+
+<span class="sd">usage: splitter.py [-h] [--doc_sep DOC_SEP] [--line_sep LINE_SEP]</span>
+<span class="sd">                   [--force_doc_sep]</span>
+<span class="sd">                   input_file output_folder</span>
+
+<span class="sd">positional arguments:</span>
+<span class="sd">  input_file           path to input CoNLL formated file.</span>
+<span class="sd">  output_folder        folder to write results to.</span>
+
+<span class="sd">optional arguments:</span>
+<span class="sd">  -h, --help           show this help message and exit</span>
+<span class="sd">  --doc_sep DOC_SEP    CoNLL doc seperator</span>
+<span class="sd">  --line_sep LINE_SEP  CoNLL line seperator</span>
+<span class="sd">  --force_doc_sep      If set, documents are forced to be split by the doc seperator (recommended to turn this off)</span>
+
+<span class="sd">example usage:</span>
+
+<span class="sd">    python -m genalog.text.splitter --doc_sep=&quot;-DOCSTART-\tO&quot; CoNLL-2003_test.txt conll2003_test</span>
+
+<span class="sd">    python -m genalog.text.splitter CoNLL-2012_train.txt conll2012_train</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">multiprocessing.pool</span> <span class="kn">import</span> <span class="n">ThreadPool</span>
+
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="kn">from</span> <span class="nn">genalog.generation.content</span> <span class="kn">import</span> <span class="n">CompositeContent</span><span class="p">,</span> <span class="n">ContentType</span>
+<span class="kn">from</span> <span class="nn">genalog.generation.document</span> <span class="kn">import</span> <span class="n">DocumentGenerator</span>
+<span class="kn">from</span> <span class="nn">genalog.text</span> <span class="kn">import</span> <span class="n">preprocess</span>
+
+<span class="c1"># default buffer. Preferebly set this to something large</span>
+<span class="c1"># It holds the lines read from the CoNLL file</span>
+<span class="n">BUFFER_SIZE</span> <span class="o">=</span> <span class="mi">50000</span>
+
+<span class="n">CONLL2012_DOC_SEPERATOR</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">CONLL2003_DOC_SEPERATOR</span> <span class="o">=</span> <span class="s2">&quot;-DOCSTART-&quot;</span>
+
+<span class="n">SEPERATOR</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">STARTING_SPLIT_GUESS</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># starting estimate of point where to split text</span>
+<span class="n">MAX_SIZE</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># max number of sentences to pack on a doc page</span>
+
+<span class="n">SPLIT_ITERS</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># number of iterations to run to find a good split</span>
+<span class="n">WORKERS_PER_CPU</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">default_generator</span> <span class="o">=</span> <span class="n">DocumentGenerator</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">unwrap</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">accumulator</span><span class="p">):</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">sentence</span> <span class="o">=</span> <span class="n">accumulator</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">tok</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">:</span>
+            <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">word</span><span class="p">,</span> <span class="n">tok</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">words</span><span class="p">,</span> <span class="n">labels</span>
+
+
+<div class="viewcode-block" id="find_split_position"><a class="viewcode-back" href="../../../genalog.text.html#genalog.text.splitter.find_split_position">[docs]</a><span class="k">def</span> <span class="nf">find_split_position</span><span class="p">(</span>
+    <span class="n">accumulator</span><span class="p">,</span> <span class="n">start_pos</span><span class="p">,</span> <span class="n">iters</span><span class="o">=</span><span class="n">SPLIT_ITERS</span><span class="p">,</span> <span class="n">template_name</span><span class="o">=</span><span class="s2">&quot;text_block.html.jinja&quot;</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Run a few iterations of binary search to find the best split point</span>
+<span class="sd">    from the start to pack in sentences into a page without overflow.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        accumulator (list): buffer containing sentences</span>
+<span class="sd">        iters (int, optional): Max number of iterations. Defaults to SPLIT_ITERS.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        the best split position for a doc, the doc, its labels and text</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">STARTING_SPLIT_GUESS</span>
+    <span class="c1"># use binary search to find page split point</span>
+    <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">start_pos</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">accumulator</span><span class="p">),</span> <span class="n">MAX_SIZE</span> <span class="o">+</span> <span class="n">start_pos</span><span class="p">)</span>
+    <span class="n">best</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span>
+            <span class="n">STARTING_SPLIT_GUESS</span> <span class="o">+</span> <span class="n">start_pos</span> <span class="o">&gt;</span> <span class="n">start</span>
+            <span class="ow">and</span> <span class="n">STARTING_SPLIT_GUESS</span> <span class="o">+</span> <span class="n">start_pos</span> <span class="o">&lt;</span> <span class="n">end</span>
+        <span class="p">):</span>
+            <span class="n">split_point</span> <span class="o">=</span> <span class="n">STARTING_SPLIT_GUESS</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">split_point</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">doc_buf</span> <span class="o">=</span> <span class="p">(</span><span class="n">start_pos</span><span class="p">,</span> <span class="n">split_point</span><span class="p">)</span>
+        <span class="n">content_words</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">unwrap</span><span class="p">(</span><span class="n">doc_buf</span><span class="p">,</span> <span class="n">accumulator</span><span class="p">)</span>
+        <span class="n">content_types</span> <span class="o">=</span> <span class="p">[</span><span class="n">ContentType</span><span class="o">.</span><span class="n">PARAGRAPH</span><span class="p">]</span>
+
+        <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">content_words</span><span class="p">)</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">CompositeContent</span><span class="p">([</span><span class="n">text</span><span class="p">],</span> <span class="n">content_types</span><span class="p">)</span>
+        <span class="n">doc_gen</span> <span class="o">=</span> <span class="n">default_generator</span><span class="o">.</span><span class="n">create_generator</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="p">[</span><span class="n">template_name</span><span class="p">])</span>
+
+        <span class="n">doc</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">doc_gen</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">_document</span><span class="o">.</span><span class="n">pages</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">split_point</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">split_point</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">best</span> <span class="o">=</span> <span class="n">split_point</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">text</span>
+            <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="n">iters</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">STARTING_SPLIT_GUESS</span> <span class="o">=</span> <span class="n">split_point</span>
+    <span class="k">return</span> <span class="n">best</span></div>
+
+
+<div class="viewcode-block" id="generate_splits"><a class="viewcode-back" href="../../../genalog.text.html#genalog.text.splitter.generate_splits">[docs]</a><span class="k">def</span> <span class="nf">generate_splits</span><span class="p">(</span>
+    <span class="n">input_file</span><span class="p">,</span>
+    <span class="n">output_folder</span><span class="p">,</span>
+    <span class="n">sentence_seperator</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">doc_seperator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">pool</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">force_doc_sep</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">ext</span><span class="o">=</span><span class="s2">&quot;txt&quot;</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Processes the file line by line and add sentences to the buffer for processing.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        input_file (str): CoNLL formated file</span>
+<span class="sd">        output_folder (str): output folder path</span>
+<span class="sd">        sentence_seperator (str): sentence seperator</span>
+<span class="sd">        doc_seperator (str, optional): document seperator. Defaults to None.</span>
+<span class="sd">        pool (ThreadPool, optional): ThreadPool. If not set, no multithreading is used. Defaults to None.</span>
+<span class="sd">        force_doc_sep (bool, optional): Forces documents to be on separate pages. Defaults to False.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">doc_id</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">accumulator</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sentence</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">progress_bar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="s2">&quot; docs&quot;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Split into&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">sentence_seperator</span> <span class="ow">or</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">doc_seperator</span><span class="p">:</span>
+
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">accumulator</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+                <span class="n">sentence</span> <span class="o">=</span> <span class="p">[]</span>
+
+                <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">doc_seperator</span> <span class="ow">and</span> <span class="n">force_doc_sep</span><span class="p">:</span>
+                    <span class="c1"># progress to processing buffer immediately if force_doc_sep</span>
+                    <span class="k">pass</span>
+                <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">accumulator</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">BUFFER_SIZE</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">start_pos</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">while</span> <span class="n">start_pos</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">accumulator</span><span class="p">):</span>
+                    <span class="n">start_pos</span> <span class="o">=</span> <span class="n">next_doc</span><span class="p">(</span>
+                        <span class="n">accumulator</span><span class="p">,</span> <span class="n">doc_id</span><span class="p">,</span> <span class="n">start_pos</span><span class="p">,</span> <span class="n">output_folder</span><span class="p">,</span> <span class="n">pool</span>
+                    <span class="p">)</span>
+                    <span class="n">doc_id</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">progress_bar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">accumulator</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">continue</span>
+
+            <span class="n">word</span><span class="p">,</span> <span class="n">tok</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">sentence</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">word</span><span class="p">,</span> <span class="n">tok</span><span class="p">))</span>
+
+        <span class="c1"># process any left over lines</span>
+        <span class="n">start_pos</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">accumulator</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">start_pos</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">accumulator</span><span class="p">):</span>
+            <span class="n">start_pos</span> <span class="o">=</span> <span class="n">next_doc</span><span class="p">(</span><span class="n">accumulator</span><span class="p">,</span> <span class="n">doc_id</span><span class="p">,</span> <span class="n">start_pos</span><span class="p">,</span> <span class="n">output_folder</span><span class="p">,</span> <span class="n">pool</span><span class="p">)</span>
+            <span class="n">doc_id</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">progress_bar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">next_doc</span><span class="p">(</span><span class="n">accumulator</span><span class="p">,</span> <span class="n">doc_id</span><span class="p">,</span> <span class="n">start_pos</span><span class="p">,</span> <span class="n">output_folder</span><span class="p">,</span> <span class="n">pool</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">&quot;txt&quot;</span><span class="p">):</span>
+    <span class="n">split_pos</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="n">find_split_position</span><span class="p">(</span><span class="n">accumulator</span><span class="p">,</span> <span class="n">start_pos</span><span class="p">)</span>
+    <span class="n">handle_doc</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">doc_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">output_folder</span><span class="p">,</span> <span class="n">pool</span><span class="p">,</span> <span class="n">ext</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">split_pos</span>
+
+
+<span class="k">def</span> <span class="nf">write_doc</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">doc_id</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">output_folder</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">&quot;txt&quot;</span><span class="p">,</span> <span class="n">write_png</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">write_png</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_folder</span><span class="si">}</span><span class="s2">/img/img_</span><span class="si">{</span><span class="n">doc_id</span><span class="si">}</span><span class="s2">.png&quot;</span>
+        <span class="n">doc</span><span class="o">.</span><span class="n">render_png</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="n">text</span> <span class="o">+=</span> <span class="s2">&quot; &quot;</span>  <span class="c1"># adding a space at EOF</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">preprocess</span><span class="o">.</span><span class="n">split_sentences</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_folder</span><span class="si">}</span><span class="s2">/clean_labels/</span><span class="si">{</span><span class="n">doc_id</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">ext</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
+            <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">token</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">label</span><span class="p">)</span>
+            <span class="n">next_token</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[(</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="n">preprocess</span><span class="o">.</span><span class="n">is_sentence_separator</span><span class="p">(</span>
+                <span class="n">token</span>
+            <span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">preprocess</span><span class="o">.</span><span class="n">is_sentence_separator</span><span class="p">(</span><span class="n">next_token</span><span class="p">):</span>
+                <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>  <span class="c1"># Reach the end of the document</span>
+                <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_folder</span><span class="si">}</span><span class="s2">/clean_text/</span><span class="si">{</span><span class="n">doc_id</span><span class="si">}</span><span class="s2">.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">text_file</span><span class="p">:</span>
+        <span class="n">text_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;wrote: doc id: </span><span class="si">{</span><span class="n">doc_id</span><span class="si">}</span><span class="s2">&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">_error_callback</span><span class="p">(</span><span class="n">err</span><span class="p">):</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">handle_doc</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">doc_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">output_folder</span><span class="p">,</span> <span class="n">pool</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">&quot;txt&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pool</span><span class="p">:</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span>
+            <span class="n">write_doc</span><span class="p">,</span>
+            <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">doc_id</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">output_folder</span><span class="p">,</span> <span class="n">ext</span><span class="p">),</span>
+            <span class="n">error_callback</span><span class="o">=</span><span class="n">_error_callback</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">write_doc</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">doc_id</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">output_folder</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">setup_folder</span><span class="p">(</span><span class="n">output_folder</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="s2">&quot;clean_text&quot;</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="s2">&quot;clean_labels&quot;</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;input_file&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;CoNLL-2012_train.txt&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;path to input CoNLL formated file.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;output_folder&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;conll2012_train&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;folder to write results to.&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--doc_sep&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;CoNLL doc seperator&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--ext&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;file extension&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;txt&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--line_sep&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">CONLL2012_DOC_SEPERATOR</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;CoNLL line seperator&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--force_doc_sep&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;If set, documents are forced to be split by the doc seperator (recommended to turn this off)&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="n">unescape</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;unicode_escape&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span> <span class="k">else</span> <span class="kc">None</span>  <span class="c1"># noqa: E731</span>
+
+    <span class="n">input_file</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">input_file</span>
+    <span class="n">output_folder</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">output_folder</span>
+    <span class="n">setup_folder</span><span class="p">(</span><span class="n">output_folder</span><span class="p">)</span>
+
+    <span class="c1"># allow special characters in seperators</span>
+    <span class="n">line_sep</span> <span class="o">=</span> <span class="n">unescape</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">line_sep</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">doc_sep</span> <span class="o">=</span> <span class="n">unescape</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">doc_sep</span><span class="p">)</span>
+
+    <span class="n">n_workers</span> <span class="o">=</span> <span class="n">WORKERS_PER_CPU</span> <span class="o">*</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">ThreadPool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">n_workers</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+        <span class="n">generate_splits</span><span class="p">(</span>
+            <span class="n">input_file</span><span class="p">,</span>
+            <span class="n">output_folder</span><span class="p">,</span>
+            <span class="n">line_sep</span><span class="p">,</span>
+            <span class="n">doc_seperator</span><span class="o">=</span><span class="n">doc_sep</span><span class="p">,</span>
+            <span class="n">pool</span><span class="o">=</span><span class="n">pool</span><span class="p">,</span>
+            <span class="n">force_doc_sep</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">ext</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">ext</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</pre></div>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jianjie Liu and Amit Gupte<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

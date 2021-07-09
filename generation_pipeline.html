@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate Your Synthetic Document &#8212; Genalog</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Text Alignment" href="text_alignment.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Genalog</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Generate Your Synthetic Document
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Handling Noisy Text
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="text_alignment.html">
+   Text Alignment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ocr_label_propagation.html">
+   Propagation of NER labels
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="genalog.degradation.html">
+   genalog.degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genalog.generation.html">
+   genalog.generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genalog.ocr.html">
+   genalog.ocr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genalog.text.html">
+   genalog.text
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/generation_pipeline.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/microsoft/genalog/master?urlpath=tree/generation_pipeline.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#configurations">
+   Configurations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#css-style-combinations">
+     CSS Style Combinations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#image-degradations">
+     Image Degradations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choose-a-prebuild-html-template">
+     Choose a prebuild HTML Template
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#document-generation">
+   Document Generation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-sample-text-content">
+     Load Sample Text content
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generate-synthetic-documents">
+     Generate Synthetic Documents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#display-the-document">
+     Display the Document
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#document-generation-multi-process">
+   Document Generation (Multi-process)
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="generate-your-synthetic-document">
+<h1>Generate Your Synthetic Document<a class="headerlink" href="#generate-your-synthetic-document" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-default" id="overview-of-the-document-generation-pipeline">
+<a class="reference internal image-reference" href="_images/analog_doc_gen_pipeline.png"><img alt="_images/analog_doc_gen_pipeline.png" src="_images/analog_doc_gen_pipeline.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Overview of the document generation pipeline</span><a class="headerlink" href="#overview-of-the-document-generation-pipeline" title="Permalink to this image">¶</a></p>
+</div>
+<p>Genalog provides a simple interface (<code class="docutils literal notranslate"><span class="pre">AnalogDocumentGeneration</span></code>) to programmatic generate documents with degradation from a body of text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genalog.pipeline</span> <span class="kn">import</span> <span class="n">AnalogDocumentGeneration</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="configurations">
+<h2>Configurations<a class="headerlink" href="#configurations" title="Permalink to this headline">¶</a></h2>
+<p>To use the pipeline, you will need to supply the following information:</p>
+<div class="section" id="css-style-combinations">
+<h3>CSS Style Combinations<a class="headerlink" href="#css-style-combinations" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">STYLE_COMBINATIONS</span></code>: a dictionary defining the combination of styles to generate per text document (i.e. a copy of the same text document is generate per style combination)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">STYLE_COMBINATIONS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;en_US&quot;</span><span class="p">],</span>
+     <span class="s2">&quot;font_family&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Segeo UI&quot;</span><span class="p">],</span>
+     <span class="s2">&quot;font_size&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;12px&quot;</span><span class="p">],</span>
+     <span class="s2">&quot;text_align&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;justify&quot;</span><span class="p">],</span>
+     <span class="s2">&quot;hyphenate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Genalog depends on Weasyprint as the engine to render these CSS styles. Most of these fields are standard CSS properties and accepts common values as specified in <a class="reference external" href="https://www.w3.org/Style/CSS/all-properties.en.html">W3C CSS Properties</a>. For details, please see <a class="reference external" href="https://weasyprint.readthedocs.io/en/stable/features.html#fonts">Weasyprint Documentation</a>.</p>
+</div>
+</div>
+<div class="section" id="image-degradations">
+<h3>Image Degradations<a class="headerlink" href="#image-degradations" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">DEGRADATIONS</span></code>: a list defining the sequence of degradation effects applied onto the synthetic images. Each element is a two-element tuple of which the first element is one of the method names from  <code class="docutils literal notranslate"><span class="pre">genalog.degradation.effect</span></code> and the second element is the corresponding function keyword arguments.</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">bleed_through</label><div class="tab-content docutils">
+<div class="figure align-default" id="bleed-through">
+<a class="reference internal image-reference" href="_images/bleed_through.png"><img alt="_images/bleed_through.png" src="_images/bleed_through.png" style="width: 90%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Mimics a document printed on two sides. Valid values: [0,1].</span><a class="headerlink" href="#bleed-through" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">blur</label><div class="tab-content docutils">
+<div class="figure align-default" id="blur">
+<a class="reference internal image-reference" href="_images/blur.png"><img alt="_images/blur.png" src="_images/blur.png" style="width: 90%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Lowers image quality. Unit are in number of pixels.</span><a class="headerlink" href="#blur" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">salt/pepper</label><div class="tab-content docutils">
+<div class="figure align-default" id="salt-pepper">
+<a class="reference internal image-reference" href="_images/salt_pepper.png"><img alt="_images/salt_pepper.png" src="_images/salt_pepper.png" style="width: 65%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Mimics ink degradation. Valid values: [0, 1].</span><a class="headerlink" href="#salt-pepper" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--4" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--4">close/dilate</label><div class="tab-content docutils">
+<div class="figure align-default" id="close-dilate">
+<img alt="_images/close_dilate.png" src="_images/close_dilate.png" />
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Degrades printing quality.</span><a class="headerlink" href="#close-dilate" title="Permalink to this image">¶</a></p>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more details on this degradation, see <a class="reference external" href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/morops.htm">Morphilogical Operations</a></p>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--5" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--5">open/erode</label><div class="tab-content docutils">
+<div class="figure align-default" id="open-errode">
+<img alt="_images/open_erode.png" src="_images/open_erode.png" />
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Ink overflows</span><a class="headerlink" href="#open-errode" title="Permalink to this image">¶</a></p>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more details on this degradation, see <a class="reference external" href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/morops.htm">Morphilogical Operations</a></p>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genalog.degradation.degrader</span> <span class="kn">import</span> <span class="n">ImageState</span>
+
+<span class="n">DEGRADATIONS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;blur&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;radius&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;bleed_through&quot;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="s2">&quot;src&quot;</span><span class="p">:</span> <span class="n">ImageState</span><span class="o">.</span><span class="n">CURRENT_STATE</span><span class="p">,</span>
+        <span class="s2">&quot;background&quot;</span><span class="p">:</span> <span class="n">ImageState</span><span class="o">.</span><span class="n">ORIGINAL_STATE</span><span class="p">,</span>
+        <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+        <span class="s2">&quot;offset_x&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span>
+        <span class="s2">&quot;offset_y&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span>
+    <span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;morphology&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;operation&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span> <span class="s2">&quot;kernel_shape&quot;</span><span class="p">:(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span> <span class="s2">&quot;kernel_type&quot;</span><span class="p">:</span><span class="s2">&quot;plus&quot;</span><span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;pepper&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;salt&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">}),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">ImageState.ORIGINAL_STATE</span></code> refers to the origin state of the image before applying any degradation, while
+<code class="docutils literal notranslate"><span class="pre">ImageState.CURRENT_STATE</span></code> refers to the state of the image after applying the last degradation effect.</p>
+</div>
+<p>The example above will apply degradation effects to synthetic images in the sequence of:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    blur -&gt; bleed_through -&gt; morphological operation (open) -&gt; pepper -&gt; salt
+</pre></div>
+</div>
+<p>For the full list of supported degradation effects, please see <a class="reference external" href="https://github.com/microsoft/genalog/blob/main/genalog/degradation/README.md">documentation on degradation</a>.</p>
+</div>
+<div class="section" id="choose-a-prebuild-html-template">
+<h3>Choose a prebuild HTML Template<a class="headerlink" href="#choose-a-prebuild-html-template" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">HTML_TEMPLATE</span></code>: name of html template used to generate the synthetic images. The <code class="docutils literal notranslate"><span class="pre">genalog</span></code> package has the following default templates:</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">columns.html.jinja</label><div class="tab-content docutils">
+<div class="figure align-default" id="document-template-with-2-columns">
+<a class="reference internal image-reference" href="_images/columns_Times_11px.png"><img alt="_images/columns_Times_11px.png" src="_images/columns_Times_11px.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Document template with 2 columns</span><a class="headerlink" href="#document-template-with-2-columns" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">letter.html.jinja</label><div class="tab-content docutils">
+<div class="figure align-default" id="letter-like-document-template">
+<a class="reference internal image-reference" href="_images/letter_Times_11px.png"><img alt="_images/letter_Times_11px.png" src="_images/letter_Times_11px.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Letter-like document template</span><a class="headerlink" href="#letter-like-document-template" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--3" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--3">text_block.html.jinja</label><div class="tab-content docutils">
+<div class="figure align-default" id="simple-text-block-template">
+<a class="reference internal image-reference" href="_images/text_block_Times_11px.png"><img alt="_images/text_block_Times_11px.png" src="_images/text_block_Times_11px.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Simple text block template</span><a class="headerlink" href="#simple-text-block-template" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML_TEMPLATE</span> <span class="o">=</span> <span class="s2">&quot;text_block.html.jinja&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We use <code class="docutils literal notranslate"><span class="pre">Jinja</span></code> to prepare html templates. You can find example of these Jinja templates in <a class="reference external" href="https://github.com/microsoft/genalog/tree/main/genalog/generation/templates">our source code</a>.</p>
+</div>
+</div>
+<div class="section" id="document-generation">
+<h2>Document Generation<a class="headerlink" href="#document-generation" title="Permalink to this headline">¶</a></h2>
+<p>With the above configurations, we can go ahead and start generate synthetic document.</p>
+<div class="section" id="load-sample-text-content">
+<h3>Load Sample Text content<a class="headerlink" href="#load-sample-text-content" title="Permalink to this headline">¶</a></h3>
+<p>You can use <strong>any</strong> text documents as the content of the generated images. For the sake of the tutorial, you can use the <a class="reference external" href="https://github.com/microsoft/genalog/blob/main/example/sample/generation/example.txt">sample text</a> from our repo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">sample_text_url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/microsoft/genalog/main/example/sample/generation/example.txt&quot;</span>
+<span class="n">sample_text</span> <span class="o">=</span> <span class="s2">&quot;example.txt&quot;</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sample_text_url</span><span class="p">,</span> <span class="n">allow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">sample_text</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="generate-synthetic-documents">
+<h3>Generate Synthetic Documents<a class="headerlink" href="#generate-synthetic-documents" title="Permalink to this headline">¶</a></h3>
+<p>Next, we can supply the three aforementioned configurations in initalizing <code class="docutils literal notranslate"><span class="pre">AnalogDocumentGeneration</span></code> object</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genalog.pipeline</span> <span class="kn">import</span> <span class="n">AnalogDocumentGeneration</span>
+
+<span class="n">IMG_RESOLUTION</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1"># dots per inch (dpi) of the generated pdf/image</span>
+
+<span class="n">doc_generation</span> <span class="o">=</span> <span class="n">AnalogDocumentGeneration</span><span class="p">(</span><span class="n">styles</span><span class="o">=</span><span class="n">STYLE_COMBINATIONS</span><span class="p">,</span> <span class="n">degradations</span><span class="o">=</span><span class="n">DEGRADATIONS</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="n">IMG_RESOLUTION</span><span class="p">,</span> <span class="n">template_path</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To use custom templates, please set <code class="docutils literal notranslate"><span class="pre">template_path</span></code> to the folder of containing them. You can find more information from our <a class="reference external" href="https://github.com/microsoft/genalog/blob/main/example/document_generation.ipynb"><code class="docutils literal notranslate"><span class="pre">document_generation.ipynb</span></code></a>.</p>
+<p>Once initialized, you can call <code class="docutils literal notranslate"><span class="pre">generate_img()</span></code> method to get the synthetic documents as images</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for custom templates, please set template_path.</span>
+<span class="n">img_array</span> <span class="o">=</span> <span class="n">doc_generation</span><span class="o">.</span><span class="n">generate_img</span><span class="p">(</span><span class="n">sample_text</span><span class="p">,</span> <span class="n">HTML_TEMPLATE</span><span class="p">,</span> <span class="n">target_folder</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># returns the raw image bytes if target_folder is not specified</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">target_folder</span></code> to <code class="docutils literal notranslate"><span class="pre">None</span></code> will return the raw image bytes as a <code class="docutils literal notranslate"><span class="pre">Numpy.ndarray</span></code>. Otherwise the generated image will be save on the disk as a PNG file in the specified path.</p>
+</div>
+</div>
+<div class="section" id="display-the-document">
+<h3>Display the Document<a class="headerlink" href="#display-the-document" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+
+<span class="n">_</span><span class="p">,</span> <span class="n">encoded_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imencode</span><span class="p">(</span><span class="s1">&#39;.png&#39;</span><span class="p">,</span> <span class="n">img_array</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">encoded_image</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="document-generation-multi-process">
+<h2>Document Generation (Multi-process)<a class="headerlink" href="#document-generation-multi-process" title="Permalink to this headline">¶</a></h2>
+<p>To scale up the generation across multiple text files, you can use <code class="docutils literal notranslate"><span class="pre">generate_dataset_multiprocess</span></code>. The method will split the list of text filenames into batches and run document generation across different batches as subprocesses in parallel</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genalog.pipeline</span> <span class="kn">import</span> <span class="n">generate_dataset_multiprocess</span>
+
+<span class="n">DST_PATH</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span> <span class="c1"># where on disk to write the generated image</span>
+
+<span class="n">generate_dataset_multiprocess</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">sample_text</span><span class="p">],</span> <span class="n">DST_PATH</span><span class="p">,</span> <span class="n">STYLE_COMBINATIONS</span><span class="p">,</span> <span class="n">DEGRADATIONS</span><span class="p">,</span> <span class="n">HTML_TEMPLATE</span><span class="p">,</span> 
+    <span class="n">resolution</span><span class="o">=</span><span class="n">IMG_RESOLUTION</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">5</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">[sample_text]</span></code> is a list of filenames to generate the synthetic dataset over.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="installation.html" title="previous page">Installation</a>
+    <a class='right-next' id="next-link" href="text_alignment.html" title="next page">Text Alignment</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jianjie Liu and Amit Gupte<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

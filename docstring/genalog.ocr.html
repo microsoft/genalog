@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>genalog.ocr &#8212; Genalog</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="genalog.text" href="genalog.text.html" />
+    <link rel="prev" title="genalog.generation" href="genalog.generation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Genalog</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../generation_pipeline.html">
+   Generate Your Synthetic Document
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Handling Noisy Text
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../text_alignment.html">
+   Text Alignment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ocr_label_propagation.html">
+   Propagation of NER labels
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API documentation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="genalog.degradation.html">
+   genalog.degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genalog.generation.html">
+   genalog.generation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   genalog.ocr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genalog.text.html">
+   genalog.text
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/docstring/genalog.ocr.rst"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-genalog.ocr.common">
+   genalog.ocr.common module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-genalog.ocr.grok">
+   genalog.ocr.grok module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-genalog.ocr.metrics">
+   genalog.ocr.metrics module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-genalog.ocr.rest_client">
+   genalog.ocr.rest_client module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-genalog.ocr.blob_client">
+   genalog.ocr.blob_client module
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="genalog-ocr">
+<h1>genalog.ocr<a class="headerlink" href="#genalog-ocr" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-genalog.ocr.common">
+<span id="genalog-ocr-common-module"></span><h2>genalog.ocr.common module<a class="headerlink" href="#module-genalog.ocr.common" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-genalog.ocr.grok">
+<span id="genalog-ocr-grok-module"></span><h2>genalog.ocr.grok module<a class="headerlink" href="#module-genalog.ocr.grok" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-genalog.ocr.metrics">
+<span id="genalog-ocr-metrics-module"></span><h2>genalog.ocr.metrics module<a class="headerlink" href="#module-genalog.ocr.metrics" title="Permalink to this headline">¶</a></h2>
+<p>Utility functions to support getting OCR metrics</p>
+<p>OCR Metrics
+1. word/character accuracy like in this paper <a class="reference external" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6065412">https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6065412</a>.
+Accuracy = Correct Words/Total Words (in target strings)</p>
+<p>2. Count of edit distance ops:
+insert, delete, substitutions; like in the paper “Deep Statistical Analysis of OCR Errors for Effective Post-OCR Processing”.
+This is based on Levenshtein edit distance.</p>
+<p>3. By looking at the gaps in alignment we also generate substitution dicts:
+e.g: if we have text “a worn coat” and ocr is “a wom coat” , “rn” -&gt; “m” will be captured as a substitution
+since the rest of the segments align.The assumption here is that we do not expect to have very long gaps in alignment,
+hence collecting and counting these substitutions will be managable.</p>
+<dl class="py function">
+<dt id="genalog.ocr.metrics.get_align_stats">
+<code class="sig-prename descclassname"><span class="pre">genalog.ocr.metrics.</span></code><code class="sig-name descname"><span class="pre">get_align_stats</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alignment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap_char</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/metrics.html#get_align_stats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.metrics.get_align_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get alignment stats</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alignment</strong> (<em>tuple</em><em>(</em><em>str</em><em>,</em><em>str</em><em>)</em>) – the result of calling the align function</p></li>
+<li><p><strong>src_string</strong> (<em>str</em>) – the original source string</p></li>
+<li><p><strong>target</strong> (<em>str</em>) – the original target string</p></li>
+<li><p><strong>gap_char</strong> (<em>str</em>) – the gap character used in alignment</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if any of the strings are empty</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict of the align starts and dict of the substitution mappings</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple(dict, dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="genalog.ocr.metrics.get_editops_stats">
+<code class="sig-prename descclassname"><span class="pre">genalog.ocr.metrics.</span></code><code class="sig-name descname"><span class="pre">get_editops_stats</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alignment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap_char</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/metrics.html#get_editops_stats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.metrics.get_editops_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get stats for character level edit operations that need to be done to
+transform the source string to the target string. Inputs must not be empty
+and must be the result of calling the runing the align function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alignment</strong> (<em>tuple</em><em>(</em><em>str</em><em>, </em><em>str</em><em>)</em>) – the results from the string alignment biopy function</p></li>
+<li><p><strong>gap_char</strong> (<em>str</em>) – gap character used in alignment</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If any of the string in the alignment are empty</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>[description]</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>[type]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="genalog.ocr.metrics.get_metrics">
+<code class="sig-prename descclassname"><span class="pre">genalog.ocr.metrics.</span></code><code class="sig-name descname"><span class="pre">get_metrics</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_text_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocr_json_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiprocessing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/metrics.html#get_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.metrics.get_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a path to the folder containing the source text and a folder containing
+the output OCR json, this generates the metrics for all files in the source folder.
+This assumes that the files json folder are of the same name the text files except they
+are prefixed by the parameter folder_hash followed by underscore and suffixed by .png.json.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src_text_path</strong> (<em>str</em>) – path to source txt files</p></li>
+<li><p><strong>ocr_json_path</strong> (<em>str</em>) – path to OCR json files</p></li>
+<li><p><strong>folder_hash</strong> (<em>str</em>) – prefix for OCR json files</p></li>
+<li><p><strong>use_multiprocessing</strong> (<em>bool</em>) – use multiprocessing</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A pandas dataframe of the metrics with each file in a row,</dt><dd><p>a dict containing the substitions mappings for each file. the key to the dict is the
+filename and the values are dicts of the substition mappings for that file.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple(pandas.DataFrame, dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="genalog.ocr.metrics.get_stats">
+<code class="sig-prename descclassname"><span class="pre">genalog.ocr.metrics.</span></code><code class="sig-name descname"><span class="pre">get_stats</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/metrics.html#get_stats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.metrics.get_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get align stats, edit stats, and substitution mappings for transforming the
+source string to the target string. Edit stats refers to character level edit operation
+required to transform the source to target. Align stats referers to substring level operation
+required to transform the source to target. Align stats have keys insert,replace,delete and the special
+key spacing which counts spacing differences between the two strings. Edit stats have the keys edit_insert,
+edit_replace, edit_delete which count the character level edits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src_string</strong> (<em>str</em>) – the source string</p></li>
+<li><p><strong>target</strong> (<em>str</em>) – the target string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>One dict containing the edit and align stats, another dict containing the substitutions</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple(str, str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="genalog.ocr.metrics.substitution_dict_to_json">
+<code class="sig-prename descclassname"><span class="pre">genalog.ocr.metrics.</span></code><code class="sig-name descname"><span class="pre">substitution_dict_to_json</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substitution_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/metrics.html#substitution_dict_to_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.metrics.substitution_dict_to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts substitution dict to list of tuples of (source_substring, target_substring, count)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>substitution_dict</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-genalog.ocr.rest_client">
+<span id="genalog-ocr-rest-client-module"></span><h2>genalog.ocr.rest_client module<a class="headerlink" href="#module-genalog.ocr.rest_client" title="Permalink to this headline">¶</a></h2>
+<p>Uses the REST api to perform operations on the search service.
+see: <a class="reference external" href="https://docs.microsoft.com/en-us/rest/api/searchservice/">https://docs.microsoft.com/en-us/rest/api/searchservice/</a></p>
+<dl class="py class">
+<dt id="genalog.ocr.rest_client.GrokRestClient">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">genalog.ocr.rest_client.</span></code><code class="sig-name descname"><span class="pre">GrokRestClient</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cognitive_service_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_service_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_service_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skillset_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexer_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datasource_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datasource_container_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blob_account_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blob_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">projections_container_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ocrprojections'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/rest_client.html#GrokRestClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.rest_client.GrokRestClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a REST client. It is a wrapper around the REST api for the Azure Search Service
+see: <a class="reference external" href="https://docs.microsoft.com/en-us/rest/api/searchservice/">https://docs.microsoft.com/en-us/rest/api/searchservice/</a></p>
+<p>This class can be used to create an indexing pipeline and can be used to run and monitor
+ongoing indexers. The indexing pipeline can allow you to run batch OCR enrichment of documents.</p>
+<p>Creates the REST client</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cognitive_service_key</strong> (<em>str</em>) – key to cognitive services account</p></li>
+<li><p><strong>search_service_key</strong> (<em>str</em>) – key to the search service account</p></li>
+<li><p><strong>search_service_name</strong> (<em>str</em>) – name of the search service account</p></li>
+<li><p><strong>skillset_name</strong> (<em>str</em>) – name of the skillset</p></li>
+<li><p><strong>index_name</strong> (<em>str</em>) – name of the index</p></li>
+<li><p><strong>indexer_name</strong> (<em>str</em>) – the name of indexer</p></li>
+<li><p><strong>datasource_name</strong> (<em>str</em>) – the name to give the the attached blob storage source</p></li>
+<li><p><strong>datasource_container_name</strong> (<em>str</em>) – the container in the blob storage that host the files</p></li>
+<li><p><strong>blob_account_name</strong> (<em>str</em>) – blob storage account name that will host the documents to push though the pipeline</p></li>
+<li><p><strong>blob_key</strong> (<em>str</em>) – key to blob storage account</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="genalog.ocr.rest_client.GrokRestClient.create_datasource">
+<code class="sig-name descname"><span class="pre">create_datasource</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/rest_client.html#GrokRestClient.create_datasource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.rest_client.GrokRestClient.create_datasource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attaches the blob data store to the search service as a source for image documents</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="genalog.ocr.rest_client.GrokRestClient.create_index">
+<code class="sig-name descname"><span class="pre">create_index</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/rest_client.html#GrokRestClient.create_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.rest_client.GrokRestClient.create_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an index with the layoutText column to store OCR output from the enrichment</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="genalog.ocr.rest_client.GrokRestClient.create_indexer">
+<code class="sig-name descname"><span class="pre">create_indexer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension_to_exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.txt,</span> <span class="pre">.json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/rest_client.html#GrokRestClient.create_indexer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.rest_client.GrokRestClient.create_indexer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an indexer that runs the enrichment skillset of documents from the datatsource.
+The enriched results are pushed to the index.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="genalog.ocr.rest_client.GrokRestClient.create_indexing_pipeline">
+<code class="sig-name descname"><span class="pre">create_indexing_pipeline</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/rest_client.html#GrokRestClient.create_indexing_pipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.rest_client.GrokRestClient.create_indexing_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Using REST calls, creates an index, indexer and skillset on the Cognitive service.
+The templates for json are in the templates folder.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="genalog.ocr.rest_client.GrokRestClient.create_skillset">
+<code class="sig-name descname"><span class="pre">create_skillset</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/rest_client.html#GrokRestClient.create_skillset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.rest_client.GrokRestClient.create_skillset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a skillset that performs OCR on images</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="genalog.ocr.rest_client.GrokRestClient.delete_indexer_pipeline">
+<code class="sig-name descname"><span class="pre">delete_indexer_pipeline</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/rest_client.html#GrokRestClient.delete_indexer_pipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.rest_client.GrokRestClient.delete_indexer_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes all indexers, indexes, skillsets and datasources that had been previously
+created</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-genalog.ocr.blob_client">
+<span id="genalog-ocr-blob-client-module"></span><h2>genalog.ocr.blob_client module<a class="headerlink" href="#module-genalog.ocr.blob_client" title="Permalink to this headline">¶</a></h2>
+<p>Uses the python sdk to make operation on Azure Blob storage.
+see: <a class="reference external" href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python">https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python</a></p>
+<dl class="py class">
+<dt id="genalog.ocr.blob_client.GrokBlobClient">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">genalog.ocr.blob_client.</span></code><code class="sig-name descname"><span class="pre">GrokBlobClient</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasource_container_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blob_account_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blob_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">projections_container_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ocrprojections'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/blob_client.html#GrokBlobClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.blob_client.GrokBlobClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is a client that is used to upload and delete files from Azure Blob storage
+<a class="reference external" href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python">https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python</a></p>
+<p>Creates the blob storage client given the key and storage account name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datasource_container_name</strong> (<em>str</em>) – container name. This container does not need to be existing</p></li>
+<li><p><strong>projections_container_name</strong> (<em>str</em>) – projections container to store ocr projections.
+This container does not need to be existing</p></li>
+<li><p><strong>blob_account_name</strong> (<em>str</em>) – storage account name</p></li>
+<li><p><strong>blob_key</strong> (<em>str</em>) – storage account key</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="genalog.ocr.blob_client.GrokBlobClient.create_from_env_var">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">create_from_env_var</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/blob_client.html#GrokBlobClient.create_from_env_var"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.blob_client.GrokBlobClient.create_from_env_var" title="Permalink to this definition">¶</a></dt>
+<dd><p>Created the blob client using values in the environment variables</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the new blob client</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#genalog.ocr.blob_client.GrokBlobClient" title="genalog.ocr.blob_client.GrokBlobClient">GrokBlobClient</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="genalog.ocr.blob_client.GrokBlobClient.delete_blobs_folder">
+<code class="sig-name descname"><span class="pre">delete_blobs_folder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/blob_client.html#GrokBlobClient.delete_blobs_folder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.blob_client.GrokBlobClient.delete_blobs_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes all blobs in a folder</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>folder_name</strong> (<em>str</em>) – folder to delete</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="genalog.ocr.blob_client.GrokBlobClient.get_folder_hash">
+<code class="sig-name descname"><span class="pre">get_folder_hash</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/blob_client.html#GrokBlobClient.get_folder_hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.blob_client.GrokBlobClient.get_folder_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an Md5 hash for all files in a folder.
+This hash can be used for blob folders.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>folder_name</strong> (<em>str</em>) – path to folder</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>md5 hash of all filenames in the folder</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="genalog.ocr.blob_client.GrokBlobClient.upload_images_to_blob">
+<code class="sig-name descname"><span class="pre">upload_images_to_blob</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_folder_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_folder_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_existing_cache</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_async</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/ocr/blob_client.html#GrokBlobClient.upload_images_to_blob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.ocr.blob_client.GrokBlobClient.upload_images_to_blob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uploads images from the src_folder_path to blob storage at the destination folder.
+The destination folder is created if it doesn’t exist. If a destination folder is not
+given a folder is created named by the md5 hash of the files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src_folder_path</strong> (<em>src</em>) – path to local folder that has images</p></li>
+<li><p><strong>dest_folder_name</strong> (<em>str</em><em>, </em><em>optional</em>) – destination folder name. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the destination folder name</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docstring"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="genalog.generation.html" title="previous page">genalog.generation</a>
+    <a class='right-next' id="next-link" href="genalog.text.html" title="next page">genalog.text</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jianjie Liu and Amit Gupte<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

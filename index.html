@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Synthetic Document Generator &#8212; Genalog</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="#">
+      
+      
+      <h1 class="site-logo" id="site-title">Genalog</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="generation_pipeline.html">
+   Generate Your Synthetic Document
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Handling Noisy Text
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="text_alignment.html">
+   Text Alignment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ocr_label_propagation.html">
+   Propagation of NER labels
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="docstring/genalog.degradation.html">
+   genalog.degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="docstring/genalog.generation.html">
+   genalog.generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="docstring/genalog.ocr.html">
+   genalog.ocr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="docstring/genalog.text.html">
+   genalog.text
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="synthetic-document-generator">
+<h1>Synthetic Document Generator<a class="headerlink" href="#synthetic-document-generator" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://dev.azure.com/genalog-dev/genalog/_build/latest?definitionId=4&amp;branchName=main"><img alt="Build Status" src="https://dev.azure.com/genalog-dev/genalog/_apis/build/status/Nightly-Build?branchName=main" /></a> <img alt="Azure DevOps tests (compact)" src="https://img.shields.io/azure-devops/tests/genalog-dev/genalog/4?compact_message" /> <img alt="Azure DevOps coverage (main)" src="https://img.shields.io/azure-devops/coverage/genalog-dev/genalog/4/main" /> <img alt="Python Versions" src="https://img.shields.io/badge/py-3.6%20%7C%203.7%20%7C%203.8%20-blue" /> <img alt="Supported OSs" src="https://img.shields.io/badge/platform-%20linux--64%20-red" /> <img alt="MIT license" src="https://img.shields.io/badge/License-MIT-blue.svg" /></p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install genalog
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">genalog</span></code> is an open source, cross-platform python package for <strong>gen</strong>erating document images with synthetic noise that mimics scanned an<strong>alog</strong> documents (thus the name <code class="docutils literal notranslate"><span class="pre">genalog</span></code>). You can also add various text degradations to these images. The purpose of this tool is to provide a fast and efficient way to generate synthetic documents from text data by leveraging layout from templates that you create in simple HTML format.</p>
+<p><code class="docutils literal notranslate"><span class="pre">genalog</span></code> provides several document templates as a start. You can alter the document layout using standard CSS properties like <code class="docutils literal notranslate"><span class="pre">font-family</span></code>, <code class="docutils literal notranslate"><span class="pre">font-size</span></code>, <code class="docutils literal notranslate"><span class="pre">text-align</span></code>, etc. Here are some of the example generated documents:</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Multi-Column</label><div class="tab-content docutils">
+<div class="figure align-default" id="two-columns-index">
+<a class="reference internal image-reference" href="_images/columns_Times_11px.png"><img alt="_images/columns_Times_11px.png" src="_images/columns_Times_11px.png" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Document template with 2 columns</span><a class="headerlink" href="#two-columns-index" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">Letter-like</label><div class="tab-content docutils">
+<div class="figure align-default" id="letter-like-index">
+<a class="reference internal image-reference" href="_images/letter_Times_11px.png"><img alt="_images/letter_Times_11px.png" src="_images/letter_Times_11px.png" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Letter-like document template</span><a class="headerlink" href="#letter-like-index" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">Simple Text Block</label><div class="tab-content docutils">
+<div class="figure align-default" id="text-block-index">
+<a class="reference internal image-reference" href="_images/text_block_Times_11px.png"><img alt="_images/text_block_Times_11px.png" src="_images/text_block_Times_11px.png" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Simple text block template</span><a class="headerlink" href="#text-block-index" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<p>Once a document is generated, you can pick and combine various image degradation effects onto the synthetic documents. Here are some of the degradation effects:</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Bleed-through</label><div class="tab-content docutils">
+<div class="figure align-default" id="bleed-through-index">
+<a class="reference internal image-reference" href="_images/bleed_through.png"><img alt="_images/bleed_through.png" src="_images/bleed_through.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Mimics a document printed on two sides</span><a class="headerlink" href="#bleed-through-index" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">Blur</label><div class="tab-content docutils">
+<div class="figure align-default" id="blur-index">
+<a class="reference internal image-reference" href="_images/blur.png"><img alt="_images/blur.png" src="_images/blur.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Lowers image quality</span><a class="headerlink" href="#blur-index" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--3" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--3">Salt/Pepper</label><div class="tab-content docutils">
+<div class="figure align-default" id="salt-pepper-index">
+<a class="reference internal image-reference" href="_images/salt_pepper.png"><img alt="_images/salt_pepper.png" src="_images/salt_pepper.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Mimics ink degradation</span><a class="headerlink" href="#salt-pepper-index" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--4" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--4">Close/Dilate</label><div class="tab-content docutils">
+<div class="figure align-default" id="close-dilate-index">
+<a class="reference internal image-reference" href="_images/close_dilate.png"><img alt="_images/close_dilate.png" src="_images/close_dilate.png" style="width: 90%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Degrades printing quality</span><a class="headerlink" href="#close-dilate-index" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--5" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--5">Open/Erode</label><div class="tab-content docutils">
+<div class="figure align-default" id="open-erode-index">
+<a class="reference internal image-reference" href="_images/open_erode.png"><img alt="_images/open_erode.png" src="_images/open_erode.png" style="width: 90%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Ink overflows</span><a class="headerlink" href="#open-erode-index" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--6" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--6">Combined Effects</label><div class="tab-content docutils">
+<div class="figure align-default" id="combined-effects-index">
+<a class="reference internal image-reference" href="_images/degrader.png"><img alt="_images/degrader.png" src="_images/degrader.png" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Combining various degradation effects: blur, salt, open, and bleed-through</span><a class="headerlink" href="#combined-effects-index" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<p>In addition to the document generation and degradation, <code class="docutils literal notranslate"><span class="pre">genalog</span></code> also provide efficient implementation for <a class="reference internal" href="text_alignment.html#text-alignment-page"><span class="std std-ref">text alignment</span></a> between the source and noise text.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='right-next' id="next-link" href="installation.html" title="next page">Installation</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jianjie Liu and Amit Gupte<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>genalog.generation.document &#8212; Genalog</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Genalog</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../generation_pipeline.html">
+   Generate Your Synthetic Document
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Handling Noisy Text
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../text_alignment.html">
+   Text Alignment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../ocr_label_propagation.html">
+   Propagation of NER labels
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../genalog.degradation.html">
+   genalog.degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../genalog.generation.html">
+   genalog.generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../genalog.ocr.html">
+   genalog.ocr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../genalog.text.html">
+   genalog.text
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <h1>Source code for genalog.generation.document</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">cairocffi</span> <span class="kn">import</span> <span class="n">FORMAT_ARGB32</span>
+<span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">select_autoescape</span>
+<span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">FileSystemLoader</span><span class="p">,</span> <span class="n">PackageLoader</span>
+<span class="kn">from</span> <span class="nn">weasyprint</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="n">DEFAULT_DOCUMENT_STYLE</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;en_US&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;font_family&quot;</span><span class="p">:</span> <span class="s2">&quot;Segoe UI&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;font_size&quot;</span><span class="p">:</span> <span class="s2">&quot;12px&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;text_align&quot;</span><span class="p">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hyphenate&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Default styles combinations for document generator</span>
+<span class="n">DEFAULT_STYLE_COMBINATION</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;en_US&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;font_family&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Segoe UI&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;font_size&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;12px&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;text_align&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;hyphenate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">False</span><span class="p">],</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="Document"><a class="viewcode-back" href="../../../genalog.generation.html#genalog.generation.document.Document">[docs]</a><span class="k">class</span> <span class="nc">Document</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; A composite object that represents a document &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="o">**</span><span class="n">styles</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize a Document object with source template and content</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            content (CompositeContent) : a iterable object whose elements</span>
+<span class="sd">            template (Template) : a jinja2.Template object</span>
+
+<span class="sd">        Other Parameters:</span>
+<span class="sd">            styles (dict) : a kwargs dictionary (context) whose keys and values are</span>
+<span class="sd">            the template variable and their respective values</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            {</span>
+<span class="sd">                &quot;font_family&quot;: &quot;Calibri&quot;,</span>
+<span class="sd">                &quot;font_size&quot;: &quot;10px&quot;,</span>
+<span class="sd">                &quot;hyphenate&quot;: True,</span>
+<span class="sd">            }</span>
+
+<span class="sd">        **NOTE** that this assumes that &quot;font_family&quot;, &quot;font_size&quot;, &quot;hyphenate&quot; are valid</span>
+<span class="sd">        variables declared in the loaded template. There will be **NO SIDE-EFFECT**</span>
+<span class="sd">        providing an variable undefined in the template.</span>
+
+<span class="sd">        You can also provide these key-value pairs via Python keyword arguments:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            Document(content, template, font_family=&quot;Calibri, font_size=&quot;10px&quot;, hyphenate=True)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">content</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">template</span> <span class="o">=</span> <span class="n">template</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">styles</span> <span class="o">=</span> <span class="n">DEFAULT_DOCUMENT_STYLE</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="c1"># This is a rendered document ready to be painted on a cairo surface</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_document</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># weasyprint.document.Document object</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compiled_html</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># Update the default styles and initialize self._document object</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_style</span><span class="p">(</span><span class="o">**</span><span class="n">styles</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Document.render_html"><a class="viewcode-back" href="../../../genalog.generation.html#genalog.generation.document.Document.render_html">[docs]</a>    <span class="k">def</span> <span class="nf">render_html</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Wrapper function for Jinjia2.Template.render(). Each template</span>
+<span class="sd">        declare its template variables. This method assigns each variable to</span>
+<span class="sd">        its respective value and compiles the template.</span>
+
+<span class="sd">        This method will be used mostly for testing purpose.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str : compiled Html template in unicode string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Document.render_pdf"><a class="viewcode-back" href="../../../genalog.generation.html#genalog.generation.document.Document.render_pdf">[docs]</a>    <span class="k">def</span> <span class="nf">render_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Wrapper function for WeasyPrint.Document.write_pdf</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            target -- a filename, file-like object, or None</span>
+<span class="sd">            split_pages (bool) : true if saving each document page as a separate file.</span>
+<span class="sd">            zoom (int) : the zoom factor in PDF units per CSS units.</span>
+
+<span class="sd">            split_pages (bool) : true if save each document page as a separate file.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The PDF as bytes if target is not provided or None, otherwise None (the PDF is written to target)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_document</span><span class="o">.</span><span class="n">write_pdf</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="n">zoom</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Document.render_png"><a class="viewcode-back" href="../../../genalog.generation.html#genalog.generation.document.Document.render_png">[docs]</a>    <span class="k">def</span> <span class="nf">render_png</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">split_pages</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Wrapper function for WeasyPrint.Document.write_png</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            target -- a filename, file-like object, or None</span>
+<span class="sd">            split_pages (bool) : true if save each document page as a separate file.</span>
+<span class="sd">            resolution (int) : the output resolution in PNG pixels per CSS inch. At 300 dpi (the default),</span>
+<span class="sd">                                PNG pixels match the CSS px unit.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The image as bytes if target is not provided or None, otherwise None (the PDF is written to target)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">split_pages</span><span class="p">:</span>
+            <span class="c1"># get destination filename and extension</span>
+            <span class="n">filename</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">page_num</span><span class="p">,</span> <span class="n">page</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_document</span><span class="o">.</span><span class="n">pages</span><span class="p">):</span>
+                <span class="n">page_name</span> <span class="o">=</span> <span class="n">filename</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;_pg_</span><span class="si">{</span><span class="n">page_num</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">ext</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_document</span><span class="o">.</span><span class="n">copy</span><span class="p">([</span><span class="n">page</span><span class="p">])</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span>
+                    <span class="n">target</span><span class="o">=</span><span class="n">page_name</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="n">resolution</span>
+                <span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">elif</span> <span class="n">target</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># return image bytes string if no target is specified</span>
+            <span class="n">png_bytes</span><span class="p">,</span> <span class="n">png_width</span><span class="p">,</span> <span class="n">png_height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_document</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span>
+                <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="n">resolution</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">png_bytes</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_document</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Document.render_array"><a class="viewcode-back" href="../../../genalog.generation.html#genalog.generation.document.Document.render_array">[docs]</a>    <span class="k">def</span> <span class="nf">render_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="s2">&quot;GRAYSCALE&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Render document as a numpy.ndarray.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            resolution (int, optional) : in units dpi. Defaults to 300.</span>
+<span class="sd">            channel (str, optional): abbreviation for color channels. Available</span>
+<span class="sd">                values are: ``&quot;GRAYSCALE&quot;, &quot;RGB&quot;, &quot;RGBA&quot;, &quot;BGRA&quot;, &quot;BGR&quot;``</span>
+<span class="sd">                Defaults to ``&quot;GRAYSCALE&quot;``.</span>
+
+<span class="sd">                **NOTE**: that ``&quot;RGB&quot;`` is 3-channel, ``&quot;RGBA&quot;`` is 4-channel and ``&quot;GRAYSCALE&quot;`` is single channel</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            numpy.ndarray: representation of the document.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Method below returns a cairocffi.ImageSurface object</span>
+        <span class="c1"># https://cairocffi.readthedocs.io/en/latest/api.html#cairocffi.ImageSurface</span>
+        <span class="n">surface</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_document</span><span class="o">.</span><span class="n">write_image_surface</span><span class="p">(</span>
+            <span class="n">resolution</span><span class="o">=</span><span class="n">resolution</span>
+        <span class="p">)</span>
+        <span class="n">img_format</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">get_format</span><span class="p">()</span>
+
+        <span class="c1"># This is BGRA channel in little endian (reverse)</span>
+        <span class="k">if</span> <span class="n">img_format</span> <span class="o">!=</span> <span class="n">FORMAT_ARGB32</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Expect surface format to be &#39;cairocffi.FORMAT_ARGB32&#39;, but got </span><span class="si">{</span><span class="n">img_format</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="o">+</span>
+                <span class="s2">&quot;Please check the underlining implementation of &#39;weasyprint.document.Document.write_image_surface()&#39;&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">img_buffer</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+        <span class="c1"># Returns image array in &quot;BGRA&quot; channel</span>
+        <span class="n">img_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">(</span>
+            <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">img_buffer</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">channel</span> <span class="o">==</span> <span class="s2">&quot;GRAYSCALE&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_array</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGRA2GRAY</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">channel</span> <span class="o">==</span> <span class="s2">&quot;RGBA&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_array</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGRA2RGBA</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">channel</span> <span class="o">==</span> <span class="s2">&quot;RGB&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_array</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGRA2RGB</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">channel</span> <span class="o">==</span> <span class="s2">&quot;BGRA&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">img_array</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">channel</span> <span class="o">==</span> <span class="s2">&quot;BGR&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_array</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGRA2BGR</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">valid_channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;GRAYSCALE&quot;</span><span class="p">,</span> <span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="s2">&quot;BGR&quot;</span><span class="p">,</span> <span class="s2">&quot;BGRA&quot;</span><span class="p">]</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Invalid channel code </span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">. Valid values are: </span><span class="si">{</span><span class="n">valid_channels</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Document.update_style"><a class="viewcode-back" href="../../../genalog.generation.html#genalog.generation.document.Document.update_style">[docs]</a>    <span class="k">def</span> <span class="nf">update_style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">style</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update template variables that controls the document style and re-compile the document to reflect the style change.</span>
+
+<span class="sd">        Other Parameters:</span>
+<span class="sd">            style (dict) : a kwargs dictionary whose keys and values are</span>
+<span class="sd">            the template variable and their respective values</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            {</span>
+<span class="sd">                &quot;font_family&quot;: &quot;Calibri&quot;,</span>
+<span class="sd">                &quot;font_size&quot;: &quot;10px&quot;,</span>
+<span class="sd">                &quot;hyphenate&quot;: True</span>
+<span class="sd">            }</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">styles</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
+        <span class="c1"># Recompile the html template and the document obj</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compiled_html</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">render_html</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_document</span> <span class="o">=</span> <span class="n">HTML</span><span class="p">(</span>
+            <span class="n">string</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">compiled_html</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>  <span class="c1"># weasyprinter.document.Document object</span></div></div>
+
+
+<div class="viewcode-block" id="DocumentGenerator"><a class="viewcode-back" href="../../../genalog.generation.html#genalog.generation.document.DocumentGenerator">[docs]</a><span class="k">class</span> <span class="nc">DocumentGenerator</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Document generator class &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize a DocumentGenerator class</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            template_path (str, optionsl) : filepath of custom templates. Defaults to None.</span>
+
+<span class="sd">                **NOTE**: if not set, will use the default templates from the</span>
+<span class="sd">                package &quot;genalog.generation.templates&quot;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">template_path</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">template_env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">(</span>
+                <span class="n">loader</span><span class="o">=</span><span class="n">FileSystemLoader</span><span class="p">(</span><span class="n">template_path</span><span class="p">),</span>
+                <span class="n">autoescape</span><span class="o">=</span><span class="n">select_autoescape</span><span class="p">([</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="s2">&quot;xml&quot;</span><span class="p">]),</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">template_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">template_env</span><span class="o">.</span><span class="n">list_templates</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Loading built-in templates from the genalog package</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">template_env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">(</span>
+                <span class="n">loader</span><span class="o">=</span><span class="n">PackageLoader</span><span class="p">(</span><span class="s2">&quot;genalog.generation&quot;</span><span class="p">,</span> <span class="s2">&quot;templates&quot;</span><span class="p">),</span>
+                <span class="n">autoescape</span><span class="o">=</span><span class="n">select_autoescape</span><span class="p">([</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="s2">&quot;xml&quot;</span><span class="p">]),</span>
+            <span class="p">)</span>
+            <span class="c1"># Remove macros and css templates from rendering</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">template_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">template_env</span><span class="o">.</span><span class="n">list_templates</span><span class="p">(</span>
+                <span class="n">filter_func</span><span class="o">=</span><span class="n">DocumentGenerator</span><span class="o">.</span><span class="n">_keep_template</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_styles_to_generate</span><span class="p">(</span><span class="n">DEFAULT_STYLE_COMBINATION</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_keep_template</span><span class="p">(</span><span class="n">template_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Auxiliary function for Jinja2.Environment.list_templates().</span>
+<span class="sd">        This function filters out non-html templates and base templates</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            template_name (str) : target of the template</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool : True if keeping the template in the list. False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">TEMPLATES_TO_REMOVE</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.css&quot;</span><span class="p">,</span> <span class="s2">&quot;base.html.jinja&quot;</span><span class="p">,</span> <span class="s2">&quot;macro&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">name</span> <span class="ow">in</span> <span class="n">template_name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">TEMPLATES_TO_REMOVE</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="DocumentGenerator.set_styles_to_generate"><a class="viewcode-back" href="../../../genalog.generation.html#genalog.generation.document.DocumentGenerator.set_styles_to_generate">[docs]</a>    <span class="k">def</span> <span class="nf">set_styles_to_generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style_combinations</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set new styles to generate.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            style_combination (dict) : a dictionary {str: list} enlisting the combinations</span>
+<span class="sd">            of values to generate per style property. Defaults to None.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            {</span>
+<span class="sd">                &quot;font_family&quot;: [&quot;Calibri&quot;, &quot;Times&quot;],</span>
+<span class="sd">                &quot;font_size&quot;: [&quot;10px&quot;, &quot;12px&quot;],</span>
+<span class="sd">                &quot;hyphenate&quot;: [True],</span>
+<span class="sd">            }</span>
+
+<span class="sd">        will produce documents with the following combinations of styles:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            (&quot;Calibri&quot;, &quot;10px&quot;, True)</span>
+<span class="sd">            (&quot;Times&quot;  , &quot;10px&quot;, True)</span>
+<span class="sd">            (&quot;Calibri&quot;, &quot;12px&quot;, True)</span>
+<span class="sd">            (&quot;Times&quot;  , &quot;12px&quot;, True)</span>
+
+<span class="sd">        **NOTE** that this assumes that ``font_family``, ``font_size``, ``hyphenate`` are valid</span>
+<span class="sd">        variables declared in the loaded template. There will be NO side-effect providing</span>
+<span class="sd">        an variable UNDEFINED in the template.</span>
+
+<span class="sd">        If this parameter is not provided, generator will use default document</span>
+<span class="sd">        styles: ``DEFAULT_STYLE_COMBINATION``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">styles_to_generate</span> <span class="o">=</span> <span class="n">DocumentGenerator</span><span class="o">.</span><span class="n">expand_style_combinations</span><span class="p">(</span>
+            <span class="n">style_combinations</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="DocumentGenerator.create_generator"><a class="viewcode-back" href="../../../genalog.generation.html#genalog.generation.document.DocumentGenerator.create_generator">[docs]</a>    <span class="k">def</span> <span class="nf">create_generator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">templates_to_render</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a Document generator</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            content (list) : a list [str] of string to populate the template</span>
+<span class="sd">            templates_to_render (list) : a list [str] or templates to render</span>
+<span class="sd">                These templates must be located in the self.template_env</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            Document : a Document Object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">template_name</span> <span class="ow">in</span> <span class="n">templates_to_render</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">template_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">template_list</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;File &#39;</span><span class="si">{</span><span class="n">template_name</span><span class="si">}</span><span class="s2">&#39; not found. Available templates are </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">template_list</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="n">template</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">template_env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="n">template_name</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">style</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">styles_to_generate</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">Document</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="o">**</span><span class="n">style</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DocumentGenerator.expand_style_combinations"><a class="viewcode-back" href="../../../genalog.generation.html#genalog.generation.document.DocumentGenerator.expand_style_combinations">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">expand_style_combinations</span><span class="p">(</span><span class="n">styles</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Expand the list of style values into all possible style combinations</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            styles (dict) : a dictionary {str: list} enlisting the combinations of values</span>
+<span class="sd">            to generate per style property</span>
+
+<span class="sd">        Return:</span>
+<span class="sd">            list : a list of dictionaries</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            styles =</span>
+<span class="sd">            {</span>
+<span class="sd">                &quot;font_family&quot;: [&quot;Calibri&quot;, &quot;Times&quot;],</span>
+<span class="sd">                &quot;font_size&quot;: [&quot;10px&quot;, &quot;12px&quot;],</span>
+<span class="sd">                &quot;hyphenate&quot;: [True],</span>
+<span class="sd">            }</span>
+
+<span class="sd">        This method will return:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            [</span>
+<span class="sd">                {&quot;font_family&quot;: &quot;Calibri&quot;, &quot;font_size&quot;: &quot;10px&quot;, &quot;hyphenate&quot;:True }</span>
+<span class="sd">                {&quot;font_family&quot;: &quot;Times&quot;,   &quot;font_size&quot;: &quot;10px&quot;, &quot;hyphenate&quot;:True }</span>
+<span class="sd">                {&quot;font_family&quot;: &quot;Calibri&quot;, &quot;font_size&quot;: &quot;12px&quot;, &quot;hyphenate&quot;:True }</span>
+<span class="sd">                {&quot;font_family&quot;: &quot;Times&quot;,   &quot;font_size&quot;: &quot;12px&quot;, &quot;hyphenate&quot;:True }</span>
+<span class="sd">            ]</span>
+
+<span class="sd">        The result dictionaries are intended to be used as a kwargs to initialize a</span>
+<span class="sd">        ``Document`` object:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            Document(template, content, **{&quot;font_family&quot;: &quot;Calibri&quot;, &quot;font_size&quot;: ...})</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># return empty list if input is empty</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">styles</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="c1"># Python 2.x+ guarantees that the order in keys() and values() is preserved</span>
+        <span class="n">style_properties</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">styles</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="p">)</span>  <span class="c1"># ex) [&quot;font_family&quot;, &quot;font_size&quot;, &quot;hyphenate&quot;]</span>
+        <span class="n">property_values</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">styles</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+        <span class="p">)</span>  <span class="c1"># ex) [[&quot;Calibri&quot;, &quot;Times&quot;], [&quot;10px&quot;, &quot;12px&quot;], [True]]</span>
+
+        <span class="c1"># Generate all possible combinations:</span>
+        <span class="c1"># [(&quot;Calibri&quot;, &quot;10px&quot;, True), (&quot;Calibri&quot;, &quot;12px&quot;, True), ...]</span>
+        <span class="n">property_value_combinations</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">property_values</span><span class="p">)</span>
+
+        <span class="c1"># Map the property values back to the the property name</span>
+        <span class="c1"># [</span>
+        <span class="c1">#   {&quot;font_family&quot;: &quot;Calibri&quot;, &quot;font_size&quot;: &quot;10px&quot;, &quot;hypenate&quot;: True },</span>
+        <span class="c1">#   {&quot;font_family&quot;: &quot;Times&quot;,   &quot;font_size&quot;: &quot;10px&quot;, &quot;hypenate&quot;: True },</span>
+        <span class="c1">#   ....</span>
+        <span class="c1"># ]</span>
+        <span class="n">style_combinations</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">combination</span> <span class="ow">in</span> <span class="n">property_value_combinations</span><span class="p">:</span>
+            <span class="n">style_dict</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">style_property</span><span class="p">,</span> <span class="n">property_value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">style_properties</span><span class="p">,</span> <span class="n">combination</span><span class="p">):</span>
+                <span class="n">style_dict</span><span class="p">[</span><span class="n">style_property</span><span class="p">]</span> <span class="o">=</span> <span class="n">property_value</span>
+            <span class="n">style_combinations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">style_dict</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">style_combinations</span></div></div>
+</pre></div>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jianjie Liu and Amit Gupte<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
