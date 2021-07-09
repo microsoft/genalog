@@ -7,6 +7,10 @@ parts:
   chapters:
   - file: installation
   - file: generation_pipeline
+- caption: Create & Degrade Documents
+  chapters:
+  - file: doc_generation
+  - file: doc_degradation
 - caption: Handling Noisy Text
   chapters:
   - file: text_alignment

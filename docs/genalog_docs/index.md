@@ -8,27 +8,27 @@ pip install genalog
 ```
 ````
 
-`genalog` is an open source, cross-platform python package for **gen**erating document images with synthetic noise that mimics scanned an**alog** documents (thus the name `genalog`). You can also add various text degradations to these images. The purpose of this tool is to provide a fast and efficient way to generate synthetic documents from text data by leveraging layout from templates that you create in simple HTML format.
+`genalog` is an open source, cross-platform python package for **gen**erating document images with synthetic noise that mimics scanned an**alog** documents (thus the name `genalog`). You can also add various text degradations to these images. The purpose of this tool is to provide a fast and efficient way to generate synthetic documents from text data by leveraging layout from templates that you can create in simple HTML format.
 
 `genalog` provides several document templates as a start. You can alter the document layout using standard CSS properties like `font-family`, `font-size`, `text-align`, etc. Here are some of the example generated documents:
 
 ````{tab} Multi-Column
 ```{figure} static/columns_Times_11px.png
-:width: 40%
+:width: 60%
 :name: two-columns-index
 Document template with 2 columns 
 ```
 ````
 ````{tab} Letter-like
 ```{figure} static/letter_Times_11px.png
-:width: 40%
+:width: 60%
 :name: letter-like-index
 Letter-like document template
 ```
 ````
 ````{tab} Simple Text Block
 ```{figure} static/text_block_Times_11px.png
-:width: 40%
+:width: 60%
 :name: text-block-index
 Simple text block template
 ```
