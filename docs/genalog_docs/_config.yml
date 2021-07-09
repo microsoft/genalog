@@ -1,4 +1,4 @@
-title : Genalog
+title : <h1 style="font-size:2em;text-align:center;color:#FF5733">Genalog</h1>
 author: Jianjie Liu and Amit Gupte
 # logo: 'qe-logo-large.png'
 
@@ -9,12 +9,17 @@ description: >-
 execute:
   execute_notebooks           : off
 
-# # Interact link settings
-# notebook_interface            : "notebook"
+# Interact link settings
+notebook_interface            : "notebook"
 
 # Launch button settings
 repository:
   url                         : https://github.com/microsoft/genalog
+  path_to_book                : /docs/genalog_docs
+  branch                      : main
+
+launch_buttons:
+  notebook_interface          : classic
 
 # HTML-specific settings
 html:
