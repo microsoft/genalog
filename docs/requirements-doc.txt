@@ -1,2 +1,3 @@
+jupyter-book
 sphinx
-sphinx_rtd_theme
+sphinx_inline_tabs
