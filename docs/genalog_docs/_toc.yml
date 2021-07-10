@@ -7,7 +7,8 @@ parts:
   chapters:
   - file: installation
   - file: generation_pipeline
-- caption: Create & Degrade Documents
+  - file: e2e_dataset_pipeline
+- caption: Fabricating Document & Noise
   chapters:
   - file: doc_generation
   - file: doc_degradation
@@ -15,7 +16,7 @@ parts:
   chapters:
   - file: text_alignment
   - file: ocr_label_propagation
-- caption: API documentation
+- caption: API Documentation
   chapters:
   - file: docstring/genalog.degradation
   - file: docstring/genalog.generation
