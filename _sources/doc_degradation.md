@@ -135,7 +135,7 @@ plt.show()
 :align: center
 ```
 
-### Salt and Pepper noise
+## Salt and Pepper noise
 In this effect we randomly sprinkle "salt" (white pixels) and "pepper" (dark pixels) onto the original image to imitate ink degradation and page degradation.
 ```python
 # Import Genalog Degradations and other libraries

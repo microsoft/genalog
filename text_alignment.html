@@ -54,7 +54,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Propagation of NER labels" href="ocr_label_propagation.html" />
-    <link rel="prev" title="Create a document from raw text" href="document_generation.html" />
+    <link rel="prev" title="Degrade a document" href="doc_degradation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -101,13 +101,18 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Create &amp; Destroy Your Document
+  Fabricating Document &amp; Noise
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="document_generation.html">
-   Create a document from raw text
+  <a class="reference internal" href="doc_generation.html">
+   Create a document
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="doc_degradation.html">
+   Degrade a document
   </a>
  </li>
 </ul>
@@ -130,7 +135,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  API documentation
+  API Documentation
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -295,6 +300,13 @@
                 
   <div class="section" id="text-alignment">
 <span id="text-alignment-page"></span><h1>Text alignment<a class="headerlink" href="#text-alignment" title="Permalink to this headline">¶</a></h1>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are many OCR engines you can use to work with <code class="docutils literal notranslate"><span class="pre">genalog</span></code>, including <a class="reference external" href="https://docs.microsoft.com/en-us/python/api/overview/azure/cognitiveservices-vision-computervision-readme?view=azure-python">Azure Cognitve Services</a> and <a class="reference external" href="https://github.com/tesseract-ocr/tesseract">Tesseract</a>.</p>
+</div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">genalog</span></code> provides text alignment capabilities. This is most useful in the following situations after you have ran Opitcal Character Recognition (OCR) on the synthetic documents:</p>
 <ul class="simple">
 <li><p>Text alignment between noisy (OCR result) and grouth truth text</p></li>
@@ -454,7 +466,7 @@ New Yo rk@is @ big
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="document_generation.html" title="previous page">Create a document from raw text</a>
+    <a class='left-prev' id="prev-link" href="doc_degradation.html" title="previous page">Degrade a document</a>
     <a class='right-next' id="next-link" href="ocr_label_propagation.html" title="next page">Propagation of NER labels</a>
 
         </div>
