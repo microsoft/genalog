@@ -1,6 +1,6 @@
 # OCR-NER Dataset Generation
 
-```{image} ../../example/static/labeled_synthetic_pipeline.png
+```{image} static/labeled_synthetic_pipeline.png
 :width: 80%
 :align: center
 ```

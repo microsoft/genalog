@@ -34,7 +34,7 @@ Simple text block template
 ```
 ````
 
-Once a document is generated, you can pick and combine various image degradation effects onto the synthetic documents. Here are some of the degradation effects:
+Once a document is generated, you can combine various image degradation effects and apply onto the synthetic documents. Here are some of the degradation effects:
 
 ````{tab} Bleed-through
 ```{figure} static/bleed_through.png
@@ -57,30 +57,30 @@ Lowers image quality
 Mimics ink degradation
 ```
 ````
-````{tab} Close/Dilate
+`````{tab} Close/Dilate
 ```{figure} static/close_dilate.png
 :name: close-dilate-index
 :width: 90%
 Degrades printing quality
 ```
-```{margin}
+````{margin}
 ```{note}
 For more details on this degradation, see [Morphilogical Operations](https://homepages.inf.ed.ac.uk/rbf/HIPR2/morops.htm)
 ```
-```
 ````
-````{tab} Open/Erode
+`````
+`````{tab} Open/Erode
 ```{figure} static/open_erode.png
 :name: open-erode-index
 :width: 90%
 Ink overflows
 ```
-```{margin}
+````{margin}
 ```{note}
 For more details on this degradation, see [Morphilogical Operations](https://homepages.inf.ed.ac.uk/rbf/HIPR2/morops.htm)
 ```
-```
 ````
+`````
 ````{tab} Combined Effects
 ```{figure} static/degrader.png
 :width: 40%
