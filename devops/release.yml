@@ -49,10 +49,10 @@ steps:
   condition: ${{eq(parameters.releaseType, 'Test')}}
   displayName: 'Twine Authentication for ${{parameters.releaseType}}'
 
-- bash: |
-    twine upload --verbose -r genalog --config-file $(PYPIRC_PATH) dist/*
-  workingDirectory: $(Build.SourcesDirectory)
-  displayName: 'Uploading wheel package to ${{parameters.releaseType}} PyPI'
+# - bash: |
+#     twine upload --verbose -r genalog --config-file $(PYPIRC_PATH) dist/*
+#   workingDirectory: $(Build.SourcesDirectory)
+#   displayName: 'Uploading wheel package to ${{parameters.releaseType}} PyPI'
 
 - task: GitHubRelease@1
   inputs:
