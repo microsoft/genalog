@@ -53,3 +53,16 @@ steps:
     twine upload --verbose -r genalog --config-file $(PYPIRC_PATH) dist/*
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Uploading wheel package to ${{parameters.releaseType}} PyPI'
+
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'github.com_laserprec'
+    repositoryName: 'microsoft/genalog'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'gitTag'
+    tagPattern: 'release-v0.*'
+    assets: '$(Build.SourcesDirectory)/dist/*'
+    isDraft: true
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
