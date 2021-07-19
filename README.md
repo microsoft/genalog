@@ -1,6 +1,6 @@
 # Genalog - Synthetic Data Generator
 
-[![Build Status](https://dev.azure.com/genalog-dev/genalog/_apis/build/status/Nightly-Build?branchName=main)](https://dev.azure.com/genalog-dev/genalog/_build/latest?definitionId=4&branchName=main) ![Azure DevOps tests (compact)](https://img.shields.io/azure-devops/tests/genalog-dev/genalog/4?compact_message) ![Azure DevOps coverage (main)](https://img.shields.io/azure-devops/coverage/genalog-dev/genalog/4/main) ![Python Versions](https://img.shields.io/badge/py-3.6%20%7C%203.7%20%7C%203.8%20-blue) ![Supported OSs](https://img.shields.io/badge/platform-%20linux--64%20-red) ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)
+[![Build Status](https://dev.azure.com/genalog-dev/genalog/_apis/build/status/Nightly-Build?branchName=main)](https://dev.azure.com/genalog-dev/genalog/_build/latest?definitionId=4&branchName=main) ![Azure DevOps tests (compact)](https://img.shields.io/azure-devops/tests/genalog-dev/genalog/4?compact_message) ![Azure DevOps coverage (main)](https://img.shields.io/azure-devops/coverage/genalog-dev/genalog/4/main) ![Python Versions](https://img.shields.io/badge/py-3.6%20%7C%203.7%20%7C%203.8%20-blue) ![Supported OSs](https://img.shields.io/badge/platform-%20linux--64%20-red) ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg) [![docs link](https://img.shields.io/badge/docs-jupyter--book-brightgreen)](https://microsoft.github.io/genalog/)
 
 `Genalog` is an open source, cross-platform python package for **gen**erating document images with synthetic noise that mimics scanned an**alog** documents (thus the name `genalog`). You can also add various text degradations to these images. The purpose of this tool is to provide a fast and efficient way to generate synthetic documents from text data by leveraging layout from templates that you create in simple HTML format.
 
@@ -20,6 +20,7 @@ The following is a summary of the common applications scenarios of Genalog. Plea
 
 ### TLDR
 If you are interested in a full document generation and degration pipeline, please see the following notebook:
+
 ||Description|Indepth Jupyter Notebook Examples|
 |-|-------------------------|--------|
 |1|Analog Document Generation Pipeline|[Demo Notebook](https://github.com/microsoft/genalog/blob/master/example/generation_pipeline.ipynb)|[Here is guide to the core components](https://github.com/microsoft/genalog/blob/master/genalog/README.md)|
@@ -28,7 +29,7 @@ If you are interested in a full document generation and degration pipeline, plea
 Else we have in-depth walkthroughs of each of the module in Genalog.
 
 <p float="left">
-  <img src="example/static/genalog_components.png" width="900" />
+  <img src="https://github.com/microsoft/genalog/blob/main/example/static/genalog_components.png?raw=true" width="900" />
 </p>
 
 ||Steps|Indepth Jupyter Notebook Examples|Quick Start Guides|
@@ -42,7 +43,7 @@ Else we have in-depth walkthroughs of each of the module in Genalog.
 We also provide notebooks for the complete end-to-end scenario of generating a synthetic dataset connecting all the components of genalog:
 
 <p float="left">
-  <img src="example/static/labeled_synthetic_pipeline.png" width="900" />
+  <img src="https://github.com/microsoft/genalog/blob/main/example/static/labeled_synthetic_pipeline.png?raw=true" width="900" />
 </p>
 
 ||Scenario|Indepth Jupyter Notebook|
