@@ -16,12 +16,12 @@ setuptools.setup(
     name="genalog",
     install_requires=requirements,
     version=BUILD_VERSION,
-    author="Team Enki",
-    author_email="ta_nerds@microsoft.com",
+    author="Jianjie Liu & Amit Gupte",
+    author_email="ta_maidap_fy20_h2@microsoft.com",
     description="Tools for generating analog document (images) from raw text",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url='https://msazure.visualstudio.com/DefaultCollection/Cognitive%20Services/_git/Tools-Synthetic-Data-Generator',
+    url='https://github.com/microsoft/genalog',
     packages=setuptools.find_packages(exclude=['tests', 'tests.*']),
     package_data={'': [
         'genalog/generation/templates/*.jinja'

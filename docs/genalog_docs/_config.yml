@@ -1,0 +1,46 @@
+title : <h1 style="font-size:2em;text-align:center;color:#FF5733">Genalog</h1>
+author: Jianjie Liu and Amit Gupte
+# logo: 'qe-logo-large.png'
+
+# Short description about the book
+description: >-
+  Guide for end-to-end synthetic analog document generation
+
+execute:
+  execute_notebooks           : off
+
+# Interact link settings
+notebook_interface            : "notebook"
+
+# Launch button settings
+repository:
+  url                         : https://github.com/microsoft/genalog
+  path_to_book                : /docs/genalog_docs
+  branch                      : main
+
+launch_buttons:
+  notebook_interface          : classic
+
+# HTML-specific settings
+html:
+  home_page_in_navbar         : false
+  use_repository_button       : true
+
+# # LaTeX settings
+# bibtex_bibfiles:
+#    - _bibliography/references.bib
+# latex:
+#   latex_engine                : "xelatex"
+#   latex_documents:
+#     targetname: book.tex
+
+sphinx:
+  extra_extensions:
+  - sphinx_inline_tabs
+  - sphinx.ext.autodoc
+  - sphinx.ext.napoleon
+  - sphinx.ext.viewcode
+  config:
+    napoleon_google_docstring: True
+    autodoc_member_order: groupwise
+    autoclass_content: both

@@ -201,8 +201,7 @@ def propagate_label_to_ocr(gt_labels, gt_tokens, ocr_tokens, use_anchor=True):
         gt_tokens (list) : a list of ground truth string tokens
         ocr_tokens (list) : a list of OCR'ed text tokens
         gap_char (char, optional) : gap char used in alignment algorithm. Defaults to ``alignment.GAP_CHAR``.
-        use_anchor (bool, optional) : use faster alignment method with anchors if set to True
-            . Defaults to True.
+        use_anchor (bool, optional) : use faster alignment method with anchors if set to True. Defaults to True.
 
     Raises:
         GapCharError:
@@ -210,12 +209,11 @@ def propagate_label_to_ocr(gt_labels, gt_tokens, ocr_tokens, use_anchor=True):
             to set of all possible gap characters (GAP_CHAR_SET)
 
     Returns:
-        tuple : a tuple of 3 elements ``(ocr_labels, aligned_gt, aligned_ocr, gap_char)``
-        where
-            1. ``ocr_labels`` is a list of NER label for the corresponding ocr tokens
-            2. ``aligned_gt`` is the ground truth string aligned with the ocr text
-            3. ``aligned_ocr`` is the ocr text aligned with ground true
-            4. ``gap_char`` is the char used to alignment for inserting gaps
+        tuple : a tuple of 3 elements ``(ocr_labels, aligned_gt, aligned_ocr, gap_char)`` where
+        1. ``ocr_labels`` is a list of NER label for the corresponding ocr tokens
+        2. ``aligned_gt`` is the ground truth string aligned with the ocr text
+        3. ``aligned_ocr`` is the ocr text aligned with ground true
+        4. ``gap_char`` is the char used to alignment for inserting gaps
     """
     # Find a set of suitable GAP_CHAR based not in the set of input characters
     gap_char_candidates, input_char_set = _find_gap_char_candidates(
@@ -241,14 +239,14 @@ def propagate_label_to_ocr(gt_labels, gt_tokens, ocr_tokens, use_anchor=True):
 def _propagate_label_to_ocr(
     gt_labels, gt_tokens, ocr_tokens, gap_char=alignment.GAP_CHAR, use_anchor=True
 ):
-    """Propagate NER label for ground truth tokens to to ocr tokens. Low level implementation
+    r"""Propagate NER label for ground truth tokens to to ocr tokens. Low level implementation
 
         NOTE: that `gt_tokens` and `ocr_tokens` MUST NOT contain invalid tokens.
         Invalid tokens are:
-            1. non-atomic tokens, or space-separated string ("New York")
-            2. multiple occurrences of the GAP_CHAR ('@@@')
-            3. empty string ("")
-            4. string with spaces ("  ")
+        1. non-atomic tokens, or space-separated string ("New York")
+        2. multiple occurrences of the GAP_CHAR ('@@@')
+        3. empty string ("")
+        4. string with spaces ("  ")
 
     ::
 
@@ -261,7 +259,7 @@ def _propagate_label_to_ocr(
         gt label     B-p    I-p      B-p I-p        B-p   I-p       B-p  I-p        B-p  I-p  I-p
                       |      |        |   |          |     |         |    |          |   |     |
         gt_token     New    York     New York       New  York       New York        New York City
-                     / \\   / \\       \\/          /\\   /          |                   |     |
+                     / \    / \        \ /           /\   /          |                   |     |
        ocr_token    N   ew Yo  rk    NewYork        N ew@York       New                 York City
                     |   |   |   |       |           |    |           |                   |     |
        ocr label   B-p I-p I-p I-p     B-p          B-p I-p         B-p                 B-p   I-p
@@ -274,7 +272,7 @@ def _propagate_label_to_ocr(
         gt label         O           V    O          O   V   W       O   O
                          |           |    |          |   |   |       |   |
         gt_token     something       is  big       this is huge      is big
-                     / \\   \\        \\/          /\\  /\\/         |
+                     / \    \          \ /          /\  /\ /         |
        ocr_token    so  me  thing     isbig       th isi shuge       is
                     |   |     |         |          |  |    |         |
        ocr label    o   o     o         V          O  O    V         O
@@ -288,37 +286,32 @@ def _propagate_label_to_ocr(
                             Defaults to True.
     Raises:
         ValueError: when
-            1. there is unequal number of gt_tokens and gt_labels
-            2. there is a non-atomic token in gt_tokens or ocr_tokens
-            3. there is an empty string in gt_tokens or ocr_tokens
-            4. there is a token full of space characters only in gt_tokens or ocr_tokens
-            5. gt_to_ocr_mapping has more tokens than gt_tokens
+        1. there is unequal number of gt_tokens and gt_labels
+        2. there is a non-atomic token in gt_tokens or ocr_tokens
+        3. there is an empty string in gt_tokens or ocr_tokens
+        4. there is a token full of space characters only in gt_tokens or ocr_tokens
+        5. gt_to_ocr_mapping has more tokens than gt_tokens
         GapCharError: when
-            1. there is a token consisted of GAP_CHAR only
+        1. there is a token consisted of GAP_CHAR only
 
 
     Returns:
-        a tuple of 4 elements:
-            (ocr_labels, aligned_gt, aligned_ocr, gap_char)
+        a tuple of 4 elements: (ocr_labels, aligned_gt, aligned_ocr, gap_char)
         where
-            `ocr_labels` is a list of NER label for the corresponding ocr tokens
-            `aligned_gt` is the ground truth string aligned with the ocr text
-            `aligned_ocr` is the ocr text aligned with ground true
-            `gap_char` is the char used to alignment for inserting gaps
+        `ocr_labels` is a list of NER label for the corresponding ocr tokens
+        `aligned_gt` is the ground truth string aligned with the ocr text
+        `aligned_ocr` is the ocr text aligned with ground true
+        `gap_char` is the char used to alignment for inserting gaps
 
-        For example,
-            given input:
+    For example, given input:
 
-                gt_labels: ["B-place", "I-place", "o", "o"]
-                gt_tokens: ["New", "York", "is", "big"]
-               ocr_tokens: ["N", "ewYork", "big"]
+    >>> _propagate_label_to_ocr(
+        ["B-place", "I-place", "o", "o"],
+        ["New", "York", "is", "big"],
+        ["N", "ewYork", "big"]
+    )
+    (["B-place", "I-place", "o"], "N@ew York is big", "N ew@York@@@ big", '@')
 
-            output:
-                (
-                    ["B-place", "I-place", "o"],
-                    "N@ew York is big",
-                    "N ew@York@@@ big"
-                )
     """
     # Pseudo-algorithm:
 

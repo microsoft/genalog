@@ -1,0 +1,24 @@
+root: index
+format: jb-book
+defaults:
+  numbered: false
+parts:
+- caption: Getting Started
+  chapters:
+  - file: installation
+  - file: generation_pipeline
+  - file: e2e_dataset_pipeline
+- caption: Fabricating Document & Noise
+  chapters:
+  - file: doc_generation
+  - file: doc_degradation
+- caption: Handling Noisy Text
+  chapters:
+  - file: text_alignment
+  - file: ocr_label_propagation
+- caption: API Documentation
+  chapters:
+  - file: docstring/genalog.degradation
+  - file: docstring/genalog.generation
+  - file: docstring/genalog.ocr
+  - file: docstring/genalog.text

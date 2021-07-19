@@ -2,7 +2,7 @@
 
 [![Build Status](https://dev.azure.com/genalog-dev/genalog/_apis/build/status/Nightly-Build?branchName=main)](https://dev.azure.com/genalog-dev/genalog/_build/latest?definitionId=4&branchName=main) ![Azure DevOps tests (compact)](https://img.shields.io/azure-devops/tests/genalog-dev/genalog/4?compact_message) ![Azure DevOps coverage (main)](https://img.shields.io/azure-devops/coverage/genalog-dev/genalog/4/main) ![Python Versions](https://img.shields.io/badge/py-3.6%20%7C%203.7%20%7C%203.8%20-blue) ![Supported OSs](https://img.shields.io/badge/platform-%20linux--64%20-red) ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)
 
-Genalog is an open source, cross-platform python package allowing to generate synthetic document images with text data. Tool also allows you to add various text degradations to these images. The purpose of this tool is to provide a fast and efficient way to generate synthetic documents from text data by leveraging layout from templates that you create in simple HTML format. 
+`Genalog` is an open source, cross-platform python package for **gen**erating document images with synthetic noise that mimics scanned an**alog** documents (thus the name `genalog`). You can also add various text degradations to these images. The purpose of this tool is to provide a fast and efficient way to generate synthetic documents from text data by leveraging layout from templates that you create in simple HTML format.
 
 Overview
 -------------------------------------
@@ -85,16 +85,23 @@ If you are running on Windows, MacOS, or other Linux distributions, please see [
 
 Repo Structure
 -------------------
-    Tools-Synthetic-Data-Generator
+    genalog
     ├────genalog
     │       ├─── generation                      # generate text images
     │       ├──── degradation                    # methods for image degradation
     │       ├──── ocr                            # running the Azure Search Pipeline
-    │       └──── text                           # methods to Align OCR Output Text with Input Text 
-    ├────examples                                # Example Jupyter Notebooks for Various Synthetic Data Generation Scenarios
-    ├────tests                                   # PyTest files
-    ├────README.md                               # Main Readme file   
-    └────LICENSE                                 # License file
+    │       └──── text                           # methods to Align OCR Output Text with 
+    ├────devops                                  # CI/CD pipelines
+    ├────docs                                    # containing online documentaions
+    ├────examples                                # example Jupyter Notebooks for Various 
+    ├────tests                                   # tests
+    ├────tox.ini                                 # CI orchestration and configurations
+    ├────README.md
+    └────LICENSE
+
+Trademark Notice
+--------------------
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow Microsoft’s Trademark & Brand Guidelines. Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party’s policies.
 
 Microsoft Open Source Code of Conduct
 -------------------------------------
@@ -116,7 +123,6 @@ instructions provided by the bot. You will only need to do this once across all 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
 or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
 
 
 Collaborators

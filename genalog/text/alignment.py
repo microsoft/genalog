@@ -339,7 +339,7 @@ def parse_alignment(aligned_gt, aligned_noise, gap_char=GAP_CHAR):
         gap_char (char, optional) : gap char used in alignment algorithm. Defaults to GAP_CHAR.
 
     Returns:
-        tuple -- a tuple ``(gt_to_noise_mapping, noise_to_gt_mapping)`` of two 2D int arrays:
+        tuple : ``(gt_to_noise_mapping, noise_to_gt_mapping)`` of two 2D int arrays:
 
     where each array defines the mapping between aligned gt tokens
     to noise tokens and vice versa.
