@@ -12,12 +12,11 @@ Types of changes
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and we adopt the [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.1.0] - 2021-07-13
+## [v0.1.0] - 2021-07-19
 ### Added
-- Initial package release
-
-### Changed
-- None
-
-### Fixed
-- None
+- Initial package release:
+    - 3 standard HTML document template for generation
+    - basic image degradation effects including blur, bleed-through, salt & pepper and other morphological operations.
+    - 2 flavors of text alignment algorithm: Needleman-Wunsch (shorter text segments) and RETAS (longer text segments)
+    - Full e2e NER-OCR label generation notebooks
+    - See [documentation](https://microsoft.github.io/genalog/installation.html) for more on the initial features of the package.
