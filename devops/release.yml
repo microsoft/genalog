@@ -57,6 +57,7 @@ steps:
   displayName: 'Twine Authentication for Production'
 
 - bash: |
+    cat $(PYPIRC_PATH)
     twine upload --verbose -r genalog --config-file $(PYPIRC_PATH) dist/*.whl
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Uploading Wheel to ${{parameters.releaseType}} PyPI'
