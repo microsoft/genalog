@@ -16,6 +16,8 @@ Checklist for the release process of `genalog`:
 
 ### Release to PyPI
 - [x] Manually trigger the [release pipeline](https://dev.azure.com/genalog-dev/genalog/_build?definitionId=2) in DevOps on the release branch, this will publish latest version of `genalog` to PyPI.
+    - [x] Select `releaseType` to `Test` to test out the release in [TestPyPI](https://test.pypi.org/project/genalog/)
+    - [x] Rerun and switch `releaseType` to production if looks good.
 - [x] If the pipeline ran successfully, check and publish the draft of this release on [Github Release](https://github.com/microsoft/genalog/releases)
 - [x] Latest version is pip-installable with:
     - `pip install genalog`
