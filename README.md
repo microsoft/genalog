@@ -79,6 +79,11 @@ We also provide notebooks for the complete end-to-end scenario of generating a s
     See [Azure Docs](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search) for more information on Azure Cognitive Search.
 
 
+Package Release
+-------------------
+Please see [RELEASE.md](https://github.com/microsoft/genalog/blob/main/RELEASE.md) for more details on the release process.
+
+
 Repo Structure
 -------------------
     genalog
