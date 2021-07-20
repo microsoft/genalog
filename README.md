@@ -2,7 +2,7 @@
 
 [![Build Status](https://dev.azure.com/genalog-dev/genalog/_apis/build/status/Nightly-Build?branchName=main)](https://dev.azure.com/genalog-dev/genalog/_build/latest?definitionId=4&branchName=main) ![Azure DevOps tests (compact)](https://img.shields.io/azure-devops/tests/genalog-dev/genalog/4?compact_message) ![Azure DevOps coverage (main)](https://img.shields.io/azure-devops/coverage/genalog-dev/genalog/4/main) ![Python Versions](https://img.shields.io/badge/py-3.6%20%7C%203.7%20%7C%203.8%20-blue) ![Supported OSs](https://img.shields.io/badge/platform-%20linux--64%20-red) ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg) [![docs link](https://img.shields.io/badge/docs-jupyter--book-brightgreen)](https://microsoft.github.io/genalog/)
 
-`Genalog` is an open source, cross-platform python package for **gen**erating document images with synthetic noise that mimics scanned an**alog** documents (thus the name `genalog`). You can also add various text degradations to these images. The purpose of this tool is to provide a fast and efficient way to generate synthetic documents from text data by leveraging layout from templates that you create in simple HTML format.
+Genalog is an open source, cross-platform python package for **gen**erating document images with synthetic noise that mimics scanned an**alog** documents (thus the name `genalog`). You can also add various text degradations to these images. The purpose of this tool is to provide a fast and efficient way to generate synthetic documents from text data by leveraging layout from templates that you create in simple HTML format.
 
 Overview
 -------------------------------------
@@ -15,7 +15,26 @@ Genalog has various capabilities:
 
 The aim of this project is to provide a complete solution for generating synthetic images from any text data rich in natural language and to imitate most of OCR noises founded in scanned text documents. 
 
+Please refer to our [Genalog documentation](https://microsoft.github.io/genalog) for more tutorials.
+
+## Installation
+See the [Genalog install guide](https://microsoft.github.io/genalog/installation.html) for more details.
+
+To install the latest release:
+
+`pip install genalog`
+
+### Extra Installation Steps in MacOs and Windows
+We have a dependency on [`Weasyprint`](https://weasyprint.readthedocs.io/en/stable/install.html), which in turn has non-python dependencies including `Pango`, `cairo` and `GDK-PixBuf` that need to be installed separately.
+
+So far, `Pango`, `cairo` and `GDK-PixBuf` libraries are available in `Ubuntu-18.04` and later by default.
+
+If you are running on Windows, MacOS, or other Linux distributions, please see [installation instructions from WeasyPrint](https://weasyprint.readthedocs.io/en/stable/install.html).
+
+**NOTE**: If you encounter the errors like `no library called "libcairo-2" was found`, this is probably due to the three extra dependencies missing.
+
 ## Getting Started
+
 The following is a summary of the common applications scenarios of Genalog. Please refer the [Jupyter notebook examples](https://github.com/microsoft/genalog/blob/master/example) that make use of the core code base of Genalog and repository utilities.
 
 ### TLDR
@@ -50,30 +69,6 @@ We also provide notebooks for the complete end-to-end scenario of generating a s
 |-|-------------------------|--------|
 |1|Synthetic Dataset Generation with LABELED NER Dataset|[Demo Notebook](https://github.com/microsoft/genalog/blob/master/example/dataset_generation.ipynb)|
 
-Installation
------------------------------
-We are currently in a pre-release stage. Stable release is currently pushed to the [TestPyPI](https://test.pypi.org/project/genalog/).
-
-`pip install -i https://test.pypi.org/simple/ genalog --extra-index-url https://pypi.org/simple`
-
-### Extra Installation Steps in MacOs and Windows
-We have a dependency on [`Weasyprint`](https://weasyprint.readthedocs.io/en/stable/install.html), which in turn has non-python dependencies including `Pango`, `cairo` and `GDK-PixBuf` that need to be installed separately.
-
-So far, `Pango`, `cairo` and `GDK-PixBuf` libraries are available in `Ubuntu-18.04` and later by default.
-
-If you are running on Windows, MacOS, or other Linux distributions, please see [installation instructions from WeasyPrint](https://weasyprint.readthedocs.io/en/stable/install.html).
-
-**NOTE**: If you encounter the errors like `no library called "libcairo-2" was found`, this is probably due to the three extra dependencies missing.
-
-### Installation from Source:
-
-1.  Create and activate the virtual environment you want to install the package: 
-    1. `python -m venv .env`
-    1. `pip install --upgrade pip setuptools`
-    1. `source .env/bin/activate` or on Windows `.env/Scripts/activate.bat`
-1. `git clone https://github.com/microsoft/genalog.git`
-1. `cd genalog`
-1. `pip install -e .`
 
 ### Other Requirements:
 
