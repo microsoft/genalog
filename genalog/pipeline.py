@@ -85,6 +85,7 @@ class AnalogDocumentGeneration(object):
             text_filename = os.path.basename(full_text_path)
             img_filename = text_filename.replace(".txt", ".png")
             img_dst_path = os.path.join(target_folder, "img", img_filename)
+            _setup_folder(target_folder)
             if not cv2.imwrite(img_dst_path, dst):
                 raise RuntimeError(f"Could not write to path {img_dst_path}")
             return
