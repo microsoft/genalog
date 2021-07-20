@@ -125,6 +125,19 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
 or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
+Citing `genalog`
+-------------------------------------
+If you find `genalog` helpful to your work, please consider citing our tool and [paper](https://document-intelligence.github.io/DI-2021/files/di-2021_final_22.pdf) using the following BibTeX entry:
+
+```
+@article{
+  gupte2021genalog,
+  title={Lights, Camera, Action! A Framework to Improve NLP Accuracy over OCR documents},
+  author={Gupte, Amit and Romanov, Alexey and Mantravadi, Sahitya and Banda, Dalitso and Liu, Jianjie and Khan, Raza and Meenal, Lakshmanan Ramu and Han, Benjamin and Srinivasan, Soundar},
+  journal={Document Intelligence Workshop at KDD 2021},
+  year={2021}
+}
+```
 
 Collaborators
 -------------------------------------

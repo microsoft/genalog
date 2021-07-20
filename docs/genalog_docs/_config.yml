@@ -25,14 +25,10 @@ launch_buttons:
 html:
   home_page_in_navbar         : false
   use_repository_button       : true
+  use_issues_button           : true
+  extra_footer                : "Don't forget to check out <a href=
+https://document-intelligence.github.io/DI-2021/files/di-2021_final_22.pdf>our paper from KDD 2021!</a>"
 
-# # LaTeX settings
-# bibtex_bibfiles:
-#    - _bibliography/references.bib
-# latex:
-#   latex_engine                : "xelatex"
-#   latex_documents:
-#     targetname: book.tex
 
 sphinx:
   extra_extensions:
