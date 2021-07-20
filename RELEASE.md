@@ -21,3 +21,8 @@ Checklist for the release process of `genalog`:
 - [x] If the pipeline ran successfully, check and publish the draft of this release on [Github Release](https://github.com/microsoft/genalog/releases)
 - [x] Latest version is pip-installable with:
     - `pip install genalog`
+
+### Update Documentation on Github Page
+- [x] Staying on the release branch, `cd docs && pip install -r requirements-doc.txt`
+- [x] Build the jupyter-book with `jupyter-book build --all genalog_docs`
+- [x] Preview the HTML files, if looks good [publish to Github Page](https://jupyterbook.org/start/publish.html#publish-your-book-online-with-github-pages): `ghp-import -n -p -f genalog_docs/_build/html` 
