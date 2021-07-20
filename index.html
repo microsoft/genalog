@@ -169,7 +169,7 @@
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a><a class="github-button" href="https://github.com/microsoft/genalog" data-icon="octicon-star" style="text-align:center" data-size="large" data-show-count="true" aria-label="Star microsoft/genalog on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script>
 </div>
 
 </div>
@@ -223,7 +223,10 @@
             href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
-        
+        <a class="issues-button"
+            href="https://github.com/microsoft/genalog/issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
     </div>
 </div>
@@ -252,12 +255,13 @@
                 
   <div class="section" id="synthetic-document-generator">
 <h1>Synthetic Document Generator<a class="headerlink" href="#synthetic-document-generator" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://dev.azure.com/genalog-dev/genalog/_build/latest?definitionId=4&amp;branchName=main"><img alt="Build Status" src="https://dev.azure.com/genalog-dev/genalog/_apis/build/status/Nightly-Build?branchName=main" /></a> <img alt="Azure DevOps tests (compact)" src="https://img.shields.io/azure-devops/tests/genalog-dev/genalog/4?compact_message" /> <img alt="Azure DevOps coverage (main)" src="https://img.shields.io/azure-devops/coverage/genalog-dev/genalog/4/main" /> <img alt="Python Versions" src="https://img.shields.io/badge/py-3.6%20%7C%203.7%20%7C%203.8%20-blue" /> <img alt="Supported OSs" src="https://img.shields.io/badge/platform-%20linux--64%20-red" /> <img alt="MIT license" src="https://img.shields.io/badge/License-MIT-blue.svg" /> <a class="reference external" href="https://microsoft.github.io/genalog/"><img alt="docs link" src="https://img.shields.io/badge/docs-jupyter--book-brightgreen" /></a></p>
+<p><a class="reference external" href="https://dev.azure.com/genalog-dev/genalog/_build/latest?definitionId=4&amp;branchName=main"><img alt="Build Status" src="https://dev.azure.com/genalog-dev/genalog/_apis/build/status/Nightly-Build?branchName=main" /></a> <img alt="Azure DevOps tests (compact)" src="https://img.shields.io/azure-devops/tests/genalog-dev/genalog/4?compact_message" /> <img alt="Azure DevOps coverage (main)" src="https://img.shields.io/azure-devops/coverage/genalog-dev/genalog/4/main" /> <img alt="Python Versions" src="https://img.shields.io/badge/py-3.6%20%7C%203.7%20%7C%203.8%20-blue" /> <img alt="Supported OSs" src="https://img.shields.io/badge/platform-%20linux--64%20-red" /> <img alt="MIT license" src="https://img.shields.io/badge/License-MIT-blue.svg" /></p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install genalog
 </pre></div>
 </div>
+<p><a class="github-button" href="https://github.com/microsoft/genalog" data-icon="octicon-star" style="margin:auto" data-size="large" data-show-count="false" aria-label="Star us microsoft/genalog on GitHub">Star Us</a><script async defer src="https://buttons.github.io/buttons.js"></script></p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">genalog</span></code> is an open source, cross-platform python package for <strong>gen</strong>erating document images with synthetic noise that mimics scanned an<strong>alog</strong> documents (thus the name <code class="docutils literal notranslate"><span class="pre">genalog</span></code>). You can also add various text degradations to these images. The purpose of this tool is to provide a fast and efficient way to generate synthetic documents from text data by leveraging layout from templates that you can create in simple HTML format.</p>
 <p><code class="docutils literal notranslate"><span class="pre">genalog</span></code> provides several document templates as a start. You can alter the document layout using standard CSS properties like <code class="docutils literal notranslate"><span class="pre">font-family</span></code>, <code class="docutils literal notranslate"><span class="pre">font-size</span></code>, <code class="docutils literal notranslate"><span class="pre">text-align</span></code>, etc. Here are some of the example generated documents:</p>
@@ -383,6 +387,9 @@
           By Jianjie Liu and Amit Gupte<br/>
         
             &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            Don't forget to check out <a href= https://document-intelligence.github.io/DI-2021/files/di-2021_final_22.pdf>our paper from KDD 2021</a>
+          </div>
       </p>
     </div>
   </footer>

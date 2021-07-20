@@ -170,7 +170,7 @@
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a><a class="github-button" href="https://github.com/microsoft/genalog" data-icon="octicon-star" style="text-align:center" data-size="large" data-show-count="true" aria-label="Star microsoft/genalog on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script>
 </div>
 
 </div>
@@ -224,7 +224,10 @@
             href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
-        
+        <a class="issues-button"
+            href="https://github.com/microsoft/genalog/issues/new?title=Issue%20on%20page%20%2Fe2e_dataset_pipeline.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
     </div>
 </div>
@@ -254,7 +257,7 @@
   <div class="section" id="ocr-ner-dataset-generation">
 <h1>OCR-NER Dataset Generation<a class="headerlink" href="#ocr-ner-dataset-generation" title="Permalink to this headline">¶</a></h1>
 <a class="reference internal image-reference" href="_images/labeled_synthetic_pipeline.png"><img alt="_images/labeled_synthetic_pipeline.png" class="align-center" src="_images/labeled_synthetic_pipeline.png" style="width: 80%;" /></a>
-<p>If you were brought here by our paper [insert link here], you may be interested in the data preparation pipeline built with <code class="docutils literal notranslate"><span class="pre">genalog</span></code>. The figure above shows the steps involved in tranforming a Named-Entity Recognition (NER) dataset like <a class="reference external" href="https://deepai.org/dataset/conll-2003-english">CoNLL 2003</a> with synthetic Optical Character Recognition (OCR) errors. This OCR-NER dataset is useful to train an error-prune NER model against common OCR mistakes. You can find the full dataset prepration pipeline in this <a class="reference external" href="https://github.com/microsoft/genalog/blob/main/example/dataset_generation.ipynb">notebook</a> from our repo.</p>
+<p>If you were brought here by <a class="reference external" href="https://document-intelligence.github.io/DI-2021/files/di-2021_final_22.pdf">our paper</a>, you may be interested in the data preparation pipeline built with <code class="docutils literal notranslate"><span class="pre">genalog</span></code>. The figure above shows the steps involved in tranforming a Named-Entity Recognition (NER) dataset like <a class="reference external" href="https://deepai.org/dataset/conll-2003-english">CoNLL 2003</a> with synthetic Optical Character Recognition (OCR) errors. This OCR-NER dataset is useful to train an error-prune NER model against common OCR mistakes. You can find the full dataset prepration pipeline in this <a class="reference external" href="https://github.com/microsoft/genalog/blob/main/example/dataset_generation.ipynb">notebook</a> from our repo.</p>
 <p>We believe this methodology of inducing OCR errors onto the dataset can be applied to other NLP tasks to improve model performance against inherent noise from OCR outputs. We welcome the community to contribute if this fits your use cases.</p>
 </div>
 
@@ -297,6 +300,9 @@
           By Jianjie Liu and Amit Gupte<br/>
         
             &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            Don't forget to check out <a href= https://document-intelligence.github.io/DI-2021/files/di-2021_final_22.pdf>our paper from KDD 2021</a>
+          </div>
       </p>
     </div>
   </footer>

@@ -1,6 +1,8 @@
 genalog.ocr
 ===================
 
+This module will be *deprecated* in favor of the official `Azure Computer Vision SDK <https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/quickstarts-sdk/client-library?tabs=visual-studio&pivots=programming-language-python>`_ .
+
 genalog.ocr.common module
 -------------------------
 
