@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>genalog.ocr.rest_client &#8212; Genalog</title>
+    <title>genalog.ocr.rest_client &#8212; &lt;h1 style=&#34;font-size:2em;text-align:center;color:#FF5733&#34;&gt;Genalog&lt;/h1&gt;</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -72,7 +72,7 @@
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
       
-      <h1 class="site-logo" id="site-title">Genalog</h1>
+      <h1 class="site-logo" id="site-title"><h1 style="font-size:2em;text-align:center;color:#FF5733">Genalog</h1></h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
@@ -93,7 +93,29 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../../generation_pipeline.html">
-   Generate Your Synthetic Document
+   Generate your synthetic document
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../e2e_dataset_pipeline.html">
+   OCR-NER Dataset Generation
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Fabricating Document &amp; Noise
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../doc_generation.html">
+   Create a document
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../doc_degradation.html">
+   Degrade a document
   </a>
  </li>
 </ul>
@@ -105,7 +127,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../text_alignment.html">
-   Text Alignment
+   Text alignment
   </a>
  </li>
  <li class="toctree-l1">
@@ -116,27 +138,27 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  API documentation
+  API Documentation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../genalog.degradation.html">
+  <a class="reference internal" href="../../../docstring/genalog.degradation.html">
    genalog.degradation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../genalog.generation.html">
+  <a class="reference internal" href="../../../docstring/genalog.generation.html">
    genalog.generation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../genalog.ocr.html">
+  <a class="reference internal" href="../../../docstring/genalog.ocr.html">
    genalog.ocr
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../genalog.text.html">
+  <a class="reference internal" href="../../../docstring/genalog.text.html">
    genalog.text
   </a>
  </li>
@@ -236,7 +258,7 @@
 <span class="n">SCHEDULE_INTERVAL</span> <span class="o">=</span> <span class="s2">&quot;PT15M&quot;</span>
 
 
-<div class="viewcode-block" id="GrokRestClient"><a class="viewcode-back" href="../../../genalog.ocr.html#genalog.ocr.rest_client.GrokRestClient">[docs]</a><span class="k">class</span> <span class="nc">GrokRestClient</span><span class="p">:</span>
+<div class="viewcode-block" id="GrokRestClient"><a class="viewcode-back" href="../../../docstring/genalog.ocr.html#genalog.ocr.rest_client.GrokRestClient">[docs]</a><span class="k">class</span> <span class="nc">GrokRestClient</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;This is a REST client. It is a wrapper around the REST api for the Azure Search Service</span>
 <span class="sd">    see: https://docs.microsoft.com/en-us/rest/api/searchservice/</span>
 
@@ -337,7 +359,7 @@
 
         <span class="k">return</span> <span class="n">client</span>
 
-<div class="viewcode-block" id="GrokRestClient.create_skillset"><a class="viewcode-back" href="../../../genalog.ocr.html#genalog.ocr.rest_client.GrokRestClient.create_skillset">[docs]</a>    <span class="k">def</span> <span class="nf">create_skillset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="GrokRestClient.create_skillset"><a class="viewcode-back" href="../../../docstring/genalog.ocr.html#genalog.ocr.rest_client.GrokRestClient.create_skillset">[docs]</a>    <span class="k">def</span> <span class="nf">create_skillset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Adds a skillset that performs OCR on images&quot;&quot;&quot;</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
@@ -369,7 +391,7 @@
         <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;added skillset&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">SKILLSET_NAME</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="GrokRestClient.create_datasource"><a class="viewcode-back" href="../../../genalog.ocr.html#genalog.ocr.rest_client.GrokRestClient.create_datasource">[docs]</a>    <span class="k">def</span> <span class="nf">create_datasource</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="GrokRestClient.create_datasource"><a class="viewcode-back" href="../../../docstring/genalog.ocr.html#genalog.ocr.rest_client.GrokRestClient.create_datasource">[docs]</a>    <span class="k">def</span> <span class="nf">create_datasource</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Attaches the blob data store to the search service as a source for image documents&quot;&quot;&quot;</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
@@ -393,7 +415,7 @@
         <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;added datasource&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATASOURCE_NAME</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="GrokRestClient.create_index"><a class="viewcode-back" href="../../../genalog.ocr.html#genalog.ocr.rest_client.GrokRestClient.create_index">[docs]</a>    <span class="k">def</span> <span class="nf">create_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="GrokRestClient.create_index"><a class="viewcode-back" href="../../../docstring/genalog.ocr.html#genalog.ocr.rest_client.GrokRestClient.create_index">[docs]</a>    <span class="k">def</span> <span class="nf">create_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Create an index with the layoutText column to store OCR output from the enrichment&quot;&quot;&quot;</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
@@ -411,7 +433,7 @@
         <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;created index&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">INDEX_NAME</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="GrokRestClient.create_indexer"><a class="viewcode-back" href="../../../genalog.ocr.html#genalog.ocr.rest_client.GrokRestClient.create_indexer">[docs]</a>    <span class="k">def</span> <span class="nf">create_indexer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extension_to_exclude</span><span class="o">=</span><span class="s2">&quot;.txt, .json&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="GrokRestClient.create_indexer"><a class="viewcode-back" href="../../../docstring/genalog.ocr.html#genalog.ocr.rest_client.GrokRestClient.create_indexer">[docs]</a>    <span class="k">def</span> <span class="nf">create_indexer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extension_to_exclude</span><span class="o">=</span><span class="s2">&quot;.txt, .json&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Creates an indexer that runs the enrichment skillset of documents from the datatsource.</span>
 <span class="sd">        The enriched results are pushed to the index.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -440,7 +462,7 @@
         <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;created indexer&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">INDEXER_NAME</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="GrokRestClient.create_indexing_pipeline"><a class="viewcode-back" href="../../../genalog.ocr.html#genalog.ocr.rest_client.GrokRestClient.create_indexing_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">create_indexing_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="GrokRestClient.create_indexing_pipeline"><a class="viewcode-back" href="../../../docstring/genalog.ocr.html#genalog.ocr.rest_client.GrokRestClient.create_indexing_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">create_indexing_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Using REST calls, creates an index, indexer and skillset on the Cognitive service.</span>
 <span class="sd">        The templates for json are in the templates folder.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -449,7 +471,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">create_datasource</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">create_indexer</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="GrokRestClient.delete_indexer_pipeline"><a class="viewcode-back" href="../../../genalog.ocr.html#genalog.ocr.rest_client.GrokRestClient.delete_indexer_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">delete_indexer_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="GrokRestClient.delete_indexer_pipeline"><a class="viewcode-back" href="../../../docstring/genalog.ocr.html#genalog.ocr.rest_client.GrokRestClient.delete_indexer_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">delete_indexer_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Deletes all indexers, indexes, skillsets and datasources that had been previously</span>
 <span class="sd">        created</span>
 <span class="sd">        &quot;&quot;&quot;</span>

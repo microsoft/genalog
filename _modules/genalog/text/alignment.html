@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>genalog.text.alignment &#8212; Genalog</title>
+    <title>genalog.text.alignment &#8212; &lt;h1 style=&#34;font-size:2em;text-align:center;color:#FF5733&#34;&gt;Genalog&lt;/h1&gt;</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -72,7 +72,7 @@
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
       
-      <h1 class="site-logo" id="site-title">Genalog</h1>
+      <h1 class="site-logo" id="site-title"><h1 style="font-size:2em;text-align:center;color:#FF5733">Genalog</h1></h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
@@ -93,7 +93,29 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../../generation_pipeline.html">
-   Generate Your Synthetic Document
+   Generate your synthetic document
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../e2e_dataset_pipeline.html">
+   OCR-NER Dataset Generation
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Fabricating Document &amp; Noise
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../doc_generation.html">
+   Create a document
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../doc_degradation.html">
+   Degrade a document
   </a>
  </li>
 </ul>
@@ -105,7 +127,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../text_alignment.html">
-   Text Alignment
+   Text alignment
   </a>
  </li>
  <li class="toctree-l1">
@@ -116,27 +138,27 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  API documentation
+  API Documentation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../genalog.degradation.html">
+  <a class="reference internal" href="../../../docstring/genalog.degradation.html">
    genalog.degradation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../genalog.generation.html">
+  <a class="reference internal" href="../../../docstring/genalog.generation.html">
    genalog.generation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../genalog.ocr.html">
+  <a class="reference internal" href="../../../docstring/genalog.ocr.html">
    genalog.ocr
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../genalog.text.html">
+  <a class="reference internal" href="../../../docstring/genalog.text.html">
    genalog.text
   </a>
  </li>
@@ -359,7 +381,7 @@
     <span class="p">)</span>
 
 
-<div class="viewcode-block" id="align"><a class="viewcode-back" href="../../../genalog.text.html#genalog.text.alignment.align">[docs]</a><span class="k">def</span> <span class="nf">align</span><span class="p">(</span><span class="n">gt</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">GAP_CHAR</span><span class="p">):</span>
+<div class="viewcode-block" id="align"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.alignment.align">[docs]</a><span class="k">def</span> <span class="nf">align</span><span class="p">(</span><span class="n">gt</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">GAP_CHAR</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Align two text segments via sequence alignment algorithm</span>
 
 <span class="sd">    **NOTE**: this algorithm is O(N^2) and is NOT efficient for longer text.</span>
@@ -532,7 +554,7 @@
     <span class="k">return</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">INVALID_TOKEN_REGEX</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="parse_alignment"><a class="viewcode-back" href="../../../genalog.text.html#genalog.text.alignment.parse_alignment">[docs]</a><span class="k">def</span> <span class="nf">parse_alignment</span><span class="p">(</span><span class="n">aligned_gt</span><span class="p">,</span> <span class="n">aligned_noise</span><span class="p">,</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">GAP_CHAR</span><span class="p">):</span>
+<div class="viewcode-block" id="parse_alignment"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.alignment.parse_alignment">[docs]</a><span class="k">def</span> <span class="nf">parse_alignment</span><span class="p">(</span><span class="n">aligned_gt</span><span class="p">,</span> <span class="n">aligned_noise</span><span class="p">,</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">GAP_CHAR</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Parse alignment to pair ground truth tokens with noise tokens</span>
 <span class="sd">    ::</span>
 
