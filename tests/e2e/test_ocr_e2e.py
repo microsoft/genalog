@@ -50,7 +50,7 @@ class TestBlobClient:
 
 @pytest.mark.azure
 class TestGROKe2e:
-    @pytest.mark.parametrize("use_async", [False, True])
+    @pytest.mark.parametrize("use_async", [False])
     def test_grok_e2e(self, tmpdir, use_async):
         grok = Grok.create_from_env_var()
         src_folder = "tests/unit/ocr/data/img"
