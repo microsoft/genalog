@@ -48,9 +48,13 @@ class TestBlobClient:
         ), f"folder {dst_folder} was not deleted"
 
 
+@pytest.mark.skip(reason=(
+    "Flaky test. Going to deprecate the ocr module in favor of the official python SDK:\n"
+    "https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/quickstarts-sdk/client-library?tabs=visual-studio&pivots=programming-language-python"  # noqa:E501
+))
 @pytest.mark.azure
 class TestGROKe2e:
-    @pytest.mark.parametrize("use_async", [False, True])
+    @pytest.mark.parametrize("use_async", [False])
     def test_grok_e2e(self, tmpdir, use_async):
         grok = Grok.create_from_env_var()
         src_folder = "tests/unit/ocr/data/img"

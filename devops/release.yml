@@ -35,8 +35,9 @@ steps:
     pip install --upgrade pip 
     pip install setuptools wheel
     python setup.py bdist_wheel --dist-dir dist
+    python setup.py sdist --dist-dir dist
   workingDirectory: $(Build.SourcesDirectory)
-  displayName: 'Building wheel package'
+  displayName: 'Building wheel package & sdist'
 
 - bash: |
     pip install twine
@@ -47,9 +48,31 @@ steps:
   inputs:
     pythonUploadServiceConnection: testpypi
   condition: ${{eq(parameters.releaseType, 'Test')}}
-  displayName: 'Twine Authentication for ${{parameters.releaseType}}'
+  displayName: 'Twine Authentication for Test'
+
+- task: TwineAuthenticate@1
+  inputs:
+    pythonUploadServiceConnection: pypi
+  condition: ${{eq(parameters.releaseType, 'Production')}}
+  displayName: 'Twine Authentication for Production'
 
 - bash: |
-    twine upload --verbose -r genalog --config-file $(PYPIRC_PATH) dist/*
+    twine upload --verbose -r genalog --config-file $(PYPIRC_PATH) dist/*.whl
   workingDirectory: $(Build.SourcesDirectory)
-  displayName: 'Uploading wheel package to ${{parameters.releaseType}} PyPI'
+  displayName: 'Uploading Wheel to ${{parameters.releaseType}} PyPI'
+
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'github.com_laserprec'
+    repositoryName: 'microsoft/genalog'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'gitTag'
+    tagPattern: 'v.*'
+    releaseNotesFilePath: 'CHANGELOG.md'
+    assets: '$(Build.SourcesDirectory)/dist/*'
+    isDraft: true
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
+  condition: ${{eq(parameters.releaseType, 'Test')}}
+  displayName: 'Prepare GitHub Release (Draft)'

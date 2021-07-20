@@ -8,6 +8,7 @@ test_out
 # Environments
 .env*
 .venv*
+**/.env/
 env/
 venv/
 ENV/
