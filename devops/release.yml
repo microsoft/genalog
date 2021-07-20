@@ -38,6 +38,22 @@ steps:
     python setup.py sdist --dist-dir dist
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Building wheel package & sdist'
+  
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'github.com_laserprec'
+    repositoryName: 'microsoft/genalog'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'gitTag'
+    tagPattern: 'v.*'
+    releaseNotesFilePath: 'CHANGELOG.md'
+    assets: '$(Build.SourcesDirectory)/dist/*'
+    isDraft: true
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
+  condition: ${{eq(parameters.releaseType, 'Test')}}
+  displayName: 'Prepare GitHub Release (Draft)'
 
 - bash: |
     pip install twine
@@ -60,19 +76,3 @@ steps:
     twine upload --verbose -r genalog --config-file $(PYPIRC_PATH) dist/*.whl
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Uploading Wheel to ${{parameters.releaseType}} PyPI'
-
-- task: GitHubRelease@1
-  inputs:
-    gitHubConnection: 'github.com_laserprec'
-    repositoryName: 'microsoft/genalog'
-    action: 'create'
-    target: '$(Build.SourceVersion)'
-    tagSource: 'gitTag'
-    tagPattern: 'v.*'
-    releaseNotesFilePath: 'CHANGELOG.md'
-    assets: '$(Build.SourcesDirectory)/dist/*'
-    isDraft: true
-    changeLogCompareToRelease: 'lastFullRelease'
-    changeLogType: 'commitBased'
-  condition: ${{eq(parameters.releaseType, 'Test')}}
-  displayName: 'Prepare GitHub Release (Draft)'
