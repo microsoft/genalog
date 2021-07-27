@@ -105,6 +105,7 @@ jobs:
         run: |
             cov_file_name='.coverage_${{ matrix.os }}_${{ matrix.python }}_${{ matrix.test_type }}'
             # Replace spaces with '_'
+            echo '.coverage_${{ matrix.os }}_${{ matrix.python }}_${{ join(matrix.test_type, '_') }}'
             mv .coverage ${cov_file_name// /_}
             ls .coverage*
       
