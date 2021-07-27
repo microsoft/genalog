@@ -69,7 +69,7 @@ jobs:
         run: spark-submit --version
         
       - name: Install genalog
-      - run: |
+        run: |
           pip install --upgrade pip setuptools wheel
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
