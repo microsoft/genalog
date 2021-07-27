@@ -103,7 +103,9 @@ jobs:
       
       - name: Prepare Code Coverage Report
         run: |
-            mv .coverage .coverage_${{ matrix.os }}_${{ matrix.python }}_${{ matrix.test_type }}
+            cov_file_name='.coverage_${{ matrix.os }}_${{ matrix.python }}_${{ matrix.test_type }}'
+            # Replace spaces with '_'
+            mv .coverage ${cov_file_name// /_}
             ls .coverage*
       
       - name: Upload Code Coverage (${{ matrix.os }}-${{ matrix.python }}-${{ matrix.test_type }})
