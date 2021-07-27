@@ -49,6 +49,7 @@ jobs:
         with:
           # The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file
           java-version: 8
+          distribution: 'adopt'
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
