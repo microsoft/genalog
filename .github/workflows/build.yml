@@ -15,10 +15,34 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+
+  static_analysis:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Python
+      uses: actions/setup-python@v2.2.2
+      with:
+        # Version range or exact version of a Python version to use, using SemVer's version range syntax.
+        python-version: '3.6'
+
+    - name: Install dev-dependencies
+      run: |
+          pip install --upgrade pip setuptools wheel
+          pip install -r requirements-dev.txt
+    
+    - name: Linting (Tox)
+      run: |
+        tox -e flake8
+    
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    needs: static_analysis
+    strategy:
+      matrix:
+        python: [3.6, 3.7, 3.8]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -35,7 +59,7 @@ jobs:
         uses: actions/setup-python@v2.2.2
         with:
           # Version range or exact version of a Python version to use, using SemVer's version range syntax.
-          python-version: 3.6 # optional, default is 3.x
+          python-version: ${{ matrix.python }}
 
       - name: Run a one-line script
         run: |
@@ -75,4 +99,9 @@ jobs:
           pip install -r requirements-dev.txt
           pip install -e .
       
+      - name: Static Analysis
+        run: tox -e flake8
+        
+      - name: Run Unit Test
+        run: tox -e py -- tests/unit -m "not slow"
       
