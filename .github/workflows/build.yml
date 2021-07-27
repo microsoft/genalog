@@ -99,7 +99,7 @@ jobs:
           pip install -e .
         
       - name: Run Unit Test
-        run: tox -e py -- tests -m ${{ matrix.test_type }}
+        run: tox -e py -- tests -m '${{ matrix.test_type }}'
       
       - name: Prepare Code Coverage Report
         run: |
