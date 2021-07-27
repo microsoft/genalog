@@ -24,6 +24,24 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: |
+          python -V
+          whereis python
+      
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.2
+        with:
+          # Version range or exact version of a Python version to use, using SemVer's version range syntax.
+          python-version: 3.6 # optional, default is 3.x
+
+      - name: Run a one-line script
+        run: |
+          python -V
+          whereis python
+
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
