@@ -73,9 +73,12 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         python: [3.6, 3.7, 3.8]
+        test_type: ['io', 'slow', 'not slow and not azure']
         exclude:
           - os: macos-latest
           - os: windows-latest
+          - os: ubuntu-latest
+            test_type: 'slow'
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -96,14 +99,14 @@ jobs:
           pip install -e .
         
       - name: Run Unit Test
-        run: tox -e py -- tests/unit -m "not slow"
+        run: tox -e py -- tests -m {{ matrix.test_type }}
       
       - name: Prepare Code Coverage Report
         run: |
-            mv .coverage .coverage_${{ matrix.os }}_${{ matrix.python }}
+            mv .coverage .coverage_${{ matrix.os }}_${{ matrix.python }}_{{ matrix.test_type }}
             ls .coverage*
       
-      - name: Upload Code Coverage (${{ matrix.os }}-${{ matrix.python }})
+      - name: Upload Code Coverage (${{ matrix.os }}-${{ matrix.python }})-{{ matrix.test_type }}
         uses: actions/upload-artifact@v2
         with:
           name: code-cov
