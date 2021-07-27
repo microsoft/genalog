@@ -141,4 +141,8 @@ jobs:
           
       - name: Show merged report
         run: |
-          ls *.xml
+          ls *.xml .coverage* junit htmlcov
+          
+      - name: Upload code coverage report to CodeCov
+        uses: codecov/codecov-action@v2.0.2
+          
