@@ -134,7 +134,7 @@ jobs:
       
       - name: Merage coverage reports
         run: |
-          python -m coverage combine **/.coverage*
+          python -m coverage combine .coverage*
           python -m coverage report
           python -m coverage xml
           
