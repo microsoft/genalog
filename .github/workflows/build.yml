@@ -99,14 +99,14 @@ jobs:
           pip install -e .
         
       - name: Run Unit Test
-        run: tox -e py -- tests -m {{ matrix.test_type }}
+        run: tox -e py -- tests -m ${{ matrix.test_type }}
       
       - name: Prepare Code Coverage Report
         run: |
-            mv .coverage .coverage_${{ matrix.os }}_${{ matrix.python }}_{{ matrix.test_type }}
+            mv .coverage .coverage_${{ matrix.os }}_${{ matrix.python }}_${{ matrix.test_type }}
             ls .coverage*
       
-      - name: Upload Code Coverage (${{ matrix.os }}-${{ matrix.python }})-{{ matrix.test_type }}
+      - name: Upload Code Coverage (${{ matrix.os }}-${{ matrix.python }}-${{ matrix.test_type }})
         uses: actions/upload-artifact@v2
         with:
           name: code-cov
