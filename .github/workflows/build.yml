@@ -65,5 +65,6 @@ jobs:
           spark-version: 2.4.8
           # Hadoop version
           hadoop-version: 2.6 # optional, default is 3.2
+      
       - name: test spark installation
-      - run: spark-submit --version
+        run: spark-submit --version
