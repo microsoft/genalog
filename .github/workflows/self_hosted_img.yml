@@ -21,12 +21,22 @@ jobs:
       with:
         # Version range or exact version of a Python version to use, using SemVer's version range syntax.
         python-version: '3.6'
-
-    - name: Install Tensorflow-gpu
+        
+    - name: Create venv
       run: |
-          pip install --upgrade pip setuptools wheel
+        python -m venv .env_ghaction
+        source .env_ghaction/bin/activate
+        pip install --upgrade pip setuptools wheel
+      
+    - name: Install Tensorflow-gpu
+      run: |    
           pip install tensorflow-gpu==1.15.0
     
     - name: Test if gpu detected
       run: |
         python -c "import tensorflow as tf; print(tf.test.is_gpu_available())"
+
+    - name: Destroy venv
+      run: |
+        deactivate
+        rm -r .env_ghaction
