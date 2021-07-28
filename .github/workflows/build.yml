@@ -91,14 +91,12 @@ jobs:
           # Version range or exact version of a Python version to use, using SemVer's version range syntax.
           python-version: ${{ matrix.python }}
         
-      - name: Install genalog
+      - name: Install tox
         run: |
           pip install --upgrade pip setuptools wheel
-          pip install -r requirements.txt
-          pip install -r requirements-dev.txt
-          pip install -e .
+          pip install tox
         
-      - name: Run Unit Test
+      - name: Run Unit Test (tox)
         run: tox -e py -- tests -m '${{ matrix.test_type }}'
       
       - name: Prepare Code Coverage Report
