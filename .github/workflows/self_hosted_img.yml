@@ -29,4 +29,4 @@ jobs:
     
     - name: Test if gpu detected
       run: |
-        python -c "import tensorflow as tf; tf.test.is_gpu_available()"
+        python -c "import tensorflow as tf; print(tf.test.is_gpu_available())"
