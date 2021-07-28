@@ -29,8 +29,9 @@ jobs:
         pip install --upgrade pip setuptools wheel
       
     - name: Install Tensorflow-gpu
-      run: |    
-          pip install tensorflow-gpu==1.15.0
+      run: |
+        source .env_ghaction/bin/activate
+        pip install tensorflow-gpu==1.15.0
     
     - name: Test if gpu detected
       run: |
@@ -38,5 +39,4 @@ jobs:
 
     - name: Destroy venv
       run: |
-        deactivate
         rm -r .env_ghaction
