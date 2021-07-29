@@ -80,7 +80,6 @@ jobs:
           - os: ubuntu-latest
             test_type: 'slow'
           - os: self-hosted
-            python: 3.8
             test_type: 'slow'
 
     # Steps represent a sequence of tasks that will be executed as part of the job
