@@ -4,6 +4,8 @@
 
 Genalog is an open source, cross-platform python package for **gen**erating document images with synthetic noise that mimics scanned an**alog** documents (thus the name `genalog`). You can also add various text degradations to these images. The purpose of this tool is to provide a fast and efficient way to generate synthetic documents from text data by leveraging layout from templates that you create in simple HTML format.
 
+![demo-gif](docs/genalog_docs/static/genalog_demo.gif)
+
 Overview
 -------------------------------------
 Genalog has various capabilities: 
