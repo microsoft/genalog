@@ -85,6 +85,14 @@ Package Release
 -------------------
 Please see [RELEASE.md](https://github.com/microsoft/genalog/blob/main/RELEASE.md) for more details on the release process.
 
+Development with the Repo
+--------------------------
+We use [tox](https://tox.readthedocs.io/en/latest/index.html) to orchestrate most of the CI procedure. This will ensure the maximum environment parity between local dev boxes and remote CI pipelines.
+
+1. `git clone https://github.com/microsoft/genalog.git`
+2. `pip install tox`
+3. To run static analysis: `tox -e flake8`
+4. To run the test suites: `tox -e -- -m "not azure"`
 
 Repo Structure
 -------------------
