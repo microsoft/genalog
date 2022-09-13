@@ -1,6 +1,6 @@
 # Synthetic Document Generator
 
-[![Build Status](https://dev.azure.com/genalog-dev/genalog/_apis/build/status/Nightly-Build?branchName=main)](https://dev.azure.com/genalog-dev/genalog/_build/latest?definitionId=4&branchName=main) ![Azure DevOps tests (compact)](https://img.shields.io/azure-devops/tests/genalog-dev/genalog/4?compact_message) ![Azure DevOps coverage (main)](https://img.shields.io/azure-devops/coverage/genalog-dev/genalog/4/main) ![Python Versions](https://img.shields.io/badge/py-3.6%20%7C%203.7%20%7C%203.8%20-blue) [![arxiv link](https://img.shields.io/badge/arxiv-2108.02899-critical)](https://arxiv.org/abs/2108.02899) ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)
+![Python Versions](https://img.shields.io/badge/py-3.6%20%7C%203.7%20%7C%203.8%20-blue) [![arxiv link](https://img.shields.io/badge/arxiv-2108.02899-critical)](https://arxiv.org/abs/2108.02899) ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ````{margin}
 ```sh
