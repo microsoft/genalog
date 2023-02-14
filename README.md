@@ -1,10 +1,12 @@
-# Genalog - Synthetic Data Generator
+![Genalog Logo](./docs/genalog_docs/static/genalog_full_logo.svg)
 
 ![Python Versions](https://img.shields.io/badge/py-3.6%20%7C%203.7%20%7C%203.8%20-blue) ![Supported OSs](https://img.shields.io/badge/platform-%20linux--64%20-red) ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg) [![docs link](https://img.shields.io/badge/docs-jupyter--book-brightgreen)](https://microsoft.github.io/genalog/) [![arxiv link](https://img.shields.io/badge/arxiv-2108.02899-critical)](https://arxiv.org/abs/2108.02899)
 
 Genalog is an open source, cross-platform python package for **gen**erating document images with synthetic noise that mimics scanned an**alog** documents (thus the name `genalog`). You can also add various text degradations to these images. The purpose of this tool is to provide a fast and efficient way to generate synthetic documents from text data by leveraging layout from templates that you create in simple HTML format.
 
 ![demo-gif](docs/genalog_docs/static/genalog_demo.gif)
+
+This repo is now in maintenance mode with **limited support**.
 
 Overview
 -------------------------------------
