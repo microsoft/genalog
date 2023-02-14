@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OCR-NER Dataset Generation</title>
+    <title>Python Module Index</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -47,25 +47,19 @@
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://microsoft.github.io/genalog/e2e_dataset_pipeline.html" />
+    <link rel="canonical" href="https://microsoft.github.io/genalog/py-modindex.html" />
     <link rel="shortcut icon" href="_static/genalog_favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Create a document" href="doc_generation.html" />
-    <link rel="prev" title="Generate your synthetic document" href="generation_pipeline.html" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
     
+
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -99,7 +93,7 @@
   Getting Started
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="installation.html">
    Installation
@@ -110,8 +104,8 @@
    Generate your synthetic document
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="e2e_dataset_pipeline.html">
    OCR-NER Dataset Generation
   </a>
  </li>
@@ -209,23 +203,6 @@
             </button>
             
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/e2e_dataset_pipeline.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
             <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -237,7 +214,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/microsoft/genalog/issues/new?title=Issue%20on%20page%20%2Fe2e_dataset_pipeline.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/microsoft/genalog/issues/new?title=Issue%20on%20page%20%2Fpy-modindex.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -265,7 +242,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>OCR-NER Dataset Generation</h1>
+                <h1></h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -276,52 +253,101 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="ocr-ner-dataset-generation">
-<h1>OCR-NER Dataset Generation<a class="headerlink" href="#ocr-ner-dataset-generation" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="_images/labeled_synthetic_pipeline.png"><img alt="_images/labeled_synthetic_pipeline.png" class="align-center" src="_images/labeled_synthetic_pipeline.png" style="width: 80%;" /></a>
-<p>If you were brought here by <a class="reference external" href="https://arxiv.org/abs/2108.02899">our paper</a>, you may be interested in the data preparation pipeline built with <code class="docutils literal notranslate"><span class="pre">genalog</span></code>. The figure above shows the steps involved in tranforming a Named-Entity Recognition (NER) dataset like <a class="reference external" href="https://deepai.org/dataset/conll-2003-english">CoNLL 2003</a> with synthetic Optical Character Recognition (OCR) errors. This OCR-NER dataset is useful to train an error-prune NER model against common OCR mistakes. You can find the full dataset prepration pipeline in this <a class="reference external" href="https://github.com/microsoft/genalog/blob/main/example/dataset_generation.ipynb">notebook</a> from our repo.</p>
-<p>We believe this methodology of inducing OCR errors onto the dataset can be applied to other NLP tasks to improve model performance against inherent noise from OCR outputs. We welcome the community to contribute if this fits your use cases.</p>
-</div>
 
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            kernelName: "python3",
-            path: "./."
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
+   <h1>Python Module Index</h1>
+
+   <div class="modindex-jumpbox">
+   <a href="#cap-g"><strong>g</strong></a>
+   </div>
+
+   <table class="indextable modindextable">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-g"><td></td><td>
+       <strong>g</strong></td><td></td></tr>
+     <tr>
+       <td><img src="_static/minus.png" class="toggler"
+              id="toggle-1" style="display: none" alt="-" /></td>
+       <td>
+       <code class="xref">genalog</code></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="docstring/genalog.degradation.html#module-genalog.degradation.degrader"><code class="xref">genalog.degradation.degrader</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="docstring/genalog.degradation.html#module-genalog.degradation.effect"><code class="xref">genalog.degradation.effect</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="docstring/genalog.generation.html#module-genalog.generation.content"><code class="xref">genalog.generation.content</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="docstring/genalog.ocr.html#module-genalog.ocr.blob_client"><code class="xref">genalog.ocr.blob_client</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="docstring/genalog.ocr.html#module-genalog.ocr.common"><code class="xref">genalog.ocr.common</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="docstring/genalog.ocr.html#module-genalog.ocr.grok"><code class="xref">genalog.ocr.grok</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="docstring/genalog.ocr.html#module-genalog.ocr.metrics"><code class="xref">genalog.ocr.metrics</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="docstring/genalog.ocr.html#module-genalog.ocr.rest_client"><code class="xref">genalog.ocr.rest_client</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="docstring/genalog.text.html#module-genalog.text.alignment"><code class="xref">genalog.text.alignment</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="docstring/genalog.text.html#module-genalog.text.anchor"><code class="xref">genalog.text.anchor</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="docstring/genalog.text.html#module-genalog.text.conll_format"><code class="xref">genalog.text.conll_format</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="docstring/genalog.text.html#module-genalog.text.lcs"><code class="xref">genalog.text.lcs</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="docstring/genalog.text.html#module-genalog.text.ner_label"><code class="xref">genalog.text.ner_label</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="docstring/genalog.text.html#module-genalog.text.preprocess"><code class="xref">genalog.text.preprocess</code></a></td><td>
+       <em></em></td></tr>
+   </table>
+
 
               </div>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="generation_pipeline.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Generate your synthetic document</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="doc_generation.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Create a document</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+<div class='prev-next-area'>
 </div>
             
         </div>

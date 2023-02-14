@@ -1,0 +1,755 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>genalog.text.alignment</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <link rel="canonical" href="https://microsoft.github.io/genalog/_modules/genalog/text/alignment.html" />
+    <link rel="shortcut icon" href="../../../_static/genalog_favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/genalog_full_logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../generation_pipeline.html">
+   Generate your synthetic document
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../e2e_dataset_pipeline.html">
+   OCR-NER Dataset Generation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fabricating Document &amp; Noise
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../doc_generation.html">
+   Create a document
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../doc_degradation.html">
+   Degrade a document
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Handling Noisy Text
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../text_alignment.html">
+   Text alignment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../ocr_label_propagation.html">
+   Propagation of NER labels
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  API Documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.degradation.html">
+   genalog.degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.generation.html">
+   genalog.generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.ocr.html">
+   genalog.ocr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.text.html">
+   genalog.text
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/microsoft/genalog/issues/new?title=Issue%20on%20page%20%2F_modules/genalog/text/alignment.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <h1>Source code for genalog.text.alignment</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ---------------------------------------------------------</span>
+<span class="c1"># Copyright (c) Microsoft Corporation. All rights reserved.</span>
+<span class="c1"># Licensed under the MIT License.</span>
+<span class="c1"># ---------------------------------------------------------</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">pairwise2</span>
+
+<span class="kn">from</span> <span class="nn">genalog.text.preprocess</span> <span class="kn">import</span> <span class="n">_is_spacing</span><span class="p">,</span> <span class="n">tokenize</span>
+
+<span class="c1"># Configuration params for global sequence alignment algorithm (Needleman-Wunsch)</span>
+<span class="n">MATCH_REWARD</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">GAP_PENALTY</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
+<span class="n">GAP_EXT_PENALTY</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
+<span class="n">MISMATCH_PENALTY</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
+<span class="n">GAP_CHAR</span> <span class="o">=</span> <span class="s2">&quot;@&quot;</span>
+<span class="n">ONE_ALIGNMENT_ONLY</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">SPACE_MISMATCH_PENALTY</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+
+<span class="k">def</span> <span class="nf">_join_char_list</span><span class="p">(</span><span class="n">alignment_tuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Post-process alignment results for unicode support &quot;&quot;&quot;</span>
+    <span class="n">gt_char_list</span><span class="p">,</span> <span class="n">noise_char_list</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">alignment_tuple</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">gt_char_list</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">noise_char_list</span><span class="p">),</span> <span class="n">score</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span>
+
+
+<span class="k">def</span> <span class="nf">_align_seg</span><span class="p">(</span>
+    <span class="n">gt</span><span class="p">,</span>
+    <span class="n">noise</span><span class="p">,</span>
+    <span class="n">match_reward</span><span class="o">=</span><span class="n">MATCH_REWARD</span><span class="p">,</span>
+    <span class="n">mismatch_pen</span><span class="o">=</span><span class="n">MISMATCH_PENALTY</span><span class="p">,</span>
+    <span class="n">gap_pen</span><span class="o">=</span><span class="n">GAP_PENALTY</span><span class="p">,</span>
+    <span class="n">gap_ext_pen</span><span class="o">=</span><span class="n">GAP_EXT_PENALTY</span><span class="p">,</span>
+    <span class="n">space_mismatch_penalty</span><span class="o">=</span><span class="n">SPACE_MISMATCH_PENALTY</span><span class="p">,</span>
+    <span class="n">gap_char</span><span class="o">=</span><span class="n">GAP_CHAR</span><span class="p">,</span>
+    <span class="n">one_alignment_only</span><span class="o">=</span><span class="n">ONE_ALIGNMENT_ONLY</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wrapper function for Bio.pairwise2.align.globalms(), which</span>
+<span class="sd">    calls the sequence alignment algorithm (Needleman-Wunsch)</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        gt (str) : a ground truth string</span>
+<span class="sd">        noise (str) : a string with ocr noise</span>
+<span class="sd">        match_reward (int, optional) : reward for matching characters. Defaults to ``MATCH_REWARD``.</span>
+<span class="sd">        mismatch_pen (int, optional) : penalty for mistmatching characters. Defaults to ``MISMATCH_PENALTY``.</span>
+<span class="sd">        gap_pen      (int, optional) : penalty for creating a gap. Defaults to ``GAP_PENALTY``.</span>
+<span class="sd">        gap_ext_pen  (int, optional) : penalty for extending a gap. Defaults to ``GAP_EXT_PENALTY``.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list : a list of alignment tuples. Each alignment tuple</span>
+<span class="sd">        is one possible alignment candidate.</span>
+
+<span class="sd">        A tuple (str, str, int, int, int) contains the following information:</span>
+<span class="sd">            (aligned_gt, aligned_noise, alignment_score, alignment_start, alignment_end)</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            [</span>
+<span class="sd">                (&quot;alignm@ent&quot;, &quot;alignrnent&quot;, 10, 0, 10),</span>
+<span class="sd">                (&quot;align@ment&quot;, &quot;alignrnent&quot;, 10, 0, 10),</span>
+<span class="sd">                ...</span>
+<span class="sd">            ]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">match_reward_fn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">match_reward</span>
+        <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span><span class="p">:</span>
+            <span class="c1"># mismatch of a character with a space get a stronger penalty</span>
+            <span class="k">return</span> <span class="n">mismatch_pen</span> <span class="o">-</span> <span class="n">space_mismatch_penalty</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mismatch_pen</span>
+
+    <span class="c1"># NOTE: Work-around to enable support full Unicode character set - passing string as a list of characters</span>
+    <span class="n">alignments</span> <span class="o">=</span> <span class="n">pairwise2</span><span class="o">.</span><span class="n">align</span><span class="o">.</span><span class="n">globalcs</span><span class="p">(</span>
+        <span class="nb">list</span><span class="p">(</span><span class="n">gt</span><span class="p">),</span>
+        <span class="nb">list</span><span class="p">(</span><span class="n">noise</span><span class="p">),</span>
+        <span class="n">match_reward_fn</span><span class="p">,</span>
+        <span class="n">gap_pen</span><span class="p">,</span>
+        <span class="n">gap_ext_pen</span><span class="p">,</span>
+        <span class="n">gap_char</span><span class="o">=</span><span class="p">[</span><span class="n">gap_char</span><span class="p">],</span>
+        <span class="n">one_alignment_only</span><span class="o">=</span><span class="n">ONE_ALIGNMENT_ONLY</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="c1"># Alignment result is a list of char instead of string because of the work-around</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">_join_char_list</span><span class="p">,</span> <span class="n">alignments</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_select_alignment_candidates</span><span class="p">(</span><span class="n">alignments</span><span class="p">,</span> <span class="n">target_num_gt_tokens</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return an alignment that contains the desired number</span>
+<span class="sd">    of ground truth tokens from a list of possible alignments</span>
+
+<span class="sd">    Case Analysis:</span>
+<span class="sd">        Invariant 1: aligned strings are equal in length. This should</span>
+<span class="sd">                     be guaranteed by the nature of text alignment.</span>
+<span class="sd">        Invariant 2: we should not expect alignment introducing</span>
+<span class="sd">                     additional ground truth tokens.</span>
+<span class="sd">            However, in some cases, the alignment algorithm can</span>
+<span class="sd">            introduce a group of GAP_CHARs as a separate token at the</span>
+<span class="sd">            end of string, especially if there are lingering whitespaces.</span>
+<span class="sd">                E.g:</span>
+<span class="sd">                    gt: &quot;Boston is big &quot;  (num_tokens = 3)</span>
+<span class="sd">                 noise: &quot;B oston bi g&quot;</span>
+<span class="sd">            aligned_gt: &quot;B@oston is big @&quot; (num_tokens = 4)</span>
+<span class="sd">         aligned_noise: &quot;B oston @@@bi@ g&quot;</span>
+
+<span class="sd">        Remember, the example above is just one out of the many possible alignment</span>
+<span class="sd">        candidates, and we need to search for the one with the target number of gt_tokens</span>
+<span class="sd">                E.g:</span>
+<span class="sd">                    gt: &quot;Boston is big &quot;   (num_tokens = 3)</span>
+<span class="sd">                 noise: &quot;B oston bi g&quot;</span>
+<span class="sd">            aligned_gt: &quot;B@oston is bi@g &quot; (num_tokens = 3)</span>
+<span class="sd">         aligned_noise: &quot;B oston @@@bi g@&quot;</span>
+
+<span class="sd">        This method is to search for such candidate that satisfy the invariant.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        alignments (list) : a list of alignment tuples as follows:</span>
+<span class="sd">                            [(str1, str2, alignment_score, alignment_start, alignment_end), (str1, str2, ...), ...]</span>
+<span class="sd">        target_num_gt_tokens (int) : the number of token in the aligned ground truth string should have</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: raises this error if</span>
+<span class="sd">        1. all the alignment candidates does NOT have the target number of tokens OR</span>
+<span class="sd">        2. the aligned strings (str1 and str2) in the selected candidate are NOT EQUAL in length</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        an alignment tuple (str, str, int, int, int) with following information:</span>
+<span class="sd">            (str1, str2, alignment_score, alignment_start, alignment_end)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">alignment</span> <span class="ow">in</span> <span class="n">alignments</span><span class="p">:</span>
+        <span class="n">aligned_gt</span> <span class="o">=</span> <span class="n">alignment</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">aligned_noise</span> <span class="o">=</span> <span class="n">alignment</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">num_aligned_gt_tokens</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokenize</span><span class="p">(</span><span class="n">aligned_gt</span><span class="p">))</span>
+        <span class="c1"># Invariant 2</span>
+        <span class="k">if</span> <span class="n">num_aligned_gt_tokens</span> <span class="o">==</span> <span class="n">target_num_gt_tokens</span><span class="p">:</span>
+            <span class="c1"># Invariant 1</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">aligned_gt</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">aligned_noise</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Aligned strings are not equal in length: </span><span class="se">\n</span><span class="s2">aligned_gt: &#39;</span><span class="si">{</span><span class="n">aligned_gt</span><span class="si">}</span><span class="s2">&#39;</span><span class="se">\n</span><span class="s2">aligned_noise &#39;</span><span class="si">{</span><span class="n">aligned_noise</span><span class="si">}</span><span class="s2">&#39;</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="c1"># Returns the FIRST candidate that satisfies the invariant</span>
+            <span class="k">return</span> <span class="n">alignment</span>
+
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;No alignment candidates with </span><span class="si">{</span><span class="n">target_num_gt_tokens</span><span class="si">}</span><span class="s2"> tokens. Total candidates: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">alignments</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<div class="viewcode-block" id="align"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.alignment.align">[docs]</a><span class="k">def</span> <span class="nf">align</span><span class="p">(</span><span class="n">gt</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">GAP_CHAR</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Align two text segments via sequence alignment algorithm</span>
+
+<span class="sd">    **NOTE**: this algorithm is O(N^2) and is NOT efficient for longer text.</span>
+<span class="sd">    Please refer to `genalog.text.anchor` for faster alignment on longer strings.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        gt (str) : ground true text (should not contain GAP_CHAR)</span>
+<span class="sd">        noise (str) : str with ocr noise (should not contain GAP_CHAR)</span>
+<span class="sd">        gap_char (char, optional) : gap char used in alignment algorithm (default: GAP_CHAR)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple(str, str) : a tuple of aligned ground truth and noise</span>
+
+<span class="sd">    Invariants:</span>
+<span class="sd">        The returned aligned strings will satisfy the following invariants:</span>
+
+<span class="sd">        1. ``len(aligned_gt) == len(aligned_noise)``</span>
+<span class="sd">        2. ``number of tokens in gt == number of tokens in aligned_gt``</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">                    gt: &quot;New York is big&quot; (num_tokens = 4)</span>
+<span class="sd">            aligned_gt: &quot;N@ew @@York @is big@@&quot; (num_tokens = 4)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">gt</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">noise</span><span class="p">:</span>  <span class="c1"># Both inputs are empty string</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">gt</span><span class="p">:</span>  <span class="c1"># Either is empty</span>
+        <span class="k">return</span> <span class="n">gap_char</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">noise</span><span class="p">),</span> <span class="n">noise</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">noise</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">gt</span><span class="p">,</span> <span class="n">gap_char</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">gt</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">num_gt_tokens</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokenize</span><span class="p">(</span><span class="n">gt</span><span class="p">))</span>
+        <span class="n">alignments</span> <span class="o">=</span> <span class="n">_align_seg</span><span class="p">(</span><span class="n">gt</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">gap_char</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">aligned_gt</span><span class="p">,</span> <span class="n">aligned_noise</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_select_alignment_candidates</span><span class="p">(</span>
+                <span class="n">alignments</span><span class="p">,</span> <span class="n">num_gt_tokens</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Error with input strings &#39;</span><span class="si">{</span><span class="n">gt</span><span class="si">}</span><span class="s2">&#39; and &#39;</span><span class="si">{</span><span class="n">noise</span><span class="si">}</span><span class="s2">&#39;: </span><span class="se">\n</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">aligned_gt</span><span class="p">,</span> <span class="n">aligned_noise</span></div>
+
+
+<span class="k">def</span> <span class="nf">_format_alignment</span><span class="p">(</span><span class="n">align1</span><span class="p">,</span> <span class="n">align2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wrapper function for Bio.pairwise2.format_alignment()</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        align1 (str) : alignment str</span>
+<span class="sd">        align2 (str) : second str for alignment</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        a string with formatted alignment.</span>
+<span class="sd">            &#39;|&#39; is for matching character</span>
+<span class="sd">            &#39;.&#39; is for substition</span>
+<span class="sd">            &#39;-&#39; indicates gap</span>
+
+<span class="sd">        For example:</span>
+<span class="sd">            &quot;</span>
+<span class="sd">            New York is big.</span>
+<span class="sd">            |||||.|| |||||||</span>
+<span class="sd">            New Yerk@is big.</span>
+<span class="sd">            &quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">formatted_str</span> <span class="o">=</span> <span class="n">pairwise2</span><span class="o">.</span><span class="n">format_alignment</span><span class="p">(</span>
+        <span class="n">align1</span><span class="p">,</span> <span class="n">align2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">align1</span><span class="p">),</span> <span class="n">full_sequences</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="c1"># Remove the &quot;Score=0&quot; from the str</span>
+    <span class="n">formatted_str_no_score</span> <span class="o">=</span> <span class="n">formatted_str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  Score=0&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">formatted_str_no_score</span>
+
+
+<span class="k">def</span> <span class="nf">_find_token_start</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Find the position of the start of token</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        s (str) : string to search in</span>
+<span class="sd">        index (int) : index to begin search from</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - position {int} of the first non-whitespace character</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: if input s is an empty string</span>
+<span class="sd">        IndexError: if is out-of-bound index</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">max_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot search in an empty string&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;</span> <span class="n">max_index</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Out-of-bound index: </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2"> in string: </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">max_index</span> <span class="ow">and</span> <span class="n">_is_spacing</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">]):</span>
+        <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">index</span>
+
+
+<span class="k">def</span> <span class="nf">_find_token_end</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Find the position of the end of a token</span>
+
+<span class="sd">    *** Important ***</span>
+<span class="sd">        This method ALWAYS return index within the bound of the string.</span>
+<span class="sd">        So, for single character string (eg. &quot;c&quot;), it will return 0.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        s (str) : string to search in</span>
+<span class="sd">        index (int) : index to begin search from</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - position {int} of the first non-whitespace character</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: if input s is an empty string</span>
+<span class="sd">        IndexError: if is out-of-bound index</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">max_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot search in an empty string&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;</span> <span class="n">max_index</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Out-of-bound index: </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2"> in string: </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">max_index</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">_is_spacing</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">]):</span>
+        <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">index</span>
+
+
+<span class="k">def</span> <span class="nf">_find_next_token</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the start and end index of a token in a string</span>
+
+<span class="sd">    *** Important ***</span>
+<span class="sd">        This method ALWAYS return indices within the bound of the string.</span>
+<span class="sd">        So, for single character string (eg. &quot;c&quot;), it will return (0,0)</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        s (str) : the string to search token in</span>
+<span class="sd">        start (int) : the starting index to start search in</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        a tuple of (int, int) responding to the start and end indices of</span>
+<span class="sd">        a token in the given s.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">token_start</span> <span class="o">=</span> <span class="n">_find_token_start</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span>
+    <span class="n">token_end</span> <span class="o">=</span> <span class="n">_find_token_end</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">token_start</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">token_start</span><span class="p">,</span> <span class="n">token_end</span>
+
+
+<span class="k">def</span> <span class="nf">_is_valid_token</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">GAP_CHAR</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns true if token is valid (i.e. compose of non-gap characters)</span>
+<span class="sd">        Invalid tokens are</span>
+<span class="sd">            1. multiple occurrences of the GAP_CHAR (e.g. &#39;@@@&#39;)</span>
+<span class="sd">            2. empty string (&quot;&quot;)</span>
+<span class="sd">            3. string with spaces (&quot;  &quot;)</span>
+
+<span class="sd">        **Important: this method expects one token and not multiple space-separated tokens</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        token (str) : input string token</span>
+<span class="sd">        gap_char (char, optional) : gap char used in alignment algorithm. Defaults to GAP_CHAR.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool : True if is a valid token, false otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Matches multiples of &#39;gap_char&#39; that are padded with whitespace characters on either end</span>
+    <span class="n">INVALID_TOKEN_REGEX</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">rf</span><span class="s2">&quot;^\s*</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">gap_char</span><span class="p">)</span><span class="si">}</span><span class="s2">*\s*$&quot;</span>  <span class="c1"># Escape special regex chars</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">INVALID_TOKEN_REGEX</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="parse_alignment"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.alignment.parse_alignment">[docs]</a><span class="k">def</span> <span class="nf">parse_alignment</span><span class="p">(</span><span class="n">aligned_gt</span><span class="p">,</span> <span class="n">aligned_noise</span><span class="p">,</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">GAP_CHAR</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Parse alignment to pair ground truth tokens with noise tokens</span>
+<span class="sd">    ::</span>
+
+<span class="sd">                    Case 1:         Case 2:         Case 3:         Case 4:         Case 5:</span>
+<span class="sd">                    one-to-many     many-to-one     many-to-many    missing tokens  one-to-one</span>
+<span class="sd">              gt    &quot;New York&quot;      &quot;New York&quot;      &quot;New York&quot;      &quot;New York&quot;      &quot;New York&quot;</span>
+<span class="sd">                      |   |           |   |           |   |           |   |           |   |</span>
+<span class="sd">       aligned_gt   &quot;New Yo@rk&quot;     &quot;New York&quot;      &quot;N@ew York&quot;     &quot;New York&quot;      &quot;New York&quot;</span>
+<span class="sd">                      |   /\           \/             /\/             |   |           |   |</span>
+<span class="sd">     aligned_noise  &quot;New Yo rk&quot;     &quot;New@York&quot;      &quot;N ew@York&quot;     &quot;New @@@@&quot;      &quot;New York&quot;</span>
+<span class="sd">                      |   | |           |            |    |           |               |   |</span>
+<span class="sd">            noise   &quot;New Yo rk&quot;     &quot;NewYork&quot;       &quot;N ewYork&quot;      &quot;New&quot;           &quot;New York&quot;</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        aligned_gt (str) : ground truth string aligned with the nose string</span>
+<span class="sd">        aligned_noise (str) : noise string aligned with the ground truth</span>
+<span class="sd">        gap_char (char, optional) : gap char used in alignment algorithm. Defaults to GAP_CHAR.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple : ``(gt_to_noise_mapping, noise_to_gt_mapping)`` of two 2D int arrays:</span>
+
+<span class="sd">    where each array defines the mapping between aligned gt tokens</span>
+<span class="sd">    to noise tokens and vice versa.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        Given input</span>
+<span class="sd">        ::</span>
+
+<span class="sd">                    aligned_gt: &quot;N@ew York @is big&quot;</span>
+<span class="sd">                                /\\   |    |   |</span>
+<span class="sd">                aligned_noise: &quot;N ew@York kis big.&quot;</span>
+
+<span class="sd">        The returned output will be:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">                ([[0,1],[1],[2],[3]], [[0],[0,1],[2],[3]])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Pseudo-algorithm:</span>
+    <span class="c1">#</span>
+    <span class="c1">#              tk_start_gt=12         tk_index_gt = 4      total_tokens = 4</span>
+    <span class="c1">#              |  tk_end_gt=15        tk_index_noise = 3   total_tokens = 3</span>
+    <span class="c1">#              |  |</span>
+    <span class="c1"># &quot;New York is big &quot;                     gt_token:big    gt_to_noise_mapping: [[0][0][][2]]</span>
+    <span class="c1"># &quot;New@york @@ big &quot;                  noise_token:big    noise_to_gt_mapping: [[0][][3]]</span>
+    <span class="c1">#              |  |</span>
+    <span class="c1">#              |  tk_end_noise=15      INVALID TOKENS: @*</span>
+    <span class="c1">#              tk_start_noise=12</span>
+
+    <span class="c1"># 1. Initialization:</span>
+    <span class="c1"># 1. IMPORTANT: add whitespace padding (&#39; &#39;) to both end of aligned_gt and aligned_noise to avoid overflow</span>
+    <span class="c1"># 2. find the first gt_token and the first noise_token</span>
+    <span class="c1"># 3. tk_index_gt = tk_index_noise = 0</span>
+    <span class="c1"># 2. While tk_index_gt &lt; total_tk_gt and tk_index_noise &lt; total_tk_noise:</span>
+    <span class="c1"># 1. if tk_end_gt == tk_end_noise (1-1 case)</span>
+    <span class="c1"># 1. check if the two tokens are valid</span>
+    <span class="c1"># 1. if so, register tokens in mapping</span>
+    <span class="c1"># 2. find next gt_token token and next noise_token</span>
+    <span class="c1"># 3. tk_index_gt ++, tk_index_noise ++</span>
+    <span class="c1"># 3. if tk_end_gt &lt; tk_end_noise (many-1 case)</span>
+    <span class="c1"># 1. while tk_end_gt &lt; tk_end_noise</span>
+    <span class="c1"># 1. check if gt_token and noise_token are BOTH valid</span>
+    <span class="c1"># 1. if so register tokens in mapping</span>
+    <span class="c1"># 2. find next gt_token</span>
+    <span class="c1"># 3. tk_index_gt ++</span>
+    <span class="c1"># 4. if tk_end_gt &gt; tk_end_noise (1-many case)</span>
+    <span class="c1"># 1. while tk_end_gt &gt; tk_end_noise</span>
+    <span class="c1"># 1. check if gt_token and noise_token are BOTH valid</span>
+    <span class="c1"># 1. if so register tokens in mapping</span>
+    <span class="c1"># 2. find next noise token</span>
+    <span class="c1"># 3. tk_index_noise ++</span>
+    <span class="c1"># sanity check</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">aligned_gt</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">aligned_noise</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Aligned strings are not equal in length&quot;</span><span class="p">)</span>
+
+    <span class="n">total_gt_tokens</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokenize</span><span class="p">(</span><span class="n">aligned_gt</span><span class="p">))</span>
+    <span class="n">total_noise_tokens</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokenize</span><span class="p">(</span><span class="n">aligned_noise</span><span class="p">))</span>
+
+    <span class="c1"># Initialization</span>
+    <span class="n">aligned_gt</span> <span class="o">+=</span> <span class="s2">&quot; &quot;</span>  <span class="c1"># add whitespace padding to prevent ptr overflow</span>
+    <span class="n">aligned_noise</span> <span class="o">+=</span> <span class="s2">&quot; &quot;</span>  <span class="c1"># add whitespace padding to prevent ptr overflow</span>
+    <span class="n">tk_index_gt</span> <span class="o">=</span> <span class="n">tk_index_noise</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">tk_start_gt</span><span class="p">,</span> <span class="n">tk_end_gt</span> <span class="o">=</span> <span class="n">_find_next_token</span><span class="p">(</span><span class="n">aligned_gt</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">tk_start_noise</span><span class="p">,</span> <span class="n">tk_end_noise</span> <span class="o">=</span> <span class="n">_find_next_token</span><span class="p">(</span><span class="n">aligned_noise</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">gt_to_noise_mapping</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total_gt_tokens</span><span class="p">)]</span>
+    <span class="n">noise_to_gt_mapping</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total_noise_tokens</span><span class="p">)]</span>
+
+    <span class="k">while</span> <span class="n">tk_index_gt</span> <span class="o">&lt;</span> <span class="n">total_gt_tokens</span> <span class="ow">or</span> <span class="n">tk_index_noise</span> <span class="o">&lt;</span> <span class="n">total_noise_tokens</span><span class="p">:</span>
+        <span class="c1"># If both tokens are aligned (one-to-one case)</span>
+        <span class="k">if</span> <span class="n">tk_end_gt</span> <span class="o">==</span> <span class="n">tk_end_noise</span><span class="p">:</span>
+            <span class="c1"># if both gt_token and noise_token are valid (missing token case)</span>
+            <span class="k">if</span> <span class="n">_is_valid_token</span><span class="p">(</span>
+                <span class="n">aligned_gt</span><span class="p">[</span><span class="n">tk_start_gt</span><span class="p">:</span><span class="n">tk_end_gt</span><span class="p">],</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">gap_char</span>
+            <span class="p">)</span> <span class="ow">and</span> <span class="n">_is_valid_token</span><span class="p">(</span>
+                <span class="n">aligned_noise</span><span class="p">[</span><span class="n">tk_start_noise</span><span class="p">:</span><span class="n">tk_end_noise</span><span class="p">],</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">gap_char</span>
+            <span class="p">):</span>
+                <span class="c1"># register the index of these tokens in the gt_to_noise_mapping</span>
+                <span class="n">index_row</span> <span class="o">=</span> <span class="n">gt_to_noise_mapping</span><span class="p">[</span><span class="n">tk_index_gt</span><span class="p">]</span>
+                <span class="n">index_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tk_index_noise</span><span class="p">)</span>
+                <span class="c1"># register the index of these tokens in the noise_to_gt_mapping</span>
+                <span class="n">index_row</span> <span class="o">=</span> <span class="n">noise_to_gt_mapping</span><span class="p">[</span><span class="n">tk_index_noise</span><span class="p">]</span>
+                <span class="n">index_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tk_index_gt</span><span class="p">)</span>
+            <span class="c1"># find the start and end the next gt_token and noise_token</span>
+            <span class="n">tk_start_gt</span><span class="p">,</span> <span class="n">tk_end_gt</span> <span class="o">=</span> <span class="n">_find_next_token</span><span class="p">(</span><span class="n">aligned_gt</span><span class="p">,</span> <span class="n">tk_end_gt</span><span class="p">)</span>
+            <span class="n">tk_start_noise</span><span class="p">,</span> <span class="n">tk_end_noise</span> <span class="o">=</span> <span class="n">_find_next_token</span><span class="p">(</span><span class="n">aligned_noise</span><span class="p">,</span> <span class="n">tk_end_noise</span><span class="p">)</span>
+            <span class="n">tk_index_gt</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">tk_index_noise</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># If gt_token is shorter than noise_token (many-to-one case)</span>
+        <span class="k">elif</span> <span class="n">tk_end_gt</span> <span class="o">&lt;</span> <span class="n">tk_end_noise</span><span class="p">:</span>
+            <span class="k">while</span> <span class="n">tk_end_gt</span> <span class="o">&lt;</span> <span class="n">tk_end_noise</span><span class="p">:</span>
+                <span class="c1"># if both gt_token and noise_token are valid (missing token case)</span>
+                <span class="k">if</span> <span class="n">_is_valid_token</span><span class="p">(</span>
+                    <span class="n">aligned_gt</span><span class="p">[</span><span class="n">tk_start_gt</span><span class="p">:</span><span class="n">tk_end_gt</span><span class="p">],</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">gap_char</span>
+                <span class="p">)</span> <span class="ow">and</span> <span class="n">_is_valid_token</span><span class="p">(</span>
+                    <span class="n">aligned_noise</span><span class="p">[</span><span class="n">tk_start_noise</span><span class="p">:</span><span class="n">tk_end_noise</span><span class="p">],</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">gap_char</span>
+                <span class="p">):</span>
+                    <span class="c1"># register the index of these tokens in the gt_to_noise_mapping</span>
+                    <span class="n">index_row</span> <span class="o">=</span> <span class="n">gt_to_noise_mapping</span><span class="p">[</span><span class="n">tk_index_gt</span><span class="p">]</span>
+                    <span class="n">index_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tk_index_noise</span><span class="p">)</span>
+                    <span class="c1"># register the index of these tokens in the noise_to_gt_mapping</span>
+                    <span class="n">index_row</span> <span class="o">=</span> <span class="n">noise_to_gt_mapping</span><span class="p">[</span><span class="n">tk_index_noise</span><span class="p">]</span>
+                    <span class="n">index_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tk_index_gt</span><span class="p">)</span>
+                <span class="c1"># Find the next gt_token</span>
+                <span class="n">tk_start_gt</span><span class="p">,</span> <span class="n">tk_end_gt</span> <span class="o">=</span> <span class="n">_find_next_token</span><span class="p">(</span><span class="n">aligned_gt</span><span class="p">,</span> <span class="n">tk_end_gt</span><span class="p">)</span>
+                <span class="c1"># Increment index</span>
+                <span class="n">tk_index_gt</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># If gt_token is longer than noise_token (one-to-many case)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">while</span> <span class="n">tk_end_gt</span> <span class="o">&gt;</span> <span class="n">tk_end_noise</span><span class="p">:</span>
+                <span class="c1"># if both gt_token and noise_token are valid (missing token case)</span>
+                <span class="k">if</span> <span class="n">_is_valid_token</span><span class="p">(</span>
+                    <span class="n">aligned_gt</span><span class="p">[</span><span class="n">tk_start_gt</span><span class="p">:</span><span class="n">tk_end_gt</span><span class="p">],</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">gap_char</span>
+                <span class="p">)</span> <span class="ow">and</span> <span class="n">_is_valid_token</span><span class="p">(</span>
+                    <span class="n">aligned_noise</span><span class="p">[</span><span class="n">tk_start_noise</span><span class="p">:</span><span class="n">tk_end_noise</span><span class="p">],</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">gap_char</span>
+                <span class="p">):</span>
+                    <span class="c1"># register the index of these token in the gt_to_noise mapping</span>
+                    <span class="n">index_row</span> <span class="o">=</span> <span class="n">gt_to_noise_mapping</span><span class="p">[</span><span class="n">tk_index_gt</span><span class="p">]</span>
+                    <span class="n">index_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tk_index_noise</span><span class="p">)</span>
+                    <span class="c1"># register the index of these token in the noise_to_gt mapping</span>
+                    <span class="n">index_row</span> <span class="o">=</span> <span class="n">noise_to_gt_mapping</span><span class="p">[</span><span class="n">tk_index_noise</span><span class="p">]</span>
+                    <span class="n">index_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tk_index_gt</span><span class="p">)</span>
+                <span class="c1"># Find the next gt_token</span>
+                <span class="n">tk_start_noise</span><span class="p">,</span> <span class="n">tk_end_noise</span> <span class="o">=</span> <span class="n">_find_next_token</span><span class="p">(</span>
+                    <span class="n">aligned_noise</span><span class="p">,</span> <span class="n">tk_end_noise</span>
+                <span class="p">)</span>
+                <span class="c1"># Increment index</span>
+                <span class="n">tk_index_noise</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">gt_to_noise_mapping</span><span class="p">,</span> <span class="n">noise_to_gt_mapping</span></div>
+</pre></div>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Jianjie Liu and Amit Gupte<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        Don't forget to check out <a href= https://arxiv.org/abs/2108.02899>our paper from Document Intelligence Workshop at KDD 2021!</a>
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

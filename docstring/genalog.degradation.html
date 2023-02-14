@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>genalog.degradation &#8212; &lt;h1 style=&#34;font-size:2em;text-align:center;color:#FF5733&#34;&gt;Genalog&lt;/h1&gt;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>genalog.degradation</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,17 +18,21 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -38,21 +40,22 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/tabs.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://microsoft.github.io/genalog/docstring/genalog.degradation.html" />
+    <link rel="shortcut icon" href="../_static/genalog_favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="genalog.generation" href="genalog.generation.html" />
@@ -64,21 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -87,15 +76,17 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
       
       
-      <h1 class="site-logo" id="site-title"><h1 style="font-size:2em;text-align:center;color:#FF5733">Genalog</h1></h1>
+      <img src="../_static/genalog_full_logo.svg" class="logo" alt="logo">
+      
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -188,17 +179,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -206,179 +192,95 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/microsoft/genalog"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/microsoft/genalog/issues/new?title=Issue%20on%20page%20%2Fdocstring/genalog.degradation.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/docstring/genalog.degradation.rst"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.rst</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/docstring/genalog.degradation.rst"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/microsoft/genalog/issues/new?title=Issue%20on%20page%20%2Fdocstring/genalog.degradation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
     </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#image-degrader">
+  <a class="reference internal nav-link" href="#module-genalog.degradation.degrader">
    Image Degrader
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#degration-effects">
+  <a class="reference internal nav-link" href="#module-genalog.degradation.effect">
    Degration Effects
   </a>
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>genalog.degradation</h1>
@@ -392,12 +294,12 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#image-degrader">
+  <a class="reference internal nav-link" href="#module-genalog.degradation.degrader">
    Image Degrader
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#degration-effects">
+  <a class="reference internal nav-link" href="#module-genalog.degradation.effect">
    Degration Effects
   </a>
  </li>
@@ -407,19 +309,529 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section id="genalog-degradation">
-<h1>genalog.degradation<a class="headerlink" href="#genalog-degradation" title="Permalink to this headline">#</a></h1>
-<section id="image-degrader">
-<h2>Image Degrader<a class="headerlink" href="#image-degrader" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="degration-effects">
-<h2>Degration Effects<a class="headerlink" href="#degration-effects" title="Permalink to this headline">#</a></h2>
-</section>
-</section>
+  <div class="section" id="genalog-degradation">
+<h1>genalog.degradation<a class="headerlink" href="#genalog-degradation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-genalog.degradation.degrader">
+<span id="image-degrader"></span><h2>Image Degrader<a class="headerlink" href="#module-genalog.degradation.degrader" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="genalog.degradation.degrader.Degrader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">genalog.degradation.degrader.</span></span><span class="sig-name descname"><span class="pre">Degrader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">effects</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/degrader.html#Degrader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.degrader.Degrader" title="Permalink to this definition">¶</a></dt>
+<dd><p>An object for applying multiple degradation effects onto an image</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>effects</strong> (<em>list</em>) – <p>a list of 2-element tuple (method_name, method_kwargs) where:</p>
+<dl class="field-list simple">
+<dt class="field-odd">method_name</dt>
+<dd class="field-odd"><p>the name of the degradation method (method must be defined in ‘genalog.degradation.effect’)</p>
+</dd>
+<dt class="field-even">method_kwargs</dt>
+<dd class="field-even"><p>the keyword arguments of the corresponding method</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;blur&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;radius&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;bleed_through&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;morphology&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;operation&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span> <span class="s2">&quot;kernel_shape&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;kernel_type&quot;</span><span class="p">:</span> <span class="s2">&quot;ones&quot;</span><span class="p">})</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>The example above will apply degradation effects to the images
+in the following sequence:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;blur&quot;</span> <span class="o">-&gt;</span> <span class="s2">&quot;bleed_through&quot;</span> <span class="o">-&gt;</span> <span class="s2">&quot;morphological operation (open)&quot;</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="genalog.degradation.degrader.Degrader.apply_effects">
+<span class="sig-name descname"><span class="pre">apply_effects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/degrader.html#Degrader.apply_effects"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.degrader.Degrader.apply_effects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply degradation effects in sequence</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image {numpy.ndarray} after apply the effects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="genalog.degradation.degrader.Degrader.insert_image_state">
+<span class="sig-name descname"><span class="pre">insert_image_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/degrader.html#Degrader.insert_image_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.degrader.Degrader.insert_image_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace the enumeration (ImageState) with the actual image in
+the keyword argument dictionary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kwargs</strong> (<em>dict</em>) – keyword argument dictionary</p></li>
+<li><p><strong>Ex</strong> – {“src”: ImageState.ORIGINAL_STATE, “radius”: 5}</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>return keyword argument dictionary replaced with
+reference to the image</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="genalog.degradation.degrader.Degrader.validate_effects">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate_effects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">effects</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/degrader.html#Degrader.validate_effects"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.degrader.Degrader.validate_effects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the effects list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>effects</strong> (<em>list</em>) – <p>a list of 2-element tuple <code class="docutils literal notranslate"><span class="pre">(method_name,</span> <span class="pre">method_kwargs)</span></code>
+that defines:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">method_name</span></code> : the name of the degradation method                     (method must be defined in <code class="docutils literal notranslate"><span class="pre">genalog.degradation.effect</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method_kwargs</span></code> : the keyword arguments of the corresponding method</p></li>
+</ol>
+</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;blur&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;radius&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;bleed_through&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;alpha&quot;</span><span class="p">:</span><span class="s2">&quot;0.8&quot;</span><span class="p">}),</span>
+    <span class="p">(</span><span class="s2">&quot;morphology&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;operation&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span> <span class="s2">&quot;kernel_shape&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;kernel_type&quot;</span><span class="p">:</span> <span class="s2">&quot;ones&quot;</span><span class="p">}),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – raise this error when:
+    <code class="docutils literal notranslate"><span class="pre">method_name</span></code> not defined in “genalog.degradation.effect”
+    <code class="docutils literal notranslate"><span class="pre">method_kwargs</span></code> is not a valid keyword arguments in the corresponding method</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="genalog.degradation.degrader.ImageState">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">genalog.degradation.degrader.</span></span><span class="sig-name descname"><span class="pre">ImageState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/degrader.html#ImageState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.degrader.ImageState" title="Permalink to this definition">¶</a></dt>
+<dd><p>An enumeration.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-genalog.degradation.effect">
+<span id="degration-effects"></span><h2>Degration Effects<a class="headerlink" href="#module-genalog.degradation.effect" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.bleed_through">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">bleed_through</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#bleed_through"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.bleed_through" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply bleed through effect, background is flipped horizontally.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p></li>
+<li><p><strong>background</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – background image. Must be in same
+shape as foreground. Defaults to None.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em>, </em><em>optional</em>) – transparent factor for the foreground. Defaults to 0.8.</p></li>
+<li><p><strong>gamma</strong> (<em>int</em><em>, </em><em>optional</em>) – luminance constant. Defaults to 0.</p></li>
+<li><p><strong>offset_x</strong> (<em>int</em><em>, </em><em>optional</em>) – background translation offset. Defaults to 0.
+Positive value shifts right and negative shifts right.</p></li>
+<li><p><strong>offset_y</strong> (<em>int</em><em>, </em><em>optional</em>) – background translation offset. Defaults to 5.
+Positive value shifts down and negative shifts up.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image after apply the effect. Pixel value ranges [0, 255]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.blur">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">blur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#blur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.blur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper function for cv2.GaussianBlur</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p></li>
+<li><p><strong>radius</strong> (<em>int</em><em>, </em><em>optional</em>) – size of the square kernel, MUST be an odd integer.
+Defaults to 5.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image after apply the effect</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.close">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>“close” morphological operation. Like morphological “dilation”, it grows the
+boundary of the foreground (white pixels), however, it is less destructive than
+dilation of the original boundary shape.</p>
+<p>For more information see:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html">https://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html</a></p></li>
+<li><p><a class="reference external" href="http://homepages.inf.ed.ac.uk/rbf/HIPR2/close.htm">http://homepages.inf.ed.ac.uk/rbf/HIPR2/close.htm</a></p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p></li>
+<li><p><strong>kernel</strong> (<em>numpy.ndarray</em>) – a 2D array for structuring the morphological effect</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image after apply the effect.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.create_2D_kernel">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">create_2D_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kernel_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ones'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#create_2D_kernel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.create_2D_kernel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create 2D kernel for morphological operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kernel_shape</strong> (<em>tuple</em>) – shape of the kernel (rows, cols)</p></li>
+<li><p><strong>kernel_type</strong> (<em>str</em><em>, </em><em>optional</em>) – type of kernel. Defaults to “ones”.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">All</span> <span class="n">supported</span> <span class="n">kernel</span> <span class="n">types</span> <span class="n">are</span> <span class="n">below</span><span class="p">:</span>
+
+<span class="s2">&quot;ones&quot;</span><span class="p">:</span> <span class="n">kernel</span> <span class="ow">is</span> <span class="n">filled</span> <span class="k">with</span> <span class="nb">all</span> <span class="mi">1</span><span class="n">s</span> <span class="ow">in</span> <span class="n">shape</span> <span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>
+            <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="s2">&quot;upper_triangle&quot;</span><span class="p">:</span> <span class="n">upper</span> <span class="n">triangular</span> <span class="n">matrix</span> <span class="n">filled</span> <span class="k">with</span> <span class="n">ones</span>
+            <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="s2">&quot;lower_triangle&quot;</span><span class="p">:</span> <span class="n">lower</span> <span class="n">triangular</span> <span class="n">matrix</span> <span class="n">filled</span> <span class="k">with</span> <span class="n">ones</span>
+            <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="s2">&quot;X&quot;</span> <span class="n">shape</span> <span class="n">cross</span>
+            <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="s2">&quot;plus&quot;</span><span class="p">:</span> <span class="s2">&quot;+&quot;</span> <span class="n">shape</span> <span class="n">cross</span>
+            <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="s2">&quot;ellipse&quot;</span><span class="p">:</span> <span class="n">elliptical</span> <span class="n">kernel</span>
+            <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – if kernel is not a 2-element tuple or
+    kernel_type is not one of the supported values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a 2D array of shape <cite>kernel_shape</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.dilate">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">dilate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#dilate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.dilate" title="Permalink to this definition">¶</a></dt>
+<dd><p>“dilate” morphological operation. Grows foreground pixels (white pixels).</p>
+<p>For more information see:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html">https://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html</a></p></li>
+<li><p><a class="reference external" href="http://homepages.inf.ed.ac.uk/rbf/HIPR2/dilate.htm">http://homepages.inf.ed.ac.uk/rbf/HIPR2/dilate.htm</a></p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p></li>
+<li><p><strong>kernel</strong> (<em>numpy.ndarray</em>) – a 2D array for structuring the morphological effect</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image after apply the effect.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.erode">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">erode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#erode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.erode" title="Permalink to this definition">¶</a></dt>
+<dd><p>“erode” morphological operation. Erodes foreground pixels (white pixels).</p>
+<p>For more information see:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html">https://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html</a></p></li>
+<li><p><a class="reference external" href="http://homepages.inf.ed.ac.uk/rbf/HIPR2/erode.htm">http://homepages.inf.ed.ac.uk/rbf/HIPR2/erode.htm</a></p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p></li>
+<li><p><strong>kernel</strong> (<em>numpy.ndarray</em>) – a 2D array for structuring the morphological effect</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image after apply the effect.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.morphology">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">morphology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'open'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(3,</span> <span class="pre">3)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ones'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#morphology"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.morphology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dynamic calls different morphological operations
+(“open”, “close”, “dilate” and “erode”) with the given parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p></li>
+<li><p><strong>operation</strong> (<em>str</em><em>, </em><em>optional</em>) – name of a morphological operation:
+<code class="docutils literal notranslate"><span class="pre">(&quot;open&quot;,</span> <span class="pre">&quot;close&quot;,</span> <span class="pre">&quot;dilate&quot;,</span> <span class="pre">&quot;erode&quot;)</span></code>
+Defaults to <code class="docutils literal notranslate"><span class="pre">&quot;open&quot;</span></code>.</p></li>
+<li><p><strong>kernel_shape</strong> (<em>tuple</em><em>, </em><em>optional</em>) – shape of the kernel (rows, cols).
+Defaults to (3,3).</p></li>
+<li><p><strong>kernel_type</strong> (<em>str</em><em>, </em><em>optional</em>) – type of kernel.
+<code class="docutils literal notranslate"><span class="pre">(&quot;ones&quot;,</span> <span class="pre">&quot;upper_triangle&quot;,</span> <span class="pre">&quot;lower_triangle&quot;,</span> <span class="pre">&quot;x&quot;,</span> <span class="pre">&quot;plus&quot;,</span> <span class="pre">&quot;ellipse&quot;)</span></code>
+Defaults to <code class="docutils literal notranslate"><span class="pre">&quot;ones&quot;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image after apply the effect.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.open">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>“open” morphological operation. Like morphological “erosion”, it removes
+foreground pixels (white pixels), however it is less destructive than erosion.</p>
+<p>For more information see:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html">https://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html</a></p></li>
+<li><p><a class="reference external" href="http://homepages.inf.ed.ac.uk/rbf/HIPR2/open.htm">http://homepages.inf.ed.ac.uk/rbf/HIPR2/open.htm</a></p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p></li>
+<li><p><strong>kernel</strong> (<em>numpy.ndarray</em>) – a 2D array for structuring the morphological effect</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image after apply the effect.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.overlay">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">overlay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#overlay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.overlay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overlay two images together via bitwise-and:</p>
+<blockquote>
+<div><p>dst[i] = src[i] &amp; background[i]</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p></li>
+<li><p><strong>background</strong> (<em>numpy.ndarray</em>) – background image. Must be in same shape are <cite>src</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image after apply the effect</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.overlay_weighted">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">overlay_weighted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#overlay_weighted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.overlay_weighted" title="Permalink to this definition">¶</a></dt>
+<dd><p>overlay two images together, pixels from each image is weighted as follow</p>
+<blockquote>
+<div><p>dst[i] = alpha*src[i] + beta*background[i] + gamma</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p></li>
+<li><p><strong>background</strong> (<em>numpy.ndarray</em>) – background image. Must be in same shape are <cite>src</cite></p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – transparent factor for the foreground</p></li>
+<li><p><strong>beta</strong> (<em>float</em>) – transparent factor for the background</p></li>
+<li><p><strong>gamma</strong> (<em>int</em><em>, </em><em>optional</em>) – luminance constant. Defaults to 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image after apply the effect</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.pepper">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">pepper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#pepper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.pepper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Randomly sprinkle dark pixels on src image.
+Wrapper function for skimage.util.noise.random_noise().
+See <a class="reference external" href="https://scikit-image.org/docs/stable/api/skimage.util.html#random-noise">https://scikit-image.org/docs/stable/api/skimage.util.html#random-noise</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p></li>
+<li><p><strong>amount</strong> (<em>float</em><em>, </em><em>optional</em>) – proportion of pixels in range [0, 1] to apply the effect.
+Defaults to 0.05.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image after apply the effect.
+Pixel value ranges [0, 255] as uint8.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.pepper_then_salt">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">pepper_then_salt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pepper_amount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">salt_amount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#pepper_then_salt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.pepper_then_salt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Randomly add pepper then salt onto the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p></li>
+<li><p><strong>pepper_amount</strong> (<em>float</em>) – proportion of pixels in range [0, 1] to
+apply the pepper effect.
+Defaults to 0.05.</p></li>
+<li><p><strong>salt_amount</strong> (<em>float</em>) – proportion of pixels in range [0, 1] to
+apply the salt effect.
+Defaults to 0.1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image after apply the effect.
+Pixel value ranges [0, 255] as uint8.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.salt">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">salt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#salt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.salt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Randomly sprinkle white pixels on src image.
+Wrapper function for skimage.util.noise.random_noise().
+See <a class="reference external" href="https://scikit-image.org/docs/stable/api/skimage.util.html#random-noise">https://scikit-image.org/docs/stable/api/skimage.util.html#random-noise</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p></li>
+<li><p><strong>amount</strong> (<em>float</em><em>, </em><em>optional</em>) – proportion of pixels in range [0, 1] to apply the effect.
+Defaults to 0.05.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image after apply the effect.
+Pixel value ranges [0, 255]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.salt_then_pepper">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">salt_then_pepper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">salt_amount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pepper_amount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#salt_then_pepper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.salt_then_pepper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Randomly add salt then add pepper onto the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p></li>
+<li><p><strong>salt_amount</strong> (<em>float</em>) – proportion of pixels in range [0, 1] to
+apply the salt effect.
+Defaults to 0.1.</p></li>
+<li><p><strong>pepper_amount</strong> (<em>float</em>) – proportion of pixels in range [0, 1] to
+apply the pepper effect.
+Defaults to 0.05.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image after apply the effect.
+Pixel value ranges [0, 255] as uint8.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.degradation.effect.translation">
+<span class="sig-prename descclassname"><span class="pre">genalog.degradation.effect.</span></span><span class="sig-name descname"><span class="pre">translation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/degradation/effect.html#translation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.degradation.effect.translation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shift the image in x, y direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>numpy.ndarray</em>) – source image of shape (rows, cols)</p></li>
+<li><p><strong>offset_x</strong> (<em>int</em>) – pixels in the x direction.
+Positive value shifts right and negative shifts right.</p></li>
+<li><p><strong>offset_y</strong> (<em>int</em>) – pixels in the y direction.
+Positive value shifts down and negative shifts up.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a copy of the source image after apply the effect</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -443,11 +855,9 @@ title="Print to PDF"
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="../ocr_label_propagation.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -463,31 +873,27 @@ title="Print to PDF"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Jianjie Liu and Amit Gupte<br/>
-  
-      &copy; Copyright 2022.<br/>
-    <div class="extra_footer">
-      Don't forget to check out <a href= https://arxiv.org/abs/2108.02899>our paper from Document Intelligence Workshop at KDD 2021!</a>
-    </div>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Jianjie Liu and Amit Gupte<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        Don't forget to check out <a href= https://arxiv.org/abs/2108.02899>our paper from Document Intelligence Workshop at KDD 2021!</a>
+      </div>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

@@ -1,0 +1,799 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>genalog.text.conll_format</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <link rel="canonical" href="https://microsoft.github.io/genalog/_modules/genalog/text/conll_format.html" />
+    <link rel="shortcut icon" href="../../../_static/genalog_favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/genalog_full_logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../generation_pipeline.html">
+   Generate your synthetic document
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../e2e_dataset_pipeline.html">
+   OCR-NER Dataset Generation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fabricating Document &amp; Noise
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../doc_generation.html">
+   Create a document
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../doc_degradation.html">
+   Degrade a document
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Handling Noisy Text
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../text_alignment.html">
+   Text alignment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../ocr_label_propagation.html">
+   Propagation of NER labels
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  API Documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.degradation.html">
+   genalog.degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.generation.html">
+   genalog.generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.ocr.html">
+   genalog.ocr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.text.html">
+   genalog.text
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/microsoft/genalog/issues/new?title=Issue%20on%20page%20%2F_modules/genalog/text/conll_format.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <h1>Source code for genalog.text.conll_format</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ---------------------------------------------------------</span>
+<span class="c1"># Copyright (c) Microsoft Corporation. All rights reserved.</span>
+<span class="c1"># Licensed under the MIT License.</span>
+<span class="c1"># ---------------------------------------------------------</span>
+
+<span class="sd">&quot;&quot;&quot;This is a utility tool to create CoNLL-formatted token+label files for OCR&#39;ed text</span>
+<span class="sd">by extracting text from grok OCR output JSON files and propagating labels from clean</span>
+<span class="sd">text to OCR text.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">::</span>
+
+<span class="sd">    conll_format.py [-h] [--train_subset] [--test_subset]</span>
+<span class="sd">                    [--gt_folder GT_FOLDER]</span>
+<span class="sd">                    base_folder degraded_folder</span>
+
+<span class="sd">    Positional Argument:</span>
+<span class="sd">        base_folder            base directory containing the collection of dataset</span>
+<span class="sd">        degraded_folder        directory name containing train and test subset for degradation</span>
+
+<span class="sd">    Optional Arguments:</span>
+<span class="sd">        --train_subset            include if only train directory should be processed</span>
+<span class="sd">        --test_subset             include if only test directory should be processed</span>
+<span class="sd">        --gt_folder GT_FOLDER     directory name containing ground truth (default to `shared`)</span>
+
+<span class="sd">    Seek Help:</span>
+<span class="sd">        -h, --help                show this help message and exit</span>
+
+<span class="sd">Example Usage:</span>
+
+<span class="sd">.. code-block:: shell</span>
+
+<span class="sd">    # to run for specified degradation of the dataset on both train and test</span>
+<span class="sd">    python -m genalog.text.conll_format &#39;/data/enki/datasets/synthetic_dataset/&#39; &#39;hyphens_all&#39;</span>
+
+<span class="sd">    # to run for specified degradation of the dataset and ground truth</span>
+<span class="sd">    python -m genalog.text.conll_format &#39;/data/enki/datasets/synthetic_dataset/&#39; &#39;hyphens_all&#39; --gt_folder=&#39;shared&#39;</span>
+
+<span class="sd">    # to run for specified degradation of the dataset  on only test subset</span>
+<span class="sd">    python -m genalog.text.conll_format &#39;/data/enki/datasets/synthetic_dataset/&#39; &#39;hyphens_all&#39; --test_subset</span>
+
+<span class="sd">    # to run for specified degradation of the dataset  on only train subset</span>
+<span class="sd">    python -m genalog.text.conll_format &#39;/data/enki/datasets/synthetic_dataset/&#39; &#39;hyphens_all&#39; --train_subset</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">concurrent.futures</span>
+<span class="kn">import</span> <span class="nn">difflib</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">timeit</span>
+
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="kn">from</span> <span class="nn">genalog.text</span> <span class="kn">import</span> <span class="n">alignment</span><span class="p">,</span> <span class="n">ner_label</span>
+
+<span class="n">EMPTY_SENTENCE_SENTINEL</span> <span class="o">=</span> <span class="s2">&quot;&lt;&lt;&lt;&lt;EMPTY_OCR_SENTENCE&gt;&gt;&gt;&gt;&quot;</span>
+<span class="n">EMPTY_SENTENCE_SENTINEL_NER_LABEL</span> <span class="o">=</span> <span class="s2">&quot;O&quot;</span>
+
+
+<div class="viewcode-block" id="propagate_labels_sentences"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.conll_format.propagate_labels_sentences">[docs]</a><span class="k">def</span> <span class="nf">propagate_labels_sentences</span><span class="p">(</span><span class="n">clean_tokens</span><span class="p">,</span> <span class="n">clean_labels</span><span class="p">,</span> <span class="n">clean_sentences</span><span class="p">,</span> <span class="n">ocr_tokens</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    propagate_labels_sentences propagates clean labels for clean tokens to ocr tokens and splits ocr tokens into sentences</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    clean_tokens : list</span>
+<span class="sd">        list of tokens in clean text</span>
+<span class="sd">    clean_labels : list</span>
+<span class="sd">        list of labels corresponding to clean tokens</span>
+<span class="sd">    clean_sentences : list</span>
+<span class="sd">        list of sentences (each sentence is a list of tokens)</span>
+<span class="sd">    ocr_tokens : list</span>
+<span class="sd">        list of tokens in ocr text</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list, list</span>
+<span class="sd">        list of ocr sentences (each sentence is a list of tokens)</span>
+<span class="sd">        list of labels for ocr sentences</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Ensure equal number of tokens in both clean_tokens and clean_sentences</span>
+    <span class="n">merged_sentences</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">clean_sentences</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">merged_sentences</span> <span class="o">!=</span> <span class="n">clean_tokens</span><span class="p">:</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">difflib</span><span class="o">.</span><span class="n">unified_diff</span><span class="p">(</span>
+                <span class="n">merged_sentences</span><span class="p">,</span>
+                <span class="n">clean_tokens</span><span class="p">,</span>
+                <span class="n">fromfile</span><span class="o">=</span><span class="s2">&quot;merged_clean_sentences&quot;</span><span class="p">,</span>
+                <span class="n">tofile</span><span class="o">=</span><span class="s2">&quot;clean_tokens&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Inconsistent tokens. &quot;</span>
+            <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;Delta between clean_text and clean_labels:</span><span class="se">\n</span><span class="si">{</span><span class="n">delta</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+    <span class="c1"># Ensure that there&#39;s OCR result</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ocr_tokens</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Empty OCR tokens.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">clean_tokens</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Empty clean tokens.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 1. Propagate labels + alig</span>
+    <span class="n">ocr_labels</span><span class="p">,</span> <span class="n">aligned_clean</span><span class="p">,</span> <span class="n">aligned_ocr</span><span class="p">,</span> <span class="n">gap_char</span> <span class="o">=</span> <span class="n">ner_label</span><span class="o">.</span><span class="n">propagate_label_to_ocr</span><span class="p">(</span>
+        <span class="n">clean_labels</span><span class="p">,</span> <span class="n">clean_tokens</span><span class="p">,</span> <span class="n">ocr_tokens</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 2. Parse alignment to get mapping</span>
+    <span class="n">gt_to_ocr_mapping</span><span class="p">,</span> <span class="n">ocr_to_gt_mapping</span> <span class="o">=</span> <span class="n">alignment</span><span class="o">.</span><span class="n">parse_alignment</span><span class="p">(</span>
+        <span class="n">aligned_clean</span><span class="p">,</span> <span class="n">aligned_ocr</span><span class="p">,</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">gap_char</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 3. Find sentence breaks in clean text sentences</span>
+    <span class="n">gt_to_ocr_mapping_is_empty</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">mapping</span> <span class="ow">in</span> <span class="n">gt_to_ocr_mapping</span><span class="p">]</span>
+
+    <span class="n">sentence_index</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sentence_token_counts</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">clean_sentences</span><span class="p">:</span>
+        <span class="n">sentence_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sentence_token_counts</span><span class="p">)</span>
+        <span class="n">sentence_token_counts</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+    <span class="n">sentence_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sentence_token_counts</span><span class="p">)</span>
+
+    <span class="c1"># 4. propagate sentence breaks to ocr text</span>
+    <span class="n">gt_start_n_end</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">sentence_index</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">sentence_index</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+    <span class="n">ocr_text_sentences</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ocr_labels_sentences</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">gt_start</span><span class="p">,</span> <span class="n">gt_end</span> <span class="ow">in</span> <span class="n">gt_start_n_end</span><span class="p">:</span>
+        <span class="c1"># Corner Case: 1st gt token is not mapped to any ocr token</span>
+        <span class="k">if</span> <span class="n">gt_start</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">gt_to_ocr_mapping</span><span class="p">[</span><span class="n">gt_start</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">ocr_start</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># if gt token at sentence break is not mapped to any ocr token</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">gt_to_ocr_mapping</span><span class="p">[</span><span class="n">gt_start</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>  <span class="c1"># finding next gt token that is mapped to an ocr token</span>
+                <span class="n">new_gt_start</span> <span class="o">=</span> <span class="n">gt_to_ocr_mapping_is_empty</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">gt_start</span><span class="p">)</span>
+                <span class="n">ocr_start</span> <span class="o">=</span> <span class="n">gt_to_ocr_mapping</span><span class="p">[</span><span class="n">new_gt_start</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># If no valid token mapping in the remaining gt tokens</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">ocr_start</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ocr_tokens</span><span class="p">)</span>  <span class="c1"># use the last ocr token</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ocr_start</span> <span class="o">=</span> <span class="n">gt_to_ocr_mapping</span><span class="p">[</span><span class="n">gt_start</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># if gt token is not map to any ocr token</span>
+        <span class="k">if</span> <span class="n">gt_end</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gt_to_ocr_mapping</span><span class="p">):</span>
+            <span class="n">ocr_end</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ocr_tokens</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">gt_to_ocr_mapping</span><span class="p">[</span><span class="n">gt_end</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>  <span class="c1"># finding next gt token that is mapped to an ocr token</span>
+                <span class="n">new_gt_end</span> <span class="o">=</span> <span class="n">gt_to_ocr_mapping_is_empty</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">gt_end</span><span class="p">)</span>
+                <span class="n">ocr_end</span> <span class="o">=</span> <span class="n">gt_to_ocr_mapping</span><span class="p">[</span><span class="n">new_gt_end</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># If no valid token mapping in the remaining gt tokens</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">ocr_end</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ocr_tokens</span><span class="p">)</span>  <span class="c1"># use the last ocr token</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ocr_end</span> <span class="o">=</span> <span class="n">gt_to_ocr_mapping</span><span class="p">[</span><span class="n">gt_end</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">ocr_sentence</span> <span class="o">=</span> <span class="n">ocr_tokens</span><span class="p">[</span><span class="n">ocr_start</span><span class="p">:</span><span class="n">ocr_end</span><span class="p">]</span>
+        <span class="n">ocr_sentence_labels</span> <span class="o">=</span> <span class="n">ocr_labels</span><span class="p">[</span><span class="n">ocr_start</span><span class="p">:</span><span class="n">ocr_end</span><span class="p">]</span>
+        <span class="n">ocr_text_sentences</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ocr_sentence</span><span class="p">)</span>
+        <span class="n">ocr_labels_sentences</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ocr_sentence_labels</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ocr_text_sentences</span><span class="p">,</span> <span class="n">ocr_labels_sentences</span></div>
+
+
+<span class="k">def</span> <span class="nf">get_sentences_from_iob_format</span><span class="p">(</span><span class="n">iob_format_str</span><span class="p">):</span>
+    <span class="n">sentences</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sentence</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">iob_format_str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>  <span class="c1"># if line is empty (sentence separator)</span>
+            <span class="n">sentences</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+            <span class="n">sentence</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">token</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">sentence</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="n">sentences</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+    <span class="c1"># filter any empty sentences</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">sentence</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sentences</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">propagate_labels_sentence_single_file</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="p">(</span>
+        <span class="n">clean_labels_dir</span><span class="p">,</span>
+        <span class="n">output_text_dir</span><span class="p">,</span>
+        <span class="n">output_labels_dir</span><span class="p">,</span>
+        <span class="n">clean_label_ext</span><span class="p">,</span>
+        <span class="n">input_filename</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">=</span> <span class="n">arg</span>
+
+    <span class="n">clean_labels_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">clean_labels_dir</span><span class="p">,</span> <span class="n">input_filename</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+        <span class="n">clean_label_ext</span><span class="p">,</span> <span class="s2">&quot;.txt&quot;</span>
+    <span class="p">)</span>
+    <span class="n">ocr_text_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_text_dir</span><span class="p">,</span> <span class="n">input_filename</span><span class="p">)</span>
+    <span class="n">ocr_labels_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_labels_dir</span><span class="p">,</span> <span class="n">input_filename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">clean_labels_file</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Warning: missing clean label file &#39;</span><span class="si">{</span><span class="n">clean_labels_file</span><span class="si">}</span><span class="s2">&#39;. Please check file corruption. Skipping this file index...&quot;</span>
+        <span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">ocr_text_file</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Warning: missing ocr text file &#39;</span><span class="si">{</span><span class="n">ocr_text_file</span><span class="si">}</span><span class="s2">&#39;. Please check file corruption. Skipping this file index...&quot;</span>
+        <span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">clean_labels_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">clf</span><span class="p">:</span>
+            <span class="n">tokens_labels_str</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+        <span class="n">clean_tokens</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tokens_labels_str</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">==</span> <span class="mi">2</span>
+        <span class="p">]</span>
+        <span class="n">clean_labels</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tokens_labels_str</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">==</span> <span class="mi">2</span>
+        <span class="p">]</span>
+        <span class="n">clean_sentences</span> <span class="o">=</span> <span class="n">get_sentences_from_iob_format</span><span class="p">(</span><span class="n">tokens_labels_str</span><span class="p">)</span>
+        <span class="c1"># read ocr tokens</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ocr_text_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">otf</span><span class="p">:</span>
+            <span class="n">ocr_text_str</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">otf</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
+            <span class="n">ocr_tokens</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">token</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">ocr_text_str</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="p">]</span>  <span class="c1"># already tokenized in data</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ocr_tokens_sentences</span><span class="p">,</span> <span class="n">ocr_labels_sentences</span> <span class="o">=</span> <span class="n">propagate_labels_sentences</span><span class="p">(</span>
+                <span class="n">clean_tokens</span><span class="p">,</span> <span class="n">clean_labels</span><span class="p">,</span> <span class="n">clean_sentences</span><span class="p">,</span> <span class="n">ocr_tokens</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Warning: error processing &#39;</span><span class="si">{</span><span class="n">input_filename</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">Skipping this file...&quot;</span>
+            <span class="p">)</span>
+            <span class="k">return</span>
+        <span class="c1"># Write result to file</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ocr_labels_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">olf</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">ocr_tokens</span><span class="p">,</span> <span class="n">ocr_labels</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+                <span class="n">ocr_tokens_sentences</span><span class="p">,</span> <span class="n">ocr_labels_sentences</span>
+            <span class="p">):</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ocr_tokens</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># if empty OCR sentences</span>
+                    <span class="n">olf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EMPTY_SENTENCE_SENTINEL</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">EMPTY_SENTENCE_SENTINEL_NER_LABEL</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">token</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ocr_tokens</span><span class="p">,</span> <span class="n">ocr_labels</span><span class="p">):</span>
+                        <span class="n">olf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">olf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="propagate_labels_sentences_multiprocess"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.conll_format.propagate_labels_sentences_multiprocess">[docs]</a><span class="k">def</span> <span class="nf">propagate_labels_sentences_multiprocess</span><span class="p">(</span>
+    <span class="n">clean_labels_dir</span><span class="p">,</span> <span class="n">output_text_dir</span><span class="p">,</span> <span class="n">output_labels_dir</span><span class="p">,</span> <span class="n">clean_label_ext</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    propagate_labels_sentences_all_files propagates labels and sentences for all files in dataset</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    clean_labels_dir : str</span>
+<span class="sd">        path of directory with clean labels -</span>
+<span class="sd">        CoNLL formatted so contains tokens and corresponding labels</span>
+<span class="sd">    output_text_dir : dir</span>
+<span class="sd">        path of directory with ocr text</span>
+<span class="sd">    output_labels_dir : dir</span>
+<span class="sd">        path of directory with ocr labels -</span>
+<span class="sd">        CoNLL formatted so contains tokens and corresponding labels</span>
+<span class="sd">    clean_label_ext : str</span>
+<span class="sd">        file extension of the clean_labels</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">clean_label_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">clean_labels_dir</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+        <span class="nb">map</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">clean_label_filename</span><span class="p">:</span> <span class="p">(</span>
+                <span class="n">clean_labels_dir</span><span class="p">,</span>
+                <span class="n">output_text_dir</span><span class="p">,</span>
+                <span class="n">output_labels_dir</span><span class="p">,</span>
+                <span class="n">clean_label_ext</span><span class="p">,</span>
+                <span class="n">clean_label_filename</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">clean_label_files</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">ProcessPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+        <span class="n">iterator</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">propagate_labels_sentence_single_file</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">iterator</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)):</span>  <span class="c1"># wrapping tqdm for progress report</span>
+            <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="extract_ocr_text"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.conll_format.extract_ocr_text">[docs]</a><span class="k">def</span> <span class="nf">extract_ocr_text</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    extract_ocr_text from GROK json</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_file : str</span>
+<span class="sd">        file path of input file</span>
+<span class="sd">    output_file : str</span>
+<span class="sd">        file path of output file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span>
+    <span class="n">in_file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+    <span class="n">file_pre</span> <span class="o">=</span> <span class="n">in_file_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">output_file_name</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.txt&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file_pre</span><span class="p">)</span>
+    <span class="n">output_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="n">output_file_name</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
+    <span class="n">json_dict</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">json_dict</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+        <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="check_n_sentences"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.conll_format.check_n_sentences">[docs]</a><span class="k">def</span> <span class="nf">check_n_sentences</span><span class="p">(</span><span class="n">clean_labels_dir</span><span class="p">,</span> <span class="n">output_labels_dir</span><span class="p">,</span> <span class="n">clean_label_ext</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    check_n_sentences prints file name if number of sentences is different in clean and OCR files</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    clean_labels_dir : str</span>
+<span class="sd">        path of directory with clean labels -</span>
+<span class="sd">        CoNLL formatted so contains tokens and corresponding labels</span>
+<span class="sd">    output_labels_dir : str</span>
+<span class="sd">        path of directory with ocr labels -</span>
+<span class="sd">        CoNLL formatted so contains tokens and corresponding labels</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">text_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">output_labels_dir</span><span class="p">)</span>
+    <span class="n">skip_files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">text_filename</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">text_files</span><span class="p">):</span>
+        <span class="n">clean_labels_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">clean_labels_dir</span><span class="p">,</span> <span class="n">text_filename</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+            <span class="s2">&quot;.txt&quot;</span><span class="p">,</span> <span class="n">clean_label_ext</span>
+        <span class="p">)</span>
+        <span class="n">ocr_labels_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_labels_dir</span><span class="p">,</span> <span class="n">text_filename</span><span class="p">)</span>
+        <span class="n">remove_first_line</span><span class="p">(</span><span class="n">clean_labels_file</span><span class="p">,</span> <span class="n">clean_labels_file</span><span class="p">)</span>
+        <span class="n">remove_first_line</span><span class="p">(</span><span class="n">ocr_labels_file</span><span class="p">,</span> <span class="n">ocr_labels_file</span><span class="p">)</span>
+        <span class="n">remove_last_line</span><span class="p">(</span><span class="n">clean_labels_file</span><span class="p">,</span> <span class="n">clean_labels_file</span><span class="p">)</span>
+        <span class="n">remove_last_line</span><span class="p">(</span><span class="n">ocr_labels_file</span><span class="p">,</span> <span class="n">ocr_labels_file</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">clean_labels_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">lf</span><span class="p">:</span>
+            <span class="n">clean_tokens_labels</span> <span class="o">=</span> <span class="n">lf</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ocr_labels_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">of</span><span class="p">:</span>
+            <span class="n">ocr_tokens_labels</span> <span class="o">=</span> <span class="n">of</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">n_clean_sentences</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">nl</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">clean_tokens_labels</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">nl</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">nl</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="n">n_clean_sentences</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">nl</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">n_ocr_sentences</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">nl</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">ocr_tokens_labels</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">nl</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">nl</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="n">n_ocr_sentences</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">nl</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">error</span> <span class="ow">or</span> <span class="n">n_ocr_sentences</span> <span class="o">!=</span> <span class="n">n_clean_sentences</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Warning: Inconsistent numbers of sentences in &#39;</span><span class="si">{</span><span class="n">text_filename</span><span class="si">}</span><span class="s2">&#39;&#39;.&quot;</span>
+                <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;clean_sentences to ocr_sentences: </span><span class="si">{</span><span class="n">n_clean_sentences</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">n_ocr_sentences</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+            <span class="n">skip_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text_filename</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">skip_files</span></div>
+
+
+<div class="viewcode-block" id="remove_first_line"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.conll_format.remove_first_line">[docs]</a><span class="k">def</span> <span class="nf">remove_first_line</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    remove_first_line from files (some clean CoNLL files have an empty first line)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_file : str</span>
+<span class="sd">        input file path</span>
+<span class="sd">    output_file : str</span>
+<span class="sd">        output file path</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">in_f</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">in_f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="c1"># the clean CoNLL formatted files had a newline as the first line</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_f</span><span class="p">:</span>
+            <span class="n">out_f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span></div>
+
+
+<div class="viewcode-block" id="remove_last_line"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.conll_format.remove_last_line">[docs]</a><span class="k">def</span> <span class="nf">remove_last_line</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    remove_last_line from files (some clean CoNLL files have an empty last line)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_file : str</span>
+<span class="sd">        input file path</span>
+<span class="sd">    output_file : str</span>
+<span class="sd">        output file path</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">in_f</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">in_f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">lines</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_f</span><span class="p">:</span>
+            <span class="n">out_f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lines</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="for_all_files"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.conll_format.for_all_files">[docs]</a><span class="k">def</span> <span class="nf">for_all_files</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    for_all_files will apply function to every file in a director</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_dir : str</span>
+<span class="sd">        directory with input files</span>
+<span class="sd">    output_dir : str</span>
+<span class="sd">        directory for output files</span>
+<span class="sd">    func : function</span>
+<span class="sd">        function to be applied to all files in input_dir</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">text_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">input_dir</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">text_filename</span> <span class="ow">in</span> <span class="n">text_files</span><span class="p">:</span>
+        <span class="n">input_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">text_filename</span><span class="p">)</span>
+        <span class="n">output_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">text_filename</span><span class="p">)</span>
+        <span class="n">func</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">train_subset</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">test_subset</span><span class="p">:</span>
+        <span class="n">subsets</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">subsets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">train_subset</span><span class="p">:</span>
+            <span class="n">subsets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;train&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">test_subset</span><span class="p">:</span>
+            <span class="n">subsets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">subset</span> <span class="ow">in</span> <span class="n">subsets</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Processing </span><span class="si">{}</span><span class="s2"> subset...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">subset</span><span class="p">))</span>
+
+        <span class="n">clean_labels_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">base_folder</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">gt_folder</span><span class="p">,</span> <span class="n">subset</span><span class="p">,</span> <span class="s2">&quot;clean_labels&quot;</span>
+        <span class="p">)</span>
+        <span class="n">ocr_json_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">base_folder</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">degraded_folder</span><span class="p">,</span> <span class="n">subset</span><span class="p">,</span> <span class="s2">&quot;ocr&quot;</span>
+        <span class="p">)</span>
+
+        <span class="n">output_text_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">base_folder</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">degraded_folder</span><span class="p">,</span> <span class="n">subset</span><span class="p">,</span> <span class="s2">&quot;ocr_text&quot;</span>
+        <span class="p">)</span>
+        <span class="n">output_labels_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">base_folder</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">degraded_folder</span><span class="p">,</span> <span class="n">subset</span><span class="p">,</span> <span class="s2">&quot;ocr_labels&quot;</span>
+        <span class="p">)</span>
+
+        <span class="c1"># remove first empty line of labels file, if exists</span>
+        <span class="n">for_all_files</span><span class="p">(</span><span class="n">clean_labels_dir</span><span class="p">,</span> <span class="n">clean_labels_dir</span><span class="p">,</span> <span class="n">remove_first_line</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_text_dir</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">output_text_dir</span><span class="p">)</span>
+
+        <span class="c1"># extract text from ocr json output and save to ocr_text/</span>
+        <span class="n">for_all_files</span><span class="p">(</span><span class="n">ocr_json_dir</span><span class="p">,</span> <span class="n">output_text_dir</span><span class="p">,</span> <span class="n">extract_ocr_text</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_labels_dir</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">output_labels_dir</span><span class="p">)</span>
+
+        <span class="c1"># make ocr labels files by propagating clean labels to ocr_text and creating files in ocr_labels</span>
+        <span class="n">propagate_labels_sentences_multiprocess</span><span class="p">(</span>
+            <span class="n">clean_labels_dir</span><span class="p">,</span> <span class="n">output_text_dir</span><span class="p">,</span> <span class="n">output_labels_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">clean_label_ext</span>
+        <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validating number of sentences in gt and ocr labels&quot;</span><span class="p">)</span>
+        <span class="n">check_n_sentences</span><span class="p">(</span>
+            <span class="n">clean_labels_dir</span><span class="p">,</span> <span class="n">output_labels_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">clean_label_ext</span>
+        <span class="p">)</span>  <span class="c1"># check number of sentences and make sure same; print anomaly files</span>
+
+
+<span class="k">def</span> <span class="nf">create_parser</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;base_folder&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;base directory containing the collection of dataset&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;degraded_folder&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;directory containing train and test subset for degradation&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--gt_folder&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;shared&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;directory containing the ground truth&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--clean_label_ext&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;.txt&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;file extension of the clean_labels files&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--train_subset&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;include if only train folder should be processed&quot;</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--test_subset&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;include if only test folder should be processed&quot;</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">parser</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">create_parser</span><span class="p">()</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time to format entire dataset: </span><span class="si">{</span><span class="n">elapsed_time</span><span class="si">:</span><span class="s2">0.3f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+</pre></div>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Jianjie Liu and Amit Gupte<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        Don't forget to check out <a href= https://arxiv.org/abs/2108.02899>our paper from Document Intelligence Workshop at KDD 2021!</a>
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

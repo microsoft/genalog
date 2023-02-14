@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>genalog.text.anchor</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <link rel="canonical" href="https://microsoft.github.io/genalog/_modules/genalog/text/anchor.html" />
+    <link rel="shortcut icon" href="../../../_static/genalog_favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/genalog_full_logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../generation_pipeline.html">
+   Generate your synthetic document
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../e2e_dataset_pipeline.html">
+   OCR-NER Dataset Generation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fabricating Document &amp; Noise
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../doc_generation.html">
+   Create a document
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../doc_degradation.html">
+   Degrade a document
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Handling Noisy Text
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../text_alignment.html">
+   Text alignment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../ocr_label_propagation.html">
+   Propagation of NER labels
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  API Documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.degradation.html">
+   genalog.degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.generation.html">
+   genalog.generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.ocr.html">
+   genalog.ocr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.text.html">
+   genalog.text
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/microsoft/genalog/issues/new?title=Issue%20on%20page%20%2F_modules/genalog/text/anchor.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <h1>Source code for genalog.text.anchor</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ---------------------------------------------------------</span>
+<span class="c1"># Copyright (c) Microsoft Corporation. All rights reserved.</span>
+<span class="c1"># Licensed under the MIT License.</span>
+<span class="c1"># ---------------------------------------------------------</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Baseline alignment algorithm is slow on long documents.</span>
+<span class="sd">The idea is to break down the longer text into smaller fragments</span>
+<span class="sd">for quicker alignment on individual pieces. We refer &quot;anchor words&quot;</span>
+<span class="sd">as these points of breakage.</span>
+
+<span class="sd">The bulk of this algorithm is to identify these &quot;anchor words&quot;.</span>
+
+<span class="sd">This is an re-implementation of the algorithm in this paper</span>
+<span class="sd">&quot;A Fast Alignment Scheme for Automatic OCR Evaluation of Books&quot;</span>
+<span class="sd">(https://ieeexplore.ieee.org/document/6065412)</span>
+
+<span class="sd">We rely on `genalog.text.alignment` to align the subsequences.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="kn">from</span> <span class="nn">genalog.text</span> <span class="kn">import</span> <span class="n">alignment</span><span class="p">,</span> <span class="n">preprocess</span>
+<span class="kn">from</span> <span class="nn">genalog.text.alignment</span> <span class="kn">import</span> <span class="n">GAP_CHAR</span>
+<span class="kn">from</span> <span class="nn">genalog.text.lcs</span> <span class="kn">import</span> <span class="n">LCS</span>
+
+<span class="c1"># The recursively portion of the algorithm will run on</span>
+<span class="c1"># segments longer than this value to find anchor points in</span>
+<span class="c1"># the longer segment (to break it up further).</span>
+<span class="n">MAX_ALIGN_SEGMENT_LENGTH</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># in characters length</span>
+
+
+<div class="viewcode-block" id="get_unique_words"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.anchor.get_unique_words">[docs]</a><span class="k">def</span> <span class="nf">get_unique_words</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a set of unique words from a Counter dictionary of word occurrences</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        d (dict) : a Counter dictionary of word occurrences</span>
+<span class="sd">        case_sensitive (bool, optional) : whether unique words are case sensitive.</span>
+<span class="sd">                                          Defaults to False.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        set: a set of unique words (original alphabetical case of the word is preserved)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">case_sensitive</span><span class="p">:</span>
+        <span class="n">word_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">word_count</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tokens_lowercase</span> <span class="o">=</span> <span class="p">[</span><span class="n">tk</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">tk</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">]</span>
+        <span class="n">word_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">tokens_lowercase</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">tk</span> <span class="k">for</span> <span class="n">tk</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">word_count</span><span class="p">[</span><span class="n">tk</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="segment_len"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.anchor.segment_len">[docs]</a><span class="k">def</span> <span class="nf">segment_len</span><span class="p">(</span><span class="n">tokens</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get length of the segment</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        segment (list) : a list of tokens</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        int : the length of the segment</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">tokens</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="get_word_map"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.anchor.get_word_map">[docs]</a><span class="k">def</span> <span class="nf">get_word_map</span><span class="p">(</span><span class="n">unique_words</span><span class="p">,</span> <span class="n">src_tokens</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Arrange the set of unique words by the order they original appear in the text</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        unique_words (set) : a set of unique words</span>
+<span class="sd">        src_tokens (list) : a list of tokens</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list : a ``word_map``: a list of word corrdinate tuples ``(word, word_index)`` defined as follow:</span>
+
+<span class="sd">        1. ``word`` is a typical word token</span>
+<span class="sd">        2. ``word_index`` is the index of the word in the source token array</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Find the indices of the unique words in the source text</span>
+    <span class="n">unique_word_indices</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">src_tokens</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">unique_words</span><span class="p">)</span>
+    <span class="n">word_map</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">unique_words</span><span class="p">,</span> <span class="n">unique_word_indices</span><span class="p">))</span>
+    <span class="n">word_map</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># Re-arrange order by the index</span>
+    <span class="k">return</span> <span class="n">word_map</span></div>
+
+
+<div class="viewcode-block" id="get_anchor_map"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.anchor.get_anchor_map">[docs]</a><span class="k">def</span> <span class="nf">get_anchor_map</span><span class="p">(</span><span class="n">gt_tokens</span><span class="p">,</span> <span class="n">ocr_tokens</span><span class="p">,</span> <span class="n">min_anchor_len</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Find the location of anchor words in both the gt and ocr text.</span>
+<span class="sd">    Anchor words are location where we can split both the source gt</span>
+<span class="sd">    and ocr text into smaller text fragment for faster alignment.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        gt_tokens (list) : a list of ground truth tokens</span>
+<span class="sd">        ocr_tokens (list) : a list of tokens from OCR&#39;ed document</span>
+<span class="sd">        min_anchor_len (int, optional) : minimum len of the anchor word.</span>
+<span class="sd">                                         Defaults to 2.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple: a 2-element ``(anchor_map_gt, anchor_map_ocr)`` tuple:</span>
+
+<span class="sd">    1. ``anchor_map_gt`` is a ``word_map`` that locates all the anchor words in the gt tokens</span>
+<span class="sd">    2. ``anchor_map_gt`` is a ``word_map`` that locates all the anchor words in the ocr tokens</span>
+
+<span class="sd">    And ``len(anchor_map_gt) == len(anchor_map_ocr)``</span>
+
+<span class="sd">    ::</span>
+
+<span class="sd">        For example:</span>
+<span class="sd">            Input:</span>
+<span class="sd">                gt_tokens:  [&quot;b&quot;, &quot;a&quot;, &quot;c&quot;]</span>
+<span class="sd">                ocr_tokens: [&quot;c&quot;, &quot;b&quot;, &quot;a&quot;]</span>
+<span class="sd">            Ourput:</span>
+<span class="sd">                ([(&quot;b&quot;, 0), (&quot;a&quot;, 1)], [(&quot;b&quot;, 1), (&quot;a&quot;, 2)])</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># 1. Get unique words common in both gt and ocr</span>
+    <span class="n">unique_words_gt</span> <span class="o">=</span> <span class="n">get_unique_words</span><span class="p">(</span><span class="n">gt_tokens</span><span class="p">)</span>
+    <span class="n">unique_words_ocr</span> <span class="o">=</span> <span class="n">get_unique_words</span><span class="p">(</span><span class="n">ocr_tokens</span><span class="p">)</span>
+    <span class="n">unique_words_common</span> <span class="o">=</span> <span class="n">unique_words_gt</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">unique_words_ocr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">unique_words_common</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[],</span> <span class="p">[]</span>
+
+    <span class="c1"># 2. Arrange the common unique words in their original order</span>
+    <span class="n">unique_word_map_gt</span> <span class="o">=</span> <span class="n">get_word_map</span><span class="p">(</span><span class="n">unique_words_common</span><span class="p">,</span> <span class="n">gt_tokens</span><span class="p">)</span>
+    <span class="n">unique_word_map_ocr</span> <span class="o">=</span> <span class="n">get_word_map</span><span class="p">(</span><span class="n">unique_words_common</span><span class="p">,</span> <span class="n">ocr_tokens</span><span class="p">)</span>
+    <span class="c1"># Unzip to get the ordered unique_words</span>
+    <span class="n">ordered_unique_words_gt</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">unique_word_map_gt</span><span class="p">)</span>
+    <span class="n">ordered_unique_words_ocr</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">unique_word_map_ocr</span><span class="p">)</span>
+    <span class="c1"># Join words into a space-separated string for finding LCS</span>
+    <span class="n">unique_words_gt_str</span> <span class="o">=</span> <span class="n">preprocess</span><span class="o">.</span><span class="n">join_tokens</span><span class="p">(</span><span class="n">ordered_unique_words_gt</span><span class="p">)</span>
+    <span class="n">unique_words_ocr_str</span> <span class="o">=</span> <span class="n">preprocess</span><span class="o">.</span><span class="n">join_tokens</span><span class="p">(</span><span class="n">ordered_unique_words_ocr</span><span class="p">)</span>
+
+    <span class="c1"># 3. Find the LCS between the two ordered list of unique words</span>
+    <span class="n">lcs</span> <span class="o">=</span> <span class="n">LCS</span><span class="p">(</span><span class="n">unique_words_gt_str</span><span class="p">,</span> <span class="n">unique_words_ocr_str</span><span class="p">)</span>
+    <span class="n">lcs_str</span> <span class="o">=</span> <span class="n">lcs</span><span class="o">.</span><span class="n">get_str</span><span class="p">()</span>
+
+    <span class="c1"># 4. Break up the LCS string into tokens</span>
+    <span class="n">lcs_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">preprocess</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">lcs_str</span><span class="p">))</span>
+
+    <span class="c1"># 5. Anchor words are the unique words in the lcs string</span>
+    <span class="n">anchor_words</span> <span class="o">=</span> <span class="n">lcs_words</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">unique_words_common</span><span class="p">)</span>
+
+    <span class="c1"># 6. Filter the unique words to keep the anchor words ONLY</span>
+    <span class="n">anchor_map_gt</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+        <span class="nb">filter</span><span class="p">(</span>
+            <span class="c1"># This is a list of (unique_word, unique_word_index)</span>
+            <span class="k">lambda</span> <span class="n">word_coordinate</span><span class="p">:</span> <span class="n">word_coordinate</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">anchor_words</span><span class="p">,</span>
+            <span class="n">unique_word_map_gt</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">anchor_map_ocr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+        <span class="nb">filter</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">word_coordinate</span><span class="p">:</span> <span class="n">word_coordinate</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">anchor_words</span><span class="p">,</span>
+            <span class="n">unique_word_map_ocr</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">anchor_map_gt</span><span class="p">,</span> <span class="n">anchor_map_ocr</span></div>
+
+
+<div class="viewcode-block" id="find_anchor_recur"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.anchor.find_anchor_recur">[docs]</a><span class="k">def</span> <span class="nf">find_anchor_recur</span><span class="p">(</span>
+    <span class="n">gt_tokens</span><span class="p">,</span>
+    <span class="n">ocr_tokens</span><span class="p">,</span>
+    <span class="n">start_pos_gt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">start_pos_ocr</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">max_seg_length</span><span class="o">=</span><span class="n">MAX_ALIGN_SEGMENT_LENGTH</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Recursively find anchor positions in the gt and ocr text</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        gt_tokens (list) : a list of ground truth tokens</span>
+<span class="sd">        ocr_tokens (list) : a list of tokens from OCR&#39;ed document</span>
+<span class="sd">        start_pos (int, optional) : a constant to add to all the resulting indices.</span>
+<span class="sd">                                    Defaults to 0.</span>
+<span class="sd">        max_seg_length (int, optional) : trigger recursion if any text segment is larger than this.</span>
+<span class="sd">                                         Defaults to ``MAX_ALIGN_SEGMENT_LENGTH``.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: when there different number of anchor points in gt and ocr.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple : two lists of token indices where each list is the position of the anchor in the input</span>
+<span class="sd">        ``gt_tokens`` and ``ocr_tokens``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># 1. Try to find anchor words</span>
+    <span class="n">anchor_word_map_gt</span><span class="p">,</span> <span class="n">anchor_word_map_ocr</span> <span class="o">=</span> <span class="n">get_anchor_map</span><span class="p">(</span><span class="n">gt_tokens</span><span class="p">,</span> <span class="n">ocr_tokens</span><span class="p">)</span>
+
+    <span class="c1"># 2. Check invariant</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">anchor_word_map_gt</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">anchor_word_map_ocr</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unequal number of anchor points across gt and ocr string&quot;</span><span class="p">)</span>
+    <span class="c1"># Return empty if no anchor word found</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">anchor_word_map_gt</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[],</span> <span class="p">[]</span>
+
+    <span class="c1"># 3. Unzip map to get indices of the anchor tokens</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">anchor_indices_gt</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">anchor_word_map_gt</span><span class="p">))</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">anchor_indices_ocr</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">anchor_word_map_ocr</span><span class="p">))</span>
+
+    <span class="n">output_gt_anchors</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">start_pos_gt</span><span class="p">,</span> <span class="n">anchor_indices_gt</span><span class="p">))</span>
+    <span class="n">output_ocr_anchors</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">start_pos_ocr</span><span class="p">,</span> <span class="n">anchor_indices_ocr</span><span class="p">))</span>
+    <span class="c1"># 4. Find split point of each segment</span>
+    <span class="n">seg_start_gt</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">anchor_indices_gt</span><span class="p">))</span>
+    <span class="n">seg_start_ocr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">anchor_indices_ocr</span><span class="p">))</span>
+    <span class="n">start_n_end_gt</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">seg_start_gt</span><span class="p">,</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="n">anchor_indices_gt</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">]))</span>
+    <span class="n">start_n_end_ocr</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">seg_start_ocr</span><span class="p">,</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="n">anchor_indices_ocr</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">]))</span>
+    <span class="n">gt_segments</span> <span class="o">=</span> <span class="p">[</span><span class="n">gt_tokens</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="k">for</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">start_n_end_gt</span><span class="p">]</span>
+    <span class="n">ocr_segments</span> <span class="o">=</span> <span class="p">[</span><span class="n">ocr_tokens</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="k">for</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">start_n_end_ocr</span><span class="p">]</span>
+    <span class="c1"># 4. Loop through each segment</span>
+    <span class="k">for</span> <span class="n">gt_seg</span><span class="p">,</span> <span class="n">ocr_seg</span><span class="p">,</span> <span class="n">gt_start</span><span class="p">,</span> <span class="n">ocr_start</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+        <span class="n">gt_segments</span><span class="p">,</span> <span class="n">ocr_segments</span><span class="p">,</span> <span class="n">seg_start_gt</span><span class="p">,</span> <span class="n">seg_start_ocr</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">segment_len</span><span class="p">(</span><span class="n">gt_seg</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max_seg_length</span>
+            <span class="ow">or</span> <span class="n">segment_len</span><span class="p">(</span><span class="n">ocr_seg</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max_seg_length</span>
+        <span class="p">):</span>
+            <span class="c1"># recur on the segment in between the two anchors.</span>
+            <span class="c1"># We assume the first token in the segment is an anchor word</span>
+            <span class="n">gt_anchors</span><span class="p">,</span> <span class="n">ocr_anchors</span> <span class="o">=</span> <span class="n">find_anchor_recur</span><span class="p">(</span>
+                <span class="n">gt_seg</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+                <span class="n">ocr_seg</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+                <span class="n">start_pos_gt</span><span class="o">=</span><span class="n">gt_start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="n">start_pos_ocr</span><span class="o">=</span><span class="n">ocr_start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="n">max_seg_length</span><span class="o">=</span><span class="n">max_seg_length</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="c1"># shift the token indices</span>
+            <span class="c1"># (these are indices of a subsequence and does not reflect true position in the source sequence)</span>
+            <span class="n">gt_anchors</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">start_pos_gt</span><span class="p">,</span> <span class="n">gt_anchors</span><span class="p">))</span>
+            <span class="n">ocr_anchors</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">start_pos_ocr</span><span class="p">,</span> <span class="n">ocr_anchors</span><span class="p">))</span>
+            <span class="c1"># merge recursion results</span>
+            <span class="n">output_gt_anchors</span> <span class="o">=</span> <span class="n">output_gt_anchors</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">gt_anchors</span><span class="p">)</span>
+            <span class="n">output_ocr_anchors</span> <span class="o">=</span> <span class="n">output_ocr_anchors</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">ocr_anchors</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">output_gt_anchors</span><span class="p">),</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">output_ocr_anchors</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="align_w_anchor"><a class="viewcode-back" href="../../../docstring/genalog.text.html#genalog.text.anchor.align_w_anchor">[docs]</a><span class="k">def</span> <span class="nf">align_w_anchor</span><span class="p">(</span><span class="n">gt</span><span class="p">,</span> <span class="n">ocr</span><span class="p">,</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">GAP_CHAR</span><span class="p">,</span> <span class="n">max_seg_length</span><span class="o">=</span><span class="n">MAX_ALIGN_SEGMENT_LENGTH</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A faster alignment scheme of two text segments. This method first</span>
+<span class="sd">    breaks the strings into smaller segments with anchor words.</span>
+<span class="sd">    Then these smaller segments are aligned.</span>
+
+<span class="sd">    **NOTE:** this function shares the same contract as `genalog.text.alignment.align()`</span>
+<span class="sd">    These two methods are interchangeable and their alignment results should be similar.</span>
+
+<span class="sd">    ::</span>
+
+<span class="sd">        For example:</span>
+
+<span class="sd">            Ground Truth: &quot;The planet Mars, I scarcely need remind the reader,&quot;</span>
+<span class="sd">            Noisy Text:   &quot;The plamet Maris, I scacely neee remind te reader,&quot;</span>
+
+<span class="sd">            Here the unique anchor words are &quot;I&quot;, &quot;remind&quot; and &quot;reader&quot;.</span>
+
+<span class="sd">            Thus, the algorithm will split into following segment pairs:</span>
+
+<span class="sd">                &quot;The planet Mar, &quot;</span>
+<span class="sd">                &quot;The plamet Maris, &quot;</span>
+
+<span class="sd">                &quot;I scarcely need &quot;</span>
+<span class="sd">                &quot;I scacely neee &quot;</span>
+
+<span class="sd">                &quot;remind the reader,&quot;</span>
+<span class="sd">                &quot;remind te reader,&quot;</span>
+
+<span class="sd">            And run sequence alignment on each pair.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        gt (str) : ground truth text</span>
+<span class="sd">        noise (str) : text with ocr noise</span>
+<span class="sd">        gap_char (str, optional) : gap char used in alignment algorithm . Defaults to GAP_CHAR.</span>
+<span class="sd">        max_seg_length (int, optional) : maximum segment length. Segments longer than this threshold</span>
+<span class="sd">            will continued be split recursively into smaller segment. Defaults to ``MAX_ALIGN_SEGMENT_LENGTH``.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        a tuple (str, str) of aligned ground truth and noise:</span>
+<span class="sd">            (aligned_gt, aligned_noise)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">gt_tokens</span> <span class="o">=</span> <span class="n">preprocess</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">gt</span><span class="p">)</span>
+    <span class="n">ocr_tokens</span> <span class="o">=</span> <span class="n">preprocess</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">ocr</span><span class="p">)</span>
+
+    <span class="c1"># 1. Find anchor positions</span>
+    <span class="n">gt_anchors</span><span class="p">,</span> <span class="n">ocr_anchors</span> <span class="o">=</span> <span class="n">find_anchor_recur</span><span class="p">(</span>
+        <span class="n">gt_tokens</span><span class="p">,</span> <span class="n">ocr_tokens</span><span class="p">,</span> <span class="n">max_seg_length</span><span class="o">=</span><span class="n">max_seg_length</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 2. Split into segments</span>
+    <span class="n">start_n_end_gt</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span>
+        <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">gt_anchors</span><span class="p">),</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="n">gt_anchors</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">])</span>
+    <span class="p">)</span>
+    <span class="n">start_n_end_ocr</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span>
+        <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">ocr_anchors</span><span class="p">),</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="n">ocr_anchors</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">])</span>
+    <span class="p">)</span>
+    <span class="n">gt_segments</span> <span class="o">=</span> <span class="p">[</span><span class="n">gt_tokens</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="k">for</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">start_n_end_gt</span><span class="p">]</span>
+    <span class="n">ocr_segments</span> <span class="o">=</span> <span class="p">[</span><span class="n">ocr_tokens</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="k">for</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">start_n_end_ocr</span><span class="p">]</span>
+
+    <span class="c1"># 3. Run alignment on each segment</span>
+    <span class="n">aligned_segments_gt</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">aligned_segments_ocr</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">gt_segment</span><span class="p">,</span> <span class="n">noisy_segment</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">gt_segments</span><span class="p">,</span> <span class="n">ocr_segments</span><span class="p">):</span>
+        <span class="n">gt_segment</span> <span class="o">=</span> <span class="n">preprocess</span><span class="o">.</span><span class="n">join_tokens</span><span class="p">(</span><span class="n">gt_segment</span><span class="p">)</span>
+        <span class="n">noisy_segment</span> <span class="o">=</span> <span class="n">preprocess</span><span class="o">.</span><span class="n">join_tokens</span><span class="p">(</span><span class="n">noisy_segment</span><span class="p">)</span>
+        <span class="c1"># Run alignment algorithm</span>
+        <span class="n">aligned_seg_gt</span><span class="p">,</span> <span class="n">aligned_seg_ocr</span> <span class="o">=</span> <span class="n">alignment</span><span class="o">.</span><span class="n">align</span><span class="p">(</span>
+            <span class="n">gt_segment</span><span class="p">,</span> <span class="n">noisy_segment</span><span class="p">,</span> <span class="n">gap_char</span><span class="o">=</span><span class="n">gap_char</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">aligned_seg_gt</span> <span class="ow">and</span> <span class="n">aligned_seg_ocr</span><span class="p">:</span>  <span class="c1"># if not empty string &quot;&quot;</span>
+            <span class="n">aligned_segments_gt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">aligned_seg_gt</span><span class="p">)</span>
+            <span class="n">aligned_segments_ocr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">aligned_seg_ocr</span><span class="p">)</span>
+
+    <span class="c1"># Stitch all segments together</span>
+    <span class="n">aligned_gt</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">aligned_segments_gt</span><span class="p">)</span>
+    <span class="n">aligned_noise</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">aligned_segments_ocr</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">aligned_gt</span><span class="p">,</span> <span class="n">aligned_noise</span></div>
+</pre></div>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Jianjie Liu and Amit Gupte<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        Don't forget to check out <a href= https://arxiv.org/abs/2108.02899>our paper from Document Intelligence Workshop at KDD 2021!</a>
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

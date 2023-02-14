@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>genalog.ocr.blob_client</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <link rel="canonical" href="https://microsoft.github.io/genalog/_modules/genalog/ocr/blob_client.html" />
+    <link rel="shortcut icon" href="../../../_static/genalog_favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/genalog_full_logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../generation_pipeline.html">
+   Generate your synthetic document
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../e2e_dataset_pipeline.html">
+   OCR-NER Dataset Generation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fabricating Document &amp; Noise
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../doc_generation.html">
+   Create a document
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../doc_degradation.html">
+   Degrade a document
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Handling Noisy Text
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../text_alignment.html">
+   Text alignment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../ocr_label_propagation.html">
+   Propagation of NER labels
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  API Documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.degradation.html">
+   genalog.degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.generation.html">
+   genalog.generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.ocr.html">
+   genalog.ocr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docstring/genalog.text.html">
+   genalog.text
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/microsoft/genalog/issues/new?title=Issue%20on%20page%20%2F_modules/genalog/ocr/blob_client.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <h1>Source code for genalog.ocr.blob_client</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ---------------------------------------------------------</span>
+<span class="c1"># Copyright (c) Microsoft Corporation. All rights reserved.</span>
+<span class="c1"># Licensed under the MIT License.</span>
+<span class="c1"># ---------------------------------------------------------</span>
+
+<span class="sd">&quot;&quot;&quot;Uses the python sdk to make operation on Azure Blob storage.</span>
+<span class="sd">see: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">import</span> <span class="nn">aiofiles</span>
+<span class="kn">from</span> <span class="nn">azure.core.exceptions</span> <span class="kn">import</span> <span class="n">ResourceExistsError</span><span class="p">,</span> <span class="n">ResourceNotFoundError</span>
+<span class="kn">from</span> <span class="nn">azure.storage.blob</span> <span class="kn">import</span> <span class="n">BlobServiceClient</span>
+<span class="kn">from</span> <span class="nn">azure.storage.blob.aio</span> <span class="kn">import</span> <span class="n">BlobServiceClient</span> <span class="k">as</span> <span class="n">asyncBlobServiceClient</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">DEFAULT_PROJECTIONS_CONTAINER_NAME</span>
+
+<span class="c1"># maximum number of simultaneous requests</span>
+<span class="n">REQUEST_SEMAPHORE</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Semaphore</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># maximum number of simultaneous open files</span>
+<span class="n">FILE_SEMAPHORE</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Semaphore</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="n">MAX_RETRIES</span> <span class="o">=</span> <span class="mi">5</span>
+
+
+<div class="viewcode-block" id="GrokBlobClient"><a class="viewcode-back" href="../../../docstring/genalog.ocr.html#genalog.ocr.blob_client.GrokBlobClient">[docs]</a><span class="k">class</span> <span class="nc">GrokBlobClient</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This class is a client that is used to upload and delete files from Azure Blob storage</span>
+<span class="sd">    https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">datasource_container_name</span><span class="p">,</span>
+        <span class="n">blob_account_name</span><span class="p">,</span>
+        <span class="n">blob_key</span><span class="p">,</span>
+        <span class="n">projections_container_name</span><span class="o">=</span><span class="n">DEFAULT_PROJECTIONS_CONTAINER_NAME</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates the blob storage client given the key and storage account name</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            datasource_container_name (str): container name. This container does not need to be existing</span>
+<span class="sd">            projections_container_name (str): projections container to store ocr projections.</span>
+<span class="sd">                This container does not need to be existing</span>
+<span class="sd">            blob_account_name (str): storage account name</span>
+<span class="sd">            blob_key (str): storage account key</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DATASOURCE_CONTAINER_NAME</span> <span class="o">=</span> <span class="n">datasource_container_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PROJECTIONS_CONTAINER_NAME</span> <span class="o">=</span> <span class="n">projections_container_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">BLOB_NAME</span> <span class="o">=</span> <span class="n">blob_account_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">BLOB_KEY</span> <span class="o">=</span> <span class="n">blob_key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">BLOB_CONNECTION_STRING</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;DefaultEndpointsProtocol=https;AccountName=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">BLOB_NAME</span><span class="si">}</span><span class="s2">;&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;AccountKey=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">BLOB_KEY</span><span class="si">}</span><span class="s2">;EndpointSuffix=core.windows.net&quot;</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="GrokBlobClient.create_from_env_var"><a class="viewcode-back" href="../../../docstring/genalog.ocr.html#genalog.ocr.blob_client.GrokBlobClient.create_from_env_var">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">create_from_env_var</span><span class="p">():</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Created the blob client using values in the environment variables</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            GrokBlobClient: the new blob client</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">DATASOURCE_CONTAINER_NAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;DATASOURCE_CONTAINER_NAME&quot;</span><span class="p">]</span>
+        <span class="n">BLOB_NAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;BLOB_NAME&quot;</span><span class="p">]</span>
+        <span class="n">BLOB_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;BLOB_KEY&quot;</span><span class="p">]</span>
+        <span class="n">PROJECTIONS_CONTAINER_NAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s2">&quot;PROJECTIONS_CONTAINER_NAME&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PROJECTIONS_CONTAINER_NAME</span>
+        <span class="p">)</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">GrokBlobClient</span><span class="p">(</span>
+            <span class="n">DATASOURCE_CONTAINER_NAME</span><span class="p">,</span>
+            <span class="n">BLOB_NAME</span><span class="p">,</span>
+            <span class="n">BLOB_KEY</span><span class="p">,</span>
+            <span class="n">projections_container_name</span><span class="o">=</span><span class="n">PROJECTIONS_CONTAINER_NAME</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">client</span></div>
+
+<div class="viewcode-block" id="GrokBlobClient.upload_images_to_blob"><a class="viewcode-back" href="../../../docstring/genalog.ocr.html#genalog.ocr.blob_client.GrokBlobClient.upload_images_to_blob">[docs]</a>    <span class="k">def</span> <span class="nf">upload_images_to_blob</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">src_folder_path</span><span class="p">,</span>
+        <span class="n">dest_folder_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">check_existing_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">use_async</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Uploads images from the src_folder_path to blob storage at the destination folder.</span>
+<span class="sd">        The destination folder is created if it doesn&#39;t exist. If a destination folder is not</span>
+<span class="sd">        given a folder is created named by the md5 hash of the files.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            src_folder_path (src): path to local folder that has images</span>
+<span class="sd">            dest_folder_name (str, optional): destination folder name. Defaults to None.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: the destination folder name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_container</span><span class="p">()</span>
+        <span class="n">blob_service_client</span> <span class="o">=</span> <span class="n">BlobServiceClient</span><span class="o">.</span><span class="n">from_connection_string</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">BLOB_CONNECTION_STRING</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">dest_folder_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dest_folder_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_folder_hash</span><span class="p">(</span><span class="n">src_folder_path</span><span class="p">)</span>
+
+        <span class="n">files_to_upload</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">blob_names</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">folder</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">src_folder_path</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                <span class="n">upload_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+                <span class="n">subfolder</span> <span class="o">=</span> <span class="n">folder</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">src_folder_path</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="c1"># Replace any &quot;double //&quot; to avoid creating an empty folder in the blob</span>
+                <span class="n">blob_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dest_folder_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">subfolder</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;//&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">)</span>
+                <span class="n">files_to_upload</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">upload_file_path</span><span class="p">)</span>
+                <span class="n">blob_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">blob_name</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">get_job_args</span><span class="p">(</span><span class="n">upload_file_path</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">upload_file_path</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">check_existing_cache</span><span class="p">:</span>
+            <span class="n">existing_blobs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_blobs</span><span class="p">(</span><span class="n">dest_folder_name</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">existing_blobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">blob</span><span class="p">:</span> <span class="n">blob</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">existing_blobs</span><span class="p">))</span>
+            <span class="n">file_blob_names</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span>
+                <span class="k">lambda</span> <span class="n">file_blob_names</span><span class="p">:</span> <span class="ow">not</span> <span class="n">file_blob_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">existing_blobs</span><span class="p">,</span>
+                <span class="nb">zip</span><span class="p">(</span><span class="n">files_to_upload</span><span class="p">,</span> <span class="n">blob_names</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="n">job_args</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">get_job_args</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">blob_name</span> <span class="ow">in</span> <span class="n">file_blob_names</span>
+            <span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">job_args</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">get_job_args</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">blob_name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">files_to_upload</span><span class="p">,</span> <span class="n">blob_names</span><span class="p">)</span>
+            <span class="p">]</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;uploading &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">job_args</span><span class="p">),</span> <span class="s2">&quot;files&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">use_async</span><span class="p">:</span>
+            <span class="n">blob_service_client</span> <span class="o">=</span> <span class="n">BlobServiceClient</span><span class="o">.</span><span class="n">from_connection_string</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">BLOB_CONNECTION_STRING</span>
+            <span class="p">)</span>
+            <span class="n">blob_container_client</span> <span class="o">=</span> <span class="n">blob_service_client</span><span class="o">.</span><span class="n">get_container_client</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">DATASOURCE_CONTAINER_NAME</span>
+            <span class="p">)</span>
+            <span class="n">jobs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">blob_container_client</span><span class="p">,)</span> <span class="o">+</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">job_args</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">_upload_worker_sync</span><span class="p">,</span> <span class="n">jobs</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">)):</span>
+                <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">async_blob_service_client</span> <span class="o">=</span> <span class="n">asyncBlobServiceClient</span><span class="o">.</span><span class="n">from_connection_string</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">BLOB_CONNECTION_STRING</span>
+            <span class="p">)</span>
+
+            <span class="k">async</span> <span class="k">def</span> <span class="nf">async_upload</span><span class="p">():</span>
+                <span class="k">async</span> <span class="k">with</span> <span class="n">async_blob_service_client</span><span class="p">:</span>
+                    <span class="n">async_blob_container_client</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="n">async_blob_service_client</span><span class="o">.</span><span class="n">get_container_client</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">DATASOURCE_CONTAINER_NAME</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="n">jobs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">async_blob_container_client</span><span class="p">,)</span> <span class="o">+</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">job_args</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span>
+                        <span class="n">asyncio</span><span class="o">.</span><span class="n">as_completed</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">_upload_worker_async</span><span class="p">,</span> <span class="n">jobs</span><span class="p">)),</span>
+                        <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">),</span>
+                    <span class="p">):</span>
+                        <span class="k">await</span> <span class="n">f</span>
+
+            <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">loop</span><span class="o">.</span><span class="n">is_running</span><span class="p">():</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">async_upload</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">async_upload</span><span class="p">())</span>
+            <span class="k">return</span> <span class="n">dest_folder_name</span><span class="p">,</span> <span class="n">result</span>
+
+        <span class="k">return</span> <span class="n">dest_folder_name</span><span class="p">,</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="GrokBlobClient.get_folder_hash"><a class="viewcode-back" href="../../../docstring/genalog.ocr.html#genalog.ocr.blob_client.GrokBlobClient.get_folder_hash">[docs]</a>    <span class="k">def</span> <span class="nf">get_folder_hash</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an Md5 hash for all files in a folder.</span>
+<span class="sd">        This hash can be used for blob folders.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            folder_name (str): path to folder</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: md5 hash of all filenames in the folder</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">hasher</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">folder_name</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+                <span class="n">hasher</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">fname</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+
+        <span class="n">folder_hash</span> <span class="o">=</span> <span class="n">hasher</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">folder_hash</span></div>
+
+<div class="viewcode-block" id="GrokBlobClient.delete_blobs_folder"><a class="viewcode-back" href="../../../docstring/genalog.ocr.html#genalog.ocr.blob_client.GrokBlobClient.delete_blobs_folder">[docs]</a>    <span class="k">def</span> <span class="nf">delete_blobs_folder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Deletes all blobs in a folder</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            folder_name (str): folder to delete</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">blobs_list</span><span class="p">,</span> <span class="n">blob_service_client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_blobs</span><span class="p">(</span><span class="n">folder_name</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">blob</span> <span class="ow">in</span> <span class="n">blobs_list</span><span class="p">:</span>
+            <span class="n">blob_client</span> <span class="o">=</span> <span class="n">blob_service_client</span><span class="o">.</span><span class="n">get_blob_client</span><span class="p">(</span>
+                <span class="n">container</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">DATASOURCE_CONTAINER_NAME</span><span class="p">,</span> <span class="n">blob</span><span class="o">=</span><span class="n">blob</span>
+            <span class="p">)</span>
+            <span class="n">blob_client</span><span class="o">.</span><span class="n">delete_blob</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">list_blobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_name</span><span class="p">):</span>
+        <span class="n">blob_service_client</span> <span class="o">=</span> <span class="n">BlobServiceClient</span><span class="o">.</span><span class="n">from_connection_string</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">BLOB_CONNECTION_STRING</span>
+        <span class="p">)</span>
+        <span class="n">container_client</span> <span class="o">=</span> <span class="n">blob_service_client</span><span class="o">.</span><span class="n">get_container_client</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">DATASOURCE_CONTAINER_NAME</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">container_client</span><span class="o">.</span><span class="n">list_blobs</span><span class="p">(</span><span class="n">name_starts_with</span><span class="o">=</span><span class="n">folder_name</span><span class="p">),</span>
+            <span class="n">blob_service_client</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_create_container</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates the container named {self.DATASOURCE_CONTAINER_NAME} if it doesn&#39;t exist.&quot;&quot;&quot;</span>
+        <span class="c1"># Create the BlobServiceClient object which will be used to create a container client</span>
+        <span class="n">blob_service_client</span> <span class="o">=</span> <span class="n">BlobServiceClient</span><span class="o">.</span><span class="n">from_connection_string</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">BLOB_CONNECTION_STRING</span>
+        <span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">blob_service_client</span><span class="o">.</span><span class="n">create_container</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DATASOURCE_CONTAINER_NAME</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">ResourceExistsError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;container already exists:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATASOURCE_CONTAINER_NAME</span><span class="p">)</span>
+
+        <span class="c1"># create the container for storing ocr projections</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;creating projections storage container:&quot;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">PROJECTIONS_CONTAINER_NAME</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">blob_service_client</span><span class="o">.</span><span class="n">create_container</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PROJECTIONS_CONTAINER_NAME</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">ResourceExistsError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;container already exists:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">PROJECTIONS_CONTAINER_NAME</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_ocr_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">remote_path</span><span class="p">,</span> <span class="n">output_folder</span><span class="p">,</span> <span class="n">use_async</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">blob_service_client</span> <span class="o">=</span> <span class="n">BlobServiceClient</span><span class="o">.</span><span class="n">from_connection_string</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">BLOB_CONNECTION_STRING</span>
+        <span class="p">)</span>
+        <span class="n">container_client</span> <span class="o">=</span> <span class="n">blob_service_client</span><span class="o">.</span><span class="n">get_container_client</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">DATASOURCE_CONTAINER_NAME</span>
+        <span class="p">)</span>
+        <span class="n">blobs_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">container_client</span><span class="o">.</span><span class="n">list_blobs</span><span class="p">(</span><span class="n">name_starts_with</span><span class="o">=</span><span class="n">remote_path</span><span class="p">))</span>
+        <span class="n">container_uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">BLOB_NAME</span><span class="si">}</span><span class="s2">.blob.core.windows.net/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">DATASOURCE_CONTAINER_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="k">if</span> <span class="n">use_async</span><span class="p">:</span>
+            <span class="n">async_blob_service_client</span> <span class="o">=</span> <span class="n">asyncBlobServiceClient</span><span class="o">.</span><span class="n">from_connection_string</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">BLOB_CONNECTION_STRING</span>
+            <span class="p">)</span>
+
+            <span class="k">async</span> <span class="k">def</span> <span class="nf">async_download</span><span class="p">():</span>
+                <span class="k">async</span> <span class="k">with</span> <span class="n">async_blob_service_client</span><span class="p">:</span>
+                    <span class="n">async_projection_container_client</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="n">async_blob_service_client</span><span class="o">.</span><span class="n">get_container_client</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">PROJECTIONS_CONTAINER_NAME</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                        <span class="nb">map</span><span class="p">(</span>
+                            <span class="k">lambda</span> <span class="n">blob</span><span class="p">:</span> <span class="p">(</span>
+                                <span class="n">blob</span><span class="p">,</span>
+                                <span class="n">async_projection_container_client</span><span class="p">,</span>
+                                <span class="n">container_uri</span><span class="p">,</span>
+                                <span class="n">output_folder</span><span class="p">,</span>
+                            <span class="p">),</span>
+                            <span class="n">blobs_list</span><span class="p">,</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span>
+                        <span class="n">asyncio</span><span class="o">.</span><span class="n">as_completed</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">_download_worker_async</span><span class="p">,</span> <span class="n">jobs</span><span class="p">)),</span>
+                        <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">),</span>
+                    <span class="p">):</span>
+                        <span class="k">await</span> <span class="n">f</span>
+
+            <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">loop</span><span class="o">.</span><span class="n">is_running</span><span class="p">():</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">async_download</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">async_download</span><span class="p">())</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">projection_container_client</span> <span class="o">=</span> <span class="n">blob_service_client</span><span class="o">.</span><span class="n">get_container_client</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">PROJECTIONS_CONTAINER_NAME</span>
+            <span class="p">)</span>
+            <span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                <span class="nb">map</span><span class="p">(</span>
+                    <span class="k">lambda</span> <span class="n">blob</span><span class="p">:</span> <span class="p">(</span>
+                        <span class="n">blob</span><span class="p">,</span>
+                        <span class="n">projection_container_client</span><span class="p">,</span>
+                        <span class="n">container_uri</span><span class="p">,</span>
+                        <span class="n">output_folder</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="n">blobs_list</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;downloading&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">),</span> <span class="s2">&quot;files&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">_download_worker_sync</span><span class="p">,</span> <span class="n">jobs</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">)):</span>
+                <span class="k">pass</span></div>
+
+
+<span class="k">def</span> <span class="nf">_get_projection_path</span><span class="p">(</span><span class="n">container_uri</span><span class="p">,</span> <span class="n">blob</span><span class="p">):</span>
+    <span class="n">blob_uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">container_uri</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">blob</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="c1"># projections use a base64 doc id as a key to store results in folders</span>
+    <span class="c1"># see File Projection in https://docs.microsoft.com/en-us/azure/search/knowledge-store-projection-overview</span>
+    <span class="c1"># hopefully this doesn&#39;t change soon otherwise we will have to do linear search over all docs to find</span>
+    <span class="c1"># the projections we want</span>
+    <span class="n">projection_path</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">blob_uri</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="n">projection_path</span> <span class="o">=</span> <span class="n">projection_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">projection_path</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">projection_path</span>
+
+
+<span class="k">def</span> <span class="nf">_download_worker_sync</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">blob</span><span class="p">,</span> <span class="n">projection_container_client</span><span class="p">,</span> <span class="n">container_uri</span><span class="p">,</span> <span class="n">output_folder</span> <span class="o">=</span> <span class="n">args</span>
+    <span class="n">projection_path</span> <span class="o">=</span> <span class="n">_get_projection_path</span><span class="p">(</span><span class="n">container_uri</span><span class="p">,</span> <span class="n">blob</span><span class="p">)</span>
+    <span class="n">blob_client</span> <span class="o">=</span> <span class="n">projection_container_client</span><span class="o">.</span><span class="n">get_blob_client</span><span class="p">(</span>
+        <span class="n">blob</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">projection_path</span><span class="si">}</span><span class="s2">/document.json&quot;</span>
+    <span class="p">)</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">blob_client</span><span class="o">.</span><span class="n">download_blob</span><span class="p">()</span><span class="o">.</span><span class="n">readall</span><span class="p">())</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">blob</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">base_name</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">output_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_folder</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">base_name</span><span class="si">}</span><span class="s2">.json&quot;</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">output_file</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="s2">&quot;ocrLayoutText&quot;</span><span class="p">]</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output_file</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">_download_worker_async</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">blob</span><span class="p">,</span> <span class="n">async_projection_container_client</span><span class="p">,</span> <span class="n">container_uri</span><span class="p">,</span> <span class="n">output_folder</span> <span class="o">=</span> <span class="n">args</span>
+    <span class="n">projection_path</span> <span class="o">=</span> <span class="n">_get_projection_path</span><span class="p">(</span><span class="n">container_uri</span><span class="p">,</span> <span class="n">blob</span><span class="p">)</span>
+    <span class="n">async_blob_client</span> <span class="o">=</span> <span class="n">async_projection_container_client</span><span class="o">.</span><span class="n">get_blob_client</span><span class="p">(</span>
+        <span class="n">blob</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">projection_path</span><span class="si">}</span><span class="s2">/document.json&quot;</span>
+    <span class="p">)</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">blob</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">base_name</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">retry</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MAX_RETRIES</span><span class="p">):</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="n">REQUEST_SEMAPHORE</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">blob_task</span> <span class="o">=</span> <span class="k">await</span> <span class="n">async_blob_client</span><span class="o">.</span><span class="n">download_blob</span><span class="p">()</span>
+                <span class="n">doc</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="k">await</span> <span class="n">blob_task</span><span class="o">.</span><span class="n">readall</span><span class="p">())</span>
+                <span class="n">output_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_folder</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">base_name</span><span class="si">}</span><span class="s2">.json&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;//&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">)</span>
+                <span class="k">async</span> <span class="k">with</span> <span class="n">FILE_SEMAPHORE</span><span class="p">:</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">output_file</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="n">text</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="s2">&quot;ocrLayoutText&quot;</span><span class="p">]</span>
+                    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">))</span>
+                    <span class="k">return</span> <span class="n">output_file</span>
+            <span class="k">except</span> <span class="n">ResourceNotFoundError</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Blob &#39;</span><span class="si">{</span><span class="n">blob</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&#39; doesn&#39;t exist in OCR projection. try rerunning OCR&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error getting blob OCR projection&quot;</span><span class="p">,</span> <span class="n">blob</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+        <span class="c1"># sleep for a bit then retry</span>
+        <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">_upload_worker_async</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">async_blob_container_client</span><span class="p">,</span> <span class="n">upload_file_path</span><span class="p">,</span> <span class="n">blob_name</span> <span class="o">=</span> <span class="n">args</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">FILE_SEMAPHORE</span><span class="p">:</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="n">aiofiles</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">upload_file_path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">retry</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MAX_RETRIES</span><span class="p">):</span>
+                <span class="k">async</span> <span class="k">with</span> <span class="n">REQUEST_SEMAPHORE</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="k">await</span> <span class="n">async_blob_container_client</span><span class="o">.</span><span class="n">upload_blob</span><span class="p">(</span>
+                            <span class="n">name</span><span class="o">=</span><span class="n">blob_name</span><span class="p">,</span> <span class="n">max_concurrency</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span>
+                        <span class="p">)</span>
+                        <span class="k">return</span> <span class="n">blob_name</span>
+                    <span class="k">except</span> <span class="n">ResourceExistsError</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;blob already exists:&quot;</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">)</span>
+                        <span class="k">return</span>
+                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">&quot;blob upload error. retry count: </span><span class="si">{</span><span class="n">retry</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">MAX_RETRIES</span><span class="si">}</span><span class="s2"> :&quot;</span><span class="p">,</span>
+                            <span class="n">blob_name</span><span class="p">,</span>
+                            <span class="n">e</span><span class="p">,</span>
+                        <span class="p">)</span>
+                <span class="c1"># sleep for a bit then retry</span>
+                <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">blob_name</span>
+
+
+<span class="k">def</span> <span class="nf">_upload_worker_sync</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">blob_container_client</span><span class="p">,</span> <span class="n">upload_file_path</span><span class="p">,</span> <span class="n">blob_name</span> <span class="o">=</span> <span class="n">args</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">upload_file_path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">blob_container_client</span><span class="o">.</span><span class="n">upload_blob</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">blob_name</span><span class="p">,</span> <span class="n">max_concurrency</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="n">ResourceExistsError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;blob already exists:&quot;</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;blob upload error:&quot;</span><span class="p">,</span> <span class="n">blob_name</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">blob_name</span>
+</pre></div>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Jianjie Liu and Amit Gupte<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        Don't forget to check out <a href= https://arxiv.org/abs/2108.02899>our paper from Document Intelligence Workshop at KDD 2021!</a>
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

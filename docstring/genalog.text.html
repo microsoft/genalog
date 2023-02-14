@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>genalog.text &#8212; &lt;h1 style=&#34;font-size:2em;text-align:center;color:#FF5733&#34;&gt;Genalog&lt;/h1&gt;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>genalog.text</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,17 +18,21 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -38,21 +40,22 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/tabs.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://microsoft.github.io/genalog/docstring/genalog.text.html" />
+    <link rel="shortcut icon" href="../_static/genalog_favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="genalog.ocr" href="genalog.ocr.html" />
@@ -63,21 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -86,15 +75,17 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
       
       
-      <h1 class="site-logo" id="site-title"><h1 style="font-size:2em;text-align:center;color:#FF5733">Genalog</h1></h1>
+      <img src="../_static/genalog_full_logo.svg" class="logo" alt="logo">
+      
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -187,17 +178,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -205,189 +191,104 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/microsoft/genalog"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/microsoft/genalog/issues/new?title=Issue%20on%20page%20%2Fdocstring/genalog.text.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/docstring/genalog.text.rst"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.rst</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/docstring/genalog.text.rst"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/microsoft/genalog"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/microsoft/genalog/issues/new?title=Issue%20on%20page%20%2Fdocstring/genalog.text.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
     </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#genalog-text-alignment-module">
+  <a class="reference internal nav-link" href="#module-genalog.text.alignment">
    genalog.text.alignment module
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#genalog-text-anchor-module">
+  <a class="reference internal nav-link" href="#module-genalog.text.anchor">
    genalog.text.anchor module
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#genalog-text-conll-format-module">
+  <a class="reference internal nav-link" href="#module-genalog.text.conll_format">
    genalog.text.conll_format module
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#genalog-text-lcs-module">
+  <a class="reference internal nav-link" href="#module-genalog.text.lcs">
    genalog.text.lcs module
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#genalog-text-ner-label-module">
+  <a class="reference internal nav-link" href="#module-genalog.text.ner_label">
    genalog.text.ner_label module
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#genalog-text-preprocess-module">
+  <a class="reference internal nav-link" href="#module-genalog.text.preprocess">
    genalog.text.preprocess module
   </a>
  </li>
@@ -398,11 +299,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>genalog.text</h1>
@@ -416,32 +318,32 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#genalog-text-alignment-module">
+  <a class="reference internal nav-link" href="#module-genalog.text.alignment">
    genalog.text.alignment module
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#genalog-text-anchor-module">
+  <a class="reference internal nav-link" href="#module-genalog.text.anchor">
    genalog.text.anchor module
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#genalog-text-conll-format-module">
+  <a class="reference internal nav-link" href="#module-genalog.text.conll_format">
    genalog.text.conll_format module
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#genalog-text-lcs-module">
+  <a class="reference internal nav-link" href="#module-genalog.text.lcs">
    genalog.text.lcs module
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#genalog-text-ner-label-module">
+  <a class="reference internal nav-link" href="#module-genalog.text.ner_label">
    genalog.text.ner_label module
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#genalog-text-preprocess-module">
+  <a class="reference internal nav-link" href="#module-genalog.text.preprocess">
    genalog.text.preprocess module
   </a>
  </li>
@@ -456,34 +358,734 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section id="genalog-text">
-<h1>genalog.text<a class="headerlink" href="#genalog-text" title="Permalink to this headline">#</a></h1>
-<section id="genalog-text-alignment-module">
-<h2>genalog.text.alignment module<a class="headerlink" href="#genalog-text-alignment-module" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="genalog-text-anchor-module">
-<h2>genalog.text.anchor module<a class="headerlink" href="#genalog-text-anchor-module" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="genalog-text-conll-format-module">
-<h2>genalog.text.conll_format module<a class="headerlink" href="#genalog-text-conll-format-module" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="genalog-text-lcs-module">
-<h2>genalog.text.lcs module<a class="headerlink" href="#genalog-text-lcs-module" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="genalog-text-ner-label-module">
-<h2>genalog.text.ner_label module<a class="headerlink" href="#genalog-text-ner-label-module" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="genalog-text-preprocess-module">
-<h2>genalog.text.preprocess module<a class="headerlink" href="#genalog-text-preprocess-module" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="genalog-text-splitter-module">
-<h2>genalog.text.splitter module<a class="headerlink" href="#genalog-text-splitter-module" title="Permalink to this headline">#</a></h2>
-</section>
-</section>
+  <div class="section" id="genalog-text">
+<h1>genalog.text<a class="headerlink" href="#genalog-text" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-genalog.text.alignment">
+<span id="genalog-text-alignment-module"></span><h2>genalog.text.alignment module<a class="headerlink" href="#module-genalog.text.alignment" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.alignment.align">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.alignment.</span></span><span class="sig-name descname"><span class="pre">align</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap_char</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'&#64;'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/alignment.html#align"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.alignment.align" title="Permalink to this definition">¶</a></dt>
+<dd><p>Align two text segments via sequence alignment algorithm</p>
+<p><strong>NOTE</strong>: this algorithm is O(N^2) and is NOT efficient for longer text.
+Please refer to <cite>genalog.text.anchor</cite> for faster alignment on longer strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gt</strong> (<em>str</em>) – ground true text (should not contain GAP_CHAR)</p></li>
+<li><p><strong>noise</strong> (<em>str</em>) – str with ocr noise (should not contain GAP_CHAR)</p></li>
+<li><p><strong>gap_char</strong> (<em>char</em><em>, </em><em>optional</em>) – gap char used in alignment algorithm (default: GAP_CHAR)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a tuple of aligned ground truth and noise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple(str, str)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Invariants:</dt><dd><p>The returned aligned strings will satisfy the following invariants:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">len(aligned_gt)</span> <span class="pre">==</span> <span class="pre">len(aligned_noise)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">tokens</span> <span class="pre">in</span> <span class="pre">gt</span> <span class="pre">==</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">tokens</span> <span class="pre">in</span> <span class="pre">aligned_gt</span></code></p></li>
+</ol>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">gt</span><span class="p">:</span> <span class="s2">&quot;New York is big&quot;</span> <span class="p">(</span><span class="n">num_tokens</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">aligned_gt</span><span class="p">:</span> <span class="s2">&quot;N@ew @@York @is big@@&quot;</span> <span class="p">(</span><span class="n">num_tokens</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.alignment.parse_alignment">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.alignment.</span></span><span class="sig-name descname"><span class="pre">parse_alignment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aligned_gt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aligned_noise</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap_char</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'&#64;'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/alignment.html#parse_alignment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.alignment.parse_alignment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse alignment to pair ground truth tokens with noise tokens</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>               <span class="n">Case</span> <span class="mi">1</span><span class="p">:</span>         <span class="n">Case</span> <span class="mi">2</span><span class="p">:</span>         <span class="n">Case</span> <span class="mi">3</span><span class="p">:</span>         <span class="n">Case</span> <span class="mi">4</span><span class="p">:</span>         <span class="n">Case</span> <span class="mi">5</span><span class="p">:</span>
+               <span class="n">one</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">many</span>     <span class="n">many</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">one</span>     <span class="n">many</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">many</span>    <span class="n">missing</span> <span class="n">tokens</span>  <span class="n">one</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">one</span>
+         <span class="n">gt</span>    <span class="s2">&quot;New York&quot;</span>      <span class="s2">&quot;New York&quot;</span>      <span class="s2">&quot;New York&quot;</span>      <span class="s2">&quot;New York&quot;</span>      <span class="s2">&quot;New York&quot;</span>
+                 <span class="o">|</span>   <span class="o">|</span>           <span class="o">|</span>   <span class="o">|</span>           <span class="o">|</span>   <span class="o">|</span>           <span class="o">|</span>   <span class="o">|</span>           <span class="o">|</span>   <span class="o">|</span>
+  <span class="n">aligned_gt</span>   <span class="s2">&quot;New Yo@rk&quot;</span>     <span class="s2">&quot;New York&quot;</span>      <span class="s2">&quot;N@ew York&quot;</span>     <span class="s2">&quot;New York&quot;</span>      <span class="s2">&quot;New York&quot;</span>
+                 <span class="o">|</span>   <span class="o">/</span>\           \<span class="o">/</span>             <span class="o">/</span>\<span class="o">/</span>             <span class="o">|</span>   <span class="o">|</span>           <span class="o">|</span>   <span class="o">|</span>
+<span class="n">aligned_noise</span>  <span class="s2">&quot;New Yo rk&quot;</span>     <span class="s2">&quot;New@York&quot;</span>      <span class="s2">&quot;N ew@York&quot;</span>     <span class="s2">&quot;New @@@@&quot;</span>      <span class="s2">&quot;New York&quot;</span>
+                 <span class="o">|</span>   <span class="o">|</span> <span class="o">|</span>           <span class="o">|</span>            <span class="o">|</span>    <span class="o">|</span>           <span class="o">|</span>               <span class="o">|</span>   <span class="o">|</span>
+       <span class="n">noise</span>   <span class="s2">&quot;New Yo rk&quot;</span>     <span class="s2">&quot;NewYork&quot;</span>       <span class="s2">&quot;N ewYork&quot;</span>      <span class="s2">&quot;New&quot;</span>           <span class="s2">&quot;New York&quot;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aligned_gt</strong> (<em>str</em>) – ground truth string aligned with the nose string</p></li>
+<li><p><strong>aligned_noise</strong> (<em>str</em>) – noise string aligned with the ground truth</p></li>
+<li><p><strong>gap_char</strong> (<em>char</em><em>, </em><em>optional</em>) – gap char used in alignment algorithm. Defaults to GAP_CHAR.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(gt_to_noise_mapping,</span> <span class="pre">noise_to_gt_mapping)</span></code> of two 2D int arrays:</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<p>where each array defines the mapping between aligned gt tokens
+to noise tokens and vice versa.</p>
+<p class="rubric">Example</p>
+<p>Given input</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">aligned_gt</span><span class="p">:</span> <span class="s2">&quot;N@ew York @is big&quot;</span>
+                <span class="o">/</span>\\   <span class="o">|</span>    <span class="o">|</span>   <span class="o">|</span>
+<span class="n">aligned_noise</span><span class="p">:</span> <span class="s2">&quot;N ew@York kis big.&quot;</span>
+</pre></div>
+</div>
+<p>The returned output will be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-genalog.text.anchor">
+<span id="genalog-text-anchor-module"></span><h2>genalog.text.anchor module<a class="headerlink" href="#module-genalog.text.anchor" title="Permalink to this headline">¶</a></h2>
+<p>Baseline alignment algorithm is slow on long documents.
+The idea is to break down the longer text into smaller fragments
+for quicker alignment on individual pieces. We refer “anchor words”
+as these points of breakage.</p>
+<p>The bulk of this algorithm is to identify these “anchor words”.</p>
+<p>This is an re-implementation of the algorithm in this paper
+“A Fast Alignment Scheme for Automatic OCR Evaluation of Books”
+(<a class="reference external" href="https://ieeexplore.ieee.org/document/6065412">https://ieeexplore.ieee.org/document/6065412</a>)</p>
+<p>We rely on <cite>genalog.text.alignment</cite> to align the subsequences.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.anchor.align_w_anchor">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.anchor.</span></span><span class="sig-name descname"><span class="pre">align_w_anchor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap_char</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'&#64;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_seg_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/anchor.html#align_w_anchor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.anchor.align_w_anchor" title="Permalink to this definition">¶</a></dt>
+<dd><p>A faster alignment scheme of two text segments. This method first
+breaks the strings into smaller segments with anchor words.
+Then these smaller segments are aligned.</p>
+<p><strong>NOTE:</strong> this function shares the same contract as <cite>genalog.text.alignment.align()</cite>
+These two methods are interchangeable and their alignment results should be similar.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">For</span> <span class="n">example</span><span class="p">:</span>
+
+    <span class="n">Ground</span> <span class="n">Truth</span><span class="p">:</span> <span class="s2">&quot;The planet Mars, I scarcely need remind the reader,&quot;</span>
+    <span class="n">Noisy</span> <span class="n">Text</span><span class="p">:</span>   <span class="s2">&quot;The plamet Maris, I scacely neee remind te reader,&quot;</span>
+
+    <span class="n">Here</span> <span class="n">the</span> <span class="n">unique</span> <span class="n">anchor</span> <span class="n">words</span> <span class="n">are</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;remind&quot;</span> <span class="ow">and</span> <span class="s2">&quot;reader&quot;</span><span class="o">.</span>
+
+    <span class="n">Thus</span><span class="p">,</span> <span class="n">the</span> <span class="n">algorithm</span> <span class="n">will</span> <span class="n">split</span> <span class="n">into</span> <span class="n">following</span> <span class="n">segment</span> <span class="n">pairs</span><span class="p">:</span>
+
+        <span class="s2">&quot;The planet Mar, &quot;</span>
+        <span class="s2">&quot;The plamet Maris, &quot;</span>
+
+        <span class="s2">&quot;I scarcely need &quot;</span>
+        <span class="s2">&quot;I scacely neee &quot;</span>
+
+        <span class="s2">&quot;remind the reader,&quot;</span>
+        <span class="s2">&quot;remind te reader,&quot;</span>
+
+    <span class="n">And</span> <span class="n">run</span> <span class="n">sequence</span> <span class="n">alignment</span> <span class="n">on</span> <span class="n">each</span> <span class="n">pair</span><span class="o">.</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gt</strong> (<em>str</em>) – ground truth text</p></li>
+<li><p><strong>noise</strong> (<em>str</em>) – text with ocr noise</p></li>
+<li><p><strong>gap_char</strong> (<em>str</em><em>, </em><em>optional</em>) – gap char used in alignment algorithm . Defaults to GAP_CHAR.</p></li>
+<li><p><strong>max_seg_length</strong> (<em>int</em><em>, </em><em>optional</em>) – maximum segment length. Segments longer than this threshold
+will continued be split recursively into smaller segment. Defaults to <code class="docutils literal notranslate"><span class="pre">MAX_ALIGN_SEGMENT_LENGTH</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(aligned_gt, aligned_noise)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>a tuple (str, str) of aligned ground truth and noise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.anchor.find_anchor_recur">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.anchor.</span></span><span class="sig-name descname"><span class="pre">find_anchor_recur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gt_tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocr_tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_pos_gt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_pos_ocr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_seg_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/anchor.html#find_anchor_recur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.anchor.find_anchor_recur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursively find anchor positions in the gt and ocr text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gt_tokens</strong> (<em>list</em>) – a list of ground truth tokens</p></li>
+<li><p><strong>ocr_tokens</strong> (<em>list</em>) – a list of tokens from OCR’ed document</p></li>
+<li><p><strong>start_pos</strong> (<em>int</em><em>, </em><em>optional</em>) – a constant to add to all the resulting indices.
+Defaults to 0.</p></li>
+<li><p><strong>max_seg_length</strong> (<em>int</em><em>, </em><em>optional</em>) – trigger recursion if any text segment is larger than this.
+Defaults to <code class="docutils literal notranslate"><span class="pre">MAX_ALIGN_SEGMENT_LENGTH</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – when there different number of anchor points in gt and ocr.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>two lists of token indices where each list is the position of the anchor in the input
+<code class="docutils literal notranslate"><span class="pre">gt_tokens</span></code> and <code class="docutils literal notranslate"><span class="pre">ocr_tokens</span></code></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.anchor.get_anchor_map">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.anchor.</span></span><span class="sig-name descname"><span class="pre">get_anchor_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gt_tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocr_tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_anchor_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/anchor.html#get_anchor_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.anchor.get_anchor_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the location of anchor words in both the gt and ocr text.
+Anchor words are location where we can split both the source gt
+and ocr text into smaller text fragment for faster alignment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gt_tokens</strong> (<em>list</em>) – a list of ground truth tokens</p></li>
+<li><p><strong>ocr_tokens</strong> (<em>list</em>) – a list of tokens from OCR’ed document</p></li>
+<li><p><strong>min_anchor_len</strong> (<em>int</em><em>, </em><em>optional</em>) – minimum len of the anchor word.
+Defaults to 2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a 2-element <code class="docutils literal notranslate"><span class="pre">(anchor_map_gt,</span> <span class="pre">anchor_map_ocr)</span></code> tuple:</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">anchor_map_gt</span></code> is a <code class="docutils literal notranslate"><span class="pre">word_map</span></code> that locates all the anchor words in the gt tokens</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anchor_map_gt</span></code> is a <code class="docutils literal notranslate"><span class="pre">word_map</span></code> that locates all the anchor words in the ocr tokens</p></li>
+</ol>
+<p>And <code class="docutils literal notranslate"><span class="pre">len(anchor_map_gt)</span> <span class="pre">==</span> <span class="pre">len(anchor_map_ocr)</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">For</span> <span class="n">example</span><span class="p">:</span>
+    <span class="n">Input</span><span class="p">:</span>
+        <span class="n">gt_tokens</span><span class="p">:</span>  <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
+        <span class="n">ocr_tokens</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">]</span>
+    <span class="n">Ourput</span><span class="p">:</span>
+        <span class="p">([(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)],</span> <span class="p">[(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.anchor.get_unique_words">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.anchor.</span></span><span class="sig-name descname"><span class="pre">get_unique_words</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_sensitive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/anchor.html#get_unique_words"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.anchor.get_unique_words" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a set of unique words from a Counter dictionary of word occurrences</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d</strong> (<em>dict</em>) – a Counter dictionary of word occurrences</p></li>
+<li><p><strong>case_sensitive</strong> (<em>bool</em><em>, </em><em>optional</em>) – whether unique words are case sensitive.
+Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a set of unique words (original alphabetical case of the word is preserved)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.anchor.get_word_map">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.anchor.</span></span><span class="sig-name descname"><span class="pre">get_word_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique_words</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_tokens</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/anchor.html#get_word_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.anchor.get_word_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arrange the set of unique words by the order they original appear in the text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>unique_words</strong> (<em>set</em>) – a set of unique words</p></li>
+<li><p><strong>src_tokens</strong> (<em>list</em>) – a list of tokens</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>a <code class="docutils literal notranslate"><span class="pre">word_map</span></code>: a list of word corrdinate tuples <code class="docutils literal notranslate"><span class="pre">(word,</span> <span class="pre">word_index)</span></code> defined as follow:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">word</span></code> is a typical word token</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">word_index</span></code> is the index of the word in the source token array</p></li>
+</ol>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.anchor.segment_len">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.anchor.</span></span><span class="sig-name descname"><span class="pre">segment_len</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/anchor.html#segment_len"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.anchor.segment_len" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get length of the segment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>segment</strong> (<em>list</em>) – a list of tokens</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the length of the segment</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-genalog.text.conll_format">
+<span id="genalog-text-conll-format-module"></span><h2>genalog.text.conll_format module<a class="headerlink" href="#module-genalog.text.conll_format" title="Permalink to this headline">¶</a></h2>
+<p>This is a utility tool to create CoNLL-formatted token+label files for OCR’ed text
+by extracting text from grok OCR output JSON files and propagating labels from clean
+text to OCR text.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>conll_format.py [-h] [--train_subset] [--test_subset]
+                [--gt_folder GT_FOLDER]
+                base_folder degraded_folder
+
+Positional Argument:
+    base_folder            base directory containing the collection of dataset
+    degraded_folder        directory name containing train and test subset for degradation
+
+Optional Arguments:
+    --train_subset            include if only train directory should be processed
+    --test_subset             include if only test directory should be processed
+    --gt_folder GT_FOLDER     directory name containing ground truth (default to `shared`)
+
+Seek Help:
+    -h, --help                show this help message and exit
+</pre></div>
+</div>
+<p>Example Usage:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># to run for specified degradation of the dataset on both train and test</span>
+python<span class="w"> </span>-m<span class="w"> </span>genalog.text.conll_format<span class="w"> </span><span class="s1">&#39;/data/enki/datasets/synthetic_dataset/&#39;</span><span class="w"> </span><span class="s1">&#39;hyphens_all&#39;</span>
+
+<span class="c1"># to run for specified degradation of the dataset and ground truth</span>
+python<span class="w"> </span>-m<span class="w"> </span>genalog.text.conll_format<span class="w"> </span><span class="s1">&#39;/data/enki/datasets/synthetic_dataset/&#39;</span><span class="w"> </span><span class="s1">&#39;hyphens_all&#39;</span><span class="w"> </span>--gt_folder<span class="o">=</span><span class="s1">&#39;shared&#39;</span>
+
+<span class="c1"># to run for specified degradation of the dataset  on only test subset</span>
+python<span class="w"> </span>-m<span class="w"> </span>genalog.text.conll_format<span class="w"> </span><span class="s1">&#39;/data/enki/datasets/synthetic_dataset/&#39;</span><span class="w"> </span><span class="s1">&#39;hyphens_all&#39;</span><span class="w"> </span>--test_subset
+
+<span class="c1"># to run for specified degradation of the dataset  on only train subset</span>
+python<span class="w"> </span>-m<span class="w"> </span>genalog.text.conll_format<span class="w"> </span><span class="s1">&#39;/data/enki/datasets/synthetic_dataset/&#39;</span><span class="w"> </span><span class="s1">&#39;hyphens_all&#39;</span><span class="w"> </span>--train_subset
+</pre></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.conll_format.check_n_sentences">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.conll_format.</span></span><span class="sig-name descname"><span class="pre">check_n_sentences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clean_labels_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_labels_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_label_ext</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/conll_format.html#check_n_sentences"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.conll_format.check_n_sentences" title="Permalink to this definition">¶</a></dt>
+<dd><p>check_n_sentences prints file name if number of sentences is different in clean and OCR files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clean_labels_dir</strong> (<em>str</em>) – path of directory with clean labels -
+CoNLL formatted so contains tokens and corresponding labels</p></li>
+<li><p><strong>output_labels_dir</strong> (<em>str</em>) – path of directory with ocr labels -
+CoNLL formatted so contains tokens and corresponding labels</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.conll_format.extract_ocr_text">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.conll_format.</span></span><span class="sig-name descname"><span class="pre">extract_ocr_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/conll_format.html#extract_ocr_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.conll_format.extract_ocr_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>extract_ocr_text from GROK json</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_file</strong> (<em>str</em>) – file path of input file</p></li>
+<li><p><strong>output_file</strong> (<em>str</em>) – file path of output file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.conll_format.for_all_files">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.conll_format.</span></span><span class="sig-name descname"><span class="pre">for_all_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/conll_format.html#for_all_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.conll_format.for_all_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>for_all_files will apply function to every file in a director</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dir</strong> (<em>str</em>) – directory with input files</p></li>
+<li><p><strong>output_dir</strong> (<em>str</em>) – directory for output files</p></li>
+<li><p><strong>func</strong> (<em>function</em>) – function to be applied to all files in input_dir</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.conll_format.propagate_labels_sentences">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.conll_format.</span></span><span class="sig-name descname"><span class="pre">propagate_labels_sentences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clean_tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocr_tokens</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/conll_format.html#propagate_labels_sentences"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.conll_format.propagate_labels_sentences" title="Permalink to this definition">¶</a></dt>
+<dd><p>propagate_labels_sentences propagates clean labels for clean tokens to ocr tokens and splits ocr tokens into sentences</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clean_tokens</strong> (<em>list</em>) – list of tokens in clean text</p></li>
+<li><p><strong>clean_labels</strong> (<em>list</em>) – list of labels corresponding to clean tokens</p></li>
+<li><p><strong>clean_sentences</strong> (<em>list</em>) – list of sentences (each sentence is a list of tokens)</p></li>
+<li><p><strong>ocr_tokens</strong> (<em>list</em>) – list of tokens in ocr text</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of ocr sentences (each sentence is a list of tokens)
+list of labels for ocr sentences</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list, list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.conll_format.propagate_labels_sentences_multiprocess">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.conll_format.</span></span><span class="sig-name descname"><span class="pre">propagate_labels_sentences_multiprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clean_labels_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_text_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_labels_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_label_ext</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/conll_format.html#propagate_labels_sentences_multiprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.conll_format.propagate_labels_sentences_multiprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>propagate_labels_sentences_all_files propagates labels and sentences for all files in dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clean_labels_dir</strong> (<em>str</em>) – path of directory with clean labels -
+CoNLL formatted so contains tokens and corresponding labels</p></li>
+<li><p><strong>output_text_dir</strong> (<em>dir</em>) – path of directory with ocr text</p></li>
+<li><p><strong>output_labels_dir</strong> (<em>dir</em>) – path of directory with ocr labels -
+CoNLL formatted so contains tokens and corresponding labels</p></li>
+<li><p><strong>clean_label_ext</strong> (<em>str</em>) – file extension of the clean_labels</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.conll_format.remove_first_line">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.conll_format.</span></span><span class="sig-name descname"><span class="pre">remove_first_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/conll_format.html#remove_first_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.conll_format.remove_first_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>remove_first_line from files (some clean CoNLL files have an empty first line)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_file</strong> (<em>str</em>) – input file path</p></li>
+<li><p><strong>output_file</strong> (<em>str</em>) – output file path</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.conll_format.remove_last_line">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.conll_format.</span></span><span class="sig-name descname"><span class="pre">remove_last_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/conll_format.html#remove_last_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.conll_format.remove_last_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>remove_last_line from files (some clean CoNLL files have an empty last line)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_file</strong> (<em>str</em>) – input file path</p></li>
+<li><p><strong>output_file</strong> (<em>str</em>) – output file path</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-genalog.text.lcs">
+<span id="genalog-text-lcs-module"></span><h2>genalog.text.lcs module<a class="headerlink" href="#module-genalog.text.lcs" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="genalog.text.lcs.LCS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">genalog.text.lcs.</span></span><span class="sig-name descname"><span class="pre">LCS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">str_n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/lcs.html#LCS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.lcs.LCS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the Longest Common Subsequence (LCS) of two given string.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-genalog.text.ner_label">
+<span id="genalog-text-ner-label-module"></span><h2>genalog.text.ner_label module<a class="headerlink" href="#module-genalog.text.ner_label" title="Permalink to this headline">¶</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="genalog.text.ner_label.GapCharError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">genalog.text.ner_label.</span></span><span class="sig-name descname"><span class="pre">GapCharError</span></span><a class="reference internal" href="../_modules/genalog/text/ner_label.html#GapCharError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.ner_label.GapCharError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.ner_label._propagate_label_to_ocr">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.ner_label.</span></span><span class="sig-name descname"><span class="pre">_propagate_label_to_ocr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gt_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gt_tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocr_tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap_char</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'&#64;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_anchor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/ner_label.html#_propagate_label_to_ocr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.ner_label._propagate_label_to_ocr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Propagate NER label for ground truth tokens to to ocr tokens. Low level implementation</p>
+<blockquote>
+<div><p>NOTE: that <cite>gt_tokens</cite> and <cite>ocr_tokens</cite> MUST NOT contain invalid tokens.
+Invalid tokens are:
+1. non-atomic tokens, or space-separated string (“New York”)
+2. multiple occurrences of the GAP_CHAR (‘&#64;&#64;&#64;’)
+3. empty string (“”)
+4. string with spaces (”  “)</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">Case</span> <span class="n">Analysis</span><span class="p">:</span>
+ <span class="o">********************************</span> <span class="n">MULTI</span><span class="o">-</span><span class="n">TOKEN</span><span class="o">-</span><span class="n">LABELS</span> <span class="o">********************************</span>
+
+             <span class="n">Case</span> <span class="mi">1</span><span class="p">:</span>         <span class="n">Case</span> <span class="mi">2</span><span class="p">:</span>         <span class="n">Case</span> <span class="mi">3</span><span class="p">:</span>         <span class="n">Case</span> <span class="mi">4</span><span class="p">:</span>         <span class="n">Case</span> <span class="mi">5</span><span class="p">:</span>
+             <span class="n">one</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">many</span>     <span class="n">many</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">one</span>     <span class="n">many</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">many</span>    <span class="n">missing</span> <span class="n">tokens</span>  <span class="n">missing</span> <span class="n">tokens</span>
+                                            <span class="p">(</span><span class="n">Case</span> <span class="mi">1</span><span class="o">&amp;</span><span class="mi">2</span> <span class="n">comb</span><span class="p">)</span>  <span class="p">(</span><span class="n">I</span><span class="o">-</span><span class="n">label</span><span class="p">)</span>       <span class="p">(</span><span class="n">B</span><span class="o">-</span><span class="n">label</span><span class="p">)</span>
+ <span class="n">gt</span> <span class="n">label</span>     <span class="n">B</span><span class="o">-</span><span class="n">p</span>    <span class="n">I</span><span class="o">-</span><span class="n">p</span>      <span class="n">B</span><span class="o">-</span><span class="n">p</span> <span class="n">I</span><span class="o">-</span><span class="n">p</span>        <span class="n">B</span><span class="o">-</span><span class="n">p</span>   <span class="n">I</span><span class="o">-</span><span class="n">p</span>       <span class="n">B</span><span class="o">-</span><span class="n">p</span>  <span class="n">I</span><span class="o">-</span><span class="n">p</span>        <span class="n">B</span><span class="o">-</span><span class="n">p</span>  <span class="n">I</span><span class="o">-</span><span class="n">p</span>  <span class="n">I</span><span class="o">-</span><span class="n">p</span>
+               <span class="o">|</span>      <span class="o">|</span>        <span class="o">|</span>   <span class="o">|</span>          <span class="o">|</span>     <span class="o">|</span>         <span class="o">|</span>    <span class="o">|</span>          <span class="o">|</span>   <span class="o">|</span>     <span class="o">|</span>
+ <span class="n">gt_token</span>     <span class="n">New</span>    <span class="n">York</span>     <span class="n">New</span> <span class="n">York</span>       <span class="n">New</span>  <span class="n">York</span>       <span class="n">New</span> <span class="n">York</span>        <span class="n">New</span> <span class="n">York</span> <span class="n">City</span>
+              <span class="o">/</span> \    <span class="o">/</span> \        \ <span class="o">/</span>           <span class="o">/</span>\   <span class="o">/</span>          <span class="o">|</span>                   <span class="o">|</span>     <span class="o">|</span>
+<span class="n">ocr_token</span>    <span class="n">N</span>   <span class="n">ew</span> <span class="n">Yo</span>  <span class="n">rk</span>    <span class="n">NewYork</span>        <span class="n">N</span> <span class="n">ew</span><span class="nd">@York</span>       <span class="n">New</span>                 <span class="n">York</span> <span class="n">City</span>
+             <span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>           <span class="o">|</span>    <span class="o">|</span>           <span class="o">|</span>                   <span class="o">|</span>     <span class="o">|</span>
+<span class="n">ocr</span> <span class="n">label</span>   <span class="n">B</span><span class="o">-</span><span class="n">p</span> <span class="n">I</span><span class="o">-</span><span class="n">p</span> <span class="n">I</span><span class="o">-</span><span class="n">p</span> <span class="n">I</span><span class="o">-</span><span class="n">p</span>     <span class="n">B</span><span class="o">-</span><span class="n">p</span>          <span class="n">B</span><span class="o">-</span><span class="n">p</span> <span class="n">I</span><span class="o">-</span><span class="n">p</span>         <span class="n">B</span><span class="o">-</span><span class="n">p</span>                 <span class="n">B</span><span class="o">-</span><span class="n">p</span>   <span class="n">I</span><span class="o">-</span><span class="n">p</span>
+
+ <span class="o">********************************</span> <span class="n">SINGLE</span><span class="o">-</span><span class="n">TOKEN</span><span class="o">-</span><span class="n">LABELS</span> <span class="o">********************************</span>
+
+             <span class="n">Case</span> <span class="mi">1</span><span class="p">:</span>         <span class="n">Case</span> <span class="mi">2</span><span class="p">:</span>         <span class="n">Case</span> <span class="mi">3</span><span class="p">:</span>         <span class="n">Case</span> <span class="mi">4</span><span class="p">:</span>
+             <span class="n">one</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">many</span>     <span class="n">many</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">one</span>     <span class="n">many</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">many</span>    <span class="n">missing</span> <span class="n">tokens</span>
+                                            <span class="p">(</span><span class="n">Case</span> <span class="mi">1</span><span class="o">&amp;</span><span class="mi">2</span> <span class="n">comb</span><span class="p">)</span>
+ <span class="n">gt</span> <span class="n">label</span>         <span class="n">O</span>           <span class="n">V</span>    <span class="n">O</span>          <span class="n">O</span>   <span class="n">V</span>   <span class="n">W</span>       <span class="n">O</span>   <span class="n">O</span>
+                  <span class="o">|</span>           <span class="o">|</span>    <span class="o">|</span>          <span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>   <span class="o">|</span>
+ <span class="n">gt_token</span>     <span class="n">something</span>       <span class="ow">is</span>  <span class="n">big</span>       <span class="n">this</span> <span class="ow">is</span> <span class="n">huge</span>      <span class="ow">is</span> <span class="n">big</span>
+              <span class="o">/</span> \    \          \ <span class="o">/</span>          <span class="o">/</span>\  <span class="o">/</span>\ <span class="o">/</span>         <span class="o">|</span>
+<span class="n">ocr_token</span>    <span class="n">so</span>  <span class="n">me</span>  <span class="n">thing</span>     <span class="n">isbig</span>       <span class="n">th</span> <span class="n">isi</span> <span class="n">shuge</span>       <span class="ow">is</span>
+             <span class="o">|</span>   <span class="o">|</span>     <span class="o">|</span>         <span class="o">|</span>          <span class="o">|</span>  <span class="o">|</span>    <span class="o">|</span>         <span class="o">|</span>
+<span class="n">ocr</span> <span class="n">label</span>    <span class="n">o</span>   <span class="n">o</span>     <span class="n">o</span>         <span class="n">V</span>          <span class="n">O</span>  <span class="n">O</span>    <span class="n">V</span>         <span class="n">O</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gt_labels</strong> (<em>list</em>) – a list of NER label for ground truth token</p></li>
+<li><p><strong>gt_tokens</strong> (<em>list</em>) – a list of ground truth string tokens</p></li>
+<li><p><strong>ocr_tokens</strong> (<em>list</em>) – a list of OCR’ed text tokens</p></li>
+<li><p><strong>gap_char</strong> (<em>char</em><em>, </em><em>optional</em>) – gap char used in alignment algorithm . Defaults to <code class="docutils literal notranslate"><span class="pre">alignment.GAP_CHAR</span></code>.</p></li>
+<li><p><strong>use_anchor</strong> (<em>bool</em><em>, </em><em>optional</em>) – use faster alignment method with anchors if set to True.
+Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – when</p></li>
+<li><p><strong>1. there is unequal number of gt_tokens and gt_labels</strong> – </p></li>
+<li><p><strong>2. there is a non-atomic token in gt_tokens</strong><strong> or </strong><strong>ocr_tokens</strong> – </p></li>
+<li><p><strong>3. there is an empty string in gt_tokens</strong><strong> or </strong><strong>ocr_tokens</strong> – </p></li>
+<li><p><strong>4. there is a token full of space characters only in gt_tokens</strong><strong> or </strong><strong>ocr_tokens</strong> – </p></li>
+<li><p><strong>5. gt_to_ocr_mapping has more tokens than gt_tokens</strong> – </p></li>
+<li><p><a class="reference internal" href="#genalog.text.ner_label.GapCharError" title="genalog.text.ner_label.GapCharError"><strong>GapCharError</strong></a> – when</p></li>
+<li><p><strong>1. there is a token consisted of GAP_CHAR only</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>(ocr_labels, aligned_gt, aligned_ocr, gap_char)
+where
+<cite>ocr_labels</cite> is a list of NER label for the corresponding ocr tokens
+<cite>aligned_gt</cite> is the ground truth string aligned with the ocr text
+<cite>aligned_ocr</cite> is the ocr text aligned with ground true
+<cite>gap_char</cite> is the char used to alignment for inserting gaps</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>a tuple of 4 elements</p>
+</dd>
+</dl>
+<p>For example, given input:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">_propagate_label_to_ocr</span><span class="p">(</span>
+<span class="go">    [&quot;B-place&quot;, &quot;I-place&quot;, &quot;o&quot;, &quot;o&quot;],</span>
+<span class="go">    [&quot;New&quot;, &quot;York&quot;, &quot;is&quot;, &quot;big&quot;],</span>
+<span class="go">    [&quot;N&quot;, &quot;ewYork&quot;, &quot;big&quot;]</span>
+<span class="go">)</span>
+<span class="go">([&quot;B-place&quot;, &quot;I-place&quot;, &quot;o&quot;], &quot;N@ew York is big&quot;, &quot;N ew@York@@@ big&quot;, &#39;@&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.ner_label.correct_ner_labels">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.ner_label.</span></span><span class="sig-name descname"><span class="pre">correct_ner_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/ner_label.html#correct_ner_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.ner_label.correct_ner_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Correct the given list of labels for the following case:</p>
+<ol class="arabic simple">
+<li><p>Missing B-Label (i.e. I-PLACE I-PLACE -&gt; B-PLACE I-PLACE)</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>labels</strong> (<em>list</em>) – list of NER labels</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list of NER labels</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.ner_label.format_label_propagation">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.ner_label.</span></span><span class="sig-name descname"><span class="pre">format_label_propagation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gt_tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gt_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocr_tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocr_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aligned_gt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aligned_ocr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_alignment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/ner_label.html#format_label_propagation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.ner_label.format_label_propagation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format label propagation for display</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gt_tokens</strong> (<em>list</em>) – list of ground truth tokens</p></li>
+<li><p><strong>gt_labels</strong> (<em>list</em>) – list of NER labels for ground truth tokens</p></li>
+<li><p><strong>ocr_tokens</strong> (<em>list</em>) – list of OCR’ed text tokens</p></li>
+<li><p><strong>ocr_labels</strong> (<em>list</em>) – list of NER labels for the OCR’ed tokens</p></li>
+<li><p><strong>aligned_gt</strong> (<em>str</em>) – ground truth string aligned with the OCR’ed text</p></li>
+<li><p><strong>aligned_ocr</strong> (<em>str</em>) – OCR’ed text aligned with ground truth</p></li>
+<li><p><strong>show_alignment</strong> (<em>bool</em><em>, </em><em>optional</em>) – if true, show alignment result . Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a string formatted for display as follows:</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">show_alignment</span><span class="p">:</span>
+
+    <span class="s2">&quot;B-PLACE I-PLACE V  O&quot;</span>      <span class="c1"># [gt_labels]</span>
+    <span class="s2">&quot;New     York    is big&quot;</span>    <span class="c1"># [gt_txt]</span>
+    <span class="s2">&quot;New York is big&quot;</span>           <span class="c1"># [aligned_gt]</span>
+    <span class="s2">&quot;||||....|||||||&quot;</span>
+    <span class="s2">&quot;New @@@@ is big&quot;</span>           <span class="c1"># [aligned_ocr]</span>
+    <span class="s2">&quot;New     is big &quot;</span>           <span class="c1"># [ocr_txt]</span>
+    <span class="s2">&quot;B-PLACE V  O   &quot;</span>           <span class="c1"># [ocr_labels]</span>
+
+<span class="k">else</span><span class="p">:</span>
+
+    <span class="s2">&quot;B-PLACE I-PLACE V  O&quot;</span>     <span class="c1"># [gt_labels]</span>
+    <span class="s2">&quot;New     York    is big&quot;</span>   <span class="c1"># [gt_txt]</span>
+    <span class="s2">&quot;New     is big&quot;</span>           <span class="c1"># [ocr_txt]</span>
+    <span class="s2">&quot;B-PLACE V  O&quot;</span>             <span class="c1"># [ocr_labels]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.ner_label.format_labels">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.ner_label.</span></span><span class="sig-name descname"><span class="pre">format_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/ner_label.html#format_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.ner_label.format_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format tokens and their NER label for display</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tokens</strong> (<em>list</em>) – a list of word tokens</p></li>
+<li><p><strong>labels</strong> (<em>list</em>) – a list of NER labels</p></li>
+<li><p><strong>label_top</strong> (<em>bool</em><em>, </em><em>optional</em>) – True if label is place on top of the token.
+Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a str with NER label align to the token it is labeling</p>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Given</span> <span class="n">inputs</span><span class="p">:</span>
+    <span class="n">tokens</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;New&quot;</span><span class="p">,</span> <span class="s2">&quot;York&quot;</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="s2">&quot;big&quot;</span><span class="p">]</span>
+    <span class="n">labels</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;B-place&quot;</span><span class="p">,</span> <span class="s2">&quot;I-place&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">]</span>
+    <span class="n">label_top</span><span class="p">:</span> <span class="kc">True</span>
+
+<span class="n">Outputs</span><span class="p">:</span>
+    <span class="s2">&quot;B-place I-place o  o &quot;</span>
+    <span class="s2">&quot;New     York    is big&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.ner_label.propagate_label_to_ocr">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.ner_label.</span></span><span class="sig-name descname"><span class="pre">propagate_label_to_ocr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gt_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gt_tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocr_tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_anchor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/ner_label.html#propagate_label_to_ocr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.ner_label.propagate_label_to_ocr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Propagate NER label for ground truth tokens to to ocr tokens.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>NOTE that <cite>gt_tokens</cite> and <cite>ocr_tokens</cite> MUST NOT contain invalid tokens.</dt><dd><dl class="simple">
+<dt>Invalid tokens are:</dt><dd><p>1. non-atomic tokens, or space-separated string (“New York”)
+3. empty string (“”)
+4. string with spaces (”  “)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gt_labels</strong> (<em>list</em>) – a list of NER label for ground truth token</p></li>
+<li><p><strong>gt_tokens</strong> (<em>list</em>) – a list of ground truth string tokens</p></li>
+<li><p><strong>ocr_tokens</strong> (<em>list</em>) – a list of OCR’ed text tokens</p></li>
+<li><p><strong>gap_char</strong> (<em>char</em><em>, </em><em>optional</em>) – gap char used in alignment algorithm. Defaults to <code class="docutils literal notranslate"><span class="pre">alignment.GAP_CHAR</span></code>.</p></li>
+<li><p><strong>use_anchor</strong> (<em>bool</em><em>, </em><em>optional</em>) – use faster alignment method with anchors if set to True. Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#genalog.text.ner_label.GapCharError" title="genalog.text.ner_label.GapCharError"><strong>GapCharError</strong></a> – when the set of input character is EQUAL
+    to set of all possible gap characters (GAP_CHAR_SET)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a tuple of 3 elements <code class="docutils literal notranslate"><span class="pre">(ocr_labels,</span> <span class="pre">aligned_gt,</span> <span class="pre">aligned_ocr,</span> <span class="pre">gap_char)</span></code> where
+1. <code class="docutils literal notranslate"><span class="pre">ocr_labels</span></code> is a list of NER label for the corresponding ocr tokens
+2. <code class="docutils literal notranslate"><span class="pre">aligned_gt</span></code> is the ground truth string aligned with the ocr text
+3. <code class="docutils literal notranslate"><span class="pre">aligned_ocr</span></code> is the ocr text aligned with ground true
+4. <code class="docutils literal notranslate"><span class="pre">gap_char</span></code> is the char used to alignment for inserting gaps</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-genalog.text.preprocess">
+<span id="genalog-text-preprocess-module"></span><h2>genalog.text.preprocess module<a class="headerlink" href="#module-genalog.text.preprocess" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.preprocess.is_sentence_separator">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.preprocess.</span></span><span class="sig-name descname"><span class="pre">is_sentence_separator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/preprocess.html#is_sentence_separator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.preprocess.is_sentence_separator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns true if the token is a sentence splitter</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.preprocess.join_tokens">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.preprocess.</span></span><span class="sig-name descname"><span class="pre">join_tokens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/preprocess.html#join_tokens"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.preprocess.join_tokens" title="Permalink to this definition">¶</a></dt>
+<dd><p>Join a list of tokens into a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tokens</strong> (<em>list</em>) – a list of tokens</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a string with space-separated tokens</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.preprocess.remove_non_ascii">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.preprocess.</span></span><span class="sig-name descname"><span class="pre">remove_non_ascii</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replacement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/preprocess.html#remove_non_ascii"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.preprocess.remove_non_ascii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove non ascii characters in a token</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>token</strong> (<em>str</em>) – a word token</p></li>
+<li><p><strong>replacement</strong> (<em>str</em><em>, </em><em>optional</em>) – a replace character for non-ASCII characters.
+Defaults to <code class="docutils literal notranslate"><span class="pre">NON_ASCII_REPLACEMENT</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>str – a word token with non-ASCII characters removed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.preprocess.split_sentences">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.preprocess.</span></span><span class="sig-name descname"><span class="pre">split_sentences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\n'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/preprocess.html#split_sentences"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.preprocess.split_sentences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split a text into sentences with a delimiter</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="genalog.text.preprocess.tokenize">
+<span class="sig-prename descclassname"><span class="pre">genalog.text.preprocess.</span></span><span class="sig-name descname"><span class="pre">tokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/genalog/text/preprocess.html#tokenize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#genalog.text.preprocess.tokenize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tokenize string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> (<em>str</em>) – aligned string</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list of tokens</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="genalog-text-splitter-module">
+<h2>genalog.text.splitter module<a class="headerlink" href="#genalog-text-splitter-module" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -507,11 +1109,9 @@ title="Print to PDF"
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="genalog.ocr.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -520,31 +1120,27 @@ title="Print to PDF"
         </div>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Jianjie Liu and Amit Gupte<br/>
-  
-      &copy; Copyright 2022.<br/>
-    <div class="extra_footer">
-      Don't forget to check out <a href= https://arxiv.org/abs/2108.02899>our paper from Document Intelligence Workshop at KDD 2021!</a>
-    </div>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Jianjie Liu and Amit Gupte<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        Don't forget to check out <a href= https://arxiv.org/abs/2108.02899>our paper from Document Intelligence Workshop at KDD 2021!</a>
+      </div>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
