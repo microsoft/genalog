@@ -1,6 +1,6 @@
-title : <h1 style="font-size:2em;text-align:center;color:#FF5733">Genalog</h1>
+title : ''
 author: Jianjie Liu and Amit Gupte
-# logo: 'qe-logo-large.png'
+logo: static/genalog_full_logo.svg
 
 # Short description about the book
 description: >-
@@ -23,13 +23,13 @@ launch_buttons:
 
 # HTML-specific settings
 html:
+  favicon                     : static/genalog_favicon.svg
   home_page_in_navbar         : false
   use_repository_button       : true
   use_issues_button           : true
   baseurl                     : https://microsoft.github.io/genalog/
   extra_footer                : "Don't forget to check out <a href=
 https://arxiv.org/abs/2108.02899>our paper from Document Intelligence Workshop at KDD 2021!</a>"
-
 
 sphinx:
   extra_extensions:
