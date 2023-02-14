@@ -10,7 +10,7 @@ Genalog is an open source, cross-platform python package for **gen**erating docu
 
 ![demo-gif](docs/genalog_docs/static/genalog_demo.gif)
 
-The open source repo is now in maintenance mode with **limited support**.
+This repo is now in maintenance mode with **limited support**.
 
 Overview
 -------------------------------------
