@@ -1,5 +1,5 @@
 biopython==1.76
-numpy==1.18.1
+numpy==1.22.0
 python-dotenv==0.11.0
 requests==2.23.0
 azure-core==1.10.0
