@@ -12,19 +12,21 @@ STYLE_COMBINATIONS = {
     "language"      : ["en_US"],  # controls how words are hyphenated
     "hyphenate"     : [True],
 }
+
 # <columns|letter|text_block>.html.jinja
 HTML_TEMPLATE = "columns.html.jinja" 
+
 # Degration effects applied in sequence
 DEGRADATIONS = [
-    ("blur", {"radius": 5}),    # needs to be an odd number
+    ("blur", {"radius": 3}),  # needs to be an odd number
     ("bleed_through", {
         "src": ImageState.CURRENT_STATE, "background": ImageState.ORIGINAL_STATE,
         "alpha": 0.8,
         "offset_y": 9, "offset_x": 12
     }),
-    ("morphology", {"operation": "open", "kernel_shape":(5,5)}),
+    ("morphology", {"operation": "open", "kernel_shape": (3, 3)}),
     ("pepper", {"amount": 0.05}),
-    ("salt", {"amount": 0.2}),
+    ("salt", {"amount": 0.05}),
 ]
 
 doc_generation = AnalogDocumentGeneration(styles=STYLE_COMBINATIONS, degradations=DEGRADATIONS)
