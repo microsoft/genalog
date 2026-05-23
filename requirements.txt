@@ -6,6 +6,7 @@ azure-core
 azure-common
 azure-storage-blob
 tqdm
+markupsafe==2.0.1
 Jinja2==2.11.1
 WeasyPrint
 matplotlib
