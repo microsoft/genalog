@@ -1,12 +1,23 @@
 import itertools
 import os
 
-import cv2
 import numpy as np
-from cairocffi import FORMAT_ARGB32
 from jinja2 import Environment, select_autoescape
 from jinja2 import FileSystemLoader, PackageLoader
 from weasyprint import HTML
+
+import cv2
+
+try:
+    import pypdfium2
+except ImportError as e:
+    pypdfium2 = None
+
+try:
+    # NOTE fitz is AGPL
+    import fitz
+except ImportError as e:
+    fitz = None
 
 DEFAULT_DOCUMENT_STYLE = {
     "language": "en_US",
@@ -24,6 +35,117 @@ DEFAULT_STYLE_COMBINATION = {
     "text_align": ["left"],
     "hyphenate": [False],
 }
+
+
+def pdf_to_pixels(
+        pdf_bytes,
+        resolution=300,
+        image_mode='RGB',
+        single_page=True,
+        combine_pages=False,
+        target=None,
+        encode=None,
+        page_suffix='-{:d}',
+):
+    """
+
+    Args:
+        pdf_bytes: Input pdf bytes.
+        resolution: DPI (dots-per-inch) for image rendering.
+        image_mode: Image output color mode (RGB, GRAYSCALE, etc).
+        single_page: Output only the first page of a multi-page doc.
+        combine_pages: Combine all pages into one large image for multi-page doc.
+        target: Target output filename, return image(s) as array if None.
+        encode: Encode format as extension, overrides target ext or returns encoded bytes if target is None.
+        page_suffix: Filename suffix for per page filename (to use with .format(page_index)
+            when single_page=False and combine_pages=False.
+
+    Returns:
+        Image array (target=None, encode=None), encode image bytes (target=None, encode=ext), None (target=filename)
+    """
+    image_mode = image_mode.upper()
+    grayscale = image_mode == 'L' or image_mode.startswith("GRAY")
+    if encode is not None:
+        assert encode.startswith('.'), '`encode` argument must be specified as a file extension with `.` prefix.'
+    filename = None
+    ext = None
+    if target:
+        filename, ext = os.path.splitext(target)
+        assert ext or encode, "`encode` must be specified if target filename has no extension."
+        if encode:
+            ext = encode  # encode overrides original ext
+
+    def _write_or_encode(_img, _index=None):
+        if filename is not None:
+            if _index is not None:
+                write_filename = f'{filename}{page_suffix.format(_index)}{ext}'
+            else:
+                write_filename = f'{filename}{ext}'
+            cv2.imwrite(write_filename, _img)
+            return
+        elif encode is not None:
+            _img = cv2.imencode(encode, _img)[-1]
+        return _img
+
+    if fitz is not None:
+        fitz_cs = fitz.csGRAY if grayscale else fitz.csRGB
+        alpha = image_mode in {'RGBA', 'BGRA'}
+        doc = fitz.Document(stream=pdf_bytes)
+        img_array = []
+        for page_index, page in enumerate(doc):
+            pix = page.get_pixmap(dpi=resolution, colorspace=fitz_cs, alpha=alpha)
+            img = np.frombuffer(pix.samples, np.uint8).reshape((pix.height, pix.width, -1))
+            if image_mode == "BGRA":
+                assert img.shape[-1] == 4
+                img = cv2.cvtColor(img_array, cv2.COLOR_RGBA2BGRA)
+            elif image_mode == "BGR":
+                assert img.shape[-1] == 3
+                img = cv2.cvtColor(img_array, cv2.COLOR_RGB2BGR)
+
+            if single_page:
+                return _write_or_encode(img)
+
+            if combine_pages:
+                img_array.append(img)
+            else:
+                out = _write_or_encode(img, _index=page_index)
+                if out is not None:
+                    img_array.append(out)
+
+        if combine_pages:
+            img_array = np.vstack(img_array)
+            return _write_or_encode(img_array)
+
+        return img_array
+
+    assert pypdfium2 is not None, 'One of pypdfium2 or fitz (pymupdf) is required to encode pdf as image.'
+    doc = pypdfium2.PdfDocument(pdf_bytes)
+    img_array = []
+    for page_index, page in enumerate(doc):
+        img = page.render(scale=resolution/72, grayscale=grayscale, prefer_bgrx=True).to_numpy()
+
+        if image_mode == "RGBA":
+            img = cv2.cvtColor(img, cv2.COLOR_BGRA2RGBA)
+        elif image_mode == "RGB":
+            img = cv2.cvtColor(img, cv2.COLOR_BGRA2RGB)
+        elif image_mode == "BGR":
+            img = cv2.cvtColor(img, cv2.COLOR_BGRA2BGR)
+
+        if single_page:
+            return _write_or_encode(img)
+
+        if combine_pages:
+            img_array.append(img)
+        else:
+            out = _write_or_encode(img, _index=page_index)
+            if out is not None:
+                img_array.append(out)
+
+    if combine_pages:
+        img_array = np.vstack(img_array)
+        return _write_or_encode(img_array)
+
+    return img_array
 
 
 class Document(object):
@@ -84,21 +206,18 @@ class Document(object):
 
         Arguments:
             target -- a filename, file-like object, or None
-            split_pages (bool) : true if saving each document page as a separate file.
             zoom (int) : the zoom factor in PDF units per CSS units.
-
-            split_pages (bool) : true if save each document page as a separate file.
 
         Returns:
             The PDF as bytes if target is not provided or None, otherwise None (the PDF is written to target)
         """
         return self._document.write_pdf(target=target, zoom=zoom)
 
-    def render_png(self, target=None, split_pages=False, resolution=300):
-        """Wrapper function for WeasyPrint.Document.write_png
+    def render_png(self, target=None, split_pages=False, resolution=300, channel="GRAYSCALE"):
+        """ Render document to PNG bytes.
 
         Arguments:
-            target -- a filename, file-like object, or None
+            target: A filename, file-like object, or None.
             split_pages (bool) : true if save each document page as a separate file.
             resolution (int) : the output resolution in PNG pixels per CSS inch. At 300 dpi (the default),
                                 PNG pixels match the CSS px unit.
@@ -106,23 +225,47 @@ class Document(object):
         Returns:
             The image as bytes if target is not provided or None, otherwise None (the PDF is written to target)
         """
+        filename, ext = os.path.splitext(target)
         if target is not None and split_pages:
             # get destination filename and extension
-            filename, ext = os.path.splitext(target)
             for page_num, page in enumerate(self._document.pages):
                 page_name = filename + f"_pg_{page_num}" + ext
-                self._document.copy([page]).write_png(
-                    target=page_name, resolution=resolution
-                )
-            return None
-        elif target is None:
-            # return image bytes string if no target is specified
-            png_bytes, png_width, png_height = self._document.write_png(
-                target=target, resolution=resolution
-            )
-            return png_bytes
+                pdf_bytes = self._document.copy([page]).write_pdf(resolution=resolution)
+                pdf_to_pixels(pdf_bytes, resolution=resolution, image_mode=channel, target=page_name, encode='.png')
+
+            return
         else:
-            return self._document.write_png(target=target, resolution=resolution)
+            pdf_bytes = self._document.write_pdf(resolution=resolution)
+            # return image bytes string if no target is specified
+            return pdf_to_pixels(pdf_bytes, resolution=resolution, image_mode=channel, target=target, encode='.png')
+
+    def render_img(self, target=None, encode=None, split_pages=False, resolution=300, channel="GRAYSCALE"):
+        """ Render document to and encoded image format.
+
+        Arguments:
+            target: A filename, file-like object, or None
+            encode: Encode format specified as an extensions (eg: '.jpg', '.png', etc)
+            split_pages (bool) : true if save each document page as a separate file.
+            resolution (int) : the output resolution in PNG pixels per CSS inch. At 300 dpi (the default),
+                                PNG pixels match the CSS px unit.
+
+        Returns:
+            The image as bytes if target is not provided or None, otherwise None (the PDF is written to target)
+        """
+        assert target or encode, 'One of target or encode must be specified'
+        filename, ext = os.path.splitext(target)
+        if target is not None and split_pages:
+            # get destination filename and extension
+            for page_num, page in enumerate(self._document.pages):
+                page_name = filename + f"_pg_{page_num}" + ext
+                pdf_bytes = self._document.copy([page]).write_pdf(resolution=resolution)
+                pdf_to_pixels(pdf_bytes, resolution=resolution, image_mode=channel, target=page_name, encode=encode)
+
+            return
+        else:
+            pdf_bytes = self._document.write_pdf(resolution=resolution)
+            # return image bytes string if no target is specified
+            return pdf_to_pixels(pdf_bytes, resolution=resolution, image_mode=channel, target=target, encode=encode)
 
     def render_array(self, resolution=300, channel="GRAYSCALE"):
         """Render document as a numpy.ndarray.
@@ -138,40 +281,12 @@ class Document(object):
         Returns:
             numpy.ndarray: representation of the document.
         """
-        # Method below returns a cairocffi.ImageSurface object
-        # https://cairocffi.readthedocs.io/en/latest/api.html#cairocffi.ImageSurface
-        surface, width, height = self._document.write_image_surface(
-            resolution=resolution
+        img_array = pdf_to_pixels(
+            self._document.write_pdf(resolution=resolution),
+            image_mode=channel,
+            resolution=resolution,
         )
-        img_format = surface.get_format()
-
-        # This is BGRA channel in little endian (reverse)
-        if img_format != FORMAT_ARGB32:
-            raise RuntimeError(
-                f"Expect surface format to be 'cairocffi.FORMAT_ARGB32', but got {img_format}." +
-                "Please check the underlining implementation of 'weasyprint.document.Document.write_image_surface()'"
-            )
-
-        img_buffer = surface.get_data()
-        # Returns image array in "BGRA" channel
-        img_array = np.ndarray(
-            shape=(height, width, 4), dtype=np.uint8, buffer=img_buffer
-        )
-        if channel == "GRAYSCALE":
-            return cv2.cvtColor(img_array, cv2.COLOR_BGRA2GRAY)
-        elif channel == "RGBA":
-            return cv2.cvtColor(img_array, cv2.COLOR_BGRA2RGBA)
-        elif channel == "RGB":
-            return cv2.cvtColor(img_array, cv2.COLOR_BGRA2RGB)
-        elif channel == "BGRA":
-            return np.copy(img_array)
-        elif channel == "BGR":
-            return cv2.cvtColor(img_array, cv2.COLOR_BGRA2BGR)
-        else:
-            valid_channels = ["GRAYSCALE", "RGB", "RGBA", "BGR", "BGRA"]
-            raise ValueError(
-                f"Invalid channel code {channel}. Valid values are: {valid_channels}."
-            )
+        return img_array
 
     def update_style(self, **style):
         """Update template variables that controls the document style and re-compile the document to reflect the style change.
