@@ -203,8 +203,8 @@ def _format_alignment(align1, align2):
     Returns:
         a string with formatted alignment.
             '|' is for matching character
-            '.' is for substition
-            '-' indicates gap
+            '.' is for substitution
+            ' ' indicates gap
 
         For example:
             "
